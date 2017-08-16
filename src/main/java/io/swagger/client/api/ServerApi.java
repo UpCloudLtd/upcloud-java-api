@@ -29,8 +29,8 @@ import java.io.IOException;
 
 import io.swagger.client.model.Error;
 import io.swagger.client.model.InlineResponse200;
-import io.swagger.client.model.InlineResponse2001;
 import io.swagger.client.model.Server;
+import io.swagger.client.model.ServerListResponse;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -124,11 +124,11 @@ public class ServerApi {
      * Create server
      * 
      * @param server  (optional)
-     * @return InlineResponse2001
+     * @return ServerListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2001 createServer(Server server) throws ApiException {
-        ApiResponse<InlineResponse2001> resp = createServerWithHttpInfo(server);
+    public ServerListResponse createServer(Server server) throws ApiException {
+        ApiResponse<ServerListResponse> resp = createServerWithHttpInfo(server);
         return resp.getData();
     }
 
@@ -136,12 +136,12 @@ public class ServerApi {
      * Create server
      * 
      * @param server  (optional)
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @return ApiResponse&lt;ServerListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2001> createServerWithHttpInfo(Server server) throws ApiException {
+    public ApiResponse<ServerListResponse> createServerWithHttpInfo(Server server) throws ApiException {
         com.squareup.okhttp.Call call = createServerValidateBeforeCall(server, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -153,7 +153,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createServerAsync(Server server, final ApiCallback<InlineResponse2001> callback) throws ApiException {
+    public com.squareup.okhttp.Call createServerAsync(Server server, final ApiCallback<ServerListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -175,7 +175,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = createServerValidateBeforeCall(server, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -491,11 +491,11 @@ public class ServerApi {
      * Server details
      * 
      * @param serverId Id of server to return (required)
-     * @return InlineResponse2001
+     * @return ServerListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2001 serverDetails(UUID serverId) throws ApiException {
-        ApiResponse<InlineResponse2001> resp = serverDetailsWithHttpInfo(serverId);
+    public ServerListResponse serverDetails(UUID serverId) throws ApiException {
+        ApiResponse<ServerListResponse> resp = serverDetailsWithHttpInfo(serverId);
         return resp.getData();
     }
 
@@ -503,12 +503,12 @@ public class ServerApi {
      * Server details
      * 
      * @param serverId Id of server to return (required)
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @return ApiResponse&lt;ServerListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2001> serverDetailsWithHttpInfo(UUID serverId) throws ApiException {
+    public ApiResponse<ServerListResponse> serverDetailsWithHttpInfo(UUID serverId) throws ApiException {
         com.squareup.okhttp.Call call = serverDetailsValidateBeforeCall(serverId, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -520,7 +520,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call serverDetailsAsync(UUID serverId, final ApiCallback<InlineResponse2001> callback) throws ApiException {
+    public com.squareup.okhttp.Call serverDetailsAsync(UUID serverId, final ApiCallback<ServerListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -542,7 +542,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = serverDetailsValidateBeforeCall(serverId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -620,11 +620,11 @@ public class ServerApi {
      * 
      * @param serverId Id of server to modify (required)
      * @param server  (optional)
-     * @return InlineResponse2001
+     * @return ServerListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2001 updateServer(UUID serverId, Server server) throws ApiException {
-        ApiResponse<InlineResponse2001> resp = updateServerWithHttpInfo(serverId, server);
+    public ServerListResponse updateServer(UUID serverId, Server server) throws ApiException {
+        ApiResponse<ServerListResponse> resp = updateServerWithHttpInfo(serverId, server);
         return resp.getData();
     }
 
@@ -633,12 +633,12 @@ public class ServerApi {
      * 
      * @param serverId Id of server to modify (required)
      * @param server  (optional)
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @return ApiResponse&lt;ServerListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2001> updateServerWithHttpInfo(UUID serverId, Server server) throws ApiException {
+    public ApiResponse<ServerListResponse> updateServerWithHttpInfo(UUID serverId, Server server) throws ApiException {
         com.squareup.okhttp.Call call = updateServerValidateBeforeCall(serverId, server, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -651,7 +651,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateServerAsync(UUID serverId, Server server, final ApiCallback<InlineResponse2001> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateServerAsync(UUID serverId, Server server, final ApiCallback<ServerListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -673,7 +673,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = updateServerValidateBeforeCall(serverId, server, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

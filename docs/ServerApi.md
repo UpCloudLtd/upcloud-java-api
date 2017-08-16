@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createServer"></a>
 # **createServer**
-> InlineResponse2001 createServer(server)
+> ServerListResponse createServer(server)
 
 Create server
 
@@ -27,7 +27,7 @@ Create server
 ServerApi apiInstance = new ServerApi();
 Server server = new Server(); // Server | 
 try {
-    InlineResponse2001 result = apiInstance.createServer(server);
+    ServerListResponse result = apiInstance.createServer(server);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#createServer");
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**ServerListResponse**](ServerListResponse.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ No authorization required
 
 <a name="serverDetails"></a>
 # **serverDetails**
-> InlineResponse2001 serverDetails(serverId)
+> ServerListResponse serverDetails(serverId)
 
 Server details
 
@@ -153,7 +153,7 @@ Server details
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to return
 try {
-    InlineResponse2001 result = apiInstance.serverDetails(serverId);
+    ServerListResponse result = apiInstance.serverDetails(serverId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#serverDetails");
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**ServerListResponse**](ServerListResponse.md)
 
 ### Authorization
 
@@ -182,7 +182,7 @@ No authorization required
 
 <a name="updateServer"></a>
 # **updateServer**
-> InlineResponse2001 updateServer(serverId, server)
+> ServerListResponse updateServer(serverId, server)
 
 Modify server
 
@@ -197,7 +197,7 @@ ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to modify
 Server server = new Server(); // Server | 
 try {
-    InlineResponse2001 result = apiInstance.updateServer(serverId, server);
+    ServerListResponse result = apiInstance.updateServer(serverId, server);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#updateServer");
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**ServerListResponse**](ServerListResponse.md)
 
 ### Authorization
 

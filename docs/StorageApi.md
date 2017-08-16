@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="listStorages"></a>
 # **listStorages**
-> InlineResponse2002 listStorages()
+> SuccessStoragesResponse listStorages()
 
 List of storages
 
@@ -22,7 +22,7 @@ List of storages
 
 StorageApi apiInstance = new StorageApi();
 try {
-    InlineResponse2002 result = apiInstance.listStorages();
+    SuccessStoragesResponse result = apiInstance.listStorages();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageApi#listStorages");
@@ -35,7 +35,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**SuccessStoragesResponse**](SuccessStoragesResponse.md)
 
 ### Authorization
 

@@ -21,43 +21,33 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.IpAddress;
+import io.swagger.client.model.SuccessResponseStorages;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * ServerIpAddresses
+ * SuccessResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T10:34:53.006+03:00")
-public class ServerIpAddresses {
-  @SerializedName("ip_address")
-  private List<IpAddress> ipAddress = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-16T10:31:10.209+03:00")
+public class SuccessResponse {
+  @SerializedName("storages")
+  private SuccessResponseStorages storages = null;
 
-  public ServerIpAddresses ipAddress(List<IpAddress> ipAddress) {
-    this.ipAddress = ipAddress;
-    return this;
-  }
-
-  public ServerIpAddresses addIpAddressItem(IpAddress ipAddressItem) {
-    if (this.ipAddress == null) {
-      this.ipAddress = new ArrayList<IpAddress>();
-    }
-    this.ipAddress.add(ipAddressItem);
+  public SuccessResponse storages(SuccessResponseStorages storages) {
+    this.storages = storages;
     return this;
   }
 
    /**
-   * Get ipAddress
-   * @return ipAddress
+   * Get storages
+   * @return storages
   **/
   @ApiModelProperty(value = "")
-  public List<IpAddress> getIpAddress() {
-    return ipAddress;
+  public SuccessResponseStorages getStorages() {
+    return storages;
   }
 
-  public void setIpAddress(List<IpAddress> ipAddress) {
-    this.ipAddress = ipAddress;
+  public void setStorages(SuccessResponseStorages storages) {
+    this.storages = storages;
   }
 
 
@@ -69,22 +59,22 @@ public class ServerIpAddresses {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServerIpAddresses serverIpAddresses = (ServerIpAddresses) o;
-    return Objects.equals(this.ipAddress, serverIpAddresses.ipAddress);
+    SuccessResponse successResponse = (SuccessResponse) o;
+    return Objects.equals(this.storages, successResponse.storages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipAddress);
+    return Objects.hash(storages);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServerIpAddresses {\n");
+    sb.append("class SuccessResponse {\n");
     
-    sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    storages: ").append(toIndentedString(storages)).append("\n");
     sb.append("}");
     return sb.toString();
   }

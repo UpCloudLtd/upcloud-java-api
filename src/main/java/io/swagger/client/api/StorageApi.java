@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.InlineResponse2002;
+import io.swagger.client.model.SuccessStoragesResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -118,23 +118,23 @@ public class StorageApi {
     /**
      * List of storages
      * 
-     * @return InlineResponse2002
+     * @return SuccessStoragesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2002 listStorages() throws ApiException {
-        ApiResponse<InlineResponse2002> resp = listStoragesWithHttpInfo();
+    public SuccessStoragesResponse listStorages() throws ApiException {
+        ApiResponse<SuccessStoragesResponse> resp = listStoragesWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * List of storages
      * 
-     * @return ApiResponse&lt;InlineResponse2002&gt;
+     * @return ApiResponse&lt;SuccessStoragesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2002> listStoragesWithHttpInfo() throws ApiException {
+    public ApiResponse<SuccessStoragesResponse> listStoragesWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = listStoragesValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+        Type localVarReturnType = new TypeToken<SuccessStoragesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -145,7 +145,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listStoragesAsync(final ApiCallback<InlineResponse2002> callback) throws ApiException {
+    public com.squareup.okhttp.Call listStoragesAsync(final ApiCallback<SuccessStoragesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -167,7 +167,7 @@ public class StorageApi {
         }
 
         com.squareup.okhttp.Call call = listStoragesValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+        Type localVarReturnType = new TypeToken<SuccessStoragesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
