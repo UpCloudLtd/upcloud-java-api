@@ -59,131 +59,14 @@ public class ServerApi {
     }
 
     /**
-     * Build call for serverGet
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call serverGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/server";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call serverGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        
-        com.squareup.okhttp.Call call = serverGetCall(progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * List of servers
-     * 
-     * @return InlineResponse200
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public InlineResponse200 serverGet() throws ApiException {
-        ApiResponse<InlineResponse200> resp = serverGetWithHttpInfo();
-        return resp.getData();
-    }
-
-    /**
-     * List of servers
-     * 
-     * @return ApiResponse&lt;InlineResponse200&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<InlineResponse200> serverGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = serverGetValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * List of servers (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call serverGetAsync(final ApiCallback<InlineResponse200> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = serverGetValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for serverPost
+     * Build call for createServer
      * @param server  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call serverPostCall(Server server, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createServerCall(Server server, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = server;
         
         // create path and map variables
@@ -225,10 +108,10 @@ public class ServerApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call serverPostValidateBeforeCall(Server server, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createServerValidateBeforeCall(Server server, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = serverPostCall(server, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createServerCall(server, progressListener, progressRequestListener);
         return call;
 
         
@@ -244,8 +127,8 @@ public class ServerApi {
      * @return InlineResponse2001
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2001 serverPost(Server server) throws ApiException {
-        ApiResponse<InlineResponse2001> resp = serverPostWithHttpInfo(server);
+    public InlineResponse2001 createServer(Server server) throws ApiException {
+        ApiResponse<InlineResponse2001> resp = createServerWithHttpInfo(server);
         return resp.getData();
     }
 
@@ -256,8 +139,8 @@ public class ServerApi {
      * @return ApiResponse&lt;InlineResponse2001&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2001> serverPostWithHttpInfo(Server server) throws ApiException {
-        com.squareup.okhttp.Call call = serverPostValidateBeforeCall(server, null, null);
+    public ApiResponse<InlineResponse2001> createServerWithHttpInfo(Server server) throws ApiException {
+        com.squareup.okhttp.Call call = createServerValidateBeforeCall(server, null, null);
         Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -270,7 +153,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call serverPostAsync(Server server, final ApiCallback<InlineResponse2001> callback) throws ApiException {
+    public com.squareup.okhttp.Call createServerAsync(Server server, final ApiCallback<InlineResponse2001> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -291,20 +174,20 @@ public class ServerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = serverPostValidateBeforeCall(server, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createServerValidateBeforeCall(server, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for serverServerIdDelete
+     * Build call for deleteServer
      * @param serverId Id of server to delete (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call serverServerIdDeleteCall(UUID serverId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteServerCall(UUID serverId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -347,15 +230,15 @@ public class ServerApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call serverServerIdDeleteValidateBeforeCall(UUID serverId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteServerValidateBeforeCall(UUID serverId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
-            throw new ApiException("Missing the required parameter 'serverId' when calling serverServerIdDelete(Async)");
+            throw new ApiException("Missing the required parameter 'serverId' when calling deleteServer(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = serverServerIdDeleteCall(serverId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteServerCall(serverId, progressListener, progressRequestListener);
         return call;
 
         
@@ -370,8 +253,8 @@ public class ServerApi {
      * @param serverId Id of server to delete (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void serverServerIdDelete(UUID serverId) throws ApiException {
-        serverServerIdDeleteWithHttpInfo(serverId);
+    public void deleteServer(UUID serverId) throws ApiException {
+        deleteServerWithHttpInfo(serverId);
     }
 
     /**
@@ -381,8 +264,8 @@ public class ServerApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> serverServerIdDeleteWithHttpInfo(UUID serverId) throws ApiException {
-        com.squareup.okhttp.Call call = serverServerIdDeleteValidateBeforeCall(serverId, null, null);
+    public ApiResponse<Void> deleteServerWithHttpInfo(UUID serverId) throws ApiException {
+        com.squareup.okhttp.Call call = deleteServerValidateBeforeCall(serverId, null, null);
         return apiClient.execute(call);
     }
 
@@ -394,7 +277,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call serverServerIdDeleteAsync(UUID serverId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteServerAsync(UUID serverId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -415,19 +298,136 @@ public class ServerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = serverServerIdDeleteValidateBeforeCall(serverId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteServerValidateBeforeCall(serverId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
-     * Build call for serverServerIdGet
+     * Build call for listServers
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listServersCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/server";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listServersValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        
+        com.squareup.okhttp.Call call = listServersCall(progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * List of servers
+     * List servers
+     * @return InlineResponse200
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse200 listServers() throws ApiException {
+        ApiResponse<InlineResponse200> resp = listServersWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * List of servers
+     * List servers
+     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse200> listServersWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = listServersValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List of servers (asynchronously)
+     * List servers
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listServersAsync(final ApiCallback<InlineResponse200> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listServersValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for serverDetails
      * @param serverId Id of server to return (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call serverServerIdGetCall(UUID serverId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call serverDetailsCall(UUID serverId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -470,15 +470,15 @@ public class ServerApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call serverServerIdGetValidateBeforeCall(UUID serverId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call serverDetailsValidateBeforeCall(UUID serverId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
-            throw new ApiException("Missing the required parameter 'serverId' when calling serverServerIdGet(Async)");
+            throw new ApiException("Missing the required parameter 'serverId' when calling serverDetails(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = serverServerIdGetCall(serverId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = serverDetailsCall(serverId, progressListener, progressRequestListener);
         return call;
 
         
@@ -494,8 +494,8 @@ public class ServerApi {
      * @return InlineResponse2001
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2001 serverServerIdGet(UUID serverId) throws ApiException {
-        ApiResponse<InlineResponse2001> resp = serverServerIdGetWithHttpInfo(serverId);
+    public InlineResponse2001 serverDetails(UUID serverId) throws ApiException {
+        ApiResponse<InlineResponse2001> resp = serverDetailsWithHttpInfo(serverId);
         return resp.getData();
     }
 
@@ -506,8 +506,8 @@ public class ServerApi {
      * @return ApiResponse&lt;InlineResponse2001&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2001> serverServerIdGetWithHttpInfo(UUID serverId) throws ApiException {
-        com.squareup.okhttp.Call call = serverServerIdGetValidateBeforeCall(serverId, null, null);
+    public ApiResponse<InlineResponse2001> serverDetailsWithHttpInfo(UUID serverId) throws ApiException {
+        com.squareup.okhttp.Call call = serverDetailsValidateBeforeCall(serverId, null, null);
         Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -520,7 +520,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call serverServerIdGetAsync(UUID serverId, final ApiCallback<InlineResponse2001> callback) throws ApiException {
+    public com.squareup.okhttp.Call serverDetailsAsync(UUID serverId, final ApiCallback<InlineResponse2001> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -541,13 +541,13 @@ public class ServerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = serverServerIdGetValidateBeforeCall(serverId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = serverDetailsValidateBeforeCall(serverId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for serverServerIdPut
+     * Build call for updateServer
      * @param serverId Id of server to modify (required)
      * @param server  (optional)
      * @param progressListener Progress listener
@@ -555,7 +555,7 @@ public class ServerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call serverServerIdPutCall(UUID serverId, Server server, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateServerCall(UUID serverId, Server server, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = server;
         
         // create path and map variables
@@ -598,15 +598,15 @@ public class ServerApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call serverServerIdPutValidateBeforeCall(UUID serverId, Server server, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateServerValidateBeforeCall(UUID serverId, Server server, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
-            throw new ApiException("Missing the required parameter 'serverId' when calling serverServerIdPut(Async)");
+            throw new ApiException("Missing the required parameter 'serverId' when calling updateServer(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = serverServerIdPutCall(serverId, server, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateServerCall(serverId, server, progressListener, progressRequestListener);
         return call;
 
         
@@ -623,8 +623,8 @@ public class ServerApi {
      * @return InlineResponse2001
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2001 serverServerIdPut(UUID serverId, Server server) throws ApiException {
-        ApiResponse<InlineResponse2001> resp = serverServerIdPutWithHttpInfo(serverId, server);
+    public InlineResponse2001 updateServer(UUID serverId, Server server) throws ApiException {
+        ApiResponse<InlineResponse2001> resp = updateServerWithHttpInfo(serverId, server);
         return resp.getData();
     }
 
@@ -636,8 +636,8 @@ public class ServerApi {
      * @return ApiResponse&lt;InlineResponse2001&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2001> serverServerIdPutWithHttpInfo(UUID serverId, Server server) throws ApiException {
-        com.squareup.okhttp.Call call = serverServerIdPutValidateBeforeCall(serverId, server, null, null);
+    public ApiResponse<InlineResponse2001> updateServerWithHttpInfo(UUID serverId, Server server) throws ApiException {
+        com.squareup.okhttp.Call call = updateServerValidateBeforeCall(serverId, server, null, null);
         Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -651,7 +651,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call serverServerIdPutAsync(UUID serverId, Server server, final ApiCallback<InlineResponse2001> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateServerAsync(UUID serverId, Server server, final ApiCallback<InlineResponse2001> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -672,7 +672,7 @@ public class ServerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = serverServerIdPutValidateBeforeCall(serverId, server, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateServerValidateBeforeCall(serverId, server, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

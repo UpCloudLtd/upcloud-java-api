@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**storageGet**](StorageApi.md#storageGet) | **GET** /storage | List of storages
+[**listStorages**](StorageApi.md#listStorages) | **GET** /storage | List of storages
 
 
-<a name="storageGet"></a>
-# **storageGet**
-> InlineResponse2002 storageGet()
+<a name="listStorages"></a>
+# **listStorages**
+> InlineResponse2002 listStorages()
 
 List of storages
 
@@ -22,10 +22,10 @@ List of storages
 
 StorageApi apiInstance = new StorageApi();
 try {
-    InlineResponse2002 result = apiInstance.storageGet();
+    InlineResponse2002 result = apiInstance.listStorages();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling StorageApi#storageGet");
+    System.err.println("Exception when calling StorageApi#listStorages");
     e.printStackTrace();
 }
 ```

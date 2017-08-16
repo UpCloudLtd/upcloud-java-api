@@ -4,55 +4,16 @@ All URIs are relative to *http://localhost/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**serverGet**](ServerApi.md#serverGet) | **GET** /server | List of servers
-[**serverPost**](ServerApi.md#serverPost) | **POST** /server | Create server
-[**serverServerIdDelete**](ServerApi.md#serverServerIdDelete) | **DELETE** /server/{serverId} | Delete server
-[**serverServerIdGet**](ServerApi.md#serverServerIdGet) | **GET** /server/{serverId} | Server details
-[**serverServerIdPut**](ServerApi.md#serverServerIdPut) | **PUT** /server/{serverId} | Modify server
+[**createServer**](ServerApi.md#createServer) | **POST** /server | Create server
+[**deleteServer**](ServerApi.md#deleteServer) | **DELETE** /server/{serverId} | Delete server
+[**listServers**](ServerApi.md#listServers) | **GET** /server | List of servers
+[**serverDetails**](ServerApi.md#serverDetails) | **GET** /server/{serverId} | Server details
+[**updateServer**](ServerApi.md#updateServer) | **PUT** /server/{serverId} | Modify server
 
 
-<a name="serverGet"></a>
-# **serverGet**
-> InlineResponse200 serverGet()
-
-List of servers
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
-
-
-ServerApi apiInstance = new ServerApi();
-try {
-    InlineResponse200 result = apiInstance.serverGet();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ServerApi#serverGet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**InlineResponse200**](InlineResponse200.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="serverPost"></a>
-# **serverPost**
-> InlineResponse2001 serverPost(server)
+<a name="createServer"></a>
+# **createServer**
+> InlineResponse2001 createServer(server)
 
 Create server
 
@@ -66,10 +27,10 @@ Create server
 ServerApi apiInstance = new ServerApi();
 Server server = new Server(); // Server | 
 try {
-    InlineResponse2001 result = apiInstance.serverPost(server);
+    InlineResponse2001 result = apiInstance.createServer(server);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ServerApi#serverPost");
+    System.err.println("Exception when calling ServerApi#createServer");
     e.printStackTrace();
 }
 ```
@@ -93,9 +54,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="serverServerIdDelete"></a>
-# **serverServerIdDelete**
-> serverServerIdDelete(serverId)
+<a name="deleteServer"></a>
+# **deleteServer**
+> deleteServer(serverId)
 
 Delete server
 
@@ -109,9 +70,9 @@ Delete server
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to delete
 try {
-    apiInstance.serverServerIdDelete(serverId);
+    apiInstance.deleteServer(serverId);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ServerApi#serverServerIdDelete");
+    System.err.println("Exception when calling ServerApi#deleteServer");
     e.printStackTrace();
 }
 ```
@@ -135,9 +96,50 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="serverServerIdGet"></a>
-# **serverServerIdGet**
-> InlineResponse2001 serverServerIdGet(serverId)
+<a name="listServers"></a>
+# **listServers**
+> InlineResponse200 listServers()
+
+List of servers
+
+List servers
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.ServerApi;
+
+
+ServerApi apiInstance = new ServerApi();
+try {
+    InlineResponse200 result = apiInstance.listServers();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ServerApi#listServers");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="serverDetails"></a>
+# **serverDetails**
+> InlineResponse2001 serverDetails(serverId)
 
 Server details
 
@@ -151,10 +153,10 @@ Server details
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to return
 try {
-    InlineResponse2001 result = apiInstance.serverServerIdGet(serverId);
+    InlineResponse2001 result = apiInstance.serverDetails(serverId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ServerApi#serverServerIdGet");
+    System.err.println("Exception when calling ServerApi#serverDetails");
     e.printStackTrace();
 }
 ```
@@ -178,9 +180,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="serverServerIdPut"></a>
-# **serverServerIdPut**
-> InlineResponse2001 serverServerIdPut(serverId, server)
+<a name="updateServer"></a>
+# **updateServer**
+> InlineResponse2001 updateServer(serverId, server)
 
 Modify server
 
@@ -195,10 +197,10 @@ ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to modify
 Server server = new Server(); // Server | 
 try {
-    InlineResponse2001 result = apiInstance.serverServerIdPut(serverId, server);
+    InlineResponse2001 result = apiInstance.updateServer(serverId, server);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ServerApi#serverServerIdPut");
+    System.err.println("Exception when calling ServerApi#updateServer");
     e.printStackTrace();
 }
 ```

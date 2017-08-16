@@ -55,13 +55,13 @@ public class StorageApi {
     }
 
     /**
-     * Build call for storageGet
+     * Build call for listStorages
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call storageGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call listStoragesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -103,10 +103,10 @@ public class StorageApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call storageGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listStoragesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = storageGetCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listStoragesCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -121,8 +121,8 @@ public class StorageApi {
      * @return InlineResponse2002
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2002 storageGet() throws ApiException {
-        ApiResponse<InlineResponse2002> resp = storageGetWithHttpInfo();
+    public InlineResponse2002 listStorages() throws ApiException {
+        ApiResponse<InlineResponse2002> resp = listStoragesWithHttpInfo();
         return resp.getData();
     }
 
@@ -132,8 +132,8 @@ public class StorageApi {
      * @return ApiResponse&lt;InlineResponse2002&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2002> storageGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = storageGetValidateBeforeCall(null, null);
+    public ApiResponse<InlineResponse2002> listStoragesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = listStoragesValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -145,7 +145,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call storageGetAsync(final ApiCallback<InlineResponse2002> callback) throws ApiException {
+    public com.squareup.okhttp.Call listStoragesAsync(final ApiCallback<InlineResponse2002> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -166,7 +166,7 @@ public class StorageApi {
             };
         }
 
-        com.squareup.okhttp.Call call = storageGetValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listStoragesValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
