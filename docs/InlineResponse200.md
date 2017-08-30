@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**servers** | [**InlineResponse200Servers**](InlineResponse200Servers.md) |  |  [optional]
+**price** | [**InlineResponse200Price**](InlineResponse200Price.md) |  |  [optional]
 
 
 

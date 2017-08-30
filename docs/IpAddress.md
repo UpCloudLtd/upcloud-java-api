@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access** | [**AccessEnum**](#AccessEnum) |  |  [optional]
-**address** | **String** |  |  [optional]
-**family** | [**FamilyEnum**](#FamilyEnum) |  |  [optional]
+**access** | [**AccessEnum**](#AccessEnum) | Is address for private or public network. |  [optional]
+**family** | [**FamilyEnum**](#FamilyEnum) | The address family of new IP address. |  [optional]
+**server** | [**UUID**](UUID.md) | Server id |  [optional]
 
 
 <a name="AccessEnum"></a>

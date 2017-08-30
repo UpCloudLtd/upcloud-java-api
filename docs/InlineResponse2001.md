@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**server** | [**Server**](Server.md) |  |  [optional]
+**zones** | [**InlineResponse2001Zones**](InlineResponse2001Zones.md) |  |  [optional]
 
 
 
