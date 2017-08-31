@@ -61,7 +61,7 @@ public class TagApi {
     }
 
     /**
-     * Build call for serverServerIdTagTagListPost
+     * Build call for assignTag
      * @param serverId Server id (required)
      * @param tagList List of tags (required)
      * @param progressListener Progress listener
@@ -69,7 +69,7 @@ public class TagApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call serverServerIdTagTagListPostCall(UUID serverId, String tagList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call assignTagCall(UUID serverId, String tagList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -113,20 +113,20 @@ public class TagApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call serverServerIdTagTagListPostValidateBeforeCall(UUID serverId, String tagList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call assignTagValidateBeforeCall(UUID serverId, String tagList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
-            throw new ApiException("Missing the required parameter 'serverId' when calling serverServerIdTagTagListPost(Async)");
+            throw new ApiException("Missing the required parameter 'serverId' when calling assignTag(Async)");
         }
         
         // verify the required parameter 'tagList' is set
         if (tagList == null) {
-            throw new ApiException("Missing the required parameter 'tagList' when calling serverServerIdTagTagListPost(Async)");
+            throw new ApiException("Missing the required parameter 'tagList' when calling assignTag(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = serverServerIdTagTagListPostCall(serverId, tagList, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = assignTagCall(serverId, tagList, progressListener, progressRequestListener);
         return call;
 
         
@@ -143,8 +143,8 @@ public class TagApi {
      * @return ServerListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse serverServerIdTagTagListPost(UUID serverId, String tagList) throws ApiException {
-        ApiResponse<ServerListResponse> resp = serverServerIdTagTagListPostWithHttpInfo(serverId, tagList);
+    public ServerListResponse assignTag(UUID serverId, String tagList) throws ApiException {
+        ApiResponse<ServerListResponse> resp = assignTagWithHttpInfo(serverId, tagList);
         return resp.getData();
     }
 
@@ -156,8 +156,8 @@ public class TagApi {
      * @return ApiResponse&lt;ServerListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> serverServerIdTagTagListPostWithHttpInfo(UUID serverId, String tagList) throws ApiException {
-        com.squareup.okhttp.Call call = serverServerIdTagTagListPostValidateBeforeCall(serverId, tagList, null, null);
+    public ApiResponse<ServerListResponse> assignTagWithHttpInfo(UUID serverId, String tagList) throws ApiException {
+        com.squareup.okhttp.Call call = assignTagValidateBeforeCall(serverId, tagList, null, null);
         Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -171,7 +171,7 @@ public class TagApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call serverServerIdTagTagListPostAsync(UUID serverId, String tagList, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call assignTagAsync(UUID serverId, String tagList, final ApiCallback<ServerListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -192,13 +192,515 @@ public class TagApi {
             };
         }
 
-        com.squareup.okhttp.Call call = serverServerIdTagTagListPostValidateBeforeCall(serverId, tagList, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = assignTagValidateBeforeCall(serverId, tagList, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for serverServerIdUntagTagNamePost
+     * Build call for createTag
+     * @param tag  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createTagCall(Tag tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = tag;
+        
+        // create path and map variables
+        String localVarPath = "/tag";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createTagValidateBeforeCall(Tag tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'tag' is set
+        if (tag == null) {
+            throw new ApiException("Missing the required parameter 'tag' when calling createTag(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = createTagCall(tag, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Create a new tag
+     * Creates a new tag. Existing servers can be tagged in same request
+     * @param tag  (required)
+     * @return InlineResponse20010
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse20010 createTag(Tag tag) throws ApiException {
+        ApiResponse<InlineResponse20010> resp = createTagWithHttpInfo(tag);
+        return resp.getData();
+    }
+
+    /**
+     * Create a new tag
+     * Creates a new tag. Existing servers can be tagged in same request
+     * @param tag  (required)
+     * @return ApiResponse&lt;InlineResponse20010&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse20010> createTagWithHttpInfo(Tag tag) throws ApiException {
+        com.squareup.okhttp.Call call = createTagValidateBeforeCall(tag, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a new tag (asynchronously)
+     * Creates a new tag. Existing servers can be tagged in same request
+     * @param tag  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createTagAsync(Tag tag, final ApiCallback<InlineResponse20010> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createTagValidateBeforeCall(tag, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteTag
+     * @param tagName Tag name (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteTagCall(String tagName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/tag/{tagName}"
+            .replaceAll("\\{" + "tagName" + "\\}", apiClient.escapeString(tagName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteTagValidateBeforeCall(String tagName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'tagName' is set
+        if (tagName == null) {
+            throw new ApiException("Missing the required parameter 'tagName' when calling deleteTag(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = deleteTagCall(tagName, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Delete tag
+     * Deleting existing tag untags all servers from specified tag and deletes tag definition
+     * @param tagName Tag name (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteTag(String tagName) throws ApiException {
+        deleteTagWithHttpInfo(tagName);
+    }
+
+    /**
+     * Delete tag
+     * Deleting existing tag untags all servers from specified tag and deletes tag definition
+     * @param tagName Tag name (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteTagWithHttpInfo(String tagName) throws ApiException {
+        com.squareup.okhttp.Call call = deleteTagValidateBeforeCall(tagName, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete tag (asynchronously)
+     * Deleting existing tag untags all servers from specified tag and deletes tag definition
+     * @param tagName Tag name (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteTagAsync(String tagName, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteTagValidateBeforeCall(tagName, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for listTags
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listTagsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/tag";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listTagsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        
+        com.squareup.okhttp.Call call = listTagsCall(progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * List existing tags
+     * Returns all existing tags with their properties and servers tagged
+     * @return InlineResponse2009
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse2009 listTags() throws ApiException {
+        ApiResponse<InlineResponse2009> resp = listTagsWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * List existing tags
+     * Returns all existing tags with their properties and servers tagged
+     * @return ApiResponse&lt;InlineResponse2009&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse2009> listTagsWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = listTagsValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2009>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List existing tags (asynchronously)
+     * Returns all existing tags with their properties and servers tagged
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listTagsAsync(final ApiCallback<InlineResponse2009> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listTagsValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2009>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for modifyTag
+     * @param tagName Tag name (required)
+     * @param tag  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyTagCall(String tagName, Tag1 tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = tag;
+        
+        // create path and map variables
+        String localVarPath = "/tag/{tagName}"
+            .replaceAll("\\{" + "tagName" + "\\}", apiClient.escapeString(tagName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyTagValidateBeforeCall(String tagName, Tag1 tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'tagName' is set
+        if (tagName == null) {
+            throw new ApiException("Missing the required parameter 'tagName' when calling modifyTag(Async)");
+        }
+        
+        // verify the required parameter 'tag' is set
+        if (tag == null) {
+            throw new ApiException("Missing the required parameter 'tag' when calling modifyTag(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = modifyTagCall(tagName, tag, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Modify existing tag
+     * Changes attributes of an existing tag
+     * @param tagName Tag name (required)
+     * @param tag  (required)
+     * @return InlineResponse20010
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse20010 modifyTag(String tagName, Tag1 tag) throws ApiException {
+        ApiResponse<InlineResponse20010> resp = modifyTagWithHttpInfo(tagName, tag);
+        return resp.getData();
+    }
+
+    /**
+     * Modify existing tag
+     * Changes attributes of an existing tag
+     * @param tagName Tag name (required)
+     * @param tag  (required)
+     * @return ApiResponse&lt;InlineResponse20010&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse20010> modifyTagWithHttpInfo(String tagName, Tag1 tag) throws ApiException {
+        com.squareup.okhttp.Call call = modifyTagValidateBeforeCall(tagName, tag, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Modify existing tag (asynchronously)
+     * Changes attributes of an existing tag
+     * @param tagName Tag name (required)
+     * @param tag  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyTagAsync(String tagName, Tag1 tag, final ApiCallback<InlineResponse20010> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyTagValidateBeforeCall(tagName, tag, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for untag
      * @param serverId Server id (required)
      * @param tagName Tag name (required)
      * @param progressListener Progress listener
@@ -206,7 +708,7 @@ public class TagApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call serverServerIdUntagTagNamePostCall(UUID serverId, String tagName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call untagCall(UUID serverId, String tagName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -250,20 +752,20 @@ public class TagApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call serverServerIdUntagTagNamePostValidateBeforeCall(UUID serverId, String tagName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call untagValidateBeforeCall(UUID serverId, String tagName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
-            throw new ApiException("Missing the required parameter 'serverId' when calling serverServerIdUntagTagNamePost(Async)");
+            throw new ApiException("Missing the required parameter 'serverId' when calling untag(Async)");
         }
         
         // verify the required parameter 'tagName' is set
         if (tagName == null) {
-            throw new ApiException("Missing the required parameter 'tagName' when calling serverServerIdUntagTagNamePost(Async)");
+            throw new ApiException("Missing the required parameter 'tagName' when calling untag(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = serverServerIdUntagTagNamePostCall(serverId, tagName, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = untagCall(serverId, tagName, progressListener, progressRequestListener);
         return call;
 
         
@@ -280,8 +782,8 @@ public class TagApi {
      * @return ServerListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse serverServerIdUntagTagNamePost(UUID serverId, String tagName) throws ApiException {
-        ApiResponse<ServerListResponse> resp = serverServerIdUntagTagNamePostWithHttpInfo(serverId, tagName);
+    public ServerListResponse untag(UUID serverId, String tagName) throws ApiException {
+        ApiResponse<ServerListResponse> resp = untagWithHttpInfo(serverId, tagName);
         return resp.getData();
     }
 
@@ -293,8 +795,8 @@ public class TagApi {
      * @return ApiResponse&lt;ServerListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> serverServerIdUntagTagNamePostWithHttpInfo(UUID serverId, String tagName) throws ApiException {
-        com.squareup.okhttp.Call call = serverServerIdUntagTagNamePostValidateBeforeCall(serverId, tagName, null, null);
+    public ApiResponse<ServerListResponse> untagWithHttpInfo(UUID serverId, String tagName) throws ApiException {
+        com.squareup.okhttp.Call call = untagValidateBeforeCall(serverId, tagName, null, null);
         Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -308,7 +810,7 @@ public class TagApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call serverServerIdUntagTagNamePostAsync(UUID serverId, String tagName, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call untagAsync(UUID serverId, String tagName, final ApiCallback<ServerListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -329,510 +831,8 @@ public class TagApi {
             };
         }
 
-        com.squareup.okhttp.Call call = serverServerIdUntagTagNamePostValidateBeforeCall(serverId, tagName, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = untagValidateBeforeCall(serverId, tagName, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for tagGet
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call tagGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/tag";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call tagGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        
-        com.squareup.okhttp.Call call = tagGetCall(progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * List existing tags
-     * Returns all existing tags with their properties and servers tagged
-     * @return InlineResponse2009
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public InlineResponse2009 tagGet() throws ApiException {
-        ApiResponse<InlineResponse2009> resp = tagGetWithHttpInfo();
-        return resp.getData();
-    }
-
-    /**
-     * List existing tags
-     * Returns all existing tags with their properties and servers tagged
-     * @return ApiResponse&lt;InlineResponse2009&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<InlineResponse2009> tagGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = tagGetValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2009>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * List existing tags (asynchronously)
-     * Returns all existing tags with their properties and servers tagged
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call tagGetAsync(final ApiCallback<InlineResponse2009> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = tagGetValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2009>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for tagPost
-     * @param tag  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call tagPostCall(Tag tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = tag;
-        
-        // create path and map variables
-        String localVarPath = "/tag";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call tagPostValidateBeforeCall(Tag tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'tag' is set
-        if (tag == null) {
-            throw new ApiException("Missing the required parameter 'tag' when calling tagPost(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = tagPostCall(tag, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Create a new tag
-     * Creates a new tag. Existing servers can be tagged in same request
-     * @param tag  (required)
-     * @return InlineResponse20010
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public InlineResponse20010 tagPost(Tag tag) throws ApiException {
-        ApiResponse<InlineResponse20010> resp = tagPostWithHttpInfo(tag);
-        return resp.getData();
-    }
-
-    /**
-     * Create a new tag
-     * Creates a new tag. Existing servers can be tagged in same request
-     * @param tag  (required)
-     * @return ApiResponse&lt;InlineResponse20010&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<InlineResponse20010> tagPostWithHttpInfo(Tag tag) throws ApiException {
-        com.squareup.okhttp.Call call = tagPostValidateBeforeCall(tag, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Create a new tag (asynchronously)
-     * Creates a new tag. Existing servers can be tagged in same request
-     * @param tag  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call tagPostAsync(Tag tag, final ApiCallback<InlineResponse20010> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = tagPostValidateBeforeCall(tag, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for tagTagNameDelete
-     * @param tagName Tag name (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call tagTagNameDeleteCall(String tagName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/tag/{tagName}"
-            .replaceAll("\\{" + "tagName" + "\\}", apiClient.escapeString(tagName.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call tagTagNameDeleteValidateBeforeCall(String tagName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'tagName' is set
-        if (tagName == null) {
-            throw new ApiException("Missing the required parameter 'tagName' when calling tagTagNameDelete(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = tagTagNameDeleteCall(tagName, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Delete tag
-     * Deleting existing tag untags all servers from specified tag and deletes tag definition
-     * @param tagName Tag name (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public void tagTagNameDelete(String tagName) throws ApiException {
-        tagTagNameDeleteWithHttpInfo(tagName);
-    }
-
-    /**
-     * Delete tag
-     * Deleting existing tag untags all servers from specified tag and deletes tag definition
-     * @param tagName Tag name (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Void> tagTagNameDeleteWithHttpInfo(String tagName) throws ApiException {
-        com.squareup.okhttp.Call call = tagTagNameDeleteValidateBeforeCall(tagName, null, null);
-        return apiClient.execute(call);
-    }
-
-    /**
-     * Delete tag (asynchronously)
-     * Deleting existing tag untags all servers from specified tag and deletes tag definition
-     * @param tagName Tag name (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call tagTagNameDeleteAsync(String tagName, final ApiCallback<Void> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = tagTagNameDeleteValidateBeforeCall(tagName, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
-        return call;
-    }
-    /**
-     * Build call for tagTagNamePut
-     * @param tagName Tag name (required)
-     * @param tag  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call tagTagNamePutCall(String tagName, Tag1 tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = tag;
-        
-        // create path and map variables
-        String localVarPath = "/tag/{tagName}"
-            .replaceAll("\\{" + "tagName" + "\\}", apiClient.escapeString(tagName.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call tagTagNamePutValidateBeforeCall(String tagName, Tag1 tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'tagName' is set
-        if (tagName == null) {
-            throw new ApiException("Missing the required parameter 'tagName' when calling tagTagNamePut(Async)");
-        }
-        
-        // verify the required parameter 'tag' is set
-        if (tag == null) {
-            throw new ApiException("Missing the required parameter 'tag' when calling tagTagNamePut(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = tagTagNamePutCall(tagName, tag, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Modify existing tag
-     * Changes attributes of an existing tag
-     * @param tagName Tag name (required)
-     * @param tag  (required)
-     * @return InlineResponse20010
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public InlineResponse20010 tagTagNamePut(String tagName, Tag1 tag) throws ApiException {
-        ApiResponse<InlineResponse20010> resp = tagTagNamePutWithHttpInfo(tagName, tag);
-        return resp.getData();
-    }
-
-    /**
-     * Modify existing tag
-     * Changes attributes of an existing tag
-     * @param tagName Tag name (required)
-     * @param tag  (required)
-     * @return ApiResponse&lt;InlineResponse20010&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<InlineResponse20010> tagTagNamePutWithHttpInfo(String tagName, Tag1 tag) throws ApiException {
-        com.squareup.okhttp.Call call = tagTagNamePutValidateBeforeCall(tagName, tag, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Modify existing tag (asynchronously)
-     * Changes attributes of an existing tag
-     * @param tagName Tag name (required)
-     * @param tag  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call tagTagNamePutAsync(String tagName, Tag1 tag, final ApiCallback<InlineResponse20010> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = tagTagNamePutValidateBeforeCall(tagName, tag, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

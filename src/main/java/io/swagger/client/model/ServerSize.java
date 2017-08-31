@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * ServerSize
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-30T15:41:27.499+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-31T14:45:42.180+03:00")
 public class ServerSize {
   @SerializedName("core_number")
   private BigDecimal coreNumber = null;

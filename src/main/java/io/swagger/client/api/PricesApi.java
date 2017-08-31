@@ -55,13 +55,13 @@ public class PricesApi {
     }
 
     /**
-     * Build call for priceGet
+     * Build call for listPrices
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call priceGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call listPricesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -103,10 +103,10 @@ public class PricesApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call priceGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listPricesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = priceGetCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listPricesCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -121,8 +121,8 @@ public class PricesApi {
      * @return InlineResponse200
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse200 priceGet() throws ApiException {
-        ApiResponse<InlineResponse200> resp = priceGetWithHttpInfo();
+    public InlineResponse200 listPrices() throws ApiException {
+        ApiResponse<InlineResponse200> resp = listPricesWithHttpInfo();
         return resp.getData();
     }
 
@@ -132,8 +132,8 @@ public class PricesApi {
      * @return ApiResponse&lt;InlineResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse200> priceGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = priceGetValidateBeforeCall(null, null);
+    public ApiResponse<InlineResponse200> listPricesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = listPricesValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -145,7 +145,7 @@ public class PricesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call priceGetAsync(final ApiCallback<InlineResponse200> callback) throws ApiException {
+    public com.squareup.okhttp.Call listPricesAsync(final ApiCallback<InlineResponse200> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -166,7 +166,7 @@ public class PricesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = priceGetValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listPricesValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

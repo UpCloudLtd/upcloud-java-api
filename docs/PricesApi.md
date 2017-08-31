@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**priceGet**](PricesApi.md#priceGet) | **GET** /price | List prices
+[**listPrices**](PricesApi.md#listPrices) | **GET** /price | List prices
 
 
-<a name="priceGet"></a>
-# **priceGet**
-> InlineResponse200 priceGet()
+<a name="listPrices"></a>
+# **listPrices**
+> InlineResponse200 listPrices()
 
 List prices
 
@@ -24,10 +24,10 @@ Returns a list resource prices.
 
 PricesApi apiInstance = new PricesApi();
 try {
-    InlineResponse200 result = apiInstance.priceGet();
+    InlineResponse200 result = apiInstance.listPrices();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling PricesApi#priceGet");
+    System.err.println("Exception when calling PricesApi#listPrices");
     e.printStackTrace();
 }
 ```

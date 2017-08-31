@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**planGet**](PlanApi.md#planGet) | **GET** /plan | List available plans
+[**listPlans**](PlanApi.md#listPlans) | **GET** /plan | List available plans
 
 
-<a name="planGet"></a>
-# **planGet**
-> InlineResponse2003 planGet()
+<a name="listPlans"></a>
+# **listPlans**
+> InlineResponse2003 listPlans()
 
 List available plans
 
@@ -24,10 +24,10 @@ Returns a list of available plans.
 
 PlanApi apiInstance = new PlanApi();
 try {
-    InlineResponse2003 result = apiInstance.planGet();
+    InlineResponse2003 result = apiInstance.listPlans();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling PlanApi#planGet");
+    System.err.println("Exception when calling PlanApi#listPlans");
     e.printStackTrace();
 }
 ```

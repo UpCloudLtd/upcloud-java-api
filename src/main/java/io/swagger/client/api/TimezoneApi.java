@@ -55,13 +55,13 @@ public class TimezoneApi {
     }
 
     /**
-     * Build call for timezoneGet
+     * Build call for listTimezones
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call timezoneGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call listTimezonesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -103,10 +103,10 @@ public class TimezoneApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call timezoneGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listTimezonesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = timezoneGetCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listTimezonesCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -121,8 +121,8 @@ public class TimezoneApi {
      * @return InlineResponse2002
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2002 timezoneGet() throws ApiException {
-        ApiResponse<InlineResponse2002> resp = timezoneGetWithHttpInfo();
+    public InlineResponse2002 listTimezones() throws ApiException {
+        ApiResponse<InlineResponse2002> resp = listTimezonesWithHttpInfo();
         return resp.getData();
     }
 
@@ -132,8 +132,8 @@ public class TimezoneApi {
      * @return ApiResponse&lt;InlineResponse2002&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2002> timezoneGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = timezoneGetValidateBeforeCall(null, null);
+    public ApiResponse<InlineResponse2002> listTimezonesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = listTimezonesValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -145,7 +145,7 @@ public class TimezoneApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call timezoneGetAsync(final ApiCallback<InlineResponse2002> callback) throws ApiException {
+    public com.squareup.okhttp.Call listTimezonesAsync(final ApiCallback<InlineResponse2002> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -166,7 +166,7 @@ public class TimezoneApi {
             };
         }
 
-        com.squareup.okhttp.Call call = timezoneGetValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listTimezonesValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

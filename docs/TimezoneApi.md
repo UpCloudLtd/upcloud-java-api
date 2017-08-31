@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**timezoneGet**](TimezoneApi.md#timezoneGet) | **GET** /timezone | List timezones
+[**listTimezones**](TimezoneApi.md#listTimezones) | **GET** /timezone | List timezones
 
 
-<a name="timezoneGet"></a>
-# **timezoneGet**
-> InlineResponse2002 timezoneGet()
+<a name="listTimezones"></a>
+# **listTimezones**
+> InlineResponse2002 listTimezones()
 
 List timezones
 
@@ -24,10 +24,10 @@ Returns a list of available timezones. Timezones are used to set the hardware cl
 
 TimezoneApi apiInstance = new TimezoneApi();
 try {
-    InlineResponse2002 result = apiInstance.timezoneGet();
+    InlineResponse2002 result = apiInstance.listTimezones();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling TimezoneApi#timezoneGet");
+    System.err.println("Exception when calling TimezoneApi#listTimezones");
     e.printStackTrace();
 }
 ```

@@ -55,13 +55,13 @@ public class ZoneApi {
     }
 
     /**
-     * Build call for zoneGet
+     * Build call for listZones
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call zoneGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call listZonesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -103,10 +103,10 @@ public class ZoneApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call zoneGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listZonesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = zoneGetCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listZonesCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -121,8 +121,8 @@ public class ZoneApi {
      * @return InlineResponse2001
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2001 zoneGet() throws ApiException {
-        ApiResponse<InlineResponse2001> resp = zoneGetWithHttpInfo();
+    public InlineResponse2001 listZones() throws ApiException {
+        ApiResponse<InlineResponse2001> resp = listZonesWithHttpInfo();
         return resp.getData();
     }
 
@@ -132,8 +132,8 @@ public class ZoneApi {
      * @return ApiResponse&lt;InlineResponse2001&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2001> zoneGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = zoneGetValidateBeforeCall(null, null);
+    public ApiResponse<InlineResponse2001> listZonesWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = listZonesValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -145,7 +145,7 @@ public class ZoneApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call zoneGetAsync(final ApiCallback<InlineResponse2001> callback) throws ApiException {
+    public com.squareup.okhttp.Call listZonesAsync(final ApiCallback<InlineResponse2001> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -166,7 +166,7 @@ public class ZoneApi {
             };
         }
 
-        com.squareup.okhttp.Call call = zoneGetValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listZonesValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

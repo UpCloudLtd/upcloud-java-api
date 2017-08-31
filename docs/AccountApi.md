@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**accountGet**](AccountApi.md#accountGet) | **GET** /account | Account information
+[**getAccount**](AccountApi.md#getAccount) | **GET** /account | Account information
 
 
-<a name="accountGet"></a>
-# **accountGet**
-> Account accountGet()
+<a name="getAccount"></a>
+# **getAccount**
+> Account getAccount()
 
 Account information
 
@@ -24,10 +24,10 @@ Returns information on the user&#39;s account.
 
 AccountApi apiInstance = new AccountApi();
 try {
-    Account result = apiInstance.accountGet();
+    Account result = apiInstance.getAccount();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AccountApi#accountGet");
+    System.err.println("Exception when calling AccountApi#getAccount");
     e.printStackTrace();
 }
 ```

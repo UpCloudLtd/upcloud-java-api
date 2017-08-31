@@ -4,20 +4,20 @@ All URIs are relative to *http://localhost/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ipAddressGet**](IPAddressApi.md#ipAddressGet) | **GET** /ip_address | List IP addresses
-[**ipAddressIpDelete**](IPAddressApi.md#ipAddressIpDelete) | **DELETE** /ip_address/{ip} | Release IP address
-[**ipAddressIpGet**](IPAddressApi.md#ipAddressIpGet) | **GET** /ip_address/{ip} | Get IP address details
-[**ipAddressIpPut**](IPAddressApi.md#ipAddressIpPut) | **PUT** /ip_address/{ip} | Modify IP address
-[**ipAddressPost**](IPAddressApi.md#ipAddressPost) | **POST** /ip_address | Assign IP address
+[**addIp**](IPAddressApi.md#addIp) | **POST** /ip_address | Assign IP address
+[**deleteIp**](IPAddressApi.md#deleteIp) | **DELETE** /ip_address/{ip} | Release IP address
+[**getDetails**](IPAddressApi.md#getDetails) | **GET** /ip_address/{ip} | Get IP address details
+[**listIps**](IPAddressApi.md#listIps) | **GET** /ip_address | List IP addresses
+[**modifyIp**](IPAddressApi.md#modifyIp) | **PUT** /ip_address/{ip} | Modify IP address
 
 
-<a name="ipAddressGet"></a>
-# **ipAddressGet**
-> InlineResponse2006 ipAddressGet()
+<a name="addIp"></a>
+# **addIp**
+> InlineResponse2011 addIp(ipAddress)
 
-List IP addresses
+Assign IP address
 
-Returns a list of all IP addresses assigned to servers on the current user account.
+Assigns a new IP address to a server.
 
 ### Example
 ```java
@@ -27,21 +27,25 @@ Returns a list of all IP addresses assigned to servers on the current user accou
 
 
 IPAddressApi apiInstance = new IPAddressApi();
+IpAddress ipAddress = new IpAddress(); // IpAddress | 
 try {
-    InlineResponse2006 result = apiInstance.ipAddressGet();
+    InlineResponse2011 result = apiInstance.addIp(ipAddress);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling IPAddressApi#ipAddressGet");
+    System.err.println("Exception when calling IPAddressApi#addIp");
     e.printStackTrace();
 }
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ipAddress** | [**IpAddress**](IpAddress.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2011**](InlineResponse2011.md)
 
 ### Authorization
 
@@ -52,9 +56,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="ipAddressIpDelete"></a>
-# **ipAddressIpDelete**
-> ipAddressIpDelete(ip)
+<a name="deleteIp"></a>
+# **deleteIp**
+> deleteIp(ip)
 
 Release IP address
 
@@ -70,9 +74,9 @@ Removes an IP address from a server.
 IPAddressApi apiInstance = new IPAddressApi();
 String ip = "ip_example"; // String | Ip address
 try {
-    apiInstance.ipAddressIpDelete(ip);
+    apiInstance.deleteIp(ip);
 } catch (ApiException e) {
-    System.err.println("Exception when calling IPAddressApi#ipAddressIpDelete");
+    System.err.println("Exception when calling IPAddressApi#deleteIp");
     e.printStackTrace();
 }
 ```
@@ -96,9 +100,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="ipAddressIpGet"></a>
-# **ipAddressIpGet**
-> InlineResponse2011 ipAddressIpGet(ip)
+<a name="getDetails"></a>
+# **getDetails**
+> InlineResponse2011 getDetails(ip)
 
 Get IP address details
 
@@ -114,10 +118,10 @@ Returns detailed information about a specific IP address.
 IPAddressApi apiInstance = new IPAddressApi();
 String ip = "ip_example"; // String | Ip address
 try {
-    InlineResponse2011 result = apiInstance.ipAddressIpGet(ip);
+    InlineResponse2011 result = apiInstance.getDetails(ip);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling IPAddressApi#ipAddressIpGet");
+    System.err.println("Exception when calling IPAddressApi#getDetails");
     e.printStackTrace();
 }
 ```
@@ -141,9 +145,50 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="ipAddressIpPut"></a>
-# **ipAddressIpPut**
-> InlineResponse2011 ipAddressIpPut(ip, ipAddress)
+<a name="listIps"></a>
+# **listIps**
+> InlineResponse2006 listIps()
+
+List IP addresses
+
+Returns a list of all IP addresses assigned to servers on the current user account.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.IPAddressApi;
+
+
+IPAddressApi apiInstance = new IPAddressApi();
+try {
+    InlineResponse2006 result = apiInstance.listIps();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling IPAddressApi#listIps");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**InlineResponse2006**](InlineResponse2006.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a name="modifyIp"></a>
+# **modifyIp**
+> InlineResponse2011 modifyIp(ip, ipAddress)
 
 Modify IP address
 
@@ -160,10 +205,10 @@ IPAddressApi apiInstance = new IPAddressApi();
 String ip = "ip_example"; // String | Ip address
 IpAddress1 ipAddress = new IpAddress1(); // IpAddress1 | 
 try {
-    InlineResponse2011 result = apiInstance.ipAddressIpPut(ip, ipAddress);
+    InlineResponse2011 result = apiInstance.modifyIp(ip, ipAddress);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling IPAddressApi#ipAddressIpPut");
+    System.err.println("Exception when calling IPAddressApi#modifyIp");
     e.printStackTrace();
 }
 ```
@@ -174,51 +219,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ip** | **String**| Ip address |
  **ipAddress** | [**IpAddress1**](IpAddress1.md)|  | [optional]
-
-### Return type
-
-[**InlineResponse2011**](InlineResponse2011.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-<a name="ipAddressPost"></a>
-# **ipAddressPost**
-> InlineResponse2011 ipAddressPost(ipAddress)
-
-Assign IP address
-
-Assigns a new IP address to a server.
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.IPAddressApi;
-
-
-IPAddressApi apiInstance = new IPAddressApi();
-IpAddress ipAddress = new IpAddress(); // IpAddress | 
-try {
-    InlineResponse2011 result = apiInstance.ipAddressPost(ipAddress);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling IPAddressApi#ipAddressPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ipAddress** | [**IpAddress**](IpAddress.md)|  | [optional]
 
 ### Return type
 

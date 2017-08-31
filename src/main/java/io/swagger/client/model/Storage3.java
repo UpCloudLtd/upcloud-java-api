@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Storage3
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-30T15:41:27.499+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-31T14:45:42.180+03:00")
 public class Storage3 {
   @SerializedName("title")
   private String title = null;

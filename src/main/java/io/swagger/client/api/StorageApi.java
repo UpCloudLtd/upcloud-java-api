@@ -66,6 +66,1416 @@ public class StorageApi {
     }
 
     /**
+     * Build call for attachStorage
+     * @param serverId Server id (required)
+     * @param storageDevice  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call attachStorageCall(UUID serverId, StorageDevice storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = storageDevice;
+        
+        // create path and map variables
+        String localVarPath = "/server/{serverId}/storage/attach"
+            .replaceAll("\\{" + "serverId" + "\\}", apiClient.escapeString(serverId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call attachStorageValidateBeforeCall(UUID serverId, StorageDevice storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'serverId' is set
+        if (serverId == null) {
+            throw new ApiException("Missing the required parameter 'serverId' when calling attachStorage(Async)");
+        }
+        
+        // verify the required parameter 'storageDevice' is set
+        if (storageDevice == null) {
+            throw new ApiException("Missing the required parameter 'storageDevice' when calling attachStorage(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = attachStorageCall(serverId, storageDevice, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Attach storage
+     * Attaches a storage as a device to a server.
+     * @param serverId Server id (required)
+     * @param storageDevice  (required)
+     * @return ServerListResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ServerListResponse attachStorage(UUID serverId, StorageDevice storageDevice) throws ApiException {
+        ApiResponse<ServerListResponse> resp = attachStorageWithHttpInfo(serverId, storageDevice);
+        return resp.getData();
+    }
+
+    /**
+     * Attach storage
+     * Attaches a storage as a device to a server.
+     * @param serverId Server id (required)
+     * @param storageDevice  (required)
+     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ServerListResponse> attachStorageWithHttpInfo(UUID serverId, StorageDevice storageDevice) throws ApiException {
+        com.squareup.okhttp.Call call = attachStorageValidateBeforeCall(serverId, storageDevice, null, null);
+        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Attach storage (asynchronously)
+     * Attaches a storage as a device to a server.
+     * @param serverId Server id (required)
+     * @param storageDevice  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call attachStorageAsync(UUID serverId, StorageDevice storageDevice, final ApiCallback<ServerListResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = attachStorageValidateBeforeCall(serverId, storageDevice, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for backupStorage
+     * @param storageId Storage id (required)
+     * @param storage  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call backupStorageCall(UUID storageId, Storage4 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = storage;
+        
+        // create path and map variables
+        String localVarPath = "/storage/{storageId}/backup"
+            .replaceAll("\\{" + "storageId" + "\\}", apiClient.escapeString(storageId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call backupStorageValidateBeforeCall(UUID storageId, Storage4 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storageId' is set
+        if (storageId == null) {
+            throw new ApiException("Missing the required parameter 'storageId' when calling backupStorage(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = backupStorageCall(storageId, storage, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Create backup
+     * Creates a point-in-time backup of a storage resource. For automatic, scheduled backups, see  &#x60;backup_rule&#x60; in Create storage or Modify storage.
+     * @param storageId Storage id (required)
+     * @param storage  (optional)
+     * @return InlineResponse201
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse201 backupStorage(UUID storageId, Storage4 storage) throws ApiException {
+        ApiResponse<InlineResponse201> resp = backupStorageWithHttpInfo(storageId, storage);
+        return resp.getData();
+    }
+
+    /**
+     * Create backup
+     * Creates a point-in-time backup of a storage resource. For automatic, scheduled backups, see  &#x60;backup_rule&#x60; in Create storage or Modify storage.
+     * @param storageId Storage id (required)
+     * @param storage  (optional)
+     * @return ApiResponse&lt;InlineResponse201&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse201> backupStorageWithHttpInfo(UUID storageId, Storage4 storage) throws ApiException {
+        com.squareup.okhttp.Call call = backupStorageValidateBeforeCall(storageId, storage, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create backup (asynchronously)
+     * Creates a point-in-time backup of a storage resource. For automatic, scheduled backups, see  &#x60;backup_rule&#x60; in Create storage or Modify storage.
+     * @param storageId Storage id (required)
+     * @param storage  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call backupStorageAsync(UUID storageId, Storage4 storage, final ApiCallback<InlineResponse201> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = backupStorageValidateBeforeCall(storageId, storage, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for cancelOperation
+     * @param storageId Strage id (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call cancelOperationCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/storage/{storageId}/cancel"
+            .replaceAll("\\{" + "storageId" + "\\}", apiClient.escapeString(storageId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call cancelOperationValidateBeforeCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storageId' is set
+        if (storageId == null) {
+            throw new ApiException("Missing the required parameter 'storageId' when calling cancelOperation(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = cancelOperationCall(storageId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Cancel storage operation
+     * Cancels a running cloning operation and deletes the incomplete copy.
+     * @param storageId Strage id (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void cancelOperation(UUID storageId) throws ApiException {
+        cancelOperationWithHttpInfo(storageId);
+    }
+
+    /**
+     * Cancel storage operation
+     * Cancels a running cloning operation and deletes the incomplete copy.
+     * @param storageId Strage id (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> cancelOperationWithHttpInfo(UUID storageId) throws ApiException {
+        com.squareup.okhttp.Call call = cancelOperationValidateBeforeCall(storageId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Cancel storage operation (asynchronously)
+     * Cancels a running cloning operation and deletes the incomplete copy.
+     * @param storageId Strage id (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call cancelOperationAsync(UUID storageId, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = cancelOperationValidateBeforeCall(storageId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for cloneStorage
+     * @param storageId Storage id (required)
+     * @param storage  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call cloneStorageCall(UUID storageId, Storage2 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = storage;
+        
+        // create path and map variables
+        String localVarPath = "/storage/{storageId}/clone"
+            .replaceAll("\\{" + "storageId" + "\\}", apiClient.escapeString(storageId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call cloneStorageValidateBeforeCall(UUID storageId, Storage2 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storageId' is set
+        if (storageId == null) {
+            throw new ApiException("Missing the required parameter 'storageId' when calling cloneStorage(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = cloneStorageCall(storageId, storage, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Clone storage
+     * Creates an exact copy of an existing storage resource.
+     * @param storageId Storage id (required)
+     * @param storage  (optional)
+     * @return InlineResponse201
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse201 cloneStorage(UUID storageId, Storage2 storage) throws ApiException {
+        ApiResponse<InlineResponse201> resp = cloneStorageWithHttpInfo(storageId, storage);
+        return resp.getData();
+    }
+
+    /**
+     * Clone storage
+     * Creates an exact copy of an existing storage resource.
+     * @param storageId Storage id (required)
+     * @param storage  (optional)
+     * @return ApiResponse&lt;InlineResponse201&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse201> cloneStorageWithHttpInfo(UUID storageId, Storage2 storage) throws ApiException {
+        com.squareup.okhttp.Call call = cloneStorageValidateBeforeCall(storageId, storage, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Clone storage (asynchronously)
+     * Creates an exact copy of an existing storage resource.
+     * @param storageId Storage id (required)
+     * @param storage  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call cloneStorageAsync(UUID storageId, Storage2 storage, final ApiCallback<InlineResponse201> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = cloneStorageValidateBeforeCall(storageId, storage, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createStorage
+     * @param storage  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createStorageCall(Storage storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = storage;
+        
+        // create path and map variables
+        String localVarPath = "/storage";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createStorageValidateBeforeCall(Storage storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storage' is set
+        if (storage == null) {
+            throw new ApiException("Missing the required parameter 'storage' when calling createStorage(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = createStorageCall(storage, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Create storage
+     * Creates a new storage resource.
+     * @param storage  (required)
+     * @return InlineResponse201
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse201 createStorage(Storage storage) throws ApiException {
+        ApiResponse<InlineResponse201> resp = createStorageWithHttpInfo(storage);
+        return resp.getData();
+    }
+
+    /**
+     * Create storage
+     * Creates a new storage resource.
+     * @param storage  (required)
+     * @return ApiResponse&lt;InlineResponse201&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse201> createStorageWithHttpInfo(Storage storage) throws ApiException {
+        com.squareup.okhttp.Call call = createStorageValidateBeforeCall(storage, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create storage (asynchronously)
+     * Creates a new storage resource.
+     * @param storage  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createStorageAsync(Storage storage, final ApiCallback<InlineResponse201> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createStorageValidateBeforeCall(storage, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteStorage
+     * @param storageId  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteStorageCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/storage/{storageId}"
+            .replaceAll("\\{" + "storageId" + "\\}", apiClient.escapeString(storageId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteStorageValidateBeforeCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storageId' is set
+        if (storageId == null) {
+            throw new ApiException("Missing the required parameter 'storageId' when calling deleteStorage(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = deleteStorageCall(storageId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Delete storage
+     * Deleted an existing storage resource.
+     * @param storageId  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteStorage(UUID storageId) throws ApiException {
+        deleteStorageWithHttpInfo(storageId);
+    }
+
+    /**
+     * Delete storage
+     * Deleted an existing storage resource.
+     * @param storageId  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteStorageWithHttpInfo(UUID storageId) throws ApiException {
+        com.squareup.okhttp.Call call = deleteStorageValidateBeforeCall(storageId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete storage (asynchronously)
+     * Deleted an existing storage resource.
+     * @param storageId  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteStorageAsync(UUID storageId, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteStorageValidateBeforeCall(storageId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for detachStorage
+     * @param serverId Server id (required)
+     * @param storageDevice  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call detachStorageCall(UUID serverId, StorageDevice storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = storageDevice;
+        
+        // create path and map variables
+        String localVarPath = "/server/{serverId}/storage/detach"
+            .replaceAll("\\{" + "serverId" + "\\}", apiClient.escapeString(serverId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call detachStorageValidateBeforeCall(UUID serverId, StorageDevice storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'serverId' is set
+        if (serverId == null) {
+            throw new ApiException("Missing the required parameter 'serverId' when calling detachStorage(Async)");
+        }
+        
+        // verify the required parameter 'storageDevice' is set
+        if (storageDevice == null) {
+            throw new ApiException("Missing the required parameter 'storageDevice' when calling detachStorage(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = detachStorageCall(serverId, storageDevice, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Detach storage
+     * Detaches a storage resource from a server.
+     * @param serverId Server id (required)
+     * @param storageDevice  (required)
+     * @return ServerListResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ServerListResponse detachStorage(UUID serverId, StorageDevice storageDevice) throws ApiException {
+        ApiResponse<ServerListResponse> resp = detachStorageWithHttpInfo(serverId, storageDevice);
+        return resp.getData();
+    }
+
+    /**
+     * Detach storage
+     * Detaches a storage resource from a server.
+     * @param serverId Server id (required)
+     * @param storageDevice  (required)
+     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ServerListResponse> detachStorageWithHttpInfo(UUID serverId, StorageDevice storageDevice) throws ApiException {
+        com.squareup.okhttp.Call call = detachStorageValidateBeforeCall(serverId, storageDevice, null, null);
+        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Detach storage (asynchronously)
+     * Detaches a storage resource from a server.
+     * @param serverId Server id (required)
+     * @param storageDevice  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call detachStorageAsync(UUID serverId, StorageDevice storageDevice, final ApiCallback<ServerListResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = detachStorageValidateBeforeCall(serverId, storageDevice, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for ejectCdrom
+     * @param serverId Server id (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call ejectCdromCall(UUID serverId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/server/{serverId}/storage/cdrom/eject"
+            .replaceAll("\\{" + "serverId" + "\\}", apiClient.escapeString(serverId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call ejectCdromValidateBeforeCall(UUID serverId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'serverId' is set
+        if (serverId == null) {
+            throw new ApiException("Missing the required parameter 'serverId' when calling ejectCdrom(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = ejectCdromCall(serverId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Eject CD-ROM
+     * Ejects the storage from the CD-ROM device of a server.
+     * @param serverId Server id (required)
+     * @return ServerListResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ServerListResponse ejectCdrom(UUID serverId) throws ApiException {
+        ApiResponse<ServerListResponse> resp = ejectCdromWithHttpInfo(serverId);
+        return resp.getData();
+    }
+
+    /**
+     * Eject CD-ROM
+     * Ejects the storage from the CD-ROM device of a server.
+     * @param serverId Server id (required)
+     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ServerListResponse> ejectCdromWithHttpInfo(UUID serverId) throws ApiException {
+        com.squareup.okhttp.Call call = ejectCdromValidateBeforeCall(serverId, null, null);
+        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Eject CD-ROM (asynchronously)
+     * Ejects the storage from the CD-ROM device of a server.
+     * @param serverId Server id (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call ejectCdromAsync(UUID serverId, final ApiCallback<ServerListResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = ejectCdromValidateBeforeCall(serverId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for favoriteStorage
+     * @param storageId Storage id (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call favoriteStorageCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/storage/{storageId}/favorite"
+            .replaceAll("\\{" + "storageId" + "\\}", apiClient.escapeString(storageId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call favoriteStorageValidateBeforeCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storageId' is set
+        if (storageId == null) {
+            throw new ApiException("Missing the required parameter 'storageId' when calling favoriteStorage(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = favoriteStorageCall(storageId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Add storage to favorites
+     * Adds a storage to the list of favorite storages. To list favorite storages, see List storages. This operations succeeds even if the storage is already on the list of favorites.
+     * @param storageId Storage id (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void favoriteStorage(UUID storageId) throws ApiException {
+        favoriteStorageWithHttpInfo(storageId);
+    }
+
+    /**
+     * Add storage to favorites
+     * Adds a storage to the list of favorite storages. To list favorite storages, see List storages. This operations succeeds even if the storage is already on the list of favorites.
+     * @param storageId Storage id (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> favoriteStorageWithHttpInfo(UUID storageId) throws ApiException {
+        com.squareup.okhttp.Call call = favoriteStorageValidateBeforeCall(storageId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Add storage to favorites (asynchronously)
+     * Adds a storage to the list of favorite storages. To list favorite storages, see List storages. This operations succeeds even if the storage is already on the list of favorites.
+     * @param storageId Storage id (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call favoriteStorageAsync(UUID storageId, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = favoriteStorageValidateBeforeCall(storageId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for getStorageDetails
+     * @param storageId  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getStorageDetailsCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/storage/{storageId}"
+            .replaceAll("\\{" + "storageId" + "\\}", apiClient.escapeString(storageId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getStorageDetailsValidateBeforeCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storageId' is set
+        if (storageId == null) {
+            throw new ApiException("Missing the required parameter 'storageId' when calling getStorageDetails(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getStorageDetailsCall(storageId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Get storage details
+     * Returns detailed information about a specific storage resource.
+     * @param storageId  (required)
+     * @return InlineResponse201
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse201 getStorageDetails(UUID storageId) throws ApiException {
+        ApiResponse<InlineResponse201> resp = getStorageDetailsWithHttpInfo(storageId);
+        return resp.getData();
+    }
+
+    /**
+     * Get storage details
+     * Returns detailed information about a specific storage resource.
+     * @param storageId  (required)
+     * @return ApiResponse&lt;InlineResponse201&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse201> getStorageDetailsWithHttpInfo(UUID storageId) throws ApiException {
+        com.squareup.okhttp.Call call = getStorageDetailsValidateBeforeCall(storageId, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get storage details (asynchronously)
+     * Returns detailed information about a specific storage resource.
+     * @param storageId  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getStorageDetailsAsync(UUID storageId, final ApiCallback<InlineResponse201> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getStorageDetailsValidateBeforeCall(storageId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for listStorageTypes
+     * @param type Storage&#39;s access type (&#x60;public&#x60; or &#x60;private&#x60;) or storage type (&#x60;normal&#x60;, &#x60;backup&#x60;, &#x60;cdrom&#x60; or &#x60;template&#x60;) or &#x60;favorite&#x60; status (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listStorageTypesCall(String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/storage/{type}"
+            .replaceAll("\\{" + "Type" + "\\}", apiClient.escapeString(type.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listStorageTypesValidateBeforeCall(String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'type' is set
+        if (type == null) {
+            throw new ApiException("Missing the required parameter 'type' when calling listStorageTypes(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = listStorageTypesCall(type, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * List of storages by type
+     * 
+     * @param type Storage&#39;s access type (&#x60;public&#x60; or &#x60;private&#x60;) or storage type (&#x60;normal&#x60;, &#x60;backup&#x60;, &#x60;cdrom&#x60; or &#x60;template&#x60;) or &#x60;favorite&#x60; status (required)
+     * @return SuccessStoragesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SuccessStoragesResponse listStorageTypes(String type) throws ApiException {
+        ApiResponse<SuccessStoragesResponse> resp = listStorageTypesWithHttpInfo(type);
+        return resp.getData();
+    }
+
+    /**
+     * List of storages by type
+     * 
+     * @param type Storage&#39;s access type (&#x60;public&#x60; or &#x60;private&#x60;) or storage type (&#x60;normal&#x60;, &#x60;backup&#x60;, &#x60;cdrom&#x60; or &#x60;template&#x60;) or &#x60;favorite&#x60; status (required)
+     * @return ApiResponse&lt;SuccessStoragesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SuccessStoragesResponse> listStorageTypesWithHttpInfo(String type) throws ApiException {
+        com.squareup.okhttp.Call call = listStorageTypesValidateBeforeCall(type, null, null);
+        Type localVarReturnType = new TypeToken<SuccessStoragesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List of storages by type (asynchronously)
+     * 
+     * @param type Storage&#39;s access type (&#x60;public&#x60; or &#x60;private&#x60;) or storage type (&#x60;normal&#x60;, &#x60;backup&#x60;, &#x60;cdrom&#x60; or &#x60;template&#x60;) or &#x60;favorite&#x60; status (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listStorageTypesAsync(String type, final ApiCallback<SuccessStoragesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listStorageTypesValidateBeforeCall(type, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<SuccessStoragesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for listStorages
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -183,397 +1593,7 @@ public class StorageApi {
         return call;
     }
     /**
-     * Build call for listStorages_0
-     * @param type Storage&#39;s access type (&#x60;public&#x60; or &#x60;private&#x60;) or storage type (&#x60;normal&#x60;, &#x60;backup&#x60;, &#x60;cdrom&#x60; or &#x60;template&#x60;) or &#x60;favorite&#x60; status (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call listStorages_0Call(String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/storage/{type}"
-            .replaceAll("\\{" + "Type" + "\\}", apiClient.escapeString(type.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listStorages_0ValidateBeforeCall(String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'type' is set
-        if (type == null) {
-            throw new ApiException("Missing the required parameter 'type' when calling listStorages_0(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = listStorages_0Call(type, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * List of storages by type
-     * 
-     * @param type Storage&#39;s access type (&#x60;public&#x60; or &#x60;private&#x60;) or storage type (&#x60;normal&#x60;, &#x60;backup&#x60;, &#x60;cdrom&#x60; or &#x60;template&#x60;) or &#x60;favorite&#x60; status (required)
-     * @return SuccessStoragesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public SuccessStoragesResponse listStorages_0(String type) throws ApiException {
-        ApiResponse<SuccessStoragesResponse> resp = listStorages_0WithHttpInfo(type);
-        return resp.getData();
-    }
-
-    /**
-     * List of storages by type
-     * 
-     * @param type Storage&#39;s access type (&#x60;public&#x60; or &#x60;private&#x60;) or storage type (&#x60;normal&#x60;, &#x60;backup&#x60;, &#x60;cdrom&#x60; or &#x60;template&#x60;) or &#x60;favorite&#x60; status (required)
-     * @return ApiResponse&lt;SuccessStoragesResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<SuccessStoragesResponse> listStorages_0WithHttpInfo(String type) throws ApiException {
-        com.squareup.okhttp.Call call = listStorages_0ValidateBeforeCall(type, null, null);
-        Type localVarReturnType = new TypeToken<SuccessStoragesResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * List of storages by type (asynchronously)
-     * 
-     * @param type Storage&#39;s access type (&#x60;public&#x60; or &#x60;private&#x60;) or storage type (&#x60;normal&#x60;, &#x60;backup&#x60;, &#x60;cdrom&#x60; or &#x60;template&#x60;) or &#x60;favorite&#x60; status (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call listStorages_0Async(String type, final ApiCallback<SuccessStoragesResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = listStorages_0ValidateBeforeCall(type, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SuccessStoragesResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for serverServerIdStorageAttachPost
-     * @param serverId Server id (required)
-     * @param storageDevice  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call serverServerIdStorageAttachPostCall(UUID serverId, StorageDevice storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = storageDevice;
-        
-        // create path and map variables
-        String localVarPath = "/server/{serverId}/storage/attach"
-            .replaceAll("\\{" + "serverId" + "\\}", apiClient.escapeString(serverId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call serverServerIdStorageAttachPostValidateBeforeCall(UUID serverId, StorageDevice storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'serverId' is set
-        if (serverId == null) {
-            throw new ApiException("Missing the required parameter 'serverId' when calling serverServerIdStorageAttachPost(Async)");
-        }
-        
-        // verify the required parameter 'storageDevice' is set
-        if (storageDevice == null) {
-            throw new ApiException("Missing the required parameter 'storageDevice' when calling serverServerIdStorageAttachPost(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = serverServerIdStorageAttachPostCall(serverId, storageDevice, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Attach storage
-     * Attaches a storage as a device to a server.
-     * @param serverId Server id (required)
-     * @param storageDevice  (required)
-     * @return ServerListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ServerListResponse serverServerIdStorageAttachPost(UUID serverId, StorageDevice storageDevice) throws ApiException {
-        ApiResponse<ServerListResponse> resp = serverServerIdStorageAttachPostWithHttpInfo(serverId, storageDevice);
-        return resp.getData();
-    }
-
-    /**
-     * Attach storage
-     * Attaches a storage as a device to a server.
-     * @param serverId Server id (required)
-     * @param storageDevice  (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ServerListResponse> serverServerIdStorageAttachPostWithHttpInfo(UUID serverId, StorageDevice storageDevice) throws ApiException {
-        com.squareup.okhttp.Call call = serverServerIdStorageAttachPostValidateBeforeCall(serverId, storageDevice, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Attach storage (asynchronously)
-     * Attaches a storage as a device to a server.
-     * @param serverId Server id (required)
-     * @param storageDevice  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call serverServerIdStorageAttachPostAsync(UUID serverId, StorageDevice storageDevice, final ApiCallback<ServerListResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = serverServerIdStorageAttachPostValidateBeforeCall(serverId, storageDevice, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for serverServerIdStorageCdromEjectPost
-     * @param serverId Server id (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call serverServerIdStorageCdromEjectPostCall(UUID serverId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/server/{serverId}/storage/cdrom/eject"
-            .replaceAll("\\{" + "serverId" + "\\}", apiClient.escapeString(serverId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call serverServerIdStorageCdromEjectPostValidateBeforeCall(UUID serverId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'serverId' is set
-        if (serverId == null) {
-            throw new ApiException("Missing the required parameter 'serverId' when calling serverServerIdStorageCdromEjectPost(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = serverServerIdStorageCdromEjectPostCall(serverId, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Eject CD-ROM
-     * Ejects the storage from the CD-ROM device of a server.
-     * @param serverId Server id (required)
-     * @return ServerListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ServerListResponse serverServerIdStorageCdromEjectPost(UUID serverId) throws ApiException {
-        ApiResponse<ServerListResponse> resp = serverServerIdStorageCdromEjectPostWithHttpInfo(serverId);
-        return resp.getData();
-    }
-
-    /**
-     * Eject CD-ROM
-     * Ejects the storage from the CD-ROM device of a server.
-     * @param serverId Server id (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ServerListResponse> serverServerIdStorageCdromEjectPostWithHttpInfo(UUID serverId) throws ApiException {
-        com.squareup.okhttp.Call call = serverServerIdStorageCdromEjectPostValidateBeforeCall(serverId, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Eject CD-ROM (asynchronously)
-     * Ejects the storage from the CD-ROM device of a server.
-     * @param serverId Server id (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call serverServerIdStorageCdromEjectPostAsync(UUID serverId, final ApiCallback<ServerListResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = serverServerIdStorageCdromEjectPostValidateBeforeCall(serverId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for serverServerIdStorageCdromLoadPost
+     * Build call for loadCdrom
      * @param serverId Server id (required)
      * @param storageDevice  (optional)
      * @param progressListener Progress listener
@@ -581,7 +1601,7 @@ public class StorageApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call serverServerIdStorageCdromLoadPostCall(UUID serverId, StorageDevice1 storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call loadCdromCall(UUID serverId, StorageDevice1 storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = storageDevice;
         
         // create path and map variables
@@ -624,15 +1644,15 @@ public class StorageApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call serverServerIdStorageCdromLoadPostValidateBeforeCall(UUID serverId, StorageDevice1 storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call loadCdromValidateBeforeCall(UUID serverId, StorageDevice1 storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
-            throw new ApiException("Missing the required parameter 'serverId' when calling serverServerIdStorageCdromLoadPost(Async)");
+            throw new ApiException("Missing the required parameter 'serverId' when calling loadCdrom(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = serverServerIdStorageCdromLoadPostCall(serverId, storageDevice, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = loadCdromCall(serverId, storageDevice, progressListener, progressRequestListener);
         return call;
 
         
@@ -649,8 +1669,8 @@ public class StorageApi {
      * @return ServerListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse serverServerIdStorageCdromLoadPost(UUID serverId, StorageDevice1 storageDevice) throws ApiException {
-        ApiResponse<ServerListResponse> resp = serverServerIdStorageCdromLoadPostWithHttpInfo(serverId, storageDevice);
+    public ServerListResponse loadCdrom(UUID serverId, StorageDevice1 storageDevice) throws ApiException {
+        ApiResponse<ServerListResponse> resp = loadCdromWithHttpInfo(serverId, storageDevice);
         return resp.getData();
     }
 
@@ -662,8 +1682,8 @@ public class StorageApi {
      * @return ApiResponse&lt;ServerListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> serverServerIdStorageCdromLoadPostWithHttpInfo(UUID serverId, StorageDevice1 storageDevice) throws ApiException {
-        com.squareup.okhttp.Call call = serverServerIdStorageCdromLoadPostValidateBeforeCall(serverId, storageDevice, null, null);
+    public ApiResponse<ServerListResponse> loadCdromWithHttpInfo(UUID serverId, StorageDevice1 storageDevice) throws ApiException {
+        com.squareup.okhttp.Call call = loadCdromValidateBeforeCall(serverId, storageDevice, null, null);
         Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -677,7 +1697,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call serverServerIdStorageCdromLoadPostAsync(UUID serverId, StorageDevice1 storageDevice, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call loadCdromAsync(UUID serverId, StorageDevice1 storageDevice, final ApiCallback<ServerListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -698,1156 +1718,13 @@ public class StorageApi {
             };
         }
 
-        com.squareup.okhttp.Call call = serverServerIdStorageCdromLoadPostValidateBeforeCall(serverId, storageDevice, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = loadCdromValidateBeforeCall(serverId, storageDevice, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for serverServerIdStorageDetachPost
-     * @param serverId Server id (required)
-     * @param storageDevice  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call serverServerIdStorageDetachPostCall(UUID serverId, StorageDevice storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = storageDevice;
-        
-        // create path and map variables
-        String localVarPath = "/server/{serverId}/storage/detach"
-            .replaceAll("\\{" + "serverId" + "\\}", apiClient.escapeString(serverId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call serverServerIdStorageDetachPostValidateBeforeCall(UUID serverId, StorageDevice storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'serverId' is set
-        if (serverId == null) {
-            throw new ApiException("Missing the required parameter 'serverId' when calling serverServerIdStorageDetachPost(Async)");
-        }
-        
-        // verify the required parameter 'storageDevice' is set
-        if (storageDevice == null) {
-            throw new ApiException("Missing the required parameter 'storageDevice' when calling serverServerIdStorageDetachPost(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = serverServerIdStorageDetachPostCall(serverId, storageDevice, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Detach storage
-     * Detaches a storage resource from a server.
-     * @param serverId Server id (required)
-     * @param storageDevice  (required)
-     * @return ServerListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ServerListResponse serverServerIdStorageDetachPost(UUID serverId, StorageDevice storageDevice) throws ApiException {
-        ApiResponse<ServerListResponse> resp = serverServerIdStorageDetachPostWithHttpInfo(serverId, storageDevice);
-        return resp.getData();
-    }
-
-    /**
-     * Detach storage
-     * Detaches a storage resource from a server.
-     * @param serverId Server id (required)
-     * @param storageDevice  (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ServerListResponse> serverServerIdStorageDetachPostWithHttpInfo(UUID serverId, StorageDevice storageDevice) throws ApiException {
-        com.squareup.okhttp.Call call = serverServerIdStorageDetachPostValidateBeforeCall(serverId, storageDevice, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Detach storage (asynchronously)
-     * Detaches a storage resource from a server.
-     * @param serverId Server id (required)
-     * @param storageDevice  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call serverServerIdStorageDetachPostAsync(UUID serverId, StorageDevice storageDevice, final ApiCallback<ServerListResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = serverServerIdStorageDetachPostValidateBeforeCall(serverId, storageDevice, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for storagePost
-     * @param storage  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call storagePostCall(Storage storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = storage;
-        
-        // create path and map variables
-        String localVarPath = "/storage";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call storagePostValidateBeforeCall(Storage storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'storage' is set
-        if (storage == null) {
-            throw new ApiException("Missing the required parameter 'storage' when calling storagePost(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = storagePostCall(storage, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Create storage
-     * Creates a new storage resource.
-     * @param storage  (required)
-     * @return InlineResponse201
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public InlineResponse201 storagePost(Storage storage) throws ApiException {
-        ApiResponse<InlineResponse201> resp = storagePostWithHttpInfo(storage);
-        return resp.getData();
-    }
-
-    /**
-     * Create storage
-     * Creates a new storage resource.
-     * @param storage  (required)
-     * @return ApiResponse&lt;InlineResponse201&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<InlineResponse201> storagePostWithHttpInfo(Storage storage) throws ApiException {
-        com.squareup.okhttp.Call call = storagePostValidateBeforeCall(storage, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Create storage (asynchronously)
-     * Creates a new storage resource.
-     * @param storage  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call storagePostAsync(Storage storage, final ApiCallback<InlineResponse201> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = storagePostValidateBeforeCall(storage, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for storageStorageIdBackupPost
-     * @param storageId Storage id (required)
-     * @param storage  (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call storageStorageIdBackupPostCall(UUID storageId, Storage4 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = storage;
-        
-        // create path and map variables
-        String localVarPath = "/storage/{storageId}/backup"
-            .replaceAll("\\{" + "storageId" + "\\}", apiClient.escapeString(storageId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call storageStorageIdBackupPostValidateBeforeCall(UUID storageId, Storage4 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'storageId' is set
-        if (storageId == null) {
-            throw new ApiException("Missing the required parameter 'storageId' when calling storageStorageIdBackupPost(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = storageStorageIdBackupPostCall(storageId, storage, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Create backup
-     * Creates a point-in-time backup of a storage resource. For automatic, scheduled backups, see  &#x60;backup_rule&#x60; in Create storage or Modify storage.
-     * @param storageId Storage id (required)
-     * @param storage  (optional)
-     * @return InlineResponse201
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public InlineResponse201 storageStorageIdBackupPost(UUID storageId, Storage4 storage) throws ApiException {
-        ApiResponse<InlineResponse201> resp = storageStorageIdBackupPostWithHttpInfo(storageId, storage);
-        return resp.getData();
-    }
-
-    /**
-     * Create backup
-     * Creates a point-in-time backup of a storage resource. For automatic, scheduled backups, see  &#x60;backup_rule&#x60; in Create storage or Modify storage.
-     * @param storageId Storage id (required)
-     * @param storage  (optional)
-     * @return ApiResponse&lt;InlineResponse201&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<InlineResponse201> storageStorageIdBackupPostWithHttpInfo(UUID storageId, Storage4 storage) throws ApiException {
-        com.squareup.okhttp.Call call = storageStorageIdBackupPostValidateBeforeCall(storageId, storage, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Create backup (asynchronously)
-     * Creates a point-in-time backup of a storage resource. For automatic, scheduled backups, see  &#x60;backup_rule&#x60; in Create storage or Modify storage.
-     * @param storageId Storage id (required)
-     * @param storage  (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call storageStorageIdBackupPostAsync(UUID storageId, Storage4 storage, final ApiCallback<InlineResponse201> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = storageStorageIdBackupPostValidateBeforeCall(storageId, storage, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for storageStorageIdCancelPost
-     * @param storageId Strage id (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call storageStorageIdCancelPostCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/storage/{storageId}/cancel"
-            .replaceAll("\\{" + "storageId" + "\\}", apiClient.escapeString(storageId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call storageStorageIdCancelPostValidateBeforeCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'storageId' is set
-        if (storageId == null) {
-            throw new ApiException("Missing the required parameter 'storageId' when calling storageStorageIdCancelPost(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = storageStorageIdCancelPostCall(storageId, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Cancel storage operation
-     * Cancels a running cloning operation and deletes the incomplete copy.
-     * @param storageId Strage id (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public void storageStorageIdCancelPost(UUID storageId) throws ApiException {
-        storageStorageIdCancelPostWithHttpInfo(storageId);
-    }
-
-    /**
-     * Cancel storage operation
-     * Cancels a running cloning operation and deletes the incomplete copy.
-     * @param storageId Strage id (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Void> storageStorageIdCancelPostWithHttpInfo(UUID storageId) throws ApiException {
-        com.squareup.okhttp.Call call = storageStorageIdCancelPostValidateBeforeCall(storageId, null, null);
-        return apiClient.execute(call);
-    }
-
-    /**
-     * Cancel storage operation (asynchronously)
-     * Cancels a running cloning operation and deletes the incomplete copy.
-     * @param storageId Strage id (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call storageStorageIdCancelPostAsync(UUID storageId, final ApiCallback<Void> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = storageStorageIdCancelPostValidateBeforeCall(storageId, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
-        return call;
-    }
-    /**
-     * Build call for storageStorageIdClonePost
-     * @param storageId Storage id (required)
-     * @param storage  (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call storageStorageIdClonePostCall(UUID storageId, Storage2 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = storage;
-        
-        // create path and map variables
-        String localVarPath = "/storage/{storageId}/clone"
-            .replaceAll("\\{" + "storageId" + "\\}", apiClient.escapeString(storageId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call storageStorageIdClonePostValidateBeforeCall(UUID storageId, Storage2 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'storageId' is set
-        if (storageId == null) {
-            throw new ApiException("Missing the required parameter 'storageId' when calling storageStorageIdClonePost(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = storageStorageIdClonePostCall(storageId, storage, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Clone storage
-     * Creates an exact copy of an existing storage resource.
-     * @param storageId Storage id (required)
-     * @param storage  (optional)
-     * @return InlineResponse201
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public InlineResponse201 storageStorageIdClonePost(UUID storageId, Storage2 storage) throws ApiException {
-        ApiResponse<InlineResponse201> resp = storageStorageIdClonePostWithHttpInfo(storageId, storage);
-        return resp.getData();
-    }
-
-    /**
-     * Clone storage
-     * Creates an exact copy of an existing storage resource.
-     * @param storageId Storage id (required)
-     * @param storage  (optional)
-     * @return ApiResponse&lt;InlineResponse201&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<InlineResponse201> storageStorageIdClonePostWithHttpInfo(UUID storageId, Storage2 storage) throws ApiException {
-        com.squareup.okhttp.Call call = storageStorageIdClonePostValidateBeforeCall(storageId, storage, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Clone storage (asynchronously)
-     * Creates an exact copy of an existing storage resource.
-     * @param storageId Storage id (required)
-     * @param storage  (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call storageStorageIdClonePostAsync(UUID storageId, Storage2 storage, final ApiCallback<InlineResponse201> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = storageStorageIdClonePostValidateBeforeCall(storageId, storage, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for storageStorageIdDelete
-     * @param storageId  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call storageStorageIdDeleteCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/storage/{storageId}"
-            .replaceAll("\\{" + "storageId" + "\\}", apiClient.escapeString(storageId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call storageStorageIdDeleteValidateBeforeCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'storageId' is set
-        if (storageId == null) {
-            throw new ApiException("Missing the required parameter 'storageId' when calling storageStorageIdDelete(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = storageStorageIdDeleteCall(storageId, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Delete storage
-     * Deleted an existing storage resource.
-     * @param storageId  (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public void storageStorageIdDelete(UUID storageId) throws ApiException {
-        storageStorageIdDeleteWithHttpInfo(storageId);
-    }
-
-    /**
-     * Delete storage
-     * Deleted an existing storage resource.
-     * @param storageId  (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Void> storageStorageIdDeleteWithHttpInfo(UUID storageId) throws ApiException {
-        com.squareup.okhttp.Call call = storageStorageIdDeleteValidateBeforeCall(storageId, null, null);
-        return apiClient.execute(call);
-    }
-
-    /**
-     * Delete storage (asynchronously)
-     * Deleted an existing storage resource.
-     * @param storageId  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call storageStorageIdDeleteAsync(UUID storageId, final ApiCallback<Void> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = storageStorageIdDeleteValidateBeforeCall(storageId, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
-        return call;
-    }
-    /**
-     * Build call for storageStorageIdFavoriteDelete
-     * @param storageId Storage id (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call storageStorageIdFavoriteDeleteCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/storage/{storageId}/favorite"
-            .replaceAll("\\{" + "storageId" + "\\}", apiClient.escapeString(storageId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call storageStorageIdFavoriteDeleteValidateBeforeCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'storageId' is set
-        if (storageId == null) {
-            throw new ApiException("Missing the required parameter 'storageId' when calling storageStorageIdFavoriteDelete(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = storageStorageIdFavoriteDeleteCall(storageId, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Remove storage from favorites
-     * Delete a storage from the list of favorite storages. To list favorite storages, see List storages. This operations succeeds even if the storage is already on the list of favorites.
-     * @param storageId Storage id (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public void storageStorageIdFavoriteDelete(UUID storageId) throws ApiException {
-        storageStorageIdFavoriteDeleteWithHttpInfo(storageId);
-    }
-
-    /**
-     * Remove storage from favorites
-     * Delete a storage from the list of favorite storages. To list favorite storages, see List storages. This operations succeeds even if the storage is already on the list of favorites.
-     * @param storageId Storage id (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Void> storageStorageIdFavoriteDeleteWithHttpInfo(UUID storageId) throws ApiException {
-        com.squareup.okhttp.Call call = storageStorageIdFavoriteDeleteValidateBeforeCall(storageId, null, null);
-        return apiClient.execute(call);
-    }
-
-    /**
-     * Remove storage from favorites (asynchronously)
-     * Delete a storage from the list of favorite storages. To list favorite storages, see List storages. This operations succeeds even if the storage is already on the list of favorites.
-     * @param storageId Storage id (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call storageStorageIdFavoriteDeleteAsync(UUID storageId, final ApiCallback<Void> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = storageStorageIdFavoriteDeleteValidateBeforeCall(storageId, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
-        return call;
-    }
-    /**
-     * Build call for storageStorageIdFavoritePost
-     * @param storageId Storage id (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call storageStorageIdFavoritePostCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/storage/{storageId}/favorite"
-            .replaceAll("\\{" + "storageId" + "\\}", apiClient.escapeString(storageId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call storageStorageIdFavoritePostValidateBeforeCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'storageId' is set
-        if (storageId == null) {
-            throw new ApiException("Missing the required parameter 'storageId' when calling storageStorageIdFavoritePost(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = storageStorageIdFavoritePostCall(storageId, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Add storage to favorites
-     * Adds a storage to the list of favorite storages. To list favorite storages, see List storages. This operations succeeds even if the storage is already on the list of favorites.
-     * @param storageId Storage id (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public void storageStorageIdFavoritePost(UUID storageId) throws ApiException {
-        storageStorageIdFavoritePostWithHttpInfo(storageId);
-    }
-
-    /**
-     * Add storage to favorites
-     * Adds a storage to the list of favorite storages. To list favorite storages, see List storages. This operations succeeds even if the storage is already on the list of favorites.
-     * @param storageId Storage id (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Void> storageStorageIdFavoritePostWithHttpInfo(UUID storageId) throws ApiException {
-        com.squareup.okhttp.Call call = storageStorageIdFavoritePostValidateBeforeCall(storageId, null, null);
-        return apiClient.execute(call);
-    }
-
-    /**
-     * Add storage to favorites (asynchronously)
-     * Adds a storage to the list of favorite storages. To list favorite storages, see List storages. This operations succeeds even if the storage is already on the list of favorites.
-     * @param storageId Storage id (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call storageStorageIdFavoritePostAsync(UUID storageId, final ApiCallback<Void> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = storageStorageIdFavoritePostValidateBeforeCall(storageId, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
-        return call;
-    }
-    /**
-     * Build call for storageStorageIdGet
-     * @param storageId  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call storageStorageIdGetCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/storage/{storageId}"
-            .replaceAll("\\{" + "storageId" + "\\}", apiClient.escapeString(storageId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call storageStorageIdGetValidateBeforeCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'storageId' is set
-        if (storageId == null) {
-            throw new ApiException("Missing the required parameter 'storageId' when calling storageStorageIdGet(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = storageStorageIdGetCall(storageId, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Get storage details
-     * Returns detailed information about a specific storage resource.
-     * @param storageId  (required)
-     * @return InlineResponse201
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public InlineResponse201 storageStorageIdGet(UUID storageId) throws ApiException {
-        ApiResponse<InlineResponse201> resp = storageStorageIdGetWithHttpInfo(storageId);
-        return resp.getData();
-    }
-
-    /**
-     * Get storage details
-     * Returns detailed information about a specific storage resource.
-     * @param storageId  (required)
-     * @return ApiResponse&lt;InlineResponse201&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<InlineResponse201> storageStorageIdGetWithHttpInfo(UUID storageId) throws ApiException {
-        com.squareup.okhttp.Call call = storageStorageIdGetValidateBeforeCall(storageId, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Get storage details (asynchronously)
-     * Returns detailed information about a specific storage resource.
-     * @param storageId  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call storageStorageIdGetAsync(UUID storageId, final ApiCallback<InlineResponse201> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = storageStorageIdGetValidateBeforeCall(storageId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for storageStorageIdPut
+     * Build call for modifyStorage
      * @param storageId  (required)
      * @param storage  (required)
      * @param progressListener Progress listener
@@ -1855,7 +1732,7 @@ public class StorageApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call storageStorageIdPutCall(UUID storageId, Storage1 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call modifyStorageCall(UUID storageId, Storage1 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = storage;
         
         // create path and map variables
@@ -1898,20 +1775,20 @@ public class StorageApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call storageStorageIdPutValidateBeforeCall(UUID storageId, Storage1 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call modifyStorageValidateBeforeCall(UUID storageId, Storage1 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storageId' is set
         if (storageId == null) {
-            throw new ApiException("Missing the required parameter 'storageId' when calling storageStorageIdPut(Async)");
+            throw new ApiException("Missing the required parameter 'storageId' when calling modifyStorage(Async)");
         }
         
         // verify the required parameter 'storage' is set
         if (storage == null) {
-            throw new ApiException("Missing the required parameter 'storage' when calling storageStorageIdPut(Async)");
+            throw new ApiException("Missing the required parameter 'storage' when calling modifyStorage(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = storageStorageIdPutCall(storageId, storage, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = modifyStorageCall(storageId, storage, progressListener, progressRequestListener);
         return call;
 
         
@@ -1928,8 +1805,8 @@ public class StorageApi {
      * @return InlineResponse201
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse201 storageStorageIdPut(UUID storageId, Storage1 storage) throws ApiException {
-        ApiResponse<InlineResponse201> resp = storageStorageIdPutWithHttpInfo(storageId, storage);
+    public InlineResponse201 modifyStorage(UUID storageId, Storage1 storage) throws ApiException {
+        ApiResponse<InlineResponse201> resp = modifyStorageWithHttpInfo(storageId, storage);
         return resp.getData();
     }
 
@@ -1941,8 +1818,8 @@ public class StorageApi {
      * @return ApiResponse&lt;InlineResponse201&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse201> storageStorageIdPutWithHttpInfo(UUID storageId, Storage1 storage) throws ApiException {
-        com.squareup.okhttp.Call call = storageStorageIdPutValidateBeforeCall(storageId, storage, null, null);
+    public ApiResponse<InlineResponse201> modifyStorageWithHttpInfo(UUID storageId, Storage1 storage) throws ApiException {
+        com.squareup.okhttp.Call call = modifyStorageValidateBeforeCall(storageId, storage, null, null);
         Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1956,7 +1833,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call storageStorageIdPutAsync(UUID storageId, Storage1 storage, final ApiCallback<InlineResponse201> callback) throws ApiException {
+    public com.squareup.okhttp.Call modifyStorageAsync(UUID storageId, Storage1 storage, final ApiCallback<InlineResponse201> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1977,20 +1854,20 @@ public class StorageApi {
             };
         }
 
-        com.squareup.okhttp.Call call = storageStorageIdPutValidateBeforeCall(storageId, storage, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = modifyStorageValidateBeforeCall(storageId, storage, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for storageStorageIdRestorePost
+     * Build call for restoreStorage
      * @param storageId Storage id (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call storageStorageIdRestorePostCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call restoreStorageCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -2033,15 +1910,15 @@ public class StorageApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call storageStorageIdRestorePostValidateBeforeCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call restoreStorageValidateBeforeCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storageId' is set
         if (storageId == null) {
-            throw new ApiException("Missing the required parameter 'storageId' when calling storageStorageIdRestorePost(Async)");
+            throw new ApiException("Missing the required parameter 'storageId' when calling restoreStorage(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = storageStorageIdRestorePostCall(storageId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = restoreStorageCall(storageId, progressListener, progressRequestListener);
         return call;
 
         
@@ -2056,8 +1933,8 @@ public class StorageApi {
      * @param storageId Storage id (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void storageStorageIdRestorePost(UUID storageId) throws ApiException {
-        storageStorageIdRestorePostWithHttpInfo(storageId);
+    public void restoreStorage(UUID storageId) throws ApiException {
+        restoreStorageWithHttpInfo(storageId);
     }
 
     /**
@@ -2067,8 +1944,8 @@ public class StorageApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> storageStorageIdRestorePostWithHttpInfo(UUID storageId) throws ApiException {
-        com.squareup.okhttp.Call call = storageStorageIdRestorePostValidateBeforeCall(storageId, null, null);
+    public ApiResponse<Void> restoreStorageWithHttpInfo(UUID storageId) throws ApiException {
+        com.squareup.okhttp.Call call = restoreStorageValidateBeforeCall(storageId, null, null);
         return apiClient.execute(call);
     }
 
@@ -2080,7 +1957,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call storageStorageIdRestorePostAsync(UUID storageId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call restoreStorageAsync(UUID storageId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2101,12 +1978,12 @@ public class StorageApi {
             };
         }
 
-        com.squareup.okhttp.Call call = storageStorageIdRestorePostValidateBeforeCall(storageId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = restoreStorageValidateBeforeCall(storageId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
-     * Build call for storageStorageIdTemplatizePost
+     * Build call for templatizeStorage
      * @param storageId Storage id (required)
      * @param storage  (optional)
      * @param progressListener Progress listener
@@ -2114,7 +1991,7 @@ public class StorageApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call storageStorageIdTemplatizePostCall(UUID storageId, Storage3 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call templatizeStorageCall(UUID storageId, Storage3 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = storage;
         
         // create path and map variables
@@ -2157,15 +2034,15 @@ public class StorageApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call storageStorageIdTemplatizePostValidateBeforeCall(UUID storageId, Storage3 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call templatizeStorageValidateBeforeCall(UUID storageId, Storage3 storage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'storageId' is set
         if (storageId == null) {
-            throw new ApiException("Missing the required parameter 'storageId' when calling storageStorageIdTemplatizePost(Async)");
+            throw new ApiException("Missing the required parameter 'storageId' when calling templatizeStorage(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = storageStorageIdTemplatizePostCall(storageId, storage, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = templatizeStorageCall(storageId, storage, progressListener, progressRequestListener);
         return call;
 
         
@@ -2182,8 +2059,8 @@ public class StorageApi {
      * @return InlineResponse201
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse201 storageStorageIdTemplatizePost(UUID storageId, Storage3 storage) throws ApiException {
-        ApiResponse<InlineResponse201> resp = storageStorageIdTemplatizePostWithHttpInfo(storageId, storage);
+    public InlineResponse201 templatizeStorage(UUID storageId, Storage3 storage) throws ApiException {
+        ApiResponse<InlineResponse201> resp = templatizeStorageWithHttpInfo(storageId, storage);
         return resp.getData();
     }
 
@@ -2195,8 +2072,8 @@ public class StorageApi {
      * @return ApiResponse&lt;InlineResponse201&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse201> storageStorageIdTemplatizePostWithHttpInfo(UUID storageId, Storage3 storage) throws ApiException {
-        com.squareup.okhttp.Call call = storageStorageIdTemplatizePostValidateBeforeCall(storageId, storage, null, null);
+    public ApiResponse<InlineResponse201> templatizeStorageWithHttpInfo(UUID storageId, Storage3 storage) throws ApiException {
+        com.squareup.okhttp.Call call = templatizeStorageValidateBeforeCall(storageId, storage, null, null);
         Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2210,7 +2087,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call storageStorageIdTemplatizePostAsync(UUID storageId, Storage3 storage, final ApiCallback<InlineResponse201> callback) throws ApiException {
+    public com.squareup.okhttp.Call templatizeStorageAsync(UUID storageId, Storage3 storage, final ApiCallback<InlineResponse201> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2231,9 +2108,132 @@ public class StorageApi {
             };
         }
 
-        com.squareup.okhttp.Call call = storageStorageIdTemplatizePostValidateBeforeCall(storageId, storage, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = templatizeStorageValidateBeforeCall(storageId, storage, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for unfavoriteStorage
+     * @param storageId Storage id (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call unfavoriteStorageCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/storage/{storageId}/favorite"
+            .replaceAll("\\{" + "storageId" + "\\}", apiClient.escapeString(storageId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call unfavoriteStorageValidateBeforeCall(UUID storageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'storageId' is set
+        if (storageId == null) {
+            throw new ApiException("Missing the required parameter 'storageId' when calling unfavoriteStorage(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = unfavoriteStorageCall(storageId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Remove storage from favorites
+     * Delete a storage from the list of favorite storages. To list favorite storages, see List storages. This operations succeeds even if the storage is already on the list of favorites.
+     * @param storageId Storage id (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void unfavoriteStorage(UUID storageId) throws ApiException {
+        unfavoriteStorageWithHttpInfo(storageId);
+    }
+
+    /**
+     * Remove storage from favorites
+     * Delete a storage from the list of favorite storages. To list favorite storages, see List storages. This operations succeeds even if the storage is already on the list of favorites.
+     * @param storageId Storage id (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> unfavoriteStorageWithHttpInfo(UUID storageId) throws ApiException {
+        com.squareup.okhttp.Call call = unfavoriteStorageValidateBeforeCall(storageId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Remove storage from favorites (asynchronously)
+     * Delete a storage from the list of favorite storages. To list favorite storages, see List storages. This operations succeeds even if the storage is already on the list of favorites.
+     * @param storageId Storage id (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call unfavoriteStorageAsync(UUID storageId, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = unfavoriteStorageValidateBeforeCall(storageId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
 }

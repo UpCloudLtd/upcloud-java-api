@@ -55,13 +55,13 @@ public class PlanApi {
     }
 
     /**
-     * Build call for planGet
+     * Build call for listPlans
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call planGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call listPlansCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -103,10 +103,10 @@ public class PlanApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call planGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listPlansValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = planGetCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listPlansCall(progressListener, progressRequestListener);
         return call;
 
         
@@ -121,8 +121,8 @@ public class PlanApi {
      * @return InlineResponse2003
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2003 planGet() throws ApiException {
-        ApiResponse<InlineResponse2003> resp = planGetWithHttpInfo();
+    public InlineResponse2003 listPlans() throws ApiException {
+        ApiResponse<InlineResponse2003> resp = listPlansWithHttpInfo();
         return resp.getData();
     }
 
@@ -132,8 +132,8 @@ public class PlanApi {
      * @return ApiResponse&lt;InlineResponse2003&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2003> planGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = planGetValidateBeforeCall(null, null);
+    public ApiResponse<InlineResponse2003> listPlansWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = listPlansValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -145,7 +145,7 @@ public class PlanApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call planGetAsync(final ApiCallback<InlineResponse2003> callback) throws ApiException {
+    public com.squareup.okhttp.Call listPlansAsync(final ApiCallback<InlineResponse2003> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -166,7 +166,7 @@ public class PlanApi {
             };
         }
 
-        com.squareup.okhttp.Call call = planGetValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listPlansValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

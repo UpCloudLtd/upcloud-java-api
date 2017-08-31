@@ -4,15 +4,61 @@ All URIs are relative to *http://localhost/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**serverServerIdFirewallRuleFirewallRuleNumberDelete**](FirewallApi.md#serverServerIdFirewallRuleFirewallRuleNumberDelete) | **DELETE** /server/{serverId}/firewall_rule/{firewallRuleNumber} | Remove firewall rule
-[**serverServerIdFirewallRuleFirewallRuleNumberGet**](FirewallApi.md#serverServerIdFirewallRuleFirewallRuleNumberGet) | **GET** /server/{serverId}/firewall_rule/{firewallRuleNumber} | Get firewall rule details
+[**createFirewallRule**](FirewallApi.md#createFirewallRule) | **POST** /server/{serverId}/firewall_rule | Create firewall rule
+[**deleteFirewallRule**](FirewallApi.md#deleteFirewallRule) | **DELETE** /server/{serverId}/firewall_rule/{firewallRuleNumber} | Remove firewall rule
+[**getFirewallRule**](FirewallApi.md#getFirewallRule) | **GET** /server/{serverId}/firewall_rule/{firewallRuleNumber} | Get firewall rule details
 [**serverServerIdFirewallRuleGet**](FirewallApi.md#serverServerIdFirewallRuleGet) | **GET** /server/{serverId}/firewall_rule | List firewall rules
-[**serverServerIdFirewallRulePost**](FirewallApi.md#serverServerIdFirewallRulePost) | **POST** /server/{serverId}/firewall_rule | Create firewall rule
 
 
-<a name="serverServerIdFirewallRuleFirewallRuleNumberDelete"></a>
-# **serverServerIdFirewallRuleFirewallRuleNumberDelete**
-> serverServerIdFirewallRuleFirewallRuleNumberDelete(serverId, firewallRuleNumber)
+<a name="createFirewallRule"></a>
+# **createFirewallRule**
+> createFirewallRule(serverId, firewallRule)
+
+Create firewall rule
+
+Creates a new firewall rule
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.FirewallApi;
+
+
+FirewallApi apiInstance = new FirewallApi();
+UUID serverId = new UUID(); // UUID | Server id
+FirewallRule firewallRule = new FirewallRule(); // FirewallRule | 
+try {
+    apiInstance.createFirewallRule(serverId, firewallRule);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FirewallApi#createFirewallRule");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serverId** | **UUID**| Server id |
+ **firewallRule** | [**FirewallRule**](FirewallRule.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a name="deleteFirewallRule"></a>
+# **deleteFirewallRule**
+> deleteFirewallRule(serverId, firewallRuleNumber)
 
 Remove firewall rule
 
@@ -29,9 +75,9 @@ FirewallApi apiInstance = new FirewallApi();
 UUID serverId = new UUID(); // UUID | Server id
 UUID firewallRuleNumber = new UUID(); // UUID | Denotes the index of the firewall rule in the server's firewall rule list
 try {
-    apiInstance.serverServerIdFirewallRuleFirewallRuleNumberDelete(serverId, firewallRuleNumber);
+    apiInstance.deleteFirewallRule(serverId, firewallRuleNumber);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FirewallApi#serverServerIdFirewallRuleFirewallRuleNumberDelete");
+    System.err.println("Exception when calling FirewallApi#deleteFirewallRule");
     e.printStackTrace();
 }
 ```
@@ -56,9 +102,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="serverServerIdFirewallRuleFirewallRuleNumberGet"></a>
-# **serverServerIdFirewallRuleFirewallRuleNumberGet**
-> InlineResponse2008 serverServerIdFirewallRuleFirewallRuleNumberGet(serverId, firewallRuleNumber)
+<a name="getFirewallRule"></a>
+# **getFirewallRule**
+> InlineResponse2008 getFirewallRule(serverId, firewallRuleNumber)
 
 Get firewall rule details
 
@@ -75,10 +121,10 @@ FirewallApi apiInstance = new FirewallApi();
 UUID serverId = new UUID(); // UUID | Server id
 UUID firewallRuleNumber = new UUID(); // UUID | Denotes the index of the firewall rule in the server's firewall rule list
 try {
-    InlineResponse2008 result = apiInstance.serverServerIdFirewallRuleFirewallRuleNumberGet(serverId, firewallRuleNumber);
+    InlineResponse2008 result = apiInstance.getFirewallRule(serverId, firewallRuleNumber);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FirewallApi#serverServerIdFirewallRuleFirewallRuleNumberGet");
+    System.err.println("Exception when calling FirewallApi#getFirewallRule");
     e.printStackTrace();
 }
 ```
@@ -138,52 +184,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InlineResponse2007**](InlineResponse2007.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-<a name="serverServerIdFirewallRulePost"></a>
-# **serverServerIdFirewallRulePost**
-> serverServerIdFirewallRulePost(serverId, firewallRule)
-
-Create firewall rule
-
-Creates a new firewall rule
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FirewallApi;
-
-
-FirewallApi apiInstance = new FirewallApi();
-UUID serverId = new UUID(); // UUID | Server id
-FirewallRule firewallRule = new FirewallRule(); // FirewallRule | 
-try {
-    apiInstance.serverServerIdFirewallRulePost(serverId, firewallRule);
-} catch (ApiException e) {
-    System.err.println("Exception when calling FirewallApi#serverServerIdFirewallRulePost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serverId** | **UUID**| Server id |
- **firewallRule** | [**FirewallRule**](FirewallRule.md)|  |
-
-### Return type
-
-null (empty response body)
 
 ### Authorization
 

@@ -59,14 +59,15 @@ public class IPAddressApi {
     }
 
     /**
-     * Build call for ipAddressGet
+     * Build call for addIp
+     * @param ipAddress  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ipAddressGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call addIpCall(IpAddress ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = ipAddress;
         
         // create path and map variables
         String localVarPath = "/ip_address";
@@ -103,14 +104,14 @@ public class IPAddressApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ipAddressGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addIpValidateBeforeCall(IpAddress ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
-        com.squareup.okhttp.Call call = ipAddressGetCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addIpCall(ipAddress, progressListener, progressRequestListener);
         return call;
 
         
@@ -120,36 +121,39 @@ public class IPAddressApi {
     }
 
     /**
-     * List IP addresses
-     * Returns a list of all IP addresses assigned to servers on the current user account.
-     * @return InlineResponse2006
+     * Assign IP address
+     * Assigns a new IP address to a server.
+     * @param ipAddress  (optional)
+     * @return InlineResponse2011
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2006 ipAddressGet() throws ApiException {
-        ApiResponse<InlineResponse2006> resp = ipAddressGetWithHttpInfo();
+    public InlineResponse2011 addIp(IpAddress ipAddress) throws ApiException {
+        ApiResponse<InlineResponse2011> resp = addIpWithHttpInfo(ipAddress);
         return resp.getData();
     }
 
     /**
-     * List IP addresses
-     * Returns a list of all IP addresses assigned to servers on the current user account.
-     * @return ApiResponse&lt;InlineResponse2006&gt;
+     * Assign IP address
+     * Assigns a new IP address to a server.
+     * @param ipAddress  (optional)
+     * @return ApiResponse&lt;InlineResponse2011&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2006> ipAddressGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = ipAddressGetValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2006>(){}.getType();
+    public ApiResponse<InlineResponse2011> addIpWithHttpInfo(IpAddress ipAddress) throws ApiException {
+        com.squareup.okhttp.Call call = addIpValidateBeforeCall(ipAddress, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2011>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * List IP addresses (asynchronously)
-     * Returns a list of all IP addresses assigned to servers on the current user account.
+     * Assign IP address (asynchronously)
+     * Assigns a new IP address to a server.
+     * @param ipAddress  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ipAddressGetAsync(final ApiCallback<InlineResponse2006> callback) throws ApiException {
+    public com.squareup.okhttp.Call addIpAsync(IpAddress ipAddress, final ApiCallback<InlineResponse2011> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -170,20 +174,20 @@ public class IPAddressApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ipAddressGetValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2006>(){}.getType();
+        com.squareup.okhttp.Call call = addIpValidateBeforeCall(ipAddress, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2011>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for ipAddressIpDelete
+     * Build call for deleteIp
      * @param ip Ip address (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ipAddressIpDeleteCall(String ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteIpCall(String ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -226,15 +230,15 @@ public class IPAddressApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ipAddressIpDeleteValidateBeforeCall(String ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteIpValidateBeforeCall(String ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ip' is set
         if (ip == null) {
-            throw new ApiException("Missing the required parameter 'ip' when calling ipAddressIpDelete(Async)");
+            throw new ApiException("Missing the required parameter 'ip' when calling deleteIp(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = ipAddressIpDeleteCall(ip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteIpCall(ip, progressListener, progressRequestListener);
         return call;
 
         
@@ -249,8 +253,8 @@ public class IPAddressApi {
      * @param ip Ip address (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void ipAddressIpDelete(String ip) throws ApiException {
-        ipAddressIpDeleteWithHttpInfo(ip);
+    public void deleteIp(String ip) throws ApiException {
+        deleteIpWithHttpInfo(ip);
     }
 
     /**
@@ -260,8 +264,8 @@ public class IPAddressApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> ipAddressIpDeleteWithHttpInfo(String ip) throws ApiException {
-        com.squareup.okhttp.Call call = ipAddressIpDeleteValidateBeforeCall(ip, null, null);
+    public ApiResponse<Void> deleteIpWithHttpInfo(String ip) throws ApiException {
+        com.squareup.okhttp.Call call = deleteIpValidateBeforeCall(ip, null, null);
         return apiClient.execute(call);
     }
 
@@ -273,7 +277,7 @@ public class IPAddressApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ipAddressIpDeleteAsync(String ip, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteIpAsync(String ip, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -294,19 +298,19 @@ public class IPAddressApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ipAddressIpDeleteValidateBeforeCall(ip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteIpValidateBeforeCall(ip, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
     /**
-     * Build call for ipAddressIpGet
+     * Build call for getDetails
      * @param ip Ip address (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ipAddressIpGetCall(String ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getDetailsCall(String ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -349,15 +353,15 @@ public class IPAddressApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ipAddressIpGetValidateBeforeCall(String ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDetailsValidateBeforeCall(String ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ip' is set
         if (ip == null) {
-            throw new ApiException("Missing the required parameter 'ip' when calling ipAddressIpGet(Async)");
+            throw new ApiException("Missing the required parameter 'ip' when calling getDetails(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = ipAddressIpGetCall(ip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getDetailsCall(ip, progressListener, progressRequestListener);
         return call;
 
         
@@ -373,8 +377,8 @@ public class IPAddressApi {
      * @return InlineResponse2011
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2011 ipAddressIpGet(String ip) throws ApiException {
-        ApiResponse<InlineResponse2011> resp = ipAddressIpGetWithHttpInfo(ip);
+    public InlineResponse2011 getDetails(String ip) throws ApiException {
+        ApiResponse<InlineResponse2011> resp = getDetailsWithHttpInfo(ip);
         return resp.getData();
     }
 
@@ -385,8 +389,8 @@ public class IPAddressApi {
      * @return ApiResponse&lt;InlineResponse2011&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2011> ipAddressIpGetWithHttpInfo(String ip) throws ApiException {
-        com.squareup.okhttp.Call call = ipAddressIpGetValidateBeforeCall(ip, null, null);
+    public ApiResponse<InlineResponse2011> getDetailsWithHttpInfo(String ip) throws ApiException {
+        com.squareup.okhttp.Call call = getDetailsValidateBeforeCall(ip, null, null);
         Type localVarReturnType = new TypeToken<InlineResponse2011>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -399,7 +403,7 @@ public class IPAddressApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ipAddressIpGetAsync(String ip, final ApiCallback<InlineResponse2011> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDetailsAsync(String ip, final ApiCallback<InlineResponse2011> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -420,13 +424,130 @@ public class IPAddressApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ipAddressIpGetValidateBeforeCall(ip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getDetailsValidateBeforeCall(ip, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse2011>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for ipAddressIpPut
+     * Build call for listIps
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listIpsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/ip_address";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listIpsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        
+        com.squareup.okhttp.Call call = listIpsCall(progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * List IP addresses
+     * Returns a list of all IP addresses assigned to servers on the current user account.
+     * @return InlineResponse2006
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse2006 listIps() throws ApiException {
+        ApiResponse<InlineResponse2006> resp = listIpsWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * List IP addresses
+     * Returns a list of all IP addresses assigned to servers on the current user account.
+     * @return ApiResponse&lt;InlineResponse2006&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse2006> listIpsWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = listIpsValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2006>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List IP addresses (asynchronously)
+     * Returns a list of all IP addresses assigned to servers on the current user account.
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listIpsAsync(final ApiCallback<InlineResponse2006> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listIpsValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2006>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for modifyIp
      * @param ip Ip address (required)
      * @param ipAddress  (optional)
      * @param progressListener Progress listener
@@ -434,7 +555,7 @@ public class IPAddressApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ipAddressIpPutCall(String ip, IpAddress1 ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call modifyIpCall(String ip, IpAddress1 ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = ipAddress;
         
         // create path and map variables
@@ -477,15 +598,15 @@ public class IPAddressApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ipAddressIpPutValidateBeforeCall(String ip, IpAddress1 ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call modifyIpValidateBeforeCall(String ip, IpAddress1 ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ip' is set
         if (ip == null) {
-            throw new ApiException("Missing the required parameter 'ip' when calling ipAddressIpPut(Async)");
+            throw new ApiException("Missing the required parameter 'ip' when calling modifyIp(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = ipAddressIpPutCall(ip, ipAddress, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = modifyIpCall(ip, ipAddress, progressListener, progressRequestListener);
         return call;
 
         
@@ -502,8 +623,8 @@ public class IPAddressApi {
      * @return InlineResponse2011
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2011 ipAddressIpPut(String ip, IpAddress1 ipAddress) throws ApiException {
-        ApiResponse<InlineResponse2011> resp = ipAddressIpPutWithHttpInfo(ip, ipAddress);
+    public InlineResponse2011 modifyIp(String ip, IpAddress1 ipAddress) throws ApiException {
+        ApiResponse<InlineResponse2011> resp = modifyIpWithHttpInfo(ip, ipAddress);
         return resp.getData();
     }
 
@@ -515,8 +636,8 @@ public class IPAddressApi {
      * @return ApiResponse&lt;InlineResponse2011&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2011> ipAddressIpPutWithHttpInfo(String ip, IpAddress1 ipAddress) throws ApiException {
-        com.squareup.okhttp.Call call = ipAddressIpPutValidateBeforeCall(ip, ipAddress, null, null);
+    public ApiResponse<InlineResponse2011> modifyIpWithHttpInfo(String ip, IpAddress1 ipAddress) throws ApiException {
+        com.squareup.okhttp.Call call = modifyIpValidateBeforeCall(ip, ipAddress, null, null);
         Type localVarReturnType = new TypeToken<InlineResponse2011>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -530,7 +651,7 @@ public class IPAddressApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ipAddressIpPutAsync(String ip, IpAddress1 ipAddress, final ApiCallback<InlineResponse2011> callback) throws ApiException {
+    public com.squareup.okhttp.Call modifyIpAsync(String ip, IpAddress1 ipAddress, final ApiCallback<InlineResponse2011> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -551,128 +672,7 @@ public class IPAddressApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ipAddressIpPutValidateBeforeCall(ip, ipAddress, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2011>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for ipAddressPost
-     * @param ipAddress  (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call ipAddressPostCall(IpAddress ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = ipAddress;
-        
-        // create path and map variables
-        String localVarPath = "/ip_address";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ipAddressPostValidateBeforeCall(IpAddress ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        
-        com.squareup.okhttp.Call call = ipAddressPostCall(ipAddress, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Assign IP address
-     * Assigns a new IP address to a server.
-     * @param ipAddress  (optional)
-     * @return InlineResponse2011
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public InlineResponse2011 ipAddressPost(IpAddress ipAddress) throws ApiException {
-        ApiResponse<InlineResponse2011> resp = ipAddressPostWithHttpInfo(ipAddress);
-        return resp.getData();
-    }
-
-    /**
-     * Assign IP address
-     * Assigns a new IP address to a server.
-     * @param ipAddress  (optional)
-     * @return ApiResponse&lt;InlineResponse2011&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<InlineResponse2011> ipAddressPostWithHttpInfo(IpAddress ipAddress) throws ApiException {
-        com.squareup.okhttp.Call call = ipAddressPostValidateBeforeCall(ipAddress, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2011>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Assign IP address (asynchronously)
-     * Assigns a new IP address to a server.
-     * @param ipAddress  (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call ipAddressPostAsync(IpAddress ipAddress, final ApiCallback<InlineResponse2011> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = ipAddressPostValidateBeforeCall(ipAddress, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = modifyIpValidateBeforeCall(ip, ipAddress, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse2011>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
