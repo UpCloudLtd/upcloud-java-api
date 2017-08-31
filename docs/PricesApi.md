@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="listPrices"></a>
 # **listPrices**
-> InlineResponse200 listPrices()
+> PriceListResponse listPrices()
 
 List prices
 
@@ -24,7 +24,7 @@ Returns a list resource prices.
 
 PricesApi apiInstance = new PricesApi();
 try {
-    InlineResponse200 result = apiInstance.listPrices();
+    PriceListResponse result = apiInstance.listPrices();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PricesApi#listPrices");
@@ -37,7 +37,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**PriceListResponse**](PriceListResponse.md)
 
 ### Authorization
 

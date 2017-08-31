@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **firewall** | [**FirewallEnum**](#FirewallEnum) | The state of the server firewall rules. |  [optional]
 **host** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **hostname** | **String** | A valid hostname, e.g. host.example.com. The maximum length is 128 characters. |  [optional]
-**ipAddresses** | [**InlineResponse2006IpAddresses**](InlineResponse2006IpAddresses.md) |  |  [optional]
+**ipAddresses** | [**IpAddressListResponseIpAddresses**](IpAddressListResponseIpAddresses.md) |  |  [optional]
 **license** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **memoryAmount** | [**BigDecimal**](BigDecimal.md) | The amount of main memory in megabytes. See List server configurations. |  [optional]
 **nicModel** | **String** | The model of the server&#39;s network interfaces. |  [optional]

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="listPlans"></a>
 # **listPlans**
-> InlineResponse2003 listPlans()
+> AvailablePlanListResponse listPlans()
 
 List available plans
 
@@ -24,7 +24,7 @@ Returns a list of available plans.
 
 PlanApi apiInstance = new PlanApi();
 try {
-    InlineResponse2003 result = apiInstance.listPlans();
+    AvailablePlanListResponse result = apiInstance.listPlans();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PlanApi#listPlans");
@@ -37,7 +37,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**AvailablePlanListResponse**](AvailablePlanListResponse.md)
 
 ### Authorization
 

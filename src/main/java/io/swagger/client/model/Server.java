@@ -21,7 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.InlineResponse2006IpAddresses;
+import io.swagger.client.model.IpAddressListResponseIpAddresses;
 import io.swagger.client.model.ServerState;
 import io.swagger.client.model.ServerStorageDevices;
 import io.swagger.client.model.ServerTags;
@@ -33,7 +33,7 @@ import java.util.UUID;
  * The server configuration defines which storage devices the server is attached to, which IP addresses can be used and how the server can be reached for remote management. A server must have at least one storage device attached in order to be started. Servers may have from zero to five public IPv4 and IPv6 addresses. All servers have a private IP address that cannot be removed.
  */
 @ApiModel(description = "The server configuration defines which storage devices the server is attached to, which IP addresses can be used and how the server can be reached for remote management. A server must have at least one storage device attached in order to be started. Servers may have from zero to five public IPv4 and IPv6 addresses. All servers have a private IP address that cannot be removed.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-31T14:45:42.180+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-31T22:08:49.233+03:00")
 public class Server {
   /**
    * The storage device boot order.
@@ -149,7 +149,7 @@ public class Server {
   private String hostname = null;
 
   @SerializedName("ip_addresses")
-  private InlineResponse2006IpAddresses ipAddresses = null;
+  private IpAddressListResponseIpAddresses ipAddresses = null;
 
   @SerializedName("license")
   private BigDecimal license = null;
@@ -389,7 +389,7 @@ public class Server {
     this.hostname = hostname;
   }
 
-  public Server ipAddresses(InlineResponse2006IpAddresses ipAddresses) {
+  public Server ipAddresses(IpAddressListResponseIpAddresses ipAddresses) {
     this.ipAddresses = ipAddresses;
     return this;
   }
@@ -399,11 +399,11 @@ public class Server {
    * @return ipAddresses
   **/
   @ApiModelProperty(value = "")
-  public InlineResponse2006IpAddresses getIpAddresses() {
+  public IpAddressListResponseIpAddresses getIpAddresses() {
     return ipAddresses;
   }
 
-  public void setIpAddresses(InlineResponse2006IpAddresses ipAddresses) {
+  public void setIpAddresses(IpAddressListResponseIpAddresses ipAddresses) {
     this.ipAddresses = ipAddresses;
   }
 

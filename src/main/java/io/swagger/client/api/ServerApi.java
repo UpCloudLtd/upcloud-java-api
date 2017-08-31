@@ -27,12 +27,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.ConfigurationListResponse;
 import io.swagger.client.model.Error;
 import io.swagger.client.model.FirewallRule;
-import io.swagger.client.model.InlineResponse2004;
-import io.swagger.client.model.InlineResponse2005;
-import io.swagger.client.model.InlineResponse2007;
-import io.swagger.client.model.InlineResponse2008;
+import io.swagger.client.model.FirewallRuleDetailsResponse;
+import io.swagger.client.model.FirewallRuleListResponse;
 import io.swagger.client.model.RestartServer;
 import io.swagger.client.model.Server;
 import io.swagger.client.model.ServerListResponse;
@@ -1191,11 +1190,11 @@ public class ServerApi {
      * Returns detailed information about a specific firewall rule
      * @param serverId Server id (required)
      * @param firewallRuleNumber Denotes the index of the firewall rule in the server&#39;s firewall rule list (required)
-     * @return InlineResponse2008
+     * @return FirewallRuleDetailsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2008 getFirewallRule(UUID serverId, UUID firewallRuleNumber) throws ApiException {
-        ApiResponse<InlineResponse2008> resp = getFirewallRuleWithHttpInfo(serverId, firewallRuleNumber);
+    public FirewallRuleDetailsResponse getFirewallRule(UUID serverId, UUID firewallRuleNumber) throws ApiException {
+        ApiResponse<FirewallRuleDetailsResponse> resp = getFirewallRuleWithHttpInfo(serverId, firewallRuleNumber);
         return resp.getData();
     }
 
@@ -1204,12 +1203,12 @@ public class ServerApi {
      * Returns detailed information about a specific firewall rule
      * @param serverId Server id (required)
      * @param firewallRuleNumber Denotes the index of the firewall rule in the server&#39;s firewall rule list (required)
-     * @return ApiResponse&lt;InlineResponse2008&gt;
+     * @return ApiResponse&lt;FirewallRuleDetailsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2008> getFirewallRuleWithHttpInfo(UUID serverId, UUID firewallRuleNumber) throws ApiException {
+    public ApiResponse<FirewallRuleDetailsResponse> getFirewallRuleWithHttpInfo(UUID serverId, UUID firewallRuleNumber) throws ApiException {
         com.squareup.okhttp.Call call = getFirewallRuleValidateBeforeCall(serverId, firewallRuleNumber, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2008>(){}.getType();
+        Type localVarReturnType = new TypeToken<FirewallRuleDetailsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1222,7 +1221,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFirewallRuleAsync(UUID serverId, UUID firewallRuleNumber, final ApiCallback<InlineResponse2008> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFirewallRuleAsync(UUID serverId, UUID firewallRuleNumber, final ApiCallback<FirewallRuleDetailsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1244,7 +1243,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = getFirewallRuleValidateBeforeCall(serverId, firewallRuleNumber, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2008>(){}.getType();
+        Type localVarReturnType = new TypeToken<FirewallRuleDetailsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1312,23 +1311,23 @@ public class ServerApi {
     /**
      * List server configurations
      * Returns a list of available server configurations. A server configuration consists of a combination of CPU core count and main memory amount. All servers are created using these configurations.
-     * @return InlineResponse2004
+     * @return ConfigurationListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2004 listServerConfigurations() throws ApiException {
-        ApiResponse<InlineResponse2004> resp = listServerConfigurationsWithHttpInfo();
+    public ConfigurationListResponse listServerConfigurations() throws ApiException {
+        ApiResponse<ConfigurationListResponse> resp = listServerConfigurationsWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * List server configurations
      * Returns a list of available server configurations. A server configuration consists of a combination of CPU core count and main memory amount. All servers are created using these configurations.
-     * @return ApiResponse&lt;InlineResponse2004&gt;
+     * @return ApiResponse&lt;ConfigurationListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2004> listServerConfigurationsWithHttpInfo() throws ApiException {
+    public ApiResponse<ConfigurationListResponse> listServerConfigurationsWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = listServerConfigurationsValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2004>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConfigurationListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1339,7 +1338,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listServerConfigurationsAsync(final ApiCallback<InlineResponse2004> callback) throws ApiException {
+    public com.squareup.okhttp.Call listServerConfigurationsAsync(final ApiCallback<ConfigurationListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1361,7 +1360,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = listServerConfigurationsValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2004>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConfigurationListResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1429,23 +1428,23 @@ public class ServerApi {
     /**
      * List of servers
      * Returns a list of all servers associated with the current account.
-     * @return InlineResponse2005
+     * @return ServerListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2005 listServers() throws ApiException {
-        ApiResponse<InlineResponse2005> resp = listServersWithHttpInfo();
+    public ServerListResponse listServers() throws ApiException {
+        ApiResponse<ServerListResponse> resp = listServersWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * List of servers
      * Returns a list of all servers associated with the current account.
-     * @return ApiResponse&lt;InlineResponse2005&gt;
+     * @return ApiResponse&lt;ServerListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2005> listServersWithHttpInfo() throws ApiException {
+    public ApiResponse<ServerListResponse> listServersWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = listServersValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2005>(){}.getType();
+        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1456,7 +1455,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listServersAsync(final ApiCallback<InlineResponse2005> callback) throws ApiException {
+    public com.squareup.okhttp.Call listServersAsync(final ApiCallback<ServerListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1478,7 +1477,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = listServersValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2005>(){}.getType();
+        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2079,11 +2078,11 @@ public class ServerApi {
      * List firewall rules
      * Returns a list of firewall rules for a specific server.
      * @param serverId Server id (required)
-     * @return InlineResponse2007
+     * @return FirewallRuleListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2007 serverServerIdFirewallRuleGet(UUID serverId) throws ApiException {
-        ApiResponse<InlineResponse2007> resp = serverServerIdFirewallRuleGetWithHttpInfo(serverId);
+    public FirewallRuleListResponse serverServerIdFirewallRuleGet(UUID serverId) throws ApiException {
+        ApiResponse<FirewallRuleListResponse> resp = serverServerIdFirewallRuleGetWithHttpInfo(serverId);
         return resp.getData();
     }
 
@@ -2091,12 +2090,12 @@ public class ServerApi {
      * List firewall rules
      * Returns a list of firewall rules for a specific server.
      * @param serverId Server id (required)
-     * @return ApiResponse&lt;InlineResponse2007&gt;
+     * @return ApiResponse&lt;FirewallRuleListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2007> serverServerIdFirewallRuleGetWithHttpInfo(UUID serverId) throws ApiException {
+    public ApiResponse<FirewallRuleListResponse> serverServerIdFirewallRuleGetWithHttpInfo(UUID serverId) throws ApiException {
         com.squareup.okhttp.Call call = serverServerIdFirewallRuleGetValidateBeforeCall(serverId, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
+        Type localVarReturnType = new TypeToken<FirewallRuleListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2108,7 +2107,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call serverServerIdFirewallRuleGetAsync(UUID serverId, final ApiCallback<InlineResponse2007> callback) throws ApiException {
+    public com.squareup.okhttp.Call serverServerIdFirewallRuleGetAsync(UUID serverId, final ApiCallback<FirewallRuleListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2130,7 +2129,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = serverServerIdFirewallRuleGetValidateBeforeCall(serverId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
+        Type localVarReturnType = new TypeToken<FirewallRuleListResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.InlineResponse2002;
+import io.swagger.client.model.TimezoneListResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -118,23 +118,23 @@ public class TimezoneApi {
     /**
      * List timezones
      * Returns a list of available timezones. Timezones are used to set the hardware clock for servers.
-     * @return InlineResponse2002
+     * @return TimezoneListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2002 listTimezones() throws ApiException {
-        ApiResponse<InlineResponse2002> resp = listTimezonesWithHttpInfo();
+    public TimezoneListResponse listTimezones() throws ApiException {
+        ApiResponse<TimezoneListResponse> resp = listTimezonesWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * List timezones
      * Returns a list of available timezones. Timezones are used to set the hardware clock for servers.
-     * @return ApiResponse&lt;InlineResponse2002&gt;
+     * @return ApiResponse&lt;TimezoneListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2002> listTimezonesWithHttpInfo() throws ApiException {
+    public ApiResponse<TimezoneListResponse> listTimezonesWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = listTimezonesValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+        Type localVarReturnType = new TypeToken<TimezoneListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -145,7 +145,7 @@ public class TimezoneApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listTimezonesAsync(final ApiCallback<InlineResponse2002> callback) throws ApiException {
+    public com.squareup.okhttp.Call listTimezonesAsync(final ApiCallback<TimezoneListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -167,7 +167,7 @@ public class TimezoneApi {
         }
 
         com.squareup.okhttp.Call call = listTimezonesValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
+        Type localVarReturnType = new TypeToken<TimezoneListResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

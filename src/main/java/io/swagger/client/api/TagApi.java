@@ -27,12 +27,12 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.CreateNewTagResponse;
 import io.swagger.client.model.Error;
-import io.swagger.client.model.InlineResponse20010;
-import io.swagger.client.model.InlineResponse2009;
 import io.swagger.client.model.ServerListResponse;
 import io.swagger.client.model.Tag;
 import io.swagger.client.model.Tag1;
+import io.swagger.client.model.TagListResponse;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -268,11 +268,11 @@ public class TagApi {
      * Create a new tag
      * Creates a new tag. Existing servers can be tagged in same request
      * @param tag  (required)
-     * @return InlineResponse20010
+     * @return CreateNewTagResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse20010 createTag(Tag tag) throws ApiException {
-        ApiResponse<InlineResponse20010> resp = createTagWithHttpInfo(tag);
+    public CreateNewTagResponse createTag(Tag tag) throws ApiException {
+        ApiResponse<CreateNewTagResponse> resp = createTagWithHttpInfo(tag);
         return resp.getData();
     }
 
@@ -280,12 +280,12 @@ public class TagApi {
      * Create a new tag
      * Creates a new tag. Existing servers can be tagged in same request
      * @param tag  (required)
-     * @return ApiResponse&lt;InlineResponse20010&gt;
+     * @return ApiResponse&lt;CreateNewTagResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse20010> createTagWithHttpInfo(Tag tag) throws ApiException {
+    public ApiResponse<CreateNewTagResponse> createTagWithHttpInfo(Tag tag) throws ApiException {
         com.squareup.okhttp.Call call = createTagValidateBeforeCall(tag, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateNewTagResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -297,7 +297,7 @@ public class TagApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createTagAsync(Tag tag, final ApiCallback<InlineResponse20010> callback) throws ApiException {
+    public com.squareup.okhttp.Call createTagAsync(Tag tag, final ApiCallback<CreateNewTagResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -319,7 +319,7 @@ public class TagApi {
         }
 
         com.squareup.okhttp.Call call = createTagValidateBeforeCall(tag, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateNewTagResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -510,23 +510,23 @@ public class TagApi {
     /**
      * List existing tags
      * Returns all existing tags with their properties and servers tagged
-     * @return InlineResponse2009
+     * @return TagListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2009 listTags() throws ApiException {
-        ApiResponse<InlineResponse2009> resp = listTagsWithHttpInfo();
+    public TagListResponse listTags() throws ApiException {
+        ApiResponse<TagListResponse> resp = listTagsWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * List existing tags
      * Returns all existing tags with their properties and servers tagged
-     * @return ApiResponse&lt;InlineResponse2009&gt;
+     * @return ApiResponse&lt;TagListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2009> listTagsWithHttpInfo() throws ApiException {
+    public ApiResponse<TagListResponse> listTagsWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = listTagsValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2009>(){}.getType();
+        Type localVarReturnType = new TypeToken<TagListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -537,7 +537,7 @@ public class TagApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listTagsAsync(final ApiCallback<InlineResponse2009> callback) throws ApiException {
+    public com.squareup.okhttp.Call listTagsAsync(final ApiCallback<TagListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -559,7 +559,7 @@ public class TagApi {
         }
 
         com.squareup.okhttp.Call call = listTagsValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2009>(){}.getType();
+        Type localVarReturnType = new TypeToken<TagListResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -642,11 +642,11 @@ public class TagApi {
      * Changes attributes of an existing tag
      * @param tagName Tag name (required)
      * @param tag  (required)
-     * @return InlineResponse20010
+     * @return CreateNewTagResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse20010 modifyTag(String tagName, Tag1 tag) throws ApiException {
-        ApiResponse<InlineResponse20010> resp = modifyTagWithHttpInfo(tagName, tag);
+    public CreateNewTagResponse modifyTag(String tagName, Tag1 tag) throws ApiException {
+        ApiResponse<CreateNewTagResponse> resp = modifyTagWithHttpInfo(tagName, tag);
         return resp.getData();
     }
 
@@ -655,12 +655,12 @@ public class TagApi {
      * Changes attributes of an existing tag
      * @param tagName Tag name (required)
      * @param tag  (required)
-     * @return ApiResponse&lt;InlineResponse20010&gt;
+     * @return ApiResponse&lt;CreateNewTagResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse20010> modifyTagWithHttpInfo(String tagName, Tag1 tag) throws ApiException {
+    public ApiResponse<CreateNewTagResponse> modifyTagWithHttpInfo(String tagName, Tag1 tag) throws ApiException {
         com.squareup.okhttp.Call call = modifyTagValidateBeforeCall(tagName, tag, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateNewTagResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -673,7 +673,7 @@ public class TagApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call modifyTagAsync(String tagName, Tag1 tag, final ApiCallback<InlineResponse20010> callback) throws ApiException {
+    public com.squareup.okhttp.Call modifyTagAsync(String tagName, Tag1 tag, final ApiCallback<CreateNewTagResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -695,7 +695,7 @@ public class TagApi {
         }
 
         com.squareup.okhttp.Call call = modifyTagValidateBeforeCall(tagName, tag, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateNewTagResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

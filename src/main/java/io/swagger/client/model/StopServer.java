@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * StopServer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-31T14:45:42.180+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-08-31T22:08:49.233+03:00")
 public class StopServer {
   /**
    * Type of stop operation performed on the server.

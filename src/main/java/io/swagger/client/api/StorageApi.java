@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.CreateStorageResponse;
 import io.swagger.client.model.Error;
-import io.swagger.client.model.InlineResponse201;
 import io.swagger.client.model.ServerListResponse;
 import io.swagger.client.model.Storage;
 import io.swagger.client.model.Storage1;
@@ -275,11 +275,11 @@ public class StorageApi {
      * Creates a point-in-time backup of a storage resource. For automatic, scheduled backups, see  &#x60;backup_rule&#x60; in Create storage or Modify storage.
      * @param storageId Storage id (required)
      * @param storage  (optional)
-     * @return InlineResponse201
+     * @return CreateStorageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse201 backupStorage(UUID storageId, Storage4 storage) throws ApiException {
-        ApiResponse<InlineResponse201> resp = backupStorageWithHttpInfo(storageId, storage);
+    public CreateStorageResponse backupStorage(UUID storageId, Storage4 storage) throws ApiException {
+        ApiResponse<CreateStorageResponse> resp = backupStorageWithHttpInfo(storageId, storage);
         return resp.getData();
     }
 
@@ -288,12 +288,12 @@ public class StorageApi {
      * Creates a point-in-time backup of a storage resource. For automatic, scheduled backups, see  &#x60;backup_rule&#x60; in Create storage or Modify storage.
      * @param storageId Storage id (required)
      * @param storage  (optional)
-     * @return ApiResponse&lt;InlineResponse201&gt;
+     * @return ApiResponse&lt;CreateStorageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse201> backupStorageWithHttpInfo(UUID storageId, Storage4 storage) throws ApiException {
+    public ApiResponse<CreateStorageResponse> backupStorageWithHttpInfo(UUID storageId, Storage4 storage) throws ApiException {
         com.squareup.okhttp.Call call = backupStorageValidateBeforeCall(storageId, storage, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateStorageResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -306,7 +306,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call backupStorageAsync(UUID storageId, Storage4 storage, final ApiCallback<InlineResponse201> callback) throws ApiException {
+    public com.squareup.okhttp.Call backupStorageAsync(UUID storageId, Storage4 storage, final ApiCallback<CreateStorageResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -328,7 +328,7 @@ public class StorageApi {
         }
 
         com.squareup.okhttp.Call call = backupStorageValidateBeforeCall(storageId, storage, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateStorageResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -529,11 +529,11 @@ public class StorageApi {
      * Creates an exact copy of an existing storage resource.
      * @param storageId Storage id (required)
      * @param storage  (optional)
-     * @return InlineResponse201
+     * @return CreateStorageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse201 cloneStorage(UUID storageId, Storage2 storage) throws ApiException {
-        ApiResponse<InlineResponse201> resp = cloneStorageWithHttpInfo(storageId, storage);
+    public CreateStorageResponse cloneStorage(UUID storageId, Storage2 storage) throws ApiException {
+        ApiResponse<CreateStorageResponse> resp = cloneStorageWithHttpInfo(storageId, storage);
         return resp.getData();
     }
 
@@ -542,12 +542,12 @@ public class StorageApi {
      * Creates an exact copy of an existing storage resource.
      * @param storageId Storage id (required)
      * @param storage  (optional)
-     * @return ApiResponse&lt;InlineResponse201&gt;
+     * @return ApiResponse&lt;CreateStorageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse201> cloneStorageWithHttpInfo(UUID storageId, Storage2 storage) throws ApiException {
+    public ApiResponse<CreateStorageResponse> cloneStorageWithHttpInfo(UUID storageId, Storage2 storage) throws ApiException {
         com.squareup.okhttp.Call call = cloneStorageValidateBeforeCall(storageId, storage, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateStorageResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -560,7 +560,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call cloneStorageAsync(UUID storageId, Storage2 storage, final ApiCallback<InlineResponse201> callback) throws ApiException {
+    public com.squareup.okhttp.Call cloneStorageAsync(UUID storageId, Storage2 storage, final ApiCallback<CreateStorageResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -582,7 +582,7 @@ public class StorageApi {
         }
 
         com.squareup.okhttp.Call call = cloneStorageValidateBeforeCall(storageId, storage, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateStorageResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -657,11 +657,11 @@ public class StorageApi {
      * Create storage
      * Creates a new storage resource.
      * @param storage  (required)
-     * @return InlineResponse201
+     * @return CreateStorageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse201 createStorage(Storage storage) throws ApiException {
-        ApiResponse<InlineResponse201> resp = createStorageWithHttpInfo(storage);
+    public CreateStorageResponse createStorage(Storage storage) throws ApiException {
+        ApiResponse<CreateStorageResponse> resp = createStorageWithHttpInfo(storage);
         return resp.getData();
     }
 
@@ -669,12 +669,12 @@ public class StorageApi {
      * Create storage
      * Creates a new storage resource.
      * @param storage  (required)
-     * @return ApiResponse&lt;InlineResponse201&gt;
+     * @return ApiResponse&lt;CreateStorageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse201> createStorageWithHttpInfo(Storage storage) throws ApiException {
+    public ApiResponse<CreateStorageResponse> createStorageWithHttpInfo(Storage storage) throws ApiException {
         com.squareup.okhttp.Call call = createStorageValidateBeforeCall(storage, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateStorageResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -686,7 +686,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createStorageAsync(Storage storage, final ApiCallback<InlineResponse201> callback) throws ApiException {
+    public com.squareup.okhttp.Call createStorageAsync(Storage storage, final ApiCallback<CreateStorageResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -708,7 +708,7 @@ public class StorageApi {
         }
 
         com.squareup.okhttp.Call call = createStorageValidateBeforeCall(storage, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateStorageResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1293,11 +1293,11 @@ public class StorageApi {
      * Get storage details
      * Returns detailed information about a specific storage resource.
      * @param storageId  (required)
-     * @return InlineResponse201
+     * @return CreateStorageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse201 getStorageDetails(UUID storageId) throws ApiException {
-        ApiResponse<InlineResponse201> resp = getStorageDetailsWithHttpInfo(storageId);
+    public CreateStorageResponse getStorageDetails(UUID storageId) throws ApiException {
+        ApiResponse<CreateStorageResponse> resp = getStorageDetailsWithHttpInfo(storageId);
         return resp.getData();
     }
 
@@ -1305,12 +1305,12 @@ public class StorageApi {
      * Get storage details
      * Returns detailed information about a specific storage resource.
      * @param storageId  (required)
-     * @return ApiResponse&lt;InlineResponse201&gt;
+     * @return ApiResponse&lt;CreateStorageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse201> getStorageDetailsWithHttpInfo(UUID storageId) throws ApiException {
+    public ApiResponse<CreateStorageResponse> getStorageDetailsWithHttpInfo(UUID storageId) throws ApiException {
         com.squareup.okhttp.Call call = getStorageDetailsValidateBeforeCall(storageId, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateStorageResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1322,7 +1322,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getStorageDetailsAsync(UUID storageId, final ApiCallback<InlineResponse201> callback) throws ApiException {
+    public com.squareup.okhttp.Call getStorageDetailsAsync(UUID storageId, final ApiCallback<CreateStorageResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1344,7 +1344,7 @@ public class StorageApi {
         }
 
         com.squareup.okhttp.Call call = getStorageDetailsValidateBeforeCall(storageId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateStorageResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1802,11 +1802,11 @@ public class StorageApi {
      * Modifies an existing storage resource. This operation is used to rename or resize the storage.
      * @param storageId  (required)
      * @param storage  (required)
-     * @return InlineResponse201
+     * @return CreateStorageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse201 modifyStorage(UUID storageId, Storage1 storage) throws ApiException {
-        ApiResponse<InlineResponse201> resp = modifyStorageWithHttpInfo(storageId, storage);
+    public CreateStorageResponse modifyStorage(UUID storageId, Storage1 storage) throws ApiException {
+        ApiResponse<CreateStorageResponse> resp = modifyStorageWithHttpInfo(storageId, storage);
         return resp.getData();
     }
 
@@ -1815,12 +1815,12 @@ public class StorageApi {
      * Modifies an existing storage resource. This operation is used to rename or resize the storage.
      * @param storageId  (required)
      * @param storage  (required)
-     * @return ApiResponse&lt;InlineResponse201&gt;
+     * @return ApiResponse&lt;CreateStorageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse201> modifyStorageWithHttpInfo(UUID storageId, Storage1 storage) throws ApiException {
+    public ApiResponse<CreateStorageResponse> modifyStorageWithHttpInfo(UUID storageId, Storage1 storage) throws ApiException {
         com.squareup.okhttp.Call call = modifyStorageValidateBeforeCall(storageId, storage, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateStorageResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1833,7 +1833,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call modifyStorageAsync(UUID storageId, Storage1 storage, final ApiCallback<InlineResponse201> callback) throws ApiException {
+    public com.squareup.okhttp.Call modifyStorageAsync(UUID storageId, Storage1 storage, final ApiCallback<CreateStorageResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1855,7 +1855,7 @@ public class StorageApi {
         }
 
         com.squareup.okhttp.Call call = modifyStorageValidateBeforeCall(storageId, storage, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateStorageResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2056,11 +2056,11 @@ public class StorageApi {
      * Creates an exact copy of an existing storage resource which can be used as a template for creating new servers.
      * @param storageId Storage id (required)
      * @param storage  (optional)
-     * @return InlineResponse201
+     * @return CreateStorageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse201 templatizeStorage(UUID storageId, Storage3 storage) throws ApiException {
-        ApiResponse<InlineResponse201> resp = templatizeStorageWithHttpInfo(storageId, storage);
+    public CreateStorageResponse templatizeStorage(UUID storageId, Storage3 storage) throws ApiException {
+        ApiResponse<CreateStorageResponse> resp = templatizeStorageWithHttpInfo(storageId, storage);
         return resp.getData();
     }
 
@@ -2069,12 +2069,12 @@ public class StorageApi {
      * Creates an exact copy of an existing storage resource which can be used as a template for creating new servers.
      * @param storageId Storage id (required)
      * @param storage  (optional)
-     * @return ApiResponse&lt;InlineResponse201&gt;
+     * @return ApiResponse&lt;CreateStorageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse201> templatizeStorageWithHttpInfo(UUID storageId, Storage3 storage) throws ApiException {
+    public ApiResponse<CreateStorageResponse> templatizeStorageWithHttpInfo(UUID storageId, Storage3 storage) throws ApiException {
         com.squareup.okhttp.Call call = templatizeStorageValidateBeforeCall(storageId, storage, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateStorageResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2087,7 +2087,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call templatizeStorageAsync(UUID storageId, Storage3 storage, final ApiCallback<InlineResponse201> callback) throws ApiException {
+    public com.squareup.okhttp.Call templatizeStorageAsync(UUID storageId, Storage3 storage, final ApiCallback<CreateStorageResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2109,7 +2109,7 @@ public class StorageApi {
         }
 
         com.squareup.okhttp.Call call = templatizeStorageValidateBeforeCall(storageId, storage, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateStorageResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

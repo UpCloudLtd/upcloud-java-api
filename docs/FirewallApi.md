@@ -104,7 +104,7 @@ No authorization required
 
 <a name="getFirewallRule"></a>
 # **getFirewallRule**
-> InlineResponse2008 getFirewallRule(serverId, firewallRuleNumber)
+> FirewallRuleDetailsResponse getFirewallRule(serverId, firewallRuleNumber)
 
 Get firewall rule details
 
@@ -121,7 +121,7 @@ FirewallApi apiInstance = new FirewallApi();
 UUID serverId = new UUID(); // UUID | Server id
 UUID firewallRuleNumber = new UUID(); // UUID | Denotes the index of the firewall rule in the server's firewall rule list
 try {
-    InlineResponse2008 result = apiInstance.getFirewallRule(serverId, firewallRuleNumber);
+    FirewallRuleDetailsResponse result = apiInstance.getFirewallRule(serverId, firewallRuleNumber);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FirewallApi#getFirewallRule");
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**FirewallRuleDetailsResponse**](FirewallRuleDetailsResponse.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ No authorization required
 
 <a name="serverServerIdFirewallRuleGet"></a>
 # **serverServerIdFirewallRuleGet**
-> InlineResponse2007 serverServerIdFirewallRuleGet(serverId)
+> FirewallRuleListResponse serverServerIdFirewallRuleGet(serverId)
 
 List firewall rules
 
@@ -167,7 +167,7 @@ Returns a list of firewall rules for a specific server.
 FirewallApi apiInstance = new FirewallApi();
 UUID serverId = new UUID(); // UUID | Server id
 try {
-    InlineResponse2007 result = apiInstance.serverServerIdFirewallRuleGet(serverId);
+    FirewallRuleListResponse result = apiInstance.serverServerIdFirewallRuleGet(serverId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FirewallApi#serverServerIdFirewallRuleGet");
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**FirewallRuleListResponse**](FirewallRuleListResponse.md)
 
 ### Authorization
 

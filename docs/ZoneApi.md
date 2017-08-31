@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="listZones"></a>
 # **listZones**
-> InlineResponse2001 listZones()
+> ZoneListResponse listZones()
 
 List available zones
 
@@ -24,7 +24,7 @@ Returns a list of available zones.
 
 ZoneApi apiInstance = new ZoneApi();
 try {
-    InlineResponse2001 result = apiInstance.listZones();
+    ZoneListResponse result = apiInstance.listZones();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ZoneApi#listZones");
@@ -37,7 +37,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**ZoneListResponse**](ZoneListResponse.md)
 
 ### Authorization
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="listTimezones"></a>
 # **listTimezones**
-> InlineResponse2002 listTimezones()
+> TimezoneListResponse listTimezones()
 
 List timezones
 
@@ -24,7 +24,7 @@ Returns a list of available timezones. Timezones are used to set the hardware cl
 
 TimezoneApi apiInstance = new TimezoneApi();
 try {
-    InlineResponse2002 result = apiInstance.listTimezones();
+    TimezoneListResponse result = apiInstance.listTimezones();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TimezoneApi#listTimezones");
@@ -37,7 +37,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**TimezoneListResponse**](TimezoneListResponse.md)
 
 ### Authorization
 

@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.InlineResponse2001;
+import io.swagger.client.model.ZoneListResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -118,23 +118,23 @@ public class ZoneApi {
     /**
      * List available zones
      * Returns a list of available zones.
-     * @return InlineResponse2001
+     * @return ZoneListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2001 listZones() throws ApiException {
-        ApiResponse<InlineResponse2001> resp = listZonesWithHttpInfo();
+    public ZoneListResponse listZones() throws ApiException {
+        ApiResponse<ZoneListResponse> resp = listZonesWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * List available zones
      * Returns a list of available zones.
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @return ApiResponse&lt;ZoneListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2001> listZonesWithHttpInfo() throws ApiException {
+    public ApiResponse<ZoneListResponse> listZonesWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = listZonesValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<ZoneListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -145,7 +145,7 @@ public class ZoneApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listZonesAsync(final ApiCallback<InlineResponse2001> callback) throws ApiException {
+    public com.squareup.okhttp.Call listZonesAsync(final ApiCallback<ZoneListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -167,7 +167,7 @@ public class ZoneApi {
         }
 
         com.squareup.okhttp.Call call = listZonesValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<ZoneListResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

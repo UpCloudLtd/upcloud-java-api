@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.InlineResponse2003;
+import io.swagger.client.model.AvailablePlanListResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -118,23 +118,23 @@ public class PlanApi {
     /**
      * List available plans
      * Returns a list of available plans.
-     * @return InlineResponse2003
+     * @return AvailablePlanListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2003 listPlans() throws ApiException {
-        ApiResponse<InlineResponse2003> resp = listPlansWithHttpInfo();
+    public AvailablePlanListResponse listPlans() throws ApiException {
+        ApiResponse<AvailablePlanListResponse> resp = listPlansWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * List available plans
      * Returns a list of available plans.
-     * @return ApiResponse&lt;InlineResponse2003&gt;
+     * @return ApiResponse&lt;AvailablePlanListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2003> listPlansWithHttpInfo() throws ApiException {
+    public ApiResponse<AvailablePlanListResponse> listPlansWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = listPlansValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
+        Type localVarReturnType = new TypeToken<AvailablePlanListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -145,7 +145,7 @@ public class PlanApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listPlansAsync(final ApiCallback<InlineResponse2003> callback) throws ApiException {
+    public com.squareup.okhttp.Call listPlansAsync(final ApiCallback<AvailablePlanListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -167,7 +167,7 @@ public class PlanApi {
         }
 
         com.squareup.okhttp.Call call = listPlansValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
+        Type localVarReturnType = new TypeToken<AvailablePlanListResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

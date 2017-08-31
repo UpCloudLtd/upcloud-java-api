@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="addIp"></a>
 # **addIp**
-> InlineResponse2011 addIp(ipAddress)
+> AssignIpResponse addIp(ipAddress)
 
 Assign IP address
 
@@ -29,7 +29,7 @@ Assigns a new IP address to a server.
 IPAddressApi apiInstance = new IPAddressApi();
 IpAddress ipAddress = new IpAddress(); // IpAddress | 
 try {
-    InlineResponse2011 result = apiInstance.addIp(ipAddress);
+    AssignIpResponse result = apiInstance.addIp(ipAddress);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IPAddressApi#addIp");
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**AssignIpResponse**](AssignIpResponse.md)
 
 ### Authorization
 
@@ -102,7 +102,7 @@ No authorization required
 
 <a name="getDetails"></a>
 # **getDetails**
-> InlineResponse2011 getDetails(ip)
+> AssignIpResponse getDetails(ip)
 
 Get IP address details
 
@@ -118,7 +118,7 @@ Returns detailed information about a specific IP address.
 IPAddressApi apiInstance = new IPAddressApi();
 String ip = "ip_example"; // String | Ip address
 try {
-    InlineResponse2011 result = apiInstance.getDetails(ip);
+    AssignIpResponse result = apiInstance.getDetails(ip);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IPAddressApi#getDetails");
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**AssignIpResponse**](AssignIpResponse.md)
 
 ### Authorization
 
@@ -147,7 +147,7 @@ No authorization required
 
 <a name="listIps"></a>
 # **listIps**
-> InlineResponse2006 listIps()
+> IpAddressListResponse listIps()
 
 List IP addresses
 
@@ -162,7 +162,7 @@ Returns a list of all IP addresses assigned to servers on the current user accou
 
 IPAddressApi apiInstance = new IPAddressApi();
 try {
-    InlineResponse2006 result = apiInstance.listIps();
+    IpAddressListResponse result = apiInstance.listIps();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IPAddressApi#listIps");
@@ -175,7 +175,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**IpAddressListResponse**](IpAddressListResponse.md)
 
 ### Authorization
 
@@ -188,7 +188,7 @@ No authorization required
 
 <a name="modifyIp"></a>
 # **modifyIp**
-> InlineResponse2011 modifyIp(ip, ipAddress)
+> AssignIpResponse modifyIp(ip, ipAddress)
 
 Modify IP address
 
@@ -205,7 +205,7 @@ IPAddressApi apiInstance = new IPAddressApi();
 String ip = "ip_example"; // String | Ip address
 IpAddress1 ipAddress = new IpAddress1(); // IpAddress1 | 
 try {
-    InlineResponse2011 result = apiInstance.modifyIp(ip, ipAddress);
+    AssignIpResponse result = apiInstance.modifyIp(ip, ipAddress);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IPAddressApi#modifyIp");
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**AssignIpResponse**](AssignIpResponse.md)
 
 ### Authorization
 

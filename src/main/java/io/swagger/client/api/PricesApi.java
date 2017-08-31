@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.InlineResponse200;
+import io.swagger.client.model.PriceListResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -118,23 +118,23 @@ public class PricesApi {
     /**
      * List prices
      * Returns a list resource prices.
-     * @return InlineResponse200
+     * @return PriceListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse200 listPrices() throws ApiException {
-        ApiResponse<InlineResponse200> resp = listPricesWithHttpInfo();
+    public PriceListResponse listPrices() throws ApiException {
+        ApiResponse<PriceListResponse> resp = listPricesWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * List prices
      * Returns a list resource prices.
-     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @return ApiResponse&lt;PriceListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse200> listPricesWithHttpInfo() throws ApiException {
+    public ApiResponse<PriceListResponse> listPricesWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = listPricesValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<PriceListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -145,7 +145,7 @@ public class PricesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listPricesAsync(final ApiCallback<InlineResponse200> callback) throws ApiException {
+    public com.squareup.okhttp.Call listPricesAsync(final ApiCallback<PriceListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -167,7 +167,7 @@ public class PricesApi {
         }
 
         com.squareup.okhttp.Call call = listPricesValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<PriceListResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

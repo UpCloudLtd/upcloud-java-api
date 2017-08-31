@@ -72,7 +72,7 @@ No authorization required
 
 <a name="backupStorage"></a>
 # **backupStorage**
-> InlineResponse201 backupStorage(storageId, storage)
+> CreateStorageResponse backupStorage(storageId, storage)
 
 Create backup
 
@@ -89,7 +89,7 @@ StorageApi apiInstance = new StorageApi();
 UUID storageId = new UUID(); // UUID | Storage id
 Storage4 storage = new Storage4(); // Storage4 | 
 try {
-    InlineResponse201 result = apiInstance.backupStorage(storageId, storage);
+    CreateStorageResponse result = apiInstance.backupStorage(storageId, storage);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageApi#backupStorage");
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**CreateStorageResponse**](CreateStorageResponse.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ No authorization required
 
 <a name="cloneStorage"></a>
 # **cloneStorage**
-> InlineResponse201 cloneStorage(storageId, storage)
+> CreateStorageResponse cloneStorage(storageId, storage)
 
 Clone storage
 
@@ -180,7 +180,7 @@ StorageApi apiInstance = new StorageApi();
 UUID storageId = new UUID(); // UUID | Storage id
 Storage2 storage = new Storage2(); // Storage2 | 
 try {
-    InlineResponse201 result = apiInstance.cloneStorage(storageId, storage);
+    CreateStorageResponse result = apiInstance.cloneStorage(storageId, storage);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageApi#cloneStorage");
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**CreateStorageResponse**](CreateStorageResponse.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ No authorization required
 
 <a name="createStorage"></a>
 # **createStorage**
-> InlineResponse201 createStorage(storage)
+> CreateStorageResponse createStorage(storage)
 
 Create storage
 
@@ -226,7 +226,7 @@ Creates a new storage resource.
 StorageApi apiInstance = new StorageApi();
 Storage storage = new Storage(); // Storage | 
 try {
-    InlineResponse201 result = apiInstance.createStorage(storage);
+    CreateStorageResponse result = apiInstance.createStorage(storage);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageApi#createStorage");
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**CreateStorageResponse**](CreateStorageResponse.md)
 
 ### Authorization
 
@@ -435,7 +435,7 @@ No authorization required
 
 <a name="getStorageDetails"></a>
 # **getStorageDetails**
-> InlineResponse201 getStorageDetails(storageId)
+> CreateStorageResponse getStorageDetails(storageId)
 
 Get storage details
 
@@ -451,7 +451,7 @@ Returns detailed information about a specific storage resource.
 StorageApi apiInstance = new StorageApi();
 UUID storageId = new UUID(); // UUID | 
 try {
-    InlineResponse201 result = apiInstance.getStorageDetails(storageId);
+    CreateStorageResponse result = apiInstance.getStorageDetails(storageId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageApi#getStorageDetails");
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**CreateStorageResponse**](CreateStorageResponse.md)
 
 ### Authorization
 
@@ -609,7 +609,7 @@ No authorization required
 
 <a name="modifyStorage"></a>
 # **modifyStorage**
-> InlineResponse201 modifyStorage(storageId, storage)
+> CreateStorageResponse modifyStorage(storageId, storage)
 
 Modify storage
 
@@ -626,7 +626,7 @@ StorageApi apiInstance = new StorageApi();
 UUID storageId = new UUID(); // UUID | 
 Storage1 storage = new Storage1(); // Storage1 | 
 try {
-    InlineResponse201 result = apiInstance.modifyStorage(storageId, storage);
+    CreateStorageResponse result = apiInstance.modifyStorage(storageId, storage);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageApi#modifyStorage");
@@ -643,7 +643,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**CreateStorageResponse**](CreateStorageResponse.md)
 
 ### Authorization
 
@@ -700,7 +700,7 @@ No authorization required
 
 <a name="templatizeStorage"></a>
 # **templatizeStorage**
-> InlineResponse201 templatizeStorage(storageId, storage)
+> CreateStorageResponse templatizeStorage(storageId, storage)
 
 Templatize storage
 
@@ -717,7 +717,7 @@ StorageApi apiInstance = new StorageApi();
 UUID storageId = new UUID(); // UUID | Storage id
 Storage3 storage = new Storage3(); // Storage3 | 
 try {
-    InlineResponse201 result = apiInstance.templatizeStorage(storageId, storage);
+    CreateStorageResponse result = apiInstance.templatizeStorage(storageId, storage);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageApi#templatizeStorage");
@@ -734,7 +734,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**CreateStorageResponse**](CreateStorageResponse.md)
 
 ### Authorization
 

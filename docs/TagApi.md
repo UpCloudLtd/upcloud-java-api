@@ -61,7 +61,7 @@ No authorization required
 
 <a name="createTag"></a>
 # **createTag**
-> InlineResponse20010 createTag(tag)
+> CreateNewTagResponse createTag(tag)
 
 Create a new tag
 
@@ -77,7 +77,7 @@ Creates a new tag. Existing servers can be tagged in same request
 TagApi apiInstance = new TagApi();
 Tag tag = new Tag(); // Tag | 
 try {
-    InlineResponse20010 result = apiInstance.createTag(tag);
+    CreateNewTagResponse result = apiInstance.createTag(tag);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TagApi#createTag");
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**CreateNewTagResponse**](CreateNewTagResponse.md)
 
 ### Authorization
 
@@ -150,7 +150,7 @@ No authorization required
 
 <a name="listTags"></a>
 # **listTags**
-> InlineResponse2009 listTags()
+> TagListResponse listTags()
 
 List existing tags
 
@@ -165,7 +165,7 @@ Returns all existing tags with their properties and servers tagged
 
 TagApi apiInstance = new TagApi();
 try {
-    InlineResponse2009 result = apiInstance.listTags();
+    TagListResponse result = apiInstance.listTags();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TagApi#listTags");
@@ -178,7 +178,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**TagListResponse**](TagListResponse.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ No authorization required
 
 <a name="modifyTag"></a>
 # **modifyTag**
-> InlineResponse20010 modifyTag(tagName, tag)
+> CreateNewTagResponse modifyTag(tagName, tag)
 
 Modify existing tag
 
@@ -208,7 +208,7 @@ TagApi apiInstance = new TagApi();
 String tagName = "tagName_example"; // String | Tag name
 Tag1 tag = new Tag1(); // Tag1 | 
 try {
-    InlineResponse20010 result = apiInstance.modifyTag(tagName, tag);
+    CreateNewTagResponse result = apiInstance.modifyTag(tagName, tag);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TagApi#modifyTag");
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**CreateNewTagResponse**](CreateNewTagResponse.md)
 
 ### Authorization
 
