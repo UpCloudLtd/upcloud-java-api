@@ -14,7 +14,7 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.model.InlineResponse2003;
+import io.swagger.client.model.AvailablePlanListResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -41,8 +41,8 @@ public class PlanApiTest {
      *          if the Api call fails
      */
     @Test
-    public void planGetTest() throws ApiException {
-        InlineResponse2003 response = api.planGet();
+    public void listPlansTest() throws ApiException {
+        AvailablePlanListResponse response = api.listPlans();
 
         // TODO: test validations
     }

@@ -41,8 +41,8 @@ public class AccountApiTest {
      *          if the Api call fails
      */
     @Test
-    public void accountGetTest() throws ApiException {
-        Account response = api.accountGet();
+    public void getAccountTest() throws ApiException {
+        Account response = api.getAccount();
 
         // TODO: test validations
     }

@@ -14,12 +14,12 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.CreateNewTagResponse;
 import io.swagger.client.model.Error;
-import io.swagger.client.model.InlineResponse20010;
-import io.swagger.client.model.InlineResponse2009;
 import io.swagger.client.model.ServerListResponse;
 import io.swagger.client.model.Tag;
 import io.swagger.client.model.Tag1;
+import io.swagger.client.model.TagListResponse;
 import java.util.UUID;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -47,42 +47,10 @@ public class TagApiTest {
      *          if the Api call fails
      */
     @Test
-    public void serverServerIdTagTagListPostTest() throws ApiException {
+    public void assignTagTest() throws ApiException {
         UUID serverId = null;
         String tagList = null;
-        ServerListResponse response = api.serverServerIdTagTagListPost(serverId, tagList);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Remove tag from server
-     *
-     * Untags tags from given server. The tag(s) must exist
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void serverServerIdUntagTagNamePostTest() throws ApiException {
-        UUID serverId = null;
-        String tagName = null;
-        ServerListResponse response = api.serverServerIdUntagTagNamePost(serverId, tagName);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List existing tags
-     *
-     * Returns all existing tags with their properties and servers tagged
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void tagGetTest() throws ApiException {
-        InlineResponse2009 response = api.tagGet();
+        ServerListResponse response = api.assignTag(serverId, tagList);
 
         // TODO: test validations
     }
@@ -96,9 +64,9 @@ public class TagApiTest {
      *          if the Api call fails
      */
     @Test
-    public void tagPostTest() throws ApiException {
+    public void createTagTest() throws ApiException {
         Tag tag = null;
-        InlineResponse20010 response = api.tagPost(tag);
+        CreateNewTagResponse response = api.createTag(tag);
 
         // TODO: test validations
     }
@@ -112,9 +80,24 @@ public class TagApiTest {
      *          if the Api call fails
      */
     @Test
-    public void tagTagNameDeleteTest() throws ApiException {
+    public void deleteTagTest() throws ApiException {
         String tagName = null;
-        api.tagTagNameDelete(tagName);
+        api.deleteTag(tagName);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List existing tags
+     *
+     * Returns all existing tags with their properties and servers tagged
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listTagsTest() throws ApiException {
+        TagListResponse response = api.listTags();
 
         // TODO: test validations
     }
@@ -128,10 +111,27 @@ public class TagApiTest {
      *          if the Api call fails
      */
     @Test
-    public void tagTagNamePutTest() throws ApiException {
+    public void modifyTagTest() throws ApiException {
         String tagName = null;
         Tag1 tag = null;
-        InlineResponse20010 response = api.tagTagNamePut(tagName, tag);
+        CreateNewTagResponse response = api.modifyTag(tagName, tag);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Remove tag from server
+     *
+     * Untags tags from given server. The tag(s) must exist
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void untagTest() throws ApiException {
+        UUID serverId = null;
+        String tagName = null;
+        ServerListResponse response = api.untag(serverId, tagName);
 
         // TODO: test validations
     }

@@ -14,11 +14,11 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.AssignIpResponse;
 import io.swagger.client.model.Error;
-import io.swagger.client.model.InlineResponse2006;
-import io.swagger.client.model.InlineResponse2011;
 import io.swagger.client.model.IpAddress;
 import io.swagger.client.model.IpAddress1;
+import io.swagger.client.model.IpAddressListResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -37,16 +37,17 @@ public class IPAddressApiTest {
 
     
     /**
-     * List IP addresses
+     * Assign IP address
      *
-     * Returns a list of all IP addresses assigned to servers on the current user account.
+     * Assigns a new IP address to a server.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void ipAddressGetTest() throws ApiException {
-        InlineResponse2006 response = api.ipAddressGet();
+    public void addIpTest() throws ApiException {
+        IpAddress ipAddress = null;
+        AssignIpResponse response = api.addIp(ipAddress);
 
         // TODO: test validations
     }
@@ -60,9 +61,9 @@ public class IPAddressApiTest {
      *          if the Api call fails
      */
     @Test
-    public void ipAddressIpDeleteTest() throws ApiException {
+    public void deleteIpTest() throws ApiException {
         String ip = null;
-        api.ipAddressIpDelete(ip);
+        api.deleteIp(ip);
 
         // TODO: test validations
     }
@@ -76,9 +77,24 @@ public class IPAddressApiTest {
      *          if the Api call fails
      */
     @Test
-    public void ipAddressIpGetTest() throws ApiException {
+    public void getDetailsTest() throws ApiException {
         String ip = null;
-        InlineResponse2011 response = api.ipAddressIpGet(ip);
+        AssignIpResponse response = api.getDetails(ip);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List IP addresses
+     *
+     * Returns a list of all IP addresses assigned to servers on the current user account.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listIpsTest() throws ApiException {
+        IpAddressListResponse response = api.listIps();
 
         // TODO: test validations
     }
@@ -92,26 +108,10 @@ public class IPAddressApiTest {
      *          if the Api call fails
      */
     @Test
-    public void ipAddressIpPutTest() throws ApiException {
+    public void modifyIpTest() throws ApiException {
         String ip = null;
         IpAddress1 ipAddress = null;
-        InlineResponse2011 response = api.ipAddressIpPut(ip, ipAddress);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Assign IP address
-     *
-     * Assigns a new IP address to a server.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void ipAddressPostTest() throws ApiException {
-        IpAddress ipAddress = null;
-        InlineResponse2011 response = api.ipAddressPost(ipAddress);
+        AssignIpResponse response = api.modifyIp(ip, ipAddress);
 
         // TODO: test validations
     }

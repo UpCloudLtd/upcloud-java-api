@@ -14,7 +14,7 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.model.InlineResponse2002;
+import io.swagger.client.model.TimezoneListResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -41,8 +41,8 @@ public class TimezoneApiTest {
      *          if the Api call fails
      */
     @Test
-    public void timezoneGetTest() throws ApiException {
-        InlineResponse2002 response = api.timezoneGet();
+    public void listTimezonesTest() throws ApiException {
+        TimezoneListResponse response = api.listTimezones();
 
         // TODO: test validations
     }

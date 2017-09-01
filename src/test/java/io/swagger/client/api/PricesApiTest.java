@@ -14,7 +14,7 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.model.InlineResponse200;
+import io.swagger.client.model.PriceListResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -41,8 +41,8 @@ public class PricesApiTest {
      *          if the Api call fails
      */
     @Test
-    public void priceGetTest() throws ApiException {
-        InlineResponse200 response = api.priceGet();
+    public void listPricesTest() throws ApiException {
+        PriceListResponse response = api.listPrices();
 
         // TODO: test validations
     }

@@ -16,8 +16,8 @@ package io.swagger.client.api;
 import io.swagger.client.ApiException;
 import io.swagger.client.model.Error;
 import io.swagger.client.model.FirewallRule;
-import io.swagger.client.model.InlineResponse2007;
-import io.swagger.client.model.InlineResponse2008;
+import io.swagger.client.model.FirewallRuleDetailsResponse;
+import io.swagger.client.model.FirewallRuleListResponse;
 import java.util.UUID;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -37,6 +37,23 @@ public class FirewallApiTest {
 
     
     /**
+     * Create firewall rule
+     *
+     * Creates a new firewall rule
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createFirewallRuleTest() throws ApiException {
+        UUID serverId = null;
+        FirewallRule firewallRule = null;
+        api.createFirewallRule(serverId, firewallRule);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Remove firewall rule
      *
      * Removes a firewall rule from a server. Firewall rules must be removed individually. The positions of remaining firewall rules will be adjusted after a rule is removed.
@@ -45,10 +62,10 @@ public class FirewallApiTest {
      *          if the Api call fails
      */
     @Test
-    public void serverServerIdFirewallRuleFirewallRuleNumberDeleteTest() throws ApiException {
+    public void deleteFirewallRuleTest() throws ApiException {
         UUID serverId = null;
         UUID firewallRuleNumber = null;
-        api.serverServerIdFirewallRuleFirewallRuleNumberDelete(serverId, firewallRuleNumber);
+        api.deleteFirewallRule(serverId, firewallRuleNumber);
 
         // TODO: test validations
     }
@@ -62,10 +79,10 @@ public class FirewallApiTest {
      *          if the Api call fails
      */
     @Test
-    public void serverServerIdFirewallRuleFirewallRuleNumberGetTest() throws ApiException {
+    public void getFirewallRuleTest() throws ApiException {
         UUID serverId = null;
         UUID firewallRuleNumber = null;
-        InlineResponse2008 response = api.serverServerIdFirewallRuleFirewallRuleNumberGet(serverId, firewallRuleNumber);
+        FirewallRuleDetailsResponse response = api.getFirewallRule(serverId, firewallRuleNumber);
 
         // TODO: test validations
     }
@@ -81,24 +98,7 @@ public class FirewallApiTest {
     @Test
     public void serverServerIdFirewallRuleGetTest() throws ApiException {
         UUID serverId = null;
-        InlineResponse2007 response = api.serverServerIdFirewallRuleGet(serverId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Create firewall rule
-     *
-     * Creates a new firewall rule
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void serverServerIdFirewallRulePostTest() throws ApiException {
-        UUID serverId = null;
-        FirewallRule firewallRule = null;
-        api.serverServerIdFirewallRulePost(serverId, firewallRule);
+        FirewallRuleListResponse response = api.serverServerIdFirewallRuleGet(serverId);
 
         // TODO: test validations
     }

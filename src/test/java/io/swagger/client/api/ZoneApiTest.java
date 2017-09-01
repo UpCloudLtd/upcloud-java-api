@@ -14,7 +14,7 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.model.InlineResponse2001;
+import io.swagger.client.model.ZoneListResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -41,8 +41,8 @@ public class ZoneApiTest {
      *          if the Api call fails
      */
     @Test
-    public void zoneGetTest() throws ApiException {
-        InlineResponse2001 response = api.zoneGet();
+    public void listZonesTest() throws ApiException {
+        ZoneListResponse response = api.listZones();
 
         // TODO: test validations
     }
