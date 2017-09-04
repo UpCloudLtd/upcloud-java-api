@@ -1356,8 +1356,8 @@ public class StorageApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/storage/{type}"
-            .replaceAll("\\{" + "Type" + "\\}", apiClient.escapeString(type.toString()));
+        String localVarPath = "/storage/{type}/"
+            .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(type.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
