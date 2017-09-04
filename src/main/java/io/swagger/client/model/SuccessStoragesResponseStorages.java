@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * SuccessStoragesResponseStorages
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-04T12:49:18.200+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-04T13:00:16.191+03:00")
 public class SuccessStoragesResponseStorages {
   @SerializedName("storage")
   private List<Storage> storage = null;
