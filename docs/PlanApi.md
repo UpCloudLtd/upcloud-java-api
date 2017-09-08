@@ -18,8 +18,8 @@ Returns a list of available plans.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.PlanApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.PlanApi;
 
 
 PlanApi apiInstance = new PlanApi();

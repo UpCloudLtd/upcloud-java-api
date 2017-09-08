@@ -34,8 +34,8 @@ Attaches a storage as a device to a server.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -81,8 +81,8 @@ Creates a point-in-time backup of a storage resource. For automatic, scheduled b
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -128,8 +128,8 @@ Cancels a running cloning operation and deletes the incomplete copy.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -172,8 +172,8 @@ Creates an exact copy of an existing storage resource.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -219,8 +219,8 @@ Creates a new storage resource.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -264,8 +264,8 @@ Deleted an existing storage resource.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -308,8 +308,8 @@ Detaches a storage resource from a server.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -355,8 +355,8 @@ Ejects the storage from the CD-ROM device of a server.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -400,8 +400,8 @@ Adds a storage to the list of favorite storages. To list favorite storages, see 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -444,8 +444,8 @@ Returns detailed information about a specific storage resource.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -487,8 +487,8 @@ List of storages by type
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -530,8 +530,8 @@ List of storages
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -571,8 +571,8 @@ Loads a storage as a CD-ROM in the CD-ROM device of a server.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -618,8 +618,8 @@ Modifies an existing storage resource. This operation is used to rename or resiz
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -665,8 +665,8 @@ Restores the origin storage with data from the specified backup storage.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -709,8 +709,8 @@ Creates an exact copy of an existing storage resource which can be used as a tem
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();
@@ -756,8 +756,8 @@ Delete a storage from the list of favorite storages. To list favorite storages, 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StorageApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.StorageApi;
 
 
 StorageApi apiInstance = new StorageApi();

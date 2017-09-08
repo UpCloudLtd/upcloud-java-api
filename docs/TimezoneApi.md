@@ -18,8 +18,8 @@ Returns a list of available timezones. Timezones are used to set the hardware cl
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TimezoneApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.TimezoneApi;
 
 
 TimezoneApi apiInstance = new TimezoneApi();

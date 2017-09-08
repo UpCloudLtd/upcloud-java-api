@@ -1,0 +1,46 @@
+/*
+ * Upcloud api
+ * The UpCloud API consists of operations used to control resources on UpCloud. The API is a web service interface. HTTPS is used to connect to the API. The API follows the principles of a RESTful web service wherever possible. The base URL for all API operations is  https://api.upcloud.com/. All API operations require authentication.
+ *
+ * OpenAPI spec version: 1.2.0
+ * 
+ */
+
+
+package com.upcloud.client.api;
+
+import com.upcloud.client.ApiException;
+import com.upcloud.client.models.ZoneListResponse;
+import org.junit.Test;
+import org.junit.Ignore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * API tests for ZoneApi
+ */
+@Ignore
+public class ZoneApiTest {
+
+    private final ZoneApi api = new ZoneApi();
+
+    
+    /**
+     * List available zones
+     *
+     * Returns a list of available zones.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listZonesTest() throws ApiException {
+        ZoneListResponse response = api.listZones();
+
+        // TODO: test validations
+    }
+    
+}

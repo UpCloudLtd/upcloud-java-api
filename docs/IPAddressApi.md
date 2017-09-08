@@ -22,8 +22,8 @@ Assigns a new IP address to a server.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.IPAddressApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.IPAddressApi;
 
 
 IPAddressApi apiInstance = new IPAddressApi();
@@ -67,8 +67,8 @@ Removes an IP address from a server.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.IPAddressApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.IPAddressApi;
 
 
 IPAddressApi apiInstance = new IPAddressApi();
@@ -111,8 +111,8 @@ Returns detailed information about a specific IP address.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.IPAddressApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.IPAddressApi;
 
 
 IPAddressApi apiInstance = new IPAddressApi();
@@ -156,8 +156,8 @@ Returns a list of all IP addresses assigned to servers on the current user accou
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.IPAddressApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.IPAddressApi;
 
 
 IPAddressApi apiInstance = new IPAddressApi();
@@ -197,8 +197,8 @@ Modifies the reverse DNS PTR record corresponding to an IP address. The PTR reco
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.IPAddressApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.IPAddressApi;
 
 
 IPAddressApi apiInstance = new IPAddressApi();

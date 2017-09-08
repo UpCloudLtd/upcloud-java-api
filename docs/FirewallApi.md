@@ -21,8 +21,8 @@ Creates a new firewall rule
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FirewallApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.FirewallApi;
 
 
 FirewallApi apiInstance = new FirewallApi();
@@ -67,8 +67,8 @@ Removes a firewall rule from a server. Firewall rules must be removed individual
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FirewallApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.FirewallApi;
 
 
 FirewallApi apiInstance = new FirewallApi();
@@ -113,8 +113,8 @@ Returns detailed information about a specific firewall rule
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FirewallApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.FirewallApi;
 
 
 FirewallApi apiInstance = new FirewallApi();
@@ -160,8 +160,8 @@ Returns a list of firewall rules for a specific server.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FirewallApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.FirewallApi;
 
 
 FirewallApi apiInstance = new FirewallApi();

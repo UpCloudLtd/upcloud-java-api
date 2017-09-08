@@ -23,8 +23,8 @@ Servers can be tagged with one or more tags. The tags used must exist
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TagApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.TagApi;
 
 
 TagApi apiInstance = new TagApi();
@@ -70,8 +70,8 @@ Creates a new tag. Existing servers can be tagged in same request
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TagApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.TagApi;
 
 
 TagApi apiInstance = new TagApi();
@@ -115,8 +115,8 @@ Deleting existing tag untags all servers from specified tag and deletes tag defi
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TagApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.TagApi;
 
 
 TagApi apiInstance = new TagApi();
@@ -159,8 +159,8 @@ Returns all existing tags with their properties and servers tagged
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TagApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.TagApi;
 
 
 TagApi apiInstance = new TagApi();
@@ -200,8 +200,8 @@ Changes attributes of an existing tag
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TagApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.TagApi;
 
 
 TagApi apiInstance = new TagApi();
@@ -247,8 +247,8 @@ Untags tags from given server. The tag(s) must exist
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TagApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.TagApi;
 
 
 TagApi apiInstance = new TagApi();

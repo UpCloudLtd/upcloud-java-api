@@ -18,8 +18,8 @@ Returns information on the user&#39;s account.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AccountApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.AccountApi;
 
 
 AccountApi apiInstance = new AccountApi();

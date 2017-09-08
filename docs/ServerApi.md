@@ -36,8 +36,8 @@ Servers can be tagged with one or more tags. The tags used must exist
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -83,8 +83,8 @@ Attaches a storage as a device to a server.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -130,8 +130,8 @@ Creates a new firewall rule
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -176,8 +176,8 @@ Creates a new server instance.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -221,8 +221,8 @@ Removes a firewall rule from a server. Firewall rules must be removed individual
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -265,8 +265,8 @@ Delete server
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -309,8 +309,8 @@ Detaches a storage resource from a server.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -356,8 +356,8 @@ Ejects the storage from the CD-ROM device of a server.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -401,8 +401,8 @@ Returns detailed information about a specific firewall rule
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -448,8 +448,8 @@ Returns a list of available server configurations. A server configuration consis
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -489,8 +489,8 @@ Returns a list of all servers associated with the current account.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -530,8 +530,8 @@ Loads a storage as a CD-ROM in the CD-ROM device of a server.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -575,8 +575,8 @@ Modify server
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -622,8 +622,8 @@ Stops and starts a server. The server state must be &#x60;started&#x60;.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -669,8 +669,8 @@ Returns detailed information about a specific server.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -714,8 +714,8 @@ Returns a list of firewall rules for a specific server.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -759,8 +759,8 @@ Starts a stopped server. The server state must be &#x60;stopped&#x60;.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -804,8 +804,8 @@ Stops a started server. The server state must be &#x60;started&#x60;.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();
@@ -851,8 +851,8 @@ Untags tags from given server. The tag(s) must exist
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ServerApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ServerApi;
 
 
 ServerApi apiInstance = new ServerApi();

@@ -18,8 +18,8 @@ Returns a list of available zones.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ZoneApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.ZoneApi;
 
 
 ZoneApi apiInstance = new ZoneApi();

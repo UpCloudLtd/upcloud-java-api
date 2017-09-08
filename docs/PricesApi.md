@@ -18,8 +18,8 @@ Returns a list resource prices.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.PricesApi;
+//import com.upcloud.client.ApiException;
+//import com.upcloud.client.api.PricesApi;
 
 
 PricesApi apiInstance = new PricesApi();
