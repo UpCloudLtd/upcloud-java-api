@@ -24,8 +24,8 @@ import java.io.IOException;
 
 
 import com.upcloud.client.models.CreateNewTagResponse;
+import com.upcloud.client.models.CreateServerResponse;
 import com.upcloud.client.models.Error;
-import com.upcloud.client.models.ServerListResponse;
 import com.upcloud.client.models.Tag;
 import com.upcloud.client.models.Tag1;
 import com.upcloud.client.models.TagListResponse;
@@ -136,11 +136,11 @@ public class TagApi {
      * Servers can be tagged with one or more tags. The tags used must exist
      * @param serverId Server id (required)
      * @param tagList List of tags (required)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse assignTag(UUID serverId, String tagList) throws ApiException {
-        ApiResponse<ServerListResponse> resp = assignTagWithHttpInfo(serverId, tagList);
+    public CreateServerResponse assignTag(UUID serverId, String tagList) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = assignTagWithHttpInfo(serverId, tagList);
         return resp.getData();
     }
 
@@ -149,12 +149,12 @@ public class TagApi {
      * Servers can be tagged with one or more tags. The tags used must exist
      * @param serverId Server id (required)
      * @param tagList List of tags (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> assignTagWithHttpInfo(UUID serverId, String tagList) throws ApiException {
+    public ApiResponse<CreateServerResponse> assignTagWithHttpInfo(UUID serverId, String tagList) throws ApiException {
         com.squareup.okhttp.Call call = assignTagValidateBeforeCall(serverId, tagList, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -167,7 +167,7 @@ public class TagApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call assignTagAsync(UUID serverId, String tagList, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call assignTagAsync(UUID serverId, String tagList, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -189,7 +189,7 @@ public class TagApi {
         }
 
         com.squareup.okhttp.Call call = assignTagValidateBeforeCall(serverId, tagList, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -775,11 +775,11 @@ public class TagApi {
      * Untags tags from given server. The tag(s) must exist
      * @param serverId Server id (required)
      * @param tagName Tag name (required)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse untag(UUID serverId, String tagName) throws ApiException {
-        ApiResponse<ServerListResponse> resp = untagWithHttpInfo(serverId, tagName);
+    public CreateServerResponse untag(UUID serverId, String tagName) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = untagWithHttpInfo(serverId, tagName);
         return resp.getData();
     }
 
@@ -788,12 +788,12 @@ public class TagApi {
      * Untags tags from given server. The tag(s) must exist
      * @param serverId Server id (required)
      * @param tagName Tag name (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> untagWithHttpInfo(UUID serverId, String tagName) throws ApiException {
+    public ApiResponse<CreateServerResponse> untagWithHttpInfo(UUID serverId, String tagName) throws ApiException {
         com.squareup.okhttp.Call call = untagValidateBeforeCall(serverId, tagName, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -806,7 +806,7 @@ public class TagApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call untagAsync(UUID serverId, String tagName, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call untagAsync(UUID serverId, String tagName, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -828,7 +828,7 @@ public class TagApi {
         }
 
         com.squareup.okhttp.Call call = untagValidateBeforeCall(serverId, tagName, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

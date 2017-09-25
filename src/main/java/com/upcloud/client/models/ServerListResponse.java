@@ -15,7 +15,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.upcloud.client.models.Server;
+import com.upcloud.client.models.ServerListResponseServers;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -23,27 +23,27 @@ import java.io.IOException;
 /**
  * ServerListResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-08T11:42:49.463+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-25T14:18:27.065+03:00")
 public class ServerListResponse {
-  @SerializedName("server")
-  private Server server = null;
+  @SerializedName("servers")
+  private ServerListResponseServers servers = null;
 
-  public ServerListResponse server(Server server) {
-    this.server = server;
+  public ServerListResponse servers(ServerListResponseServers servers) {
+    this.servers = servers;
     return this;
   }
 
    /**
-   * Get server
-   * @return server
+   * Get servers
+   * @return servers
   **/
   @ApiModelProperty(value = "")
-  public Server getServer() {
-    return server;
+  public ServerListResponseServers getServers() {
+    return servers;
   }
 
-  public void setServer(Server server) {
-    this.server = server;
+  public void setServers(ServerListResponseServers servers) {
+    this.servers = servers;
   }
 
 
@@ -56,12 +56,12 @@ public class ServerListResponse {
       return false;
     }
     ServerListResponse serverListResponse = (ServerListResponse) o;
-    return Objects.equals(this.server, serverListResponse.server);
+    return Objects.equals(this.servers, serverListResponse.servers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(server);
+    return Objects.hash(servers);
   }
 
 
@@ -70,7 +70,7 @@ public class ServerListResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ServerListResponse {\n");
     
-    sb.append("    server: ").append(toIndentedString(server)).append("\n");
+    sb.append("    servers: ").append(toIndentedString(servers)).append("\n");
     sb.append("}");
     return sb.toString();
   }

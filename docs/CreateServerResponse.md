@@ -1,10 +1,10 @@
 
-# ServerListResponse
+# CreateServerResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**servers** | [**ServerListResponseServers**](ServerListResponseServers.md) |  |  [optional]
+**server** | [**Server**](Server.md) |  |  [optional]
 
 
 

@@ -15,35 +15,35 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.upcloud.client.models.ConfigurationListResponseServerSizes;
+import com.upcloud.client.models.Server;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ConfigurationListResponse
+ * CreateServerResponse
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-25T14:18:27.065+03:00")
-public class ConfigurationListResponse {
-  @SerializedName("server_sizes")
-  private ConfigurationListResponseServerSizes serverSizes = null;
+public class CreateServerResponse {
+  @SerializedName("server")
+  private Server server = null;
 
-  public ConfigurationListResponse serverSizes(ConfigurationListResponseServerSizes serverSizes) {
-    this.serverSizes = serverSizes;
+  public CreateServerResponse server(Server server) {
+    this.server = server;
     return this;
   }
 
    /**
-   * Get serverSizes
-   * @return serverSizes
+   * Get server
+   * @return server
   **/
   @ApiModelProperty(value = "")
-  public ConfigurationListResponseServerSizes getServerSizes() {
-    return serverSizes;
+  public Server getServer() {
+    return server;
   }
 
-  public void setServerSizes(ConfigurationListResponseServerSizes serverSizes) {
-    this.serverSizes = serverSizes;
+  public void setServer(Server server) {
+    this.server = server;
   }
 
 
@@ -55,22 +55,22 @@ public class ConfigurationListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConfigurationListResponse configurationListResponse = (ConfigurationListResponse) o;
-    return Objects.equals(this.serverSizes, configurationListResponse.serverSizes);
+    CreateServerResponse createServerResponse = (CreateServerResponse) o;
+    return Objects.equals(this.server, createServerResponse.server);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serverSizes);
+    return Objects.hash(server);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConfigurationListResponse {\n");
+    sb.append("class CreateServerResponse {\n");
     
-    sb.append("    serverSizes: ").append(toIndentedString(serverSizes)).append("\n");
+    sb.append("    server: ").append(toIndentedString(server)).append("\n");
     sb.append("}");
     return sb.toString();
   }

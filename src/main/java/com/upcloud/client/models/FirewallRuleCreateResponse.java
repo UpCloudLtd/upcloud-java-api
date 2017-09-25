@@ -15,35 +15,35 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.upcloud.client.models.ConfigurationListResponseServerSizes;
+import com.upcloud.client.models.FirewallRule;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ConfigurationListResponse
+ * FirewallRuleCreateResponse
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-25T14:18:27.065+03:00")
-public class ConfigurationListResponse {
-  @SerializedName("server_sizes")
-  private ConfigurationListResponseServerSizes serverSizes = null;
+public class FirewallRuleCreateResponse {
+  @SerializedName("firewall_rule")
+  private FirewallRule firewallRule = null;
 
-  public ConfigurationListResponse serverSizes(ConfigurationListResponseServerSizes serverSizes) {
-    this.serverSizes = serverSizes;
+  public FirewallRuleCreateResponse firewallRule(FirewallRule firewallRule) {
+    this.firewallRule = firewallRule;
     return this;
   }
 
    /**
-   * Get serverSizes
-   * @return serverSizes
+   * Get firewallRule
+   * @return firewallRule
   **/
   @ApiModelProperty(value = "")
-  public ConfigurationListResponseServerSizes getServerSizes() {
-    return serverSizes;
+  public FirewallRule getFirewallRule() {
+    return firewallRule;
   }
 
-  public void setServerSizes(ConfigurationListResponseServerSizes serverSizes) {
-    this.serverSizes = serverSizes;
+  public void setFirewallRule(FirewallRule firewallRule) {
+    this.firewallRule = firewallRule;
   }
 
 
@@ -55,22 +55,22 @@ public class ConfigurationListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConfigurationListResponse configurationListResponse = (ConfigurationListResponse) o;
-    return Objects.equals(this.serverSizes, configurationListResponse.serverSizes);
+    FirewallRuleCreateResponse firewallRuleCreateResponse = (FirewallRuleCreateResponse) o;
+    return Objects.equals(this.firewallRule, firewallRuleCreateResponse.firewallRule);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serverSizes);
+    return Objects.hash(firewallRule);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConfigurationListResponse {\n");
+    sb.append("class FirewallRuleCreateResponse {\n");
     
-    sb.append("    serverSizes: ").append(toIndentedString(serverSizes)).append("\n");
+    sb.append("    firewallRule: ").append(toIndentedString(firewallRule)).append("\n");
     sb.append("}");
     return sb.toString();
   }

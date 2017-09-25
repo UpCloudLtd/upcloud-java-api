@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 <a name="assignTag"></a>
 # **assignTag**
-> ServerListResponse assignTag(serverId, tagList)
+> CreateServerResponse assignTag(serverId, tagList)
 
 Assign tag to a server
 
@@ -44,7 +44,7 @@ ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
 String tagList = "tagList_example"; // String | List of tags
 try {
-    ServerListResponse result = apiInstance.assignTag(serverId, tagList);
+    CreateServerResponse result = apiInstance.assignTag(serverId, tagList);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#assignTag");
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ No authorization required
 
 <a name="attachStorage"></a>
 # **attachStorage**
-> ServerListResponse attachStorage(serverId, storageDevice)
+> CreateServerResponse attachStorage(serverId, storageDevice)
 
 Attach storage
 
@@ -91,7 +91,7 @@ ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
 StorageDevice storageDevice = new StorageDevice(); // StorageDevice | 
 try {
-    ServerListResponse result = apiInstance.attachStorage(serverId, storageDevice);
+    CreateServerResponse result = apiInstance.attachStorage(serverId, storageDevice);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#attachStorage");
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 
@@ -121,7 +121,7 @@ No authorization required
 
 <a name="createFirewallRule"></a>
 # **createFirewallRule**
-> createFirewallRule(serverId, firewallRule)
+> FirewallRuleCreateResponse createFirewallRule(serverId, firewallRule)
 
 Create firewall rule
 
@@ -136,9 +136,10 @@ Creates a new firewall rule
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
-FirewallRule firewallRule = new FirewallRule(); // FirewallRule | 
+FirewallRuleRequest firewallRule = new FirewallRuleRequest(); // FirewallRuleRequest | 
 try {
-    apiInstance.createFirewallRule(serverId, firewallRule);
+    FirewallRuleCreateResponse result = apiInstance.createFirewallRule(serverId, firewallRule);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#createFirewallRule");
     e.printStackTrace();
@@ -150,11 +151,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **UUID**| Server id |
- **firewallRule** | [**FirewallRule**](FirewallRule.md)|  |
+ **firewallRule** | [**FirewallRuleRequest**](FirewallRuleRequest.md)|  |
 
 ### Return type
 
-null (empty response body)
+[**FirewallRuleCreateResponse**](FirewallRuleCreateResponse.md)
 
 ### Authorization
 
@@ -167,7 +168,7 @@ No authorization required
 
 <a name="createServer"></a>
 # **createServer**
-> ServerListResponse createServer(server)
+> CreateServerResponse createServer(server)
 
 Create server
 
@@ -183,7 +184,7 @@ Creates a new server instance.
 ServerApi apiInstance = new ServerApi();
 Server server = new Server(); // Server | 
 try {
-    ServerListResponse result = apiInstance.createServer(server);
+    CreateServerResponse result = apiInstance.createServer(server);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#createServer");
@@ -199,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 
@@ -300,7 +301,7 @@ No authorization required
 
 <a name="detachStorage"></a>
 # **detachStorage**
-> ServerListResponse detachStorage(serverId, storageDevice)
+> CreateServerResponse detachStorage(serverId, storageDevice)
 
 Detach storage
 
@@ -317,7 +318,7 @@ ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
 StorageDevice storageDevice = new StorageDevice(); // StorageDevice | 
 try {
-    ServerListResponse result = apiInstance.detachStorage(serverId, storageDevice);
+    CreateServerResponse result = apiInstance.detachStorage(serverId, storageDevice);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#detachStorage");
@@ -334,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 
@@ -347,7 +348,7 @@ No authorization required
 
 <a name="ejectCdrom"></a>
 # **ejectCdrom**
-> ServerListResponse ejectCdrom(serverId)
+> CreateServerResponse ejectCdrom(serverId)
 
 Eject CD-ROM
 
@@ -363,7 +364,7 @@ Ejects the storage from the CD-ROM device of a server.
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
 try {
-    ServerListResponse result = apiInstance.ejectCdrom(serverId);
+    CreateServerResponse result = apiInstance.ejectCdrom(serverId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#ejectCdrom");
@@ -379,7 +380,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 
@@ -392,7 +393,7 @@ No authorization required
 
 <a name="getFirewallRule"></a>
 # **getFirewallRule**
-> FirewallRuleDetailsResponse getFirewallRule(serverId, firewallRuleNumber)
+> FirewallRuleCreateResponse getFirewallRule(serverId, firewallRuleNumber)
 
 Get firewall rule details
 
@@ -409,7 +410,7 @@ ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
 UUID firewallRuleNumber = new UUID(); // UUID | Denotes the index of the firewall rule in the server's firewall rule list
 try {
-    FirewallRuleDetailsResponse result = apiInstance.getFirewallRule(serverId, firewallRuleNumber);
+    FirewallRuleCreateResponse result = apiInstance.getFirewallRule(serverId, firewallRuleNumber);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#getFirewallRule");
@@ -426,7 +427,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FirewallRuleDetailsResponse**](FirewallRuleDetailsResponse.md)
+[**FirewallRuleCreateResponse**](FirewallRuleCreateResponse.md)
 
 ### Authorization
 
@@ -521,7 +522,7 @@ No authorization required
 
 <a name="loadCdrom"></a>
 # **loadCdrom**
-> ServerListResponse loadCdrom(serverId, storageDevice)
+> CreateServerResponse loadCdrom(serverId, storageDevice)
 
 Load CD-ROM
 
@@ -538,7 +539,7 @@ ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
 StorageDevice1 storageDevice = new StorageDevice1(); // StorageDevice1 | 
 try {
-    ServerListResponse result = apiInstance.loadCdrom(serverId, storageDevice);
+    CreateServerResponse result = apiInstance.loadCdrom(serverId, storageDevice);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#loadCdrom");
@@ -555,7 +556,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 
@@ -568,7 +569,7 @@ No authorization required
 
 <a name="modifyServer"></a>
 # **modifyServer**
-> ServerListResponse modifyServer(serverId, server)
+> CreateServerResponse modifyServer(serverId, server)
 
 Modify server
 
@@ -583,7 +584,7 @@ ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to modify
 Server server = new Server(); // Server | 
 try {
-    ServerListResponse result = apiInstance.modifyServer(serverId, server);
+    CreateServerResponse result = apiInstance.modifyServer(serverId, server);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#modifyServer");
@@ -600,7 +601,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 
@@ -613,7 +614,7 @@ No authorization required
 
 <a name="restartServer"></a>
 # **restartServer**
-> ServerListResponse restartServer(serverId, restartServer)
+> CreateServerResponse restartServer(serverId, restartServer)
 
 Restart server
 
@@ -630,7 +631,7 @@ ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to restart
 RestartServer restartServer = new RestartServer(); // RestartServer | 
 try {
-    ServerListResponse result = apiInstance.restartServer(serverId, restartServer);
+    CreateServerResponse result = apiInstance.restartServer(serverId, restartServer);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#restartServer");
@@ -647,7 +648,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 
@@ -660,7 +661,7 @@ No authorization required
 
 <a name="serverDetails"></a>
 # **serverDetails**
-> ServerListResponse serverDetails(serverId)
+> CreateServerResponse serverDetails(serverId)
 
 Get server details
 
@@ -676,7 +677,7 @@ Returns detailed information about a specific server.
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to return
 try {
-    ServerListResponse result = apiInstance.serverDetails(serverId);
+    CreateServerResponse result = apiInstance.serverDetails(serverId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#serverDetails");
@@ -692,7 +693,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 
@@ -750,7 +751,7 @@ No authorization required
 
 <a name="startServer"></a>
 # **startServer**
-> ServerListResponse startServer(serverId)
+> CreateServerResponse startServer(serverId)
 
 Start server
 
@@ -766,7 +767,7 @@ Starts a stopped server. The server state must be &#x60;stopped&#x60;.
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to start
 try {
-    ServerListResponse result = apiInstance.startServer(serverId);
+    CreateServerResponse result = apiInstance.startServer(serverId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#startServer");
@@ -782,7 +783,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 
@@ -795,7 +796,7 @@ No authorization required
 
 <a name="stopServer"></a>
 # **stopServer**
-> ServerListResponse stopServer(serverId, stopServer)
+> CreateServerResponse stopServer(serverId, stopServer)
 
 Stop server
 
@@ -812,7 +813,7 @@ ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to stop
 StopServer stopServer = new StopServer(); // StopServer | 
 try {
-    ServerListResponse result = apiInstance.stopServer(serverId, stopServer);
+    CreateServerResponse result = apiInstance.stopServer(serverId, stopServer);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#stopServer");
@@ -829,7 +830,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 
@@ -842,7 +843,7 @@ No authorization required
 
 <a name="untag"></a>
 # **untag**
-> ServerListResponse untag(serverId, tagName)
+> CreateServerResponse untag(serverId, tagName)
 
 Remove tag from server
 
@@ -859,7 +860,7 @@ ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
 String tagName = "tagName_example"; // String | Tag name
 try {
-    ServerListResponse result = apiInstance.untag(serverId, tagName);
+    CreateServerResponse result = apiInstance.untag(serverId, tagName);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#untag");
@@ -876,7 +877,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 

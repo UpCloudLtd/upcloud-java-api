@@ -23,9 +23,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.upcloud.client.models.CreateServerResponse;
 import com.upcloud.client.models.CreateStorageResponse;
 import com.upcloud.client.models.Error;
-import com.upcloud.client.models.ServerListResponse;
 import com.upcloud.client.models.Storage;
 import com.upcloud.client.models.Storage1;
 import com.upcloud.client.models.Storage2;
@@ -140,11 +140,11 @@ public class StorageApi {
      * Attaches a storage as a device to a server.
      * @param serverId Server id (required)
      * @param storageDevice  (required)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse attachStorage(UUID serverId, StorageDevice storageDevice) throws ApiException {
-        ApiResponse<ServerListResponse> resp = attachStorageWithHttpInfo(serverId, storageDevice);
+    public CreateServerResponse attachStorage(UUID serverId, StorageDevice storageDevice) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = attachStorageWithHttpInfo(serverId, storageDevice);
         return resp.getData();
     }
 
@@ -153,12 +153,12 @@ public class StorageApi {
      * Attaches a storage as a device to a server.
      * @param serverId Server id (required)
      * @param storageDevice  (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> attachStorageWithHttpInfo(UUID serverId, StorageDevice storageDevice) throws ApiException {
+    public ApiResponse<CreateServerResponse> attachStorageWithHttpInfo(UUID serverId, StorageDevice storageDevice) throws ApiException {
         com.squareup.okhttp.Call call = attachStorageValidateBeforeCall(serverId, storageDevice, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -171,7 +171,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call attachStorageAsync(UUID serverId, StorageDevice storageDevice, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call attachStorageAsync(UUID serverId, StorageDevice storageDevice, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -193,7 +193,7 @@ public class StorageApi {
         }
 
         com.squareup.okhttp.Call call = attachStorageValidateBeforeCall(serverId, storageDevice, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -910,11 +910,11 @@ public class StorageApi {
      * Detaches a storage resource from a server.
      * @param serverId Server id (required)
      * @param storageDevice  (required)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse detachStorage(UUID serverId, StorageDevice storageDevice) throws ApiException {
-        ApiResponse<ServerListResponse> resp = detachStorageWithHttpInfo(serverId, storageDevice);
+    public CreateServerResponse detachStorage(UUID serverId, StorageDevice storageDevice) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = detachStorageWithHttpInfo(serverId, storageDevice);
         return resp.getData();
     }
 
@@ -923,12 +923,12 @@ public class StorageApi {
      * Detaches a storage resource from a server.
      * @param serverId Server id (required)
      * @param storageDevice  (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> detachStorageWithHttpInfo(UUID serverId, StorageDevice storageDevice) throws ApiException {
+    public ApiResponse<CreateServerResponse> detachStorageWithHttpInfo(UUID serverId, StorageDevice storageDevice) throws ApiException {
         com.squareup.okhttp.Call call = detachStorageValidateBeforeCall(serverId, storageDevice, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -941,7 +941,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call detachStorageAsync(UUID serverId, StorageDevice storageDevice, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call detachStorageAsync(UUID serverId, StorageDevice storageDevice, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -963,7 +963,7 @@ public class StorageApi {
         }
 
         com.squareup.okhttp.Call call = detachStorageValidateBeforeCall(serverId, storageDevice, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1039,11 +1039,11 @@ public class StorageApi {
      * Eject CD-ROM
      * Ejects the storage from the CD-ROM device of a server.
      * @param serverId Server id (required)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse ejectCdrom(UUID serverId) throws ApiException {
-        ApiResponse<ServerListResponse> resp = ejectCdromWithHttpInfo(serverId);
+    public CreateServerResponse ejectCdrom(UUID serverId) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = ejectCdromWithHttpInfo(serverId);
         return resp.getData();
     }
 
@@ -1051,12 +1051,12 @@ public class StorageApi {
      * Eject CD-ROM
      * Ejects the storage from the CD-ROM device of a server.
      * @param serverId Server id (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> ejectCdromWithHttpInfo(UUID serverId) throws ApiException {
+    public ApiResponse<CreateServerResponse> ejectCdromWithHttpInfo(UUID serverId) throws ApiException {
         com.squareup.okhttp.Call call = ejectCdromValidateBeforeCall(serverId, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1068,7 +1068,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ejectCdromAsync(UUID serverId, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call ejectCdromAsync(UUID serverId, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1090,7 +1090,7 @@ public class StorageApi {
         }
 
         com.squareup.okhttp.Call call = ejectCdromValidateBeforeCall(serverId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1662,11 +1662,11 @@ public class StorageApi {
      * Loads a storage as a CD-ROM in the CD-ROM device of a server.
      * @param serverId Server id (required)
      * @param storageDevice  (optional)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse loadCdrom(UUID serverId, StorageDevice1 storageDevice) throws ApiException {
-        ApiResponse<ServerListResponse> resp = loadCdromWithHttpInfo(serverId, storageDevice);
+    public CreateServerResponse loadCdrom(UUID serverId, StorageDevice1 storageDevice) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = loadCdromWithHttpInfo(serverId, storageDevice);
         return resp.getData();
     }
 
@@ -1675,12 +1675,12 @@ public class StorageApi {
      * Loads a storage as a CD-ROM in the CD-ROM device of a server.
      * @param serverId Server id (required)
      * @param storageDevice  (optional)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> loadCdromWithHttpInfo(UUID serverId, StorageDevice1 storageDevice) throws ApiException {
+    public ApiResponse<CreateServerResponse> loadCdromWithHttpInfo(UUID serverId, StorageDevice1 storageDevice) throws ApiException {
         com.squareup.okhttp.Call call = loadCdromValidateBeforeCall(serverId, storageDevice, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1693,7 +1693,7 @@ public class StorageApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call loadCdromAsync(UUID serverId, StorageDevice1 storageDevice, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call loadCdromAsync(UUID serverId, StorageDevice1 storageDevice, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1715,7 +1715,7 @@ public class StorageApi {
         }
 
         com.squareup.okhttp.Call call = loadCdromValidateBeforeCall(serverId, storageDevice, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

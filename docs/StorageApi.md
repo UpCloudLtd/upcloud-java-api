@@ -25,7 +25,7 @@ Method | HTTP request | Description
 
 <a name="attachStorage"></a>
 # **attachStorage**
-> ServerListResponse attachStorage(serverId, storageDevice)
+> CreateServerResponse attachStorage(serverId, storageDevice)
 
 Attach storage
 
@@ -42,7 +42,7 @@ StorageApi apiInstance = new StorageApi();
 UUID serverId = new UUID(); // UUID | Server id
 StorageDevice storageDevice = new StorageDevice(); // StorageDevice | 
 try {
-    ServerListResponse result = apiInstance.attachStorage(serverId, storageDevice);
+    CreateServerResponse result = apiInstance.attachStorage(serverId, storageDevice);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageApi#attachStorage");
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 
@@ -299,7 +299,7 @@ No authorization required
 
 <a name="detachStorage"></a>
 # **detachStorage**
-> ServerListResponse detachStorage(serverId, storageDevice)
+> CreateServerResponse detachStorage(serverId, storageDevice)
 
 Detach storage
 
@@ -316,7 +316,7 @@ StorageApi apiInstance = new StorageApi();
 UUID serverId = new UUID(); // UUID | Server id
 StorageDevice storageDevice = new StorageDevice(); // StorageDevice | 
 try {
-    ServerListResponse result = apiInstance.detachStorage(serverId, storageDevice);
+    CreateServerResponse result = apiInstance.detachStorage(serverId, storageDevice);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageApi#detachStorage");
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 
@@ -346,7 +346,7 @@ No authorization required
 
 <a name="ejectCdrom"></a>
 # **ejectCdrom**
-> ServerListResponse ejectCdrom(serverId)
+> CreateServerResponse ejectCdrom(serverId)
 
 Eject CD-ROM
 
@@ -362,7 +362,7 @@ Ejects the storage from the CD-ROM device of a server.
 StorageApi apiInstance = new StorageApi();
 UUID serverId = new UUID(); // UUID | Server id
 try {
-    ServerListResponse result = apiInstance.ejectCdrom(serverId);
+    CreateServerResponse result = apiInstance.ejectCdrom(serverId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageApi#ejectCdrom");
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 
@@ -562,7 +562,7 @@ No authorization required
 
 <a name="loadCdrom"></a>
 # **loadCdrom**
-> ServerListResponse loadCdrom(serverId, storageDevice)
+> CreateServerResponse loadCdrom(serverId, storageDevice)
 
 Load CD-ROM
 
@@ -579,7 +579,7 @@ StorageApi apiInstance = new StorageApi();
 UUID serverId = new UUID(); // UUID | Server id
 StorageDevice1 storageDevice = new StorageDevice1(); // StorageDevice1 | 
 try {
-    ServerListResponse result = apiInstance.loadCdrom(serverId, storageDevice);
+    CreateServerResponse result = apiInstance.loadCdrom(serverId, storageDevice);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageApi#loadCdrom");
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 

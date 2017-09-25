@@ -1,10 +1,10 @@
 
-# ServerListResponse
+# FirewallRuleCreateResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**servers** | [**ServerListResponseServers**](ServerListResponseServers.md) |  |  [optional]
+**firewallRule** | [**FirewallRule**](FirewallRule.md) |  |  [optional]
 
 
 

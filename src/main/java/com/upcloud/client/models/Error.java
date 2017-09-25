@@ -23,7 +23,7 @@ import java.io.IOException;
 /**
  * Error
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-08T11:42:49.463+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-25T14:18:27.065+03:00")
 public class Error {
   @SerializedName("error")
   private ErrorError error = null;

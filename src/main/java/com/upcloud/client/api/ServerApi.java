@@ -24,10 +24,11 @@ import java.io.IOException;
 
 
 import com.upcloud.client.models.ConfigurationListResponse;
+import com.upcloud.client.models.CreateServerResponse;
 import com.upcloud.client.models.Error;
-import com.upcloud.client.models.FirewallRule;
-import com.upcloud.client.models.FirewallRuleDetailsResponse;
+import com.upcloud.client.models.FirewallRuleCreateResponse;
 import com.upcloud.client.models.FirewallRuleListResponse;
+import com.upcloud.client.models.FirewallRuleRequest;
 import com.upcloud.client.models.RestartServer;
 import com.upcloud.client.models.Server;
 import com.upcloud.client.models.ServerListResponse;
@@ -141,11 +142,11 @@ public class ServerApi {
      * Servers can be tagged with one or more tags. The tags used must exist
      * @param serverId Server id (required)
      * @param tagList List of tags (required)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse assignTag(UUID serverId, String tagList) throws ApiException {
-        ApiResponse<ServerListResponse> resp = assignTagWithHttpInfo(serverId, tagList);
+    public CreateServerResponse assignTag(UUID serverId, String tagList) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = assignTagWithHttpInfo(serverId, tagList);
         return resp.getData();
     }
 
@@ -154,12 +155,12 @@ public class ServerApi {
      * Servers can be tagged with one or more tags. The tags used must exist
      * @param serverId Server id (required)
      * @param tagList List of tags (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> assignTagWithHttpInfo(UUID serverId, String tagList) throws ApiException {
+    public ApiResponse<CreateServerResponse> assignTagWithHttpInfo(UUID serverId, String tagList) throws ApiException {
         com.squareup.okhttp.Call call = assignTagValidateBeforeCall(serverId, tagList, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -172,7 +173,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call assignTagAsync(UUID serverId, String tagList, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call assignTagAsync(UUID serverId, String tagList, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -194,7 +195,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = assignTagValidateBeforeCall(serverId, tagList, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -277,11 +278,11 @@ public class ServerApi {
      * Attaches a storage as a device to a server.
      * @param serverId Server id (required)
      * @param storageDevice  (required)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse attachStorage(UUID serverId, StorageDevice storageDevice) throws ApiException {
-        ApiResponse<ServerListResponse> resp = attachStorageWithHttpInfo(serverId, storageDevice);
+    public CreateServerResponse attachStorage(UUID serverId, StorageDevice storageDevice) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = attachStorageWithHttpInfo(serverId, storageDevice);
         return resp.getData();
     }
 
@@ -290,12 +291,12 @@ public class ServerApi {
      * Attaches a storage as a device to a server.
      * @param serverId Server id (required)
      * @param storageDevice  (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> attachStorageWithHttpInfo(UUID serverId, StorageDevice storageDevice) throws ApiException {
+    public ApiResponse<CreateServerResponse> attachStorageWithHttpInfo(UUID serverId, StorageDevice storageDevice) throws ApiException {
         com.squareup.okhttp.Call call = attachStorageValidateBeforeCall(serverId, storageDevice, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -308,7 +309,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call attachStorageAsync(UUID serverId, StorageDevice storageDevice, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call attachStorageAsync(UUID serverId, StorageDevice storageDevice, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -330,7 +331,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = attachStorageValidateBeforeCall(serverId, storageDevice, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -343,7 +344,7 @@ public class ServerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createFirewallRuleCall(UUID serverId, FirewallRule firewallRule, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createFirewallRuleCall(UUID serverId, FirewallRuleRequest firewallRule, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = firewallRule;
         
         // create path and map variables
@@ -386,7 +387,7 @@ public class ServerApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createFirewallRuleValidateBeforeCall(UUID serverId, FirewallRule firewallRule, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createFirewallRuleValidateBeforeCall(UUID serverId, FirewallRuleRequest firewallRule, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
@@ -413,10 +414,12 @@ public class ServerApi {
      * Creates a new firewall rule
      * @param serverId Server id (required)
      * @param firewallRule  (required)
+     * @return FirewallRuleCreateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void createFirewallRule(UUID serverId, FirewallRule firewallRule) throws ApiException {
-        createFirewallRuleWithHttpInfo(serverId, firewallRule);
+    public FirewallRuleCreateResponse createFirewallRule(UUID serverId, FirewallRuleRequest firewallRule) throws ApiException {
+        ApiResponse<FirewallRuleCreateResponse> resp = createFirewallRuleWithHttpInfo(serverId, firewallRule);
+        return resp.getData();
     }
 
     /**
@@ -424,12 +427,13 @@ public class ServerApi {
      * Creates a new firewall rule
      * @param serverId Server id (required)
      * @param firewallRule  (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;FirewallRuleCreateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> createFirewallRuleWithHttpInfo(UUID serverId, FirewallRule firewallRule) throws ApiException {
+    public ApiResponse<FirewallRuleCreateResponse> createFirewallRuleWithHttpInfo(UUID serverId, FirewallRuleRequest firewallRule) throws ApiException {
         com.squareup.okhttp.Call call = createFirewallRuleValidateBeforeCall(serverId, firewallRule, null, null);
-        return apiClient.execute(call);
+        Type localVarReturnType = new TypeToken<FirewallRuleCreateResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
     }
 
     /**
@@ -441,7 +445,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createFirewallRuleAsync(UUID serverId, FirewallRule firewallRule, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call createFirewallRuleAsync(UUID serverId, FirewallRuleRequest firewallRule, final ApiCallback<FirewallRuleCreateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -463,7 +467,8 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = createFirewallRuleValidateBeforeCall(serverId, firewallRule, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        Type localVarReturnType = new TypeToken<FirewallRuleCreateResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
@@ -532,11 +537,11 @@ public class ServerApi {
      * Create server
      * Creates a new server instance.
      * @param server  (optional)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse createServer(Server server) throws ApiException {
-        ApiResponse<ServerListResponse> resp = createServerWithHttpInfo(server);
+    public CreateServerResponse createServer(Server server) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = createServerWithHttpInfo(server);
         return resp.getData();
     }
 
@@ -544,12 +549,12 @@ public class ServerApi {
      * Create server
      * Creates a new server instance.
      * @param server  (optional)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> createServerWithHttpInfo(Server server) throws ApiException {
+    public ApiResponse<CreateServerResponse> createServerWithHttpInfo(Server server) throws ApiException {
         com.squareup.okhttp.Call call = createServerValidateBeforeCall(server, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -561,7 +566,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createServerAsync(Server server, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call createServerAsync(Server server, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -583,7 +588,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = createServerValidateBeforeCall(server, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -922,11 +927,11 @@ public class ServerApi {
      * Detaches a storage resource from a server.
      * @param serverId Server id (required)
      * @param storageDevice  (required)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse detachStorage(UUID serverId, StorageDevice storageDevice) throws ApiException {
-        ApiResponse<ServerListResponse> resp = detachStorageWithHttpInfo(serverId, storageDevice);
+    public CreateServerResponse detachStorage(UUID serverId, StorageDevice storageDevice) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = detachStorageWithHttpInfo(serverId, storageDevice);
         return resp.getData();
     }
 
@@ -935,12 +940,12 @@ public class ServerApi {
      * Detaches a storage resource from a server.
      * @param serverId Server id (required)
      * @param storageDevice  (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> detachStorageWithHttpInfo(UUID serverId, StorageDevice storageDevice) throws ApiException {
+    public ApiResponse<CreateServerResponse> detachStorageWithHttpInfo(UUID serverId, StorageDevice storageDevice) throws ApiException {
         com.squareup.okhttp.Call call = detachStorageValidateBeforeCall(serverId, storageDevice, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -953,7 +958,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call detachStorageAsync(UUID serverId, StorageDevice storageDevice, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call detachStorageAsync(UUID serverId, StorageDevice storageDevice, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -975,7 +980,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = detachStorageValidateBeforeCall(serverId, storageDevice, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1051,11 +1056,11 @@ public class ServerApi {
      * Eject CD-ROM
      * Ejects the storage from the CD-ROM device of a server.
      * @param serverId Server id (required)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse ejectCdrom(UUID serverId) throws ApiException {
-        ApiResponse<ServerListResponse> resp = ejectCdromWithHttpInfo(serverId);
+    public CreateServerResponse ejectCdrom(UUID serverId) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = ejectCdromWithHttpInfo(serverId);
         return resp.getData();
     }
 
@@ -1063,12 +1068,12 @@ public class ServerApi {
      * Eject CD-ROM
      * Ejects the storage from the CD-ROM device of a server.
      * @param serverId Server id (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> ejectCdromWithHttpInfo(UUID serverId) throws ApiException {
+    public ApiResponse<CreateServerResponse> ejectCdromWithHttpInfo(UUID serverId) throws ApiException {
         com.squareup.okhttp.Call call = ejectCdromValidateBeforeCall(serverId, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1080,7 +1085,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ejectCdromAsync(UUID serverId, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call ejectCdromAsync(UUID serverId, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1102,7 +1107,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = ejectCdromValidateBeforeCall(serverId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1186,11 +1191,11 @@ public class ServerApi {
      * Returns detailed information about a specific firewall rule
      * @param serverId Server id (required)
      * @param firewallRuleNumber Denotes the index of the firewall rule in the server&#39;s firewall rule list (required)
-     * @return FirewallRuleDetailsResponse
+     * @return FirewallRuleCreateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FirewallRuleDetailsResponse getFirewallRule(UUID serverId, UUID firewallRuleNumber) throws ApiException {
-        ApiResponse<FirewallRuleDetailsResponse> resp = getFirewallRuleWithHttpInfo(serverId, firewallRuleNumber);
+    public FirewallRuleCreateResponse getFirewallRule(UUID serverId, UUID firewallRuleNumber) throws ApiException {
+        ApiResponse<FirewallRuleCreateResponse> resp = getFirewallRuleWithHttpInfo(serverId, firewallRuleNumber);
         return resp.getData();
     }
 
@@ -1199,12 +1204,12 @@ public class ServerApi {
      * Returns detailed information about a specific firewall rule
      * @param serverId Server id (required)
      * @param firewallRuleNumber Denotes the index of the firewall rule in the server&#39;s firewall rule list (required)
-     * @return ApiResponse&lt;FirewallRuleDetailsResponse&gt;
+     * @return ApiResponse&lt;FirewallRuleCreateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FirewallRuleDetailsResponse> getFirewallRuleWithHttpInfo(UUID serverId, UUID firewallRuleNumber) throws ApiException {
+    public ApiResponse<FirewallRuleCreateResponse> getFirewallRuleWithHttpInfo(UUID serverId, UUID firewallRuleNumber) throws ApiException {
         com.squareup.okhttp.Call call = getFirewallRuleValidateBeforeCall(serverId, firewallRuleNumber, null, null);
-        Type localVarReturnType = new TypeToken<FirewallRuleDetailsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<FirewallRuleCreateResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1217,7 +1222,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFirewallRuleAsync(UUID serverId, UUID firewallRuleNumber, final ApiCallback<FirewallRuleDetailsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFirewallRuleAsync(UUID serverId, UUID firewallRuleNumber, final ApiCallback<FirewallRuleCreateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1239,7 +1244,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = getFirewallRuleValidateBeforeCall(serverId, firewallRuleNumber, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FirewallRuleDetailsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<FirewallRuleCreateResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1551,11 +1556,11 @@ public class ServerApi {
      * Loads a storage as a CD-ROM in the CD-ROM device of a server.
      * @param serverId Server id (required)
      * @param storageDevice  (optional)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse loadCdrom(UUID serverId, StorageDevice1 storageDevice) throws ApiException {
-        ApiResponse<ServerListResponse> resp = loadCdromWithHttpInfo(serverId, storageDevice);
+    public CreateServerResponse loadCdrom(UUID serverId, StorageDevice1 storageDevice) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = loadCdromWithHttpInfo(serverId, storageDevice);
         return resp.getData();
     }
 
@@ -1564,12 +1569,12 @@ public class ServerApi {
      * Loads a storage as a CD-ROM in the CD-ROM device of a server.
      * @param serverId Server id (required)
      * @param storageDevice  (optional)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> loadCdromWithHttpInfo(UUID serverId, StorageDevice1 storageDevice) throws ApiException {
+    public ApiResponse<CreateServerResponse> loadCdromWithHttpInfo(UUID serverId, StorageDevice1 storageDevice) throws ApiException {
         com.squareup.okhttp.Call call = loadCdromValidateBeforeCall(serverId, storageDevice, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1582,7 +1587,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call loadCdromAsync(UUID serverId, StorageDevice1 storageDevice, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call loadCdromAsync(UUID serverId, StorageDevice1 storageDevice, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1604,7 +1609,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = loadCdromValidateBeforeCall(serverId, storageDevice, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1682,11 +1687,11 @@ public class ServerApi {
      * 
      * @param serverId Id of server to modify (required)
      * @param server  (optional)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse modifyServer(UUID serverId, Server server) throws ApiException {
-        ApiResponse<ServerListResponse> resp = modifyServerWithHttpInfo(serverId, server);
+    public CreateServerResponse modifyServer(UUID serverId, Server server) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = modifyServerWithHttpInfo(serverId, server);
         return resp.getData();
     }
 
@@ -1695,12 +1700,12 @@ public class ServerApi {
      * 
      * @param serverId Id of server to modify (required)
      * @param server  (optional)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> modifyServerWithHttpInfo(UUID serverId, Server server) throws ApiException {
+    public ApiResponse<CreateServerResponse> modifyServerWithHttpInfo(UUID serverId, Server server) throws ApiException {
         com.squareup.okhttp.Call call = modifyServerValidateBeforeCall(serverId, server, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1713,7 +1718,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call modifyServerAsync(UUID serverId, Server server, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call modifyServerAsync(UUID serverId, Server server, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1735,7 +1740,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = modifyServerValidateBeforeCall(serverId, server, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1818,11 +1823,11 @@ public class ServerApi {
      * Stops and starts a server. The server state must be &#x60;started&#x60;.
      * @param serverId Id of server to restart (required)
      * @param restartServer  (required)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse restartServer(UUID serverId, RestartServer restartServer) throws ApiException {
-        ApiResponse<ServerListResponse> resp = restartServerWithHttpInfo(serverId, restartServer);
+    public CreateServerResponse restartServer(UUID serverId, RestartServer restartServer) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = restartServerWithHttpInfo(serverId, restartServer);
         return resp.getData();
     }
 
@@ -1831,12 +1836,12 @@ public class ServerApi {
      * Stops and starts a server. The server state must be &#x60;started&#x60;.
      * @param serverId Id of server to restart (required)
      * @param restartServer  (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> restartServerWithHttpInfo(UUID serverId, RestartServer restartServer) throws ApiException {
+    public ApiResponse<CreateServerResponse> restartServerWithHttpInfo(UUID serverId, RestartServer restartServer) throws ApiException {
         com.squareup.okhttp.Call call = restartServerValidateBeforeCall(serverId, restartServer, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1849,7 +1854,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call restartServerAsync(UUID serverId, RestartServer restartServer, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call restartServerAsync(UUID serverId, RestartServer restartServer, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1871,7 +1876,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = restartServerValidateBeforeCall(serverId, restartServer, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1947,11 +1952,11 @@ public class ServerApi {
      * Get server details
      * Returns detailed information about a specific server.
      * @param serverId Id of server to return (required)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse serverDetails(UUID serverId) throws ApiException {
-        ApiResponse<ServerListResponse> resp = serverDetailsWithHttpInfo(serverId);
+    public CreateServerResponse serverDetails(UUID serverId) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = serverDetailsWithHttpInfo(serverId);
         return resp.getData();
     }
 
@@ -1959,12 +1964,12 @@ public class ServerApi {
      * Get server details
      * Returns detailed information about a specific server.
      * @param serverId Id of server to return (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> serverDetailsWithHttpInfo(UUID serverId) throws ApiException {
+    public ApiResponse<CreateServerResponse> serverDetailsWithHttpInfo(UUID serverId) throws ApiException {
         com.squareup.okhttp.Call call = serverDetailsValidateBeforeCall(serverId, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1976,7 +1981,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call serverDetailsAsync(UUID serverId, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call serverDetailsAsync(UUID serverId, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1998,7 +2003,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = serverDetailsValidateBeforeCall(serverId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2201,11 +2206,11 @@ public class ServerApi {
      * Start server
      * Starts a stopped server. The server state must be &#x60;stopped&#x60;.
      * @param serverId Id of server to start (required)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse startServer(UUID serverId) throws ApiException {
-        ApiResponse<ServerListResponse> resp = startServerWithHttpInfo(serverId);
+    public CreateServerResponse startServer(UUID serverId) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = startServerWithHttpInfo(serverId);
         return resp.getData();
     }
 
@@ -2213,12 +2218,12 @@ public class ServerApi {
      * Start server
      * Starts a stopped server. The server state must be &#x60;stopped&#x60;.
      * @param serverId Id of server to start (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> startServerWithHttpInfo(UUID serverId) throws ApiException {
+    public ApiResponse<CreateServerResponse> startServerWithHttpInfo(UUID serverId) throws ApiException {
         com.squareup.okhttp.Call call = startServerValidateBeforeCall(serverId, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2230,7 +2235,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call startServerAsync(UUID serverId, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call startServerAsync(UUID serverId, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2252,7 +2257,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = startServerValidateBeforeCall(serverId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2335,11 +2340,11 @@ public class ServerApi {
      * Stops a started server. The server state must be &#x60;started&#x60;.
      * @param serverId Id of server to stop (required)
      * @param stopServer  (required)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse stopServer(UUID serverId, StopServer stopServer) throws ApiException {
-        ApiResponse<ServerListResponse> resp = stopServerWithHttpInfo(serverId, stopServer);
+    public CreateServerResponse stopServer(UUID serverId, StopServer stopServer) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = stopServerWithHttpInfo(serverId, stopServer);
         return resp.getData();
     }
 
@@ -2348,12 +2353,12 @@ public class ServerApi {
      * Stops a started server. The server state must be &#x60;started&#x60;.
      * @param serverId Id of server to stop (required)
      * @param stopServer  (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> stopServerWithHttpInfo(UUID serverId, StopServer stopServer) throws ApiException {
+    public ApiResponse<CreateServerResponse> stopServerWithHttpInfo(UUID serverId, StopServer stopServer) throws ApiException {
         com.squareup.okhttp.Call call = stopServerValidateBeforeCall(serverId, stopServer, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2366,7 +2371,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call stopServerAsync(UUID serverId, StopServer stopServer, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call stopServerAsync(UUID serverId, StopServer stopServer, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2388,7 +2393,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = stopServerValidateBeforeCall(serverId, stopServer, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2472,11 +2477,11 @@ public class ServerApi {
      * Untags tags from given server. The tag(s) must exist
      * @param serverId Server id (required)
      * @param tagName Tag name (required)
-     * @return ServerListResponse
+     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServerListResponse untag(UUID serverId, String tagName) throws ApiException {
-        ApiResponse<ServerListResponse> resp = untagWithHttpInfo(serverId, tagName);
+    public CreateServerResponse untag(UUID serverId, String tagName) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = untagWithHttpInfo(serverId, tagName);
         return resp.getData();
     }
 
@@ -2485,12 +2490,12 @@ public class ServerApi {
      * Untags tags from given server. The tag(s) must exist
      * @param serverId Server id (required)
      * @param tagName Tag name (required)
-     * @return ApiResponse&lt;ServerListResponse&gt;
+     * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServerListResponse> untagWithHttpInfo(UUID serverId, String tagName) throws ApiException {
+    public ApiResponse<CreateServerResponse> untagWithHttpInfo(UUID serverId, String tagName) throws ApiException {
         com.squareup.okhttp.Call call = untagValidateBeforeCall(serverId, tagName, null, null);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2503,7 +2508,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call untagAsync(UUID serverId, String tagName, final ApiCallback<ServerListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call untagAsync(UUID serverId, String tagName, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2525,7 +2530,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = untagValidateBeforeCall(serverId, tagName, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServerListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

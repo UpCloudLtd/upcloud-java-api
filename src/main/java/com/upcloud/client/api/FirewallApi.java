@@ -24,9 +24,9 @@ import java.io.IOException;
 
 
 import com.upcloud.client.models.Error;
-import com.upcloud.client.models.FirewallRule;
-import com.upcloud.client.models.FirewallRuleDetailsResponse;
+import com.upcloud.client.models.FirewallRuleCreateResponse;
 import com.upcloud.client.models.FirewallRuleListResponse;
+import com.upcloud.client.models.FirewallRuleRequest;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -63,7 +63,7 @@ public class FirewallApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createFirewallRuleCall(UUID serverId, FirewallRule firewallRule, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createFirewallRuleCall(UUID serverId, FirewallRuleRequest firewallRule, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = firewallRule;
         
         // create path and map variables
@@ -106,7 +106,7 @@ public class FirewallApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createFirewallRuleValidateBeforeCall(UUID serverId, FirewallRule firewallRule, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createFirewallRuleValidateBeforeCall(UUID serverId, FirewallRuleRequest firewallRule, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
@@ -133,10 +133,12 @@ public class FirewallApi {
      * Creates a new firewall rule
      * @param serverId Server id (required)
      * @param firewallRule  (required)
+     * @return FirewallRuleCreateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void createFirewallRule(UUID serverId, FirewallRule firewallRule) throws ApiException {
-        createFirewallRuleWithHttpInfo(serverId, firewallRule);
+    public FirewallRuleCreateResponse createFirewallRule(UUID serverId, FirewallRuleRequest firewallRule) throws ApiException {
+        ApiResponse<FirewallRuleCreateResponse> resp = createFirewallRuleWithHttpInfo(serverId, firewallRule);
+        return resp.getData();
     }
 
     /**
@@ -144,12 +146,13 @@ public class FirewallApi {
      * Creates a new firewall rule
      * @param serverId Server id (required)
      * @param firewallRule  (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;FirewallRuleCreateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> createFirewallRuleWithHttpInfo(UUID serverId, FirewallRule firewallRule) throws ApiException {
+    public ApiResponse<FirewallRuleCreateResponse> createFirewallRuleWithHttpInfo(UUID serverId, FirewallRuleRequest firewallRule) throws ApiException {
         com.squareup.okhttp.Call call = createFirewallRuleValidateBeforeCall(serverId, firewallRule, null, null);
-        return apiClient.execute(call);
+        Type localVarReturnType = new TypeToken<FirewallRuleCreateResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
     }
 
     /**
@@ -161,7 +164,7 @@ public class FirewallApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createFirewallRuleAsync(UUID serverId, FirewallRule firewallRule, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call createFirewallRuleAsync(UUID serverId, FirewallRuleRequest firewallRule, final ApiCallback<FirewallRuleCreateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -183,7 +186,8 @@ public class FirewallApi {
         }
 
         com.squareup.okhttp.Call call = createFirewallRuleValidateBeforeCall(serverId, firewallRule, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        Type localVarReturnType = new TypeToken<FirewallRuleCreateResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
@@ -399,11 +403,11 @@ public class FirewallApi {
      * Returns detailed information about a specific firewall rule
      * @param serverId Server id (required)
      * @param firewallRuleNumber Denotes the index of the firewall rule in the server&#39;s firewall rule list (required)
-     * @return FirewallRuleDetailsResponse
+     * @return FirewallRuleCreateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FirewallRuleDetailsResponse getFirewallRule(UUID serverId, UUID firewallRuleNumber) throws ApiException {
-        ApiResponse<FirewallRuleDetailsResponse> resp = getFirewallRuleWithHttpInfo(serverId, firewallRuleNumber);
+    public FirewallRuleCreateResponse getFirewallRule(UUID serverId, UUID firewallRuleNumber) throws ApiException {
+        ApiResponse<FirewallRuleCreateResponse> resp = getFirewallRuleWithHttpInfo(serverId, firewallRuleNumber);
         return resp.getData();
     }
 
@@ -412,12 +416,12 @@ public class FirewallApi {
      * Returns detailed information about a specific firewall rule
      * @param serverId Server id (required)
      * @param firewallRuleNumber Denotes the index of the firewall rule in the server&#39;s firewall rule list (required)
-     * @return ApiResponse&lt;FirewallRuleDetailsResponse&gt;
+     * @return ApiResponse&lt;FirewallRuleCreateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FirewallRuleDetailsResponse> getFirewallRuleWithHttpInfo(UUID serverId, UUID firewallRuleNumber) throws ApiException {
+    public ApiResponse<FirewallRuleCreateResponse> getFirewallRuleWithHttpInfo(UUID serverId, UUID firewallRuleNumber) throws ApiException {
         com.squareup.okhttp.Call call = getFirewallRuleValidateBeforeCall(serverId, firewallRuleNumber, null, null);
-        Type localVarReturnType = new TypeToken<FirewallRuleDetailsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<FirewallRuleCreateResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -430,7 +434,7 @@ public class FirewallApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFirewallRuleAsync(UUID serverId, UUID firewallRuleNumber, final ApiCallback<FirewallRuleDetailsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFirewallRuleAsync(UUID serverId, UUID firewallRuleNumber, final ApiCallback<FirewallRuleCreateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -452,7 +456,7 @@ public class FirewallApi {
         }
 
         com.squareup.okhttp.Call call = getFirewallRuleValidateBeforeCall(serverId, firewallRuleNumber, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FirewallRuleDetailsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<FirewallRuleCreateResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

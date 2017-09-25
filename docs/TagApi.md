@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="assignTag"></a>
 # **assignTag**
-> ServerListResponse assignTag(serverId, tagList)
+> CreateServerResponse assignTag(serverId, tagList)
 
 Assign tag to a server
 
@@ -31,7 +31,7 @@ TagApi apiInstance = new TagApi();
 UUID serverId = new UUID(); // UUID | Server id
 String tagList = "tagList_example"; // String | List of tags
 try {
-    ServerListResponse result = apiInstance.assignTag(serverId, tagList);
+    CreateServerResponse result = apiInstance.assignTag(serverId, tagList);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TagApi#assignTag");
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 
@@ -238,7 +238,7 @@ No authorization required
 
 <a name="untag"></a>
 # **untag**
-> ServerListResponse untag(serverId, tagName)
+> CreateServerResponse untag(serverId, tagName)
 
 Remove tag from server
 
@@ -255,7 +255,7 @@ TagApi apiInstance = new TagApi();
 UUID serverId = new UUID(); // UUID | Server id
 String tagName = "tagName_example"; // String | Tag name
 try {
-    ServerListResponse result = apiInstance.untag(serverId, tagName);
+    CreateServerResponse result = apiInstance.untag(serverId, tagName);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TagApi#untag");
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServerListResponse**](ServerListResponse.md)
+[**CreateServerResponse**](CreateServerResponse.md)
 
 ### Authorization
 

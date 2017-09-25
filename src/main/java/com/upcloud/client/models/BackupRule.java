@@ -24,7 +24,7 @@ import java.math.BigDecimal;
  * The backup_rule block defines when the storage device is backed up automatically.
  */
 @ApiModel(description = "The backup_rule block defines when the storage device is backed up automatically.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-08T11:42:49.463+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-25T14:18:27.065+03:00")
 public class BackupRule {
   /**
    * Gets or Sets interval
