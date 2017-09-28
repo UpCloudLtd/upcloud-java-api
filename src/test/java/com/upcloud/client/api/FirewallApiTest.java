@@ -11,9 +11,9 @@ package com.upcloud.client.api;
 
 import com.upcloud.client.ApiException;
 import com.upcloud.client.models.Error;
-import com.upcloud.client.models.FirewallRule;
-import com.upcloud.client.models.FirewallRuleDetailsResponse;
+import com.upcloud.client.models.FirewallRuleCreateResponse;
 import com.upcloud.client.models.FirewallRuleListResponse;
+import com.upcloud.client.models.FirewallRuleRequest;
 import java.util.UUID;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -43,8 +43,8 @@ public class FirewallApiTest {
     @Test
     public void createFirewallRuleTest() throws ApiException {
         UUID serverId = null;
-        FirewallRule firewallRule = null;
-        api.createFirewallRule(serverId, firewallRule);
+        FirewallRuleRequest firewallRule = null;
+        FirewallRuleCreateResponse response = api.createFirewallRule(serverId, firewallRule);
 
         // TODO: test validations
     }
@@ -78,7 +78,7 @@ public class FirewallApiTest {
     public void getFirewallRuleTest() throws ApiException {
         UUID serverId = null;
         UUID firewallRuleNumber = null;
-        FirewallRuleDetailsResponse response = api.getFirewallRule(serverId, firewallRuleNumber);
+        FirewallRuleCreateResponse response = api.getFirewallRule(serverId, firewallRuleNumber);
 
         // TODO: test validations
     }

@@ -34,13 +34,13 @@ public enum ErrorStatus {
   
   _409("409");
 
-  private BigDecimal value;
+  private String value;
 
-  ErrorStatus(BigDecimal value) {
+  ErrorStatus(String value) {
     this.value = value;
   }
 
-  public BigDecimal getValue() {
+  public String getValue() {
     return value;
   }
 
@@ -66,7 +66,7 @@ public enum ErrorStatus {
 
     @Override
     public ErrorStatus read(final JsonReader jsonReader) throws IOException {
-      BigDecimal value = jsonReader.nextBigDecimal();
+      String value = jsonReader.nextString();
       return ErrorStatus.fromValue(String.valueOf(value));
     }
   }

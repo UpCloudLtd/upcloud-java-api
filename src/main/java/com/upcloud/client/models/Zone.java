@@ -23,7 +23,7 @@ import java.io.IOException;
  * A zone identifies the physical site where the cloud services are located. Different zones may be used to provide geographical and logical separation of servers.
  */
 @ApiModel(description = "A zone identifies the physical site where the cloud services are located. Different zones may be used to provide geographical and logical separation of servers.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-25T14:18:27.065+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-28T16:40:29.151+03:00")
 public class Zone {
   @SerializedName("name")
   private String name = null;

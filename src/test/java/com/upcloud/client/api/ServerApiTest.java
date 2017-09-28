@@ -11,10 +11,11 @@ package com.upcloud.client.api;
 
 import com.upcloud.client.ApiException;
 import com.upcloud.client.models.ConfigurationListResponse;
+import com.upcloud.client.models.CreateServerResponse;
 import com.upcloud.client.models.Error;
-import com.upcloud.client.models.FirewallRule;
-import com.upcloud.client.models.FirewallRuleDetailsResponse;
+import com.upcloud.client.models.FirewallRuleCreateResponse;
 import com.upcloud.client.models.FirewallRuleListResponse;
+import com.upcloud.client.models.FirewallRuleRequest;
 import com.upcloud.client.models.RestartServer;
 import com.upcloud.client.models.Server;
 import com.upcloud.client.models.ServerListResponse;
@@ -51,7 +52,7 @@ public class ServerApiTest {
     public void assignTagTest() throws ApiException {
         UUID serverId = null;
         String tagList = null;
-        ServerListResponse response = api.assignTag(serverId, tagList);
+        CreateServerResponse response = api.assignTag(serverId, tagList);
 
         // TODO: test validations
     }
@@ -68,7 +69,7 @@ public class ServerApiTest {
     public void attachStorageTest() throws ApiException {
         UUID serverId = null;
         StorageDevice storageDevice = null;
-        ServerListResponse response = api.attachStorage(serverId, storageDevice);
+        CreateServerResponse response = api.attachStorage(serverId, storageDevice);
 
         // TODO: test validations
     }
@@ -84,8 +85,8 @@ public class ServerApiTest {
     @Test
     public void createFirewallRuleTest() throws ApiException {
         UUID serverId = null;
-        FirewallRule firewallRule = null;
-        api.createFirewallRule(serverId, firewallRule);
+        FirewallRuleRequest firewallRule = null;
+        FirewallRuleCreateResponse response = api.createFirewallRule(serverId, firewallRule);
 
         // TODO: test validations
     }
@@ -101,7 +102,7 @@ public class ServerApiTest {
     @Test
     public void createServerTest() throws ApiException {
         Server server = null;
-        ServerListResponse response = api.createServer(server);
+        CreateServerResponse response = api.createServer(server);
 
         // TODO: test validations
     }
@@ -151,7 +152,7 @@ public class ServerApiTest {
     public void detachStorageTest() throws ApiException {
         UUID serverId = null;
         StorageDevice storageDevice = null;
-        ServerListResponse response = api.detachStorage(serverId, storageDevice);
+        CreateServerResponse response = api.detachStorage(serverId, storageDevice);
 
         // TODO: test validations
     }
@@ -167,7 +168,7 @@ public class ServerApiTest {
     @Test
     public void ejectCdromTest() throws ApiException {
         UUID serverId = null;
-        ServerListResponse response = api.ejectCdrom(serverId);
+        CreateServerResponse response = api.ejectCdrom(serverId);
 
         // TODO: test validations
     }
@@ -184,7 +185,7 @@ public class ServerApiTest {
     public void getFirewallRuleTest() throws ApiException {
         UUID serverId = null;
         UUID firewallRuleNumber = null;
-        FirewallRuleDetailsResponse response = api.getFirewallRule(serverId, firewallRuleNumber);
+        FirewallRuleCreateResponse response = api.getFirewallRule(serverId, firewallRuleNumber);
 
         // TODO: test validations
     }
@@ -231,7 +232,7 @@ public class ServerApiTest {
     public void loadCdromTest() throws ApiException {
         UUID serverId = null;
         StorageDevice1 storageDevice = null;
-        ServerListResponse response = api.loadCdrom(serverId, storageDevice);
+        CreateServerResponse response = api.loadCdrom(serverId, storageDevice);
 
         // TODO: test validations
     }
@@ -248,7 +249,7 @@ public class ServerApiTest {
     public void modifyServerTest() throws ApiException {
         UUID serverId = null;
         Server server = null;
-        ServerListResponse response = api.modifyServer(serverId, server);
+        CreateServerResponse response = api.modifyServer(serverId, server);
 
         // TODO: test validations
     }
@@ -265,7 +266,7 @@ public class ServerApiTest {
     public void restartServerTest() throws ApiException {
         UUID serverId = null;
         RestartServer restartServer = null;
-        ServerListResponse response = api.restartServer(serverId, restartServer);
+        CreateServerResponse response = api.restartServer(serverId, restartServer);
 
         // TODO: test validations
     }
@@ -281,7 +282,7 @@ public class ServerApiTest {
     @Test
     public void serverDetailsTest() throws ApiException {
         UUID serverId = null;
-        ServerListResponse response = api.serverDetails(serverId);
+        CreateServerResponse response = api.serverDetails(serverId);
 
         // TODO: test validations
     }
@@ -313,7 +314,7 @@ public class ServerApiTest {
     @Test
     public void startServerTest() throws ApiException {
         UUID serverId = null;
-        ServerListResponse response = api.startServer(serverId);
+        CreateServerResponse response = api.startServer(serverId);
 
         // TODO: test validations
     }
@@ -330,7 +331,7 @@ public class ServerApiTest {
     public void stopServerTest() throws ApiException {
         UUID serverId = null;
         StopServer stopServer = null;
-        ServerListResponse response = api.stopServer(serverId, stopServer);
+        CreateServerResponse response = api.stopServer(serverId, stopServer);
 
         // TODO: test validations
     }
@@ -347,7 +348,7 @@ public class ServerApiTest {
     public void untagTest() throws ApiException {
         UUID serverId = null;
         String tagName = null;
-        ServerListResponse response = api.untag(serverId, tagName);
+        CreateServerResponse response = api.untag(serverId, tagName);
 
         // TODO: test validations
     }

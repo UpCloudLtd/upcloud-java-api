@@ -11,8 +11,8 @@ package com.upcloud.client.api;
 
 import com.upcloud.client.ApiException;
 import com.upcloud.client.models.CreateNewTagResponse;
+import com.upcloud.client.models.CreateServerResponse;
 import com.upcloud.client.models.Error;
-import com.upcloud.client.models.ServerListResponse;
 import com.upcloud.client.models.Tag;
 import com.upcloud.client.models.Tag1;
 import com.upcloud.client.models.TagListResponse;
@@ -46,7 +46,7 @@ public class TagApiTest {
     public void assignTagTest() throws ApiException {
         UUID serverId = null;
         String tagList = null;
-        ServerListResponse response = api.assignTag(serverId, tagList);
+        CreateServerResponse response = api.assignTag(serverId, tagList);
 
         // TODO: test validations
     }
@@ -127,7 +127,7 @@ public class TagApiTest {
     public void untagTest() throws ApiException {
         UUID serverId = null;
         String tagName = null;
-        ServerListResponse response = api.untag(serverId, tagName);
+        CreateServerResponse response = api.untag(serverId, tagName);
 
         // TODO: test validations
     }

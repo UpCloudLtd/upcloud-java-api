@@ -10,9 +10,9 @@
 package com.upcloud.client.api;
 
 import com.upcloud.client.ApiException;
+import com.upcloud.client.models.CreateServerResponse;
 import com.upcloud.client.models.CreateStorageResponse;
 import com.upcloud.client.models.Error;
-import com.upcloud.client.models.ServerListResponse;
 import com.upcloud.client.models.Storage;
 import com.upcloud.client.models.Storage1;
 import com.upcloud.client.models.Storage2;
@@ -51,7 +51,7 @@ public class StorageApiTest {
     public void attachStorageTest() throws ApiException {
         UUID serverId = null;
         StorageDevice storageDevice = null;
-        ServerListResponse response = api.attachStorage(serverId, storageDevice);
+        CreateServerResponse response = api.attachStorage(serverId, storageDevice);
 
         // TODO: test validations
     }
@@ -150,7 +150,7 @@ public class StorageApiTest {
     public void detachStorageTest() throws ApiException {
         UUID serverId = null;
         StorageDevice storageDevice = null;
-        ServerListResponse response = api.detachStorage(serverId, storageDevice);
+        CreateServerResponse response = api.detachStorage(serverId, storageDevice);
 
         // TODO: test validations
     }
@@ -166,7 +166,7 @@ public class StorageApiTest {
     @Test
     public void ejectCdromTest() throws ApiException {
         UUID serverId = null;
-        ServerListResponse response = api.ejectCdrom(serverId);
+        CreateServerResponse response = api.ejectCdrom(serverId);
 
         // TODO: test validations
     }
@@ -246,7 +246,7 @@ public class StorageApiTest {
     public void loadCdromTest() throws ApiException {
         UUID serverId = null;
         StorageDevice1 storageDevice = null;
-        ServerListResponse response = api.loadCdrom(serverId, storageDevice);
+        CreateServerResponse response = api.loadCdrom(serverId, storageDevice);
 
         // TODO: test validations
     }
