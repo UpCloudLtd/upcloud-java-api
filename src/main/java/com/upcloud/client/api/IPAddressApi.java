@@ -23,11 +23,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.upcloud.client.models.AddIpRequest;
 import com.upcloud.client.models.AssignIpResponse;
 import com.upcloud.client.models.Error;
-import com.upcloud.client.models.IpAddress;
-import com.upcloud.client.models.IpAddress1;
 import com.upcloud.client.models.IpAddressListResponse;
+import com.upcloud.client.models.ModifyIpRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -62,7 +62,7 @@ public class IPAddressApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addIpCall(IpAddress ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call addIpCall(AddIpRequest ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = ipAddress;
         
         // create path and map variables
@@ -99,12 +99,12 @@ public class IPAddressApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addIpValidateBeforeCall(IpAddress ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addIpValidateBeforeCall(AddIpRequest ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
         com.squareup.okhttp.Call call = addIpCall(ipAddress, progressListener, progressRequestListener);
@@ -123,7 +123,7 @@ public class IPAddressApi {
      * @return AssignIpResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AssignIpResponse addIp(IpAddress ipAddress) throws ApiException {
+    public AssignIpResponse addIp(AddIpRequest ipAddress) throws ApiException {
         ApiResponse<AssignIpResponse> resp = addIpWithHttpInfo(ipAddress);
         return resp.getData();
     }
@@ -135,7 +135,7 @@ public class IPAddressApi {
      * @return ApiResponse&lt;AssignIpResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AssignIpResponse> addIpWithHttpInfo(IpAddress ipAddress) throws ApiException {
+    public ApiResponse<AssignIpResponse> addIpWithHttpInfo(AddIpRequest ipAddress) throws ApiException {
         com.squareup.okhttp.Call call = addIpValidateBeforeCall(ipAddress, null, null);
         Type localVarReturnType = new TypeToken<AssignIpResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -149,7 +149,7 @@ public class IPAddressApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addIpAsync(IpAddress ipAddress, final ApiCallback<AssignIpResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call addIpAsync(AddIpRequest ipAddress, final ApiCallback<AssignIpResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -221,7 +221,7 @@ public class IPAddressApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -344,7 +344,7 @@ public class IPAddressApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -469,7 +469,7 @@ public class IPAddressApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -551,7 +551,7 @@ public class IPAddressApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call modifyIpCall(String ip, IpAddress1 ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call modifyIpCall(String ip, ModifyIpRequest ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = ipAddress;
         
         // create path and map variables
@@ -589,12 +589,12 @@ public class IPAddressApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call modifyIpValidateBeforeCall(String ip, IpAddress1 ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call modifyIpValidateBeforeCall(String ip, ModifyIpRequest ipAddress, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ip' is set
         if (ip == null) {
@@ -619,7 +619,7 @@ public class IPAddressApi {
      * @return AssignIpResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AssignIpResponse modifyIp(String ip, IpAddress1 ipAddress) throws ApiException {
+    public AssignIpResponse modifyIp(String ip, ModifyIpRequest ipAddress) throws ApiException {
         ApiResponse<AssignIpResponse> resp = modifyIpWithHttpInfo(ip, ipAddress);
         return resp.getData();
     }
@@ -632,7 +632,7 @@ public class IPAddressApi {
      * @return ApiResponse&lt;AssignIpResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AssignIpResponse> modifyIpWithHttpInfo(String ip, IpAddress1 ipAddress) throws ApiException {
+    public ApiResponse<AssignIpResponse> modifyIpWithHttpInfo(String ip, ModifyIpRequest ipAddress) throws ApiException {
         com.squareup.okhttp.Call call = modifyIpValidateBeforeCall(ip, ipAddress, null, null);
         Type localVarReturnType = new TypeToken<AssignIpResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -647,7 +647,7 @@ public class IPAddressApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call modifyIpAsync(String ip, IpAddress1 ipAddress, final ApiCallback<AssignIpResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call modifyIpAsync(String ip, ModifyIpRequest ipAddress, final ApiCallback<AssignIpResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

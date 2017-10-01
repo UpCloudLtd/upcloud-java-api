@@ -15,7 +15,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.upcloud.client.models.IpAddressListResponseIpAddresses;
+import com.upcloud.client.models.IpAddresses;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -23,12 +23,12 @@ import java.io.IOException;
 /**
  * IpAddressListResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-28T16:40:29.151+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-01T08:08:14.171+03:00")
 public class IpAddressListResponse {
   @SerializedName("ip_addresses")
-  private IpAddressListResponseIpAddresses ipAddresses = null;
+  private IpAddresses ipAddresses = null;
 
-  public IpAddressListResponse ipAddresses(IpAddressListResponseIpAddresses ipAddresses) {
+  public IpAddressListResponse ipAddresses(IpAddresses ipAddresses) {
     this.ipAddresses = ipAddresses;
     return this;
   }
@@ -38,11 +38,11 @@ public class IpAddressListResponse {
    * @return ipAddresses
   **/
   @ApiModelProperty(value = "")
-  public IpAddressListResponseIpAddresses getIpAddresses() {
+  public IpAddresses getIpAddresses() {
     return ipAddresses;
   }
 
-  public void setIpAddresses(IpAddressListResponseIpAddresses ipAddresses) {
+  public void setIpAddresses(IpAddresses ipAddresses) {
     this.ipAddresses = ipAddresses;
   }
 

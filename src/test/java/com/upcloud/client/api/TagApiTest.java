@@ -17,8 +17,9 @@ import com.upcloud.client.models.Tag;
 import com.upcloud.client.models.Tag1;
 import com.upcloud.client.models.TagListResponse;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.Ignore;
+
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +29,7 @@ import java.util.Map;
 /**
  * API tests for TagApi
  */
-@Ignore
+@Disabled
 public class TagApiTest {
 
     private final TagApi api = new TagApi();

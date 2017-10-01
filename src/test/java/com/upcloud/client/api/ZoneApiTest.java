@@ -11,21 +11,30 @@ package com.upcloud.client.api;
 
 import com.upcloud.client.ApiException;
 import com.upcloud.client.models.ZoneListResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * API tests for ZoneApi
  */
-@Ignore
+@Disabled
 public class ZoneApiTest {
 
-    private final ZoneApi api = new ZoneApi();
+    private static final ZoneApi api = new ZoneApi();
+
+    @BeforeAll
+    public static void setUp() {
+        api.getApiClient().setUsername("toughbyte");
+        api.getApiClient().setPassword("Topsekret5");
+        api.getApiClient().setDebugging(true);
+    }
 
     
     /**
@@ -39,8 +48,7 @@ public class ZoneApiTest {
     @Test
     public void listZonesTest() throws ApiException {
         ZoneListResponse response = api.listZones();
-
-        // TODO: test validations
+        assertTrue(response.getZones().getZone().size() > 0);
     }
     
 }

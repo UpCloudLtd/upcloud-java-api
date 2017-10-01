@@ -21,9 +21,10 @@ import java.io.IOException;
 import java.util.UUID;
 
 /**
- * IpAddress
+ * The UpCloud network has public and private IP addresses.
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-28T16:40:29.151+03:00")
+@ApiModel(description = "The UpCloud network has public and private IP addresses.")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-01T08:08:14.171+03:00")
 public class IpAddress {
   /**
    * Is address for private or public network.
@@ -75,6 +76,9 @@ public class IpAddress {
   @SerializedName("access")
   private AccessEnum access = null;
 
+  @SerializedName("address")
+  private String address = null;
+
   /**
    * The address family of new IP address.
    */
@@ -125,8 +129,61 @@ public class IpAddress {
   @SerializedName("family")
   private FamilyEnum family = null;
 
+  @SerializedName("ptr_record")
+  private String ptrRecord = null;
+
   @SerializedName("server")
   private UUID server = null;
+
+  /**
+   * Gets or Sets partOfPlan
+   */
+  @JsonAdapter(PartOfPlanEnum.Adapter.class)
+  public enum PartOfPlanEnum {
+    YES("yes"),
+    
+    NO("no");
+
+    private String value;
+
+    PartOfPlanEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PartOfPlanEnum fromValue(String text) {
+      for (PartOfPlanEnum b : PartOfPlanEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<PartOfPlanEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PartOfPlanEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PartOfPlanEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PartOfPlanEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("part_of_plan")
+  private PartOfPlanEnum partOfPlan = null;
 
   public IpAddress access(AccessEnum access) {
     this.access = access;
@@ -137,13 +194,31 @@ public class IpAddress {
    * Is address for private or public network.
    * @return access
   **/
-  @ApiModelProperty(example = "public", value = "Is address for private or public network.")
+  @ApiModelProperty(example = "private", value = "Is address for private or public network.")
   public AccessEnum getAccess() {
     return access;
   }
 
   public void setAccess(AccessEnum access) {
     this.access = access;
+  }
+
+  public IpAddress address(String address) {
+    this.address = address;
+    return this;
+  }
+
+   /**
+   * Get address
+   * @return address
+  **/
+  @ApiModelProperty(example = "10.0.0.00", value = "")
+  public String getAddress() {
+    return address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
   }
 
   public IpAddress family(FamilyEnum family) {
@@ -164,22 +239,58 @@ public class IpAddress {
     this.family = family;
   }
 
+  public IpAddress ptrRecord(String ptrRecord) {
+    this.ptrRecord = ptrRecord;
+    return this;
+  }
+
+   /**
+   * Get ptrRecord
+   * @return ptrRecord
+  **/
+  @ApiModelProperty(example = "x.x.x.x.zone.host.upcloud.com", value = "")
+  public String getPtrRecord() {
+    return ptrRecord;
+  }
+
+  public void setPtrRecord(String ptrRecord) {
+    this.ptrRecord = ptrRecord;
+  }
+
   public IpAddress server(UUID server) {
     this.server = server;
     return this;
   }
 
    /**
-   * Server id
+   * Get server
    * @return server
   **/
-  @ApiModelProperty(example = "009d64ef-31d1-4684-a26b-c86c955cbf46", value = "Server id")
+  @ApiModelProperty(example = "0053cd80-5945-4105-9081-11192806a8f7", value = "")
   public UUID getServer() {
     return server;
   }
 
   public void setServer(UUID server) {
     this.server = server;
+  }
+
+  public IpAddress partOfPlan(PartOfPlanEnum partOfPlan) {
+    this.partOfPlan = partOfPlan;
+    return this;
+  }
+
+   /**
+   * Get partOfPlan
+   * @return partOfPlan
+  **/
+  @ApiModelProperty(example = "yes", value = "")
+  public PartOfPlanEnum getPartOfPlan() {
+    return partOfPlan;
+  }
+
+  public void setPartOfPlan(PartOfPlanEnum partOfPlan) {
+    this.partOfPlan = partOfPlan;
   }
 
 
@@ -193,13 +304,16 @@ public class IpAddress {
     }
     IpAddress ipAddress = (IpAddress) o;
     return Objects.equals(this.access, ipAddress.access) &&
+        Objects.equals(this.address, ipAddress.address) &&
         Objects.equals(this.family, ipAddress.family) &&
-        Objects.equals(this.server, ipAddress.server);
+        Objects.equals(this.ptrRecord, ipAddress.ptrRecord) &&
+        Objects.equals(this.server, ipAddress.server) &&
+        Objects.equals(this.partOfPlan, ipAddress.partOfPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(access, family, server);
+    return Objects.hash(access, address, family, ptrRecord, server, partOfPlan);
   }
 
 
@@ -209,8 +323,11 @@ public class IpAddress {
     sb.append("class IpAddress {\n");
     
     sb.append("    access: ").append(toIndentedString(access)).append("\n");
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    family: ").append(toIndentedString(family)).append("\n");
+    sb.append("    ptrRecord: ").append(toIndentedString(ptrRecord)).append("\n");
     sb.append("    server: ").append(toIndentedString(server)).append("\n");
+    sb.append("    partOfPlan: ").append(toIndentedString(partOfPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

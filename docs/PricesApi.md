@@ -1,6 +1,6 @@
 # PricesApi
 
-All URIs are relative to *http://api.upcloud.com/1.2*
+All URIs are relative to *https://api.upcloud.com/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,9 +18,18 @@ Returns a list resource prices.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.PricesApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 PricesApi apiInstance = new PricesApi();
 try {
@@ -41,7 +50,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 

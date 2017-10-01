@@ -23,7 +23,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.upcloud.client.models.AttachStorageDeviceRequest;
+import java.math.BigDecimal;
 import com.upcloud.client.models.ConfigurationListResponse;
+import com.upcloud.client.models.CreateServerRequest;
 import com.upcloud.client.models.CreateServerResponse;
 import com.upcloud.client.models.Error;
 import com.upcloud.client.models.FirewallRuleCreateResponse;
@@ -33,8 +36,8 @@ import com.upcloud.client.models.RestartServer;
 import com.upcloud.client.models.Server;
 import com.upcloud.client.models.ServerListResponse;
 import com.upcloud.client.models.StopServer;
-import com.upcloud.client.models.StorageDevice;
-import com.upcloud.client.models.StorageDevice1;
+import com.upcloud.client.models.StorageDeviceDetachRequest;
+import com.upcloud.client.models.StorageDeviceLoadRequest;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -208,7 +211,7 @@ public class ServerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call attachStorageCall(UUID serverId, StorageDevice storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call attachStorageCall(UUID serverId, AttachStorageDeviceRequest storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = storageDevice;
         
         // create path and map variables
@@ -246,12 +249,12 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call attachStorageValidateBeforeCall(UUID serverId, StorageDevice storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call attachStorageValidateBeforeCall(UUID serverId, AttachStorageDeviceRequest storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
@@ -281,7 +284,7 @@ public class ServerApi {
      * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateServerResponse attachStorage(UUID serverId, StorageDevice storageDevice) throws ApiException {
+    public CreateServerResponse attachStorage(UUID serverId, AttachStorageDeviceRequest storageDevice) throws ApiException {
         ApiResponse<CreateServerResponse> resp = attachStorageWithHttpInfo(serverId, storageDevice);
         return resp.getData();
     }
@@ -294,7 +297,7 @@ public class ServerApi {
      * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateServerResponse> attachStorageWithHttpInfo(UUID serverId, StorageDevice storageDevice) throws ApiException {
+    public ApiResponse<CreateServerResponse> attachStorageWithHttpInfo(UUID serverId, AttachStorageDeviceRequest storageDevice) throws ApiException {
         com.squareup.okhttp.Call call = attachStorageValidateBeforeCall(serverId, storageDevice, null, null);
         Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -309,7 +312,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call attachStorageAsync(UUID serverId, StorageDevice storageDevice, final ApiCallback<CreateServerResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call attachStorageAsync(UUID serverId, AttachStorageDeviceRequest storageDevice, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -382,7 +385,7 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -479,7 +482,7 @@ public class ServerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createServerCall(Server server, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createServerCall(CreateServerRequest server, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = server;
         
         // create path and map variables
@@ -516,12 +519,12 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createServerValidateBeforeCall(Server server, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createServerValidateBeforeCall(CreateServerRequest server, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         
         com.squareup.okhttp.Call call = createServerCall(server, progressListener, progressRequestListener);
@@ -540,7 +543,7 @@ public class ServerApi {
      * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateServerResponse createServer(Server server) throws ApiException {
+    public CreateServerResponse createServer(CreateServerRequest server) throws ApiException {
         ApiResponse<CreateServerResponse> resp = createServerWithHttpInfo(server);
         return resp.getData();
     }
@@ -552,7 +555,7 @@ public class ServerApi {
      * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateServerResponse> createServerWithHttpInfo(Server server) throws ApiException {
+    public ApiResponse<CreateServerResponse> createServerWithHttpInfo(CreateServerRequest server) throws ApiException {
         com.squareup.okhttp.Call call = createServerValidateBeforeCall(server, null, null);
         Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -566,7 +569,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createServerAsync(Server server, final ApiCallback<CreateServerResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call createServerAsync(CreateServerRequest server, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -601,7 +604,7 @@ public class ServerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFirewallRuleCall(UUID serverId, UUID firewallRuleNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteFirewallRuleCall(UUID serverId, BigDecimal firewallRuleNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -640,12 +643,12 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteFirewallRuleValidateBeforeCall(UUID serverId, UUID firewallRuleNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFirewallRuleValidateBeforeCall(UUID serverId, BigDecimal firewallRuleNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
@@ -674,7 +677,7 @@ public class ServerApi {
      * @param firewallRuleNumber Denotes the index of the firewall rule in the server&#39;s firewall rule list (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteFirewallRule(UUID serverId, UUID firewallRuleNumber) throws ApiException {
+    public void deleteFirewallRule(UUID serverId, BigDecimal firewallRuleNumber) throws ApiException {
         deleteFirewallRuleWithHttpInfo(serverId, firewallRuleNumber);
     }
 
@@ -686,7 +689,7 @@ public class ServerApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> deleteFirewallRuleWithHttpInfo(UUID serverId, UUID firewallRuleNumber) throws ApiException {
+    public ApiResponse<Void> deleteFirewallRuleWithHttpInfo(UUID serverId, BigDecimal firewallRuleNumber) throws ApiException {
         com.squareup.okhttp.Call call = deleteFirewallRuleValidateBeforeCall(serverId, firewallRuleNumber, null, null);
         return apiClient.execute(call);
     }
@@ -700,7 +703,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFirewallRuleAsync(UUID serverId, UUID firewallRuleNumber, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFirewallRuleAsync(UUID serverId, BigDecimal firewallRuleNumber, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -771,7 +774,7 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -857,7 +860,7 @@ public class ServerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call detachStorageCall(UUID serverId, StorageDevice storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call detachStorageCall(UUID serverId, StorageDeviceDetachRequest storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = storageDevice;
         
         // create path and map variables
@@ -895,12 +898,12 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call detachStorageValidateBeforeCall(UUID serverId, StorageDevice storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call detachStorageValidateBeforeCall(UUID serverId, StorageDeviceDetachRequest storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
@@ -930,7 +933,7 @@ public class ServerApi {
      * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateServerResponse detachStorage(UUID serverId, StorageDevice storageDevice) throws ApiException {
+    public CreateServerResponse detachStorage(UUID serverId, StorageDeviceDetachRequest storageDevice) throws ApiException {
         ApiResponse<CreateServerResponse> resp = detachStorageWithHttpInfo(serverId, storageDevice);
         return resp.getData();
     }
@@ -943,7 +946,7 @@ public class ServerApi {
      * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateServerResponse> detachStorageWithHttpInfo(UUID serverId, StorageDevice storageDevice) throws ApiException {
+    public ApiResponse<CreateServerResponse> detachStorageWithHttpInfo(UUID serverId, StorageDeviceDetachRequest storageDevice) throws ApiException {
         com.squareup.okhttp.Call call = detachStorageValidateBeforeCall(serverId, storageDevice, null, null);
         Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -958,7 +961,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call detachStorageAsync(UUID serverId, StorageDevice storageDevice, final ApiCallback<CreateServerResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call detachStorageAsync(UUID serverId, StorageDeviceDetachRequest storageDevice, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -996,7 +999,7 @@ public class ServerApi {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/server/{serverId}/storage/cdrom/eject"
+        String localVarPath = "/server/{serverId}/cdrom/eject"
             .replaceAll("\\{" + "serverId" + "\\}", apiClient.escapeString(serverId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1030,7 +1033,7 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1056,25 +1059,22 @@ public class ServerApi {
      * Eject CD-ROM
      * Ejects the storage from the CD-ROM device of a server.
      * @param serverId Server id (required)
-     * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateServerResponse ejectCdrom(UUID serverId) throws ApiException {
-        ApiResponse<CreateServerResponse> resp = ejectCdromWithHttpInfo(serverId);
-        return resp.getData();
+    public void ejectCdrom(UUID serverId) throws ApiException {
+        ejectCdromWithHttpInfo(serverId);
     }
 
     /**
      * Eject CD-ROM
      * Ejects the storage from the CD-ROM device of a server.
      * @param serverId Server id (required)
-     * @return ApiResponse&lt;CreateServerResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateServerResponse> ejectCdromWithHttpInfo(UUID serverId) throws ApiException {
+    public ApiResponse<Void> ejectCdromWithHttpInfo(UUID serverId) throws ApiException {
         com.squareup.okhttp.Call call = ejectCdromValidateBeforeCall(serverId, null, null);
-        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
@@ -1085,7 +1085,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ejectCdromAsync(UUID serverId, final ApiCallback<CreateServerResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call ejectCdromAsync(UUID serverId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1107,8 +1107,7 @@ public class ServerApi {
         }
 
         com.squareup.okhttp.Call call = ejectCdromValidateBeforeCall(serverId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -1120,7 +1119,7 @@ public class ServerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFirewallRuleCall(UUID serverId, UUID firewallRuleNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getFirewallRuleCall(UUID serverId, BigDecimal firewallRuleNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -1159,12 +1158,12 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFirewallRuleValidateBeforeCall(UUID serverId, UUID firewallRuleNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFirewallRuleValidateBeforeCall(UUID serverId, BigDecimal firewallRuleNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
@@ -1194,7 +1193,7 @@ public class ServerApi {
      * @return FirewallRuleCreateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FirewallRuleCreateResponse getFirewallRule(UUID serverId, UUID firewallRuleNumber) throws ApiException {
+    public FirewallRuleCreateResponse getFirewallRule(UUID serverId, BigDecimal firewallRuleNumber) throws ApiException {
         ApiResponse<FirewallRuleCreateResponse> resp = getFirewallRuleWithHttpInfo(serverId, firewallRuleNumber);
         return resp.getData();
     }
@@ -1207,7 +1206,7 @@ public class ServerApi {
      * @return ApiResponse&lt;FirewallRuleCreateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FirewallRuleCreateResponse> getFirewallRuleWithHttpInfo(UUID serverId, UUID firewallRuleNumber) throws ApiException {
+    public ApiResponse<FirewallRuleCreateResponse> getFirewallRuleWithHttpInfo(UUID serverId, BigDecimal firewallRuleNumber) throws ApiException {
         com.squareup.okhttp.Call call = getFirewallRuleValidateBeforeCall(serverId, firewallRuleNumber, null, null);
         Type localVarReturnType = new TypeToken<FirewallRuleCreateResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1222,7 +1221,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFirewallRuleAsync(UUID serverId, UUID firewallRuleNumber, final ApiCallback<FirewallRuleCreateResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFirewallRuleAsync(UUID serverId, BigDecimal firewallRuleNumber, final ApiCallback<FirewallRuleCreateResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1292,7 +1291,7 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1409,7 +1408,7 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1491,7 +1490,7 @@ public class ServerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call loadCdromCall(UUID serverId, StorageDevice1 storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call loadCdromCall(UUID serverId, StorageDeviceLoadRequest storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = storageDevice;
         
         // create path and map variables
@@ -1529,12 +1528,12 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call loadCdromValidateBeforeCall(UUID serverId, StorageDevice1 storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call loadCdromValidateBeforeCall(UUID serverId, StorageDeviceLoadRequest storageDevice, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
@@ -1559,7 +1558,7 @@ public class ServerApi {
      * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateServerResponse loadCdrom(UUID serverId, StorageDevice1 storageDevice) throws ApiException {
+    public CreateServerResponse loadCdrom(UUID serverId, StorageDeviceLoadRequest storageDevice) throws ApiException {
         ApiResponse<CreateServerResponse> resp = loadCdromWithHttpInfo(serverId, storageDevice);
         return resp.getData();
     }
@@ -1572,7 +1571,7 @@ public class ServerApi {
      * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateServerResponse> loadCdromWithHttpInfo(UUID serverId, StorageDevice1 storageDevice) throws ApiException {
+    public ApiResponse<CreateServerResponse> loadCdromWithHttpInfo(UUID serverId, StorageDeviceLoadRequest storageDevice) throws ApiException {
         com.squareup.okhttp.Call call = loadCdromValidateBeforeCall(serverId, storageDevice, null, null);
         Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1587,7 +1586,7 @@ public class ServerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call loadCdromAsync(UUID serverId, StorageDevice1 storageDevice, final ApiCallback<CreateServerResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call loadCdromAsync(UUID serverId, StorageDeviceLoadRequest storageDevice, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1660,7 +1659,7 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1926,7 +1925,7 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -2053,7 +2052,7 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -2180,7 +2179,7 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -2308,7 +2307,7 @@ public class ServerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

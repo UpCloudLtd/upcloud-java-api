@@ -48,7 +48,7 @@ import com.upcloud.client.auth.OAuth;
 
 public class ApiClient {
 
-    private String basePath = "http://api.upcloud.com/1.2";
+    private String basePath = "https://api.upcloud.com/1.2";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -74,7 +74,9 @@ public class ApiClient {
      */
     public ApiClient() {
         httpClient = new OkHttpClient();
-
+        httpClient.networkInterceptors().add(new CharsetInterceptor());
+        httpClient.setConnectTimeout(120, TimeUnit.SECONDS);
+        httpClient.setReadTimeout(120, TimeUnit.SECONDS);
 
         verifyingSsl = true;
 
@@ -85,6 +87,7 @@ public class ApiClient {
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();
+        authentications.put("baseAuth", new HttpBasicAuth());
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -101,7 +104,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g http://api.upcloud.com/1.2
+     * @param basePath Base path of the URL (e.g https://api.upcloud.com/1.2
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

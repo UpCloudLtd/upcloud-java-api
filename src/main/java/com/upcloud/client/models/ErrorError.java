@@ -24,48 +24,48 @@ import java.io.IOException;
 /**
  * ErrorError
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-28T16:40:29.151+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-01T08:08:14.171+03:00")
 public class ErrorError {
-  @SerializedName("code")
-  private ErrorCode code = null;
+  @SerializedName("error_code")
+  private ErrorCode errorCode = null;
 
-  @SerializedName("status")
-  private ErrorStatus status = null;
+  @SerializedName("error_status")
+  private ErrorStatus errorStatus = null;
 
-  public ErrorError code(ErrorCode code) {
-    this.code = code;
+  public ErrorError errorCode(ErrorCode errorCode) {
+    this.errorCode = errorCode;
     return this;
   }
 
    /**
-   * Get code
-   * @return code
+   * Get errorCode
+   * @return errorCode
   **/
   @ApiModelProperty(value = "")
-  public ErrorCode getCode() {
-    return code;
+  public ErrorCode getErrorCode() {
+    return errorCode;
   }
 
-  public void setCode(ErrorCode code) {
-    this.code = code;
+  public void setErrorCode(ErrorCode errorCode) {
+    this.errorCode = errorCode;
   }
 
-  public ErrorError status(ErrorStatus status) {
-    this.status = status;
+  public ErrorError errorStatus(ErrorStatus errorStatus) {
+    this.errorStatus = errorStatus;
     return this;
   }
 
    /**
-   * Get status
-   * @return status
+   * Get errorStatus
+   * @return errorStatus
   **/
   @ApiModelProperty(value = "")
-  public ErrorStatus getStatus() {
-    return status;
+  public ErrorStatus getErrorStatus() {
+    return errorStatus;
   }
 
-  public void setStatus(ErrorStatus status) {
-    this.status = status;
+  public void setErrorStatus(ErrorStatus errorStatus) {
+    this.errorStatus = errorStatus;
   }
 
 
@@ -78,13 +78,13 @@ public class ErrorError {
       return false;
     }
     ErrorError errorError = (ErrorError) o;
-    return Objects.equals(this.code, errorError.code) &&
-        Objects.equals(this.status, errorError.status);
+    return Objects.equals(this.errorCode, errorError.errorCode) &&
+        Objects.equals(this.errorStatus, errorError.errorStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status);
+    return Objects.hash(errorCode, errorStatus);
   }
 
 
@@ -93,8 +93,8 @@ public class ErrorError {
     StringBuilder sb = new StringBuilder();
     sb.append("class ErrorError {\n");
     
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
+    sb.append("    errorStatus: ").append(toIndentedString(errorStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -15,7 +15,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.upcloud.client.models.PriceListResponsePrice;
+import com.upcloud.client.models.PriceListResponsePrices;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -23,27 +23,27 @@ import java.io.IOException;
 /**
  * PriceListResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-28T16:40:29.151+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-01T08:08:14.171+03:00")
 public class PriceListResponse {
-  @SerializedName("price")
-  private PriceListResponsePrice price = null;
+  @SerializedName("prices")
+  private PriceListResponsePrices prices = null;
 
-  public PriceListResponse price(PriceListResponsePrice price) {
-    this.price = price;
+  public PriceListResponse prices(PriceListResponsePrices prices) {
+    this.prices = prices;
     return this;
   }
 
    /**
-   * Get price
-   * @return price
+   * Get prices
+   * @return prices
   **/
   @ApiModelProperty(value = "")
-  public PriceListResponsePrice getPrice() {
-    return price;
+  public PriceListResponsePrices getPrices() {
+    return prices;
   }
 
-  public void setPrice(PriceListResponsePrice price) {
-    this.price = price;
+  public void setPrices(PriceListResponsePrices prices) {
+    this.prices = prices;
   }
 
 
@@ -56,12 +56,12 @@ public class PriceListResponse {
       return false;
     }
     PriceListResponse priceListResponse = (PriceListResponse) o;
-    return Objects.equals(this.price, priceListResponse.price);
+    return Objects.equals(this.prices, priceListResponse.prices);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(price);
+    return Objects.hash(prices);
   }
 
 
@@ -70,7 +70,7 @@ public class PriceListResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class PriceListResponse {\n");
     
-    sb.append("    price: ").append(toIndentedString(price)).append("\n");
+    sb.append("    prices: ").append(toIndentedString(prices)).append("\n");
     sb.append("}");
     return sb.toString();
   }

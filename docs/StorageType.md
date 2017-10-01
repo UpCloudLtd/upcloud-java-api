@@ -12,5 +12,7 @@
 
 * `BACKUP` (value: `"backup"`)
 
+* `NORMAL` (value: `"normal"`)
+
 
 

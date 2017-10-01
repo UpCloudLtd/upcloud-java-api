@@ -15,105 +15,35 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.upcloud.client.models.StopServerRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * StopServer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-28T16:40:29.151+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-01T08:08:14.171+03:00")
 public class StopServer {
-  /**
-   * Type of stop operation performed on the server.
-   */
-  @JsonAdapter(StopTypeEnum.Adapter.class)
-  public enum StopTypeEnum {
-    SOFT("soft"),
-    
-    HARD("hard");
+  @SerializedName("stop_server")
+  private StopServerRequest stopServer = null;
 
-    private String value;
-
-    StopTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static StopTypeEnum fromValue(String text) {
-      for (StopTypeEnum b : StopTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<StopTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StopTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StopTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return StopTypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("stop_type")
-  private StopTypeEnum stopType = StopTypeEnum.SOFT;
-
-  @SerializedName("timeout")
-  private BigDecimal timeout = null;
-
-  public StopServer stopType(StopTypeEnum stopType) {
-    this.stopType = stopType;
+  public StopServer stopServer(StopServerRequest stopServer) {
+    this.stopServer = stopServer;
     return this;
   }
 
    /**
-   * Type of stop operation performed on the server.
-   * @return stopType
+   * Get stopServer
+   * @return stopServer
   **/
-  @ApiModelProperty(example = "soft", value = "Type of stop operation performed on the server.")
-  public StopTypeEnum getStopType() {
-    return stopType;
+  @ApiModelProperty(value = "")
+  public StopServerRequest getStopServer() {
+    return stopServer;
   }
 
-  public void setStopType(StopTypeEnum stopType) {
-    this.stopType = stopType;
-  }
-
-  public StopServer timeout(BigDecimal timeout) {
-    this.timeout = timeout;
-    return this;
-  }
-
-   /**
-   * The stop timeout in seconds.
-   * minimum: 1
-   * maximum: 600
-   * @return timeout
-  **/
-  @ApiModelProperty(example = "60.0", value = "The stop timeout in seconds.")
-  public BigDecimal getTimeout() {
-    return timeout;
-  }
-
-  public void setTimeout(BigDecimal timeout) {
-    this.timeout = timeout;
+  public void setStopServer(StopServerRequest stopServer) {
+    this.stopServer = stopServer;
   }
 
 
@@ -126,13 +56,12 @@ public class StopServer {
       return false;
     }
     StopServer stopServer = (StopServer) o;
-    return Objects.equals(this.stopType, stopServer.stopType) &&
-        Objects.equals(this.timeout, stopServer.timeout);
+    return Objects.equals(this.stopServer, stopServer.stopServer);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(stopType, timeout);
+    return Objects.hash(stopServer);
   }
 
 
@@ -141,8 +70,7 @@ public class StopServer {
     StringBuilder sb = new StringBuilder();
     sb.append("class StopServer {\n");
     
-    sb.append("    stopType: ").append(toIndentedString(stopType)).append("\n");
-    sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("    stopServer: ").append(toIndentedString(stopServer)).append("\n");
     sb.append("}");
     return sb.toString();
   }

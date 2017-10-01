@@ -10,106 +10,141 @@
 package com.upcloud.client.api;
 
 import com.upcloud.client.ApiException;
-import com.upcloud.client.models.AssignIpResponse;
-import com.upcloud.client.models.Error;
-import com.upcloud.client.models.IpAddress;
-import com.upcloud.client.models.IpAddress1;
-import com.upcloud.client.models.IpAddressListResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import com.upcloud.client.models.*;
+import org.junit.jupiter.api.*;
+import utils.ServerHelpers;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.UUID;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * API tests for IPAddressApi
  */
-@Ignore
+@Disabled
 public class IPAddressApiTest {
 
-    private final IPAddressApi api = new IPAddressApi();
+    private static final IPAddressApi api = new IPAddressApi();
+    private static IpAddress testIpAddress = new IpAddress();
+    private static Server testServer = new Server();
 
-    
+    @BeforeAll
+    public static void setUp() {
+        api.getApiClient().setUsername("toughbyte");
+        api.getApiClient().setPassword("Topsekret5");
+        api.getApiClient().setDebugging(true);
+
+        ServerHelpers serverHelper = new ServerHelpers(api.getApiClient());
+        testServer = serverHelper.createReadyServer(null);
+        serverHelper.stopAllServers();
+    }
+
+    @AfterAll
+    public static void setDown() {
+        ServerHelpers serverHelper = new ServerHelpers(api.getApiClient());
+        serverHelper.deleteAllServers();
+    }
+
+    @BeforeEach
+    public void setUpEach() throws ApiException {
+        UUID serverId = testServer.getUuid();
+        testIpAddress = new IpAddress().family(IpAddress.FamilyEnum.IPV4).server(serverId);
+        AssignIpResponse response = api.addIp(new AddIpRequest().ipAddress(testIpAddress));
+        testIpAddress = response.getIpAddress();
+    }
+
+    @AfterEach
+    public void setDownEach() throws ApiException {
+        if (testIpAddress != null) {
+            api.deleteIp(testIpAddress.getAddress());
+        }
+    }
+
     /**
      * Assign IP address
-     *
+     * <p>
      * Assigns a new IP address to a server.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void addIpTest() throws ApiException {
-        IpAddress ipAddress = null;
-        AssignIpResponse response = api.addIp(ipAddress);
-
-        // TODO: test validations
+        UUID serverId = testServer.getUuid();
+        IpAddress ipAddress = new IpAddress().family(IpAddress.FamilyEnum.IPV4).server(serverId);
+        AssignIpResponse response = api.addIp(new AddIpRequest().ipAddress(ipAddress));
+        ipAddress = response.getIpAddress();
+        assertEquals(IpAddress.AccessEnum.PUBLIC, ipAddress.getAccess());
+        assertEquals(IpAddress.FamilyEnum.IPV4, ipAddress.getFamily());
+        assertEquals(serverId, ipAddress.getServer());
     }
-    
+
     /**
      * Release IP address
-     *
+     * <p>
      * Removes an IP address from a server.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteIpTest() throws ApiException {
-        String ip = null;
-        api.deleteIp(ip);
-
-        // TODO: test validations
+        api.deleteIp(testIpAddress.getAddress());
+        ApiException exception = assertThrows(ApiException.class, () -> api.getDetails(testIpAddress.getAddress()));
+        assertEquals("Not Found", exception.getMessage());
+        testIpAddress = null;
     }
-    
+
     /**
      * Get IP address details
-     *
+     * <p>
      * Returns detailed information about a specific IP address.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void getDetailsTest() throws ApiException {
-        String ip = null;
+        String ip = testIpAddress.getAddress();
         AssignIpResponse response = api.getDetails(ip);
+        IpAddress ipAddress = response.getIpAddress();
 
-        // TODO: test validations
+        assertEquals(testIpAddress.getAccess(), ipAddress.getAccess());
+        assertEquals(testIpAddress.getAddress(), ipAddress.getAddress());
+        assertEquals(testIpAddress.getFamily(), ipAddress.getFamily());
+        assertNotNull(ipAddress.getPtrRecord());
+        assertNotNull(ipAddress.getServer());
     }
-    
+
     /**
      * List IP addresses
-     *
+     * <p>
      * Returns a list of all IP addresses assigned to servers on the current user account.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listIpsTest() throws ApiException {
         IpAddressListResponse response = api.listIps();
-
-        // TODO: test validations
+        List<IpAddress> ipAddresses = response.getIpAddresses().getIpAddress();
+        assertTrue(ipAddresses.stream().anyMatch(ipAddress -> ipAddress.getAddress().equals(testIpAddress.getAddress())));
     }
-    
+
     /**
      * Modify IP address
-     *
+     * <p>
      * Modifies the reverse DNS PTR record corresponding to an IP address. The PTR record can only be set to public IP address.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void modifyIpTest() throws ApiException {
-        String ip = null;
-        IpAddress1 ipAddress = null;
-        AssignIpResponse response = api.modifyIp(ip, ipAddress);
-
-        // TODO: test validations
+        String ip = testIpAddress.getAddress();
+        IpAddress ipAddress = new IpAddress().ptrRecord("hostname.example.com");
+        AssignIpResponse response = api.modifyIp(ip, new ModifyIpRequest().ipAddress(ipAddress));
+        ipAddress = response.getIpAddress();
+        assertEquals("hostname.example.com", ipAddress.getPtrRecord());
+        assertEquals(testIpAddress.getAccess(), ipAddress.getAccess());
+        assertEquals(testIpAddress.getFamily(), ipAddress.getFamily());
+        assertEquals(testIpAddress.getServer(), ipAddress.getServer());
     }
-    
+
 }

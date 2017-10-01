@@ -11,22 +11,29 @@ package com.upcloud.client.api;
 
 import com.upcloud.client.ApiException;
 import com.upcloud.client.models.TimezoneListResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.logging.Logger;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * API tests for TimezoneApi
  */
-@Ignore
+@Disabled
 public class TimezoneApiTest {
 
-    private final TimezoneApi api = new TimezoneApi();
+    private static final TimezoneApi api = new TimezoneApi();
 
+    @BeforeAll
+    public static void setUp() {
+        api.getApiClient().setUsername("toughbyte");
+        api.getApiClient().setPassword("Topsekret5");
+        api.getApiClient().setDebugging(true);
+    }
     
     /**
      * List timezones
@@ -39,8 +46,16 @@ public class TimezoneApiTest {
     @Test
     public void listTimezonesTest() throws ApiException {
         TimezoneListResponse response = api.listTimezones();
+        List<String> continentals = Arrays.asList(new String[]{
+                "Africa", "America", "Antarctica", "Arctic", "Asia", "Atlantic", "Australia", "Europe", "Indian", "Pacific"
+        });
 
-        // TODO: test validations
+        List<String> timezones = response.getTimezones().getTimezone();
+        assertTrue(timezones
+            .stream()
+            .allMatch(timezone ->
+                continentals.contains(timezone.split("/")[0]) || timezone.equals("UTC")
+            ));
     }
     
 }

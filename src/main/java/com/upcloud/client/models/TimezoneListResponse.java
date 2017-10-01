@@ -23,7 +23,7 @@ import java.io.IOException;
 /**
  * TimezoneListResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-28T16:40:29.151+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-01T08:08:14.171+03:00")
 public class TimezoneListResponse {
   @SerializedName("timezones")
   private TimezoneListResponseTimezones timezones = null;

@@ -23,7 +23,7 @@ import java.io.IOException;
 /**
  * AvailablePlanListResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-28T16:40:29.151+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-01T08:08:14.171+03:00")
 public class AvailablePlanListResponse {
   @SerializedName("plans")
   private AvailablePlanListResponsePlans plans = null;

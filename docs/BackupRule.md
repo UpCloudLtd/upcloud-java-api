@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **interval** | [**IntervalEnum**](#IntervalEnum) |  |  [optional]
+**time** | **String** |  |  [optional]
 **retention** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 
 

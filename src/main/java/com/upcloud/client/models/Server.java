@@ -15,7 +15,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.upcloud.client.models.IpAddressListResponseIpAddresses;
+import com.upcloud.client.models.IpAddresses;
 import com.upcloud.client.models.ServerState;
 import com.upcloud.client.models.ServerStorageDevices;
 import com.upcloud.client.models.ServerTags;
@@ -29,7 +29,7 @@ import java.util.UUID;
  * The server configuration defines which storage devices the server is attached to, which IP addresses can be used and how the server can be reached for remote management. A server must have at least one storage device attached in order to be started. Servers may have from zero to five public IPv4 and IPv6 addresses. All servers have a private IP address that cannot be removed.
  */
 @ApiModel(description = "The server configuration defines which storage devices the server is attached to, which IP addresses can be used and how the server can be reached for remote management. A server must have at least one storage device attached in order to be started. Servers may have from zero to five public IPv4 and IPv6 addresses. All servers have a private IP address that cannot be removed.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-28T16:40:29.151+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-01T08:08:14.171+03:00")
 public class Server {
   /**
    * The storage device boot order.
@@ -145,7 +145,7 @@ public class Server {
   private String hostname = null;
 
   @SerializedName("ip_addresses")
-  private IpAddressListResponseIpAddresses ipAddresses = null;
+  private IpAddresses ipAddresses = null;
 
   @SerializedName("license")
   private BigDecimal license = null;
@@ -385,7 +385,7 @@ public class Server {
     this.hostname = hostname;
   }
 
-  public Server ipAddresses(IpAddressListResponseIpAddresses ipAddresses) {
+  public Server ipAddresses(IpAddresses ipAddresses) {
     this.ipAddresses = ipAddresses;
     return this;
   }
@@ -395,11 +395,11 @@ public class Server {
    * @return ipAddresses
   **/
   @ApiModelProperty(value = "")
-  public IpAddressListResponseIpAddresses getIpAddresses() {
+  public IpAddresses getIpAddresses() {
     return ipAddresses;
   }
 
-  public void setIpAddresses(IpAddressListResponseIpAddresses ipAddresses) {
+  public void setIpAddresses(IpAddresses ipAddresses) {
     this.ipAddresses = ipAddresses;
   }
 

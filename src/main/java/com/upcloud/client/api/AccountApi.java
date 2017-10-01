@@ -23,7 +23,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.upcloud.client.models.Account;
+import com.upcloud.client.models.AccountResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -94,7 +94,7 @@ public class AccountApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -114,23 +114,23 @@ public class AccountApi {
     /**
      * Account information
      * Returns information on the user&#39;s account.
-     * @return Account
+     * @return AccountResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Account getAccount() throws ApiException {
-        ApiResponse<Account> resp = getAccountWithHttpInfo();
+    public AccountResponse getAccount() throws ApiException {
+        ApiResponse<AccountResponse> resp = getAccountWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Account information
      * Returns information on the user&#39;s account.
-     * @return ApiResponse&lt;Account&gt;
+     * @return ApiResponse&lt;AccountResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Account> getAccountWithHttpInfo() throws ApiException {
+    public ApiResponse<AccountResponse> getAccountWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getAccountValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Account>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccountResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -141,7 +141,7 @@ public class AccountApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAccountAsync(final ApiCallback<Account> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAccountAsync(final ApiCallback<AccountResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -163,7 +163,7 @@ public class AccountApi {
         }
 
         com.squareup.okhttp.Call call = getAccountValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Account>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccountResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

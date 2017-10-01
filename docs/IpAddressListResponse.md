@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ipAddresses** | [**IpAddressListResponseIpAddresses**](IpAddressListResponseIpAddresses.md) |  |  [optional]
+**ipAddresses** | [**IpAddresses**](IpAddresses.md) |  |  [optional]
 
 
 

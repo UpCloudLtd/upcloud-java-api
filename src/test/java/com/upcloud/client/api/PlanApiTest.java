@@ -11,36 +11,51 @@ package com.upcloud.client.api;
 
 import com.upcloud.client.ApiException;
 import com.upcloud.client.models.AvailablePlanListResponse;
-import org.junit.Test;
-import org.junit.Ignore;
+import com.upcloud.client.models.Plan;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * API tests for PlanApi
  */
-@Ignore
+@Disabled
 public class PlanApiTest {
 
-    private final PlanApi api = new PlanApi();
+    private static final PlanApi api = new PlanApi();
 
-    
+    @BeforeAll
+    private static void setUp() {
+        api.getApiClient().setUsername("toughbyte");
+        api.getApiClient().setPassword("Topsekret5");
+    }
+
+
     /**
      * List available plans
-     *
+     * <p>
      * Returns a list of available plans.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listPlansTest() throws ApiException {
         AvailablePlanListResponse response = api.listPlans();
+        List<Plan> plans = response.getPlans().getPlan();
 
-        // TODO: test validations
+        assertNotEquals(0, plans.size());
+        Plan plan = plans.get(0);
+        assertNotNull(plan.getCoreNumber());
+        assertNotNull(plan.getMemoryAmount());
+        assertNotNull(plan.getName());
+        assertNotNull(plan.getPublicTrafficOut());
+        assertNotNull(plan.getStorageSize());
+        assertNotNull(plan.getStorageTier());
     }
-    
+
 }

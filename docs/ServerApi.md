@@ -1,6 +1,6 @@
 # ServerApi
 
-All URIs are relative to *http://api.upcloud.com/1.2*
+All URIs are relative to *https://api.upcloud.com/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**deleteFirewallRule**](ServerApi.md#deleteFirewallRule) | **DELETE** /server/{serverId}/firewall_rule/{firewallRuleNumber} | Remove firewall rule
 [**deleteServer**](ServerApi.md#deleteServer) | **DELETE** /server/{serverId} | Delete server
 [**detachStorage**](ServerApi.md#detachStorage) | **POST** /server/{serverId}/storage/detach | Detach storage
-[**ejectCdrom**](ServerApi.md#ejectCdrom) | **POST** /server/{serverId}/storage/cdrom/eject | Eject CD-ROM
+[**ejectCdrom**](ServerApi.md#ejectCdrom) | **POST** /server/{serverId}/cdrom/eject | Eject CD-ROM
 [**getFirewallRule**](ServerApi.md#getFirewallRule) | **GET** /server/{serverId}/firewall_rule/{firewallRuleNumber} | Get firewall rule details
 [**listServerConfigurations**](ServerApi.md#listServerConfigurations) | **GET** /server_size | List server configurations
 [**listServers**](ServerApi.md#listServers) | **GET** /server | List of servers
@@ -83,13 +83,22 @@ Attaches a storage as a device to a server.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
-StorageDevice storageDevice = new StorageDevice(); // StorageDevice | 
+AttachStorageDeviceRequest storageDevice = new AttachStorageDeviceRequest(); // AttachStorageDeviceRequest | 
 try {
     CreateServerResponse result = apiInstance.attachStorage(serverId, storageDevice);
     System.out.println(result);
@@ -104,7 +113,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **UUID**| Server id |
- **storageDevice** | [**StorageDevice**](StorageDevice.md)|  |
+ **storageDevice** | [**AttachStorageDeviceRequest**](AttachStorageDeviceRequest.md)|  |
 
 ### Return type
 
@@ -112,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -130,9 +139,18 @@ Creates a new firewall rule
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
@@ -159,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -177,12 +195,21 @@ Creates a new server instance.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
-Server server = new Server(); // Server | 
+CreateServerRequest server = new CreateServerRequest(); // CreateServerRequest | 
 try {
     CreateServerResponse result = apiInstance.createServer(server);
     System.out.println(result);
@@ -196,7 +223,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **server** | [**Server**](Server.md)|  | [optional]
+ **server** | [**CreateServerRequest**](CreateServerRequest.md)|  | [optional]
 
 ### Return type
 
@@ -204,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -222,13 +249,22 @@ Removes a firewall rule from a server. Firewall rules must be removed individual
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
-UUID firewallRuleNumber = new UUID(); // UUID | Denotes the index of the firewall rule in the server's firewall rule list
+BigDecimal firewallRuleNumber = new BigDecimal(); // BigDecimal | Denotes the index of the firewall rule in the server's firewall rule list
 try {
     apiInstance.deleteFirewallRule(serverId, firewallRuleNumber);
 } catch (ApiException e) {
@@ -242,7 +278,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **UUID**| Server id |
- **firewallRuleNumber** | **UUID**| Denotes the index of the firewall rule in the server&#39;s firewall rule list |
+ **firewallRuleNumber** | **BigDecimal**| Denotes the index of the firewall rule in the server&#39;s firewall rule list |
 
 ### Return type
 
@@ -250,7 +286,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -266,9 +302,18 @@ Delete server
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to delete
@@ -292,7 +337,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -310,13 +355,22 @@ Detaches a storage resource from a server.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
-StorageDevice storageDevice = new StorageDevice(); // StorageDevice | 
+StorageDeviceDetachRequest storageDevice = new StorageDeviceDetachRequest(); // StorageDeviceDetachRequest | 
 try {
     CreateServerResponse result = apiInstance.detachStorage(serverId, storageDevice);
     System.out.println(result);
@@ -331,7 +385,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **UUID**| Server id |
- **storageDevice** | [**StorageDevice**](StorageDevice.md)|  |
+ **storageDevice** | [**StorageDeviceDetachRequest**](StorageDeviceDetachRequest.md)|  |
 
 ### Return type
 
@@ -339,7 +393,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -348,7 +402,7 @@ No authorization required
 
 <a name="ejectCdrom"></a>
 # **ejectCdrom**
-> CreateServerResponse ejectCdrom(serverId)
+> ejectCdrom(serverId)
 
 Eject CD-ROM
 
@@ -357,15 +411,23 @@ Ejects the storage from the CD-ROM device of a server.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
 try {
-    CreateServerResponse result = apiInstance.ejectCdrom(serverId);
-    System.out.println(result);
+    apiInstance.ejectCdrom(serverId);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#ejectCdrom");
     e.printStackTrace();
@@ -380,11 +442,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateServerResponse**](CreateServerResponse.md)
+null (empty response body)
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -402,13 +464,22 @@ Returns detailed information about a specific firewall rule
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
-UUID firewallRuleNumber = new UUID(); // UUID | Denotes the index of the firewall rule in the server's firewall rule list
+BigDecimal firewallRuleNumber = new BigDecimal(); // BigDecimal | Denotes the index of the firewall rule in the server's firewall rule list
 try {
     FirewallRuleCreateResponse result = apiInstance.getFirewallRule(serverId, firewallRuleNumber);
     System.out.println(result);
@@ -423,7 +494,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **UUID**| Server id |
- **firewallRuleNumber** | **UUID**| Denotes the index of the firewall rule in the server&#39;s firewall rule list |
+ **firewallRuleNumber** | **BigDecimal**| Denotes the index of the firewall rule in the server&#39;s firewall rule list |
 
 ### Return type
 
@@ -431,7 +502,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -449,9 +520,18 @@ Returns a list of available server configurations. A server configuration consis
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 try {
@@ -472,7 +552,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -490,9 +570,18 @@ Returns a list of all servers associated with the current account.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 try {
@@ -513,7 +602,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -531,13 +620,22 @@ Loads a storage as a CD-ROM in the CD-ROM device of a server.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
-StorageDevice1 storageDevice = new StorageDevice1(); // StorageDevice1 | 
+StorageDeviceLoadRequest storageDevice = new StorageDeviceLoadRequest(); // StorageDeviceLoadRequest | 
 try {
     CreateServerResponse result = apiInstance.loadCdrom(serverId, storageDevice);
     System.out.println(result);
@@ -552,7 +650,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **UUID**| Server id |
- **storageDevice** | [**StorageDevice1**](StorageDevice1.md)|  | [optional]
+ **storageDevice** | [**StorageDeviceLoadRequest**](StorageDeviceLoadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -560,7 +658,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -576,9 +674,18 @@ Modify server
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to modify
@@ -605,7 +712,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -670,9 +777,18 @@ Returns detailed information about a specific server.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to return
@@ -697,7 +813,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -715,9 +831,18 @@ Returns a list of firewall rules for a specific server.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
@@ -742,7 +867,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -760,9 +885,18 @@ Starts a stopped server. The server state must be &#x60;stopped&#x60;.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to start
@@ -787,7 +921,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -805,9 +939,18 @@ Stops a started server. The server state must be &#x60;started&#x60;.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to stop
@@ -834,7 +977,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 

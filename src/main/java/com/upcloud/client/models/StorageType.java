@@ -31,7 +31,9 @@ public enum StorageType {
   
   TEMPLATE("template"),
   
-  BACKUP("backup");
+  BACKUP("backup"),
+  
+  NORMAL("normal");
 
   private String value;
 

@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | [**ErrorCode**](ErrorCode.md) |  |  [optional]
-**status** | [**ErrorStatus**](ErrorStatus.md) |  |  [optional]
+**errorCode** | [**ErrorCode**](ErrorCode.md) |  |  [optional]
+**errorStatus** | [**ErrorStatus**](ErrorStatus.md) |  |  [optional]
 
 
 

@@ -24,7 +24,7 @@ import java.math.BigDecimal;
  * The backup_rule block defines when the storage device is backed up automatically.
  */
 @ApiModel(description = "The backup_rule block defines when the storage device is backed up automatically.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-28T16:40:29.151+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-01T08:08:14.171+03:00")
 public class BackupRule {
   /**
    * Gets or Sets interval
@@ -88,6 +88,9 @@ public class BackupRule {
   @SerializedName("interval")
   private IntervalEnum interval = null;
 
+  @SerializedName("time")
+  private String time = null;
+
   @SerializedName("retention")
   private BigDecimal retention = null;
 
@@ -107,6 +110,24 @@ public class BackupRule {
 
   public void setInterval(IntervalEnum interval) {
     this.interval = interval;
+  }
+
+  public BackupRule time(String time) {
+    this.time = time;
+    return this;
+  }
+
+   /**
+   * Get time
+   * @return time
+  **/
+  @ApiModelProperty(example = "0430", value = "")
+  public String getTime() {
+    return time;
+  }
+
+  public void setTime(String time) {
+    this.time = time;
   }
 
   public BackupRule retention(BigDecimal retention) {
@@ -138,12 +159,13 @@ public class BackupRule {
     }
     BackupRule backupRule = (BackupRule) o;
     return Objects.equals(this.interval, backupRule.interval) &&
+        Objects.equals(this.time, backupRule.time) &&
         Objects.equals(this.retention, backupRule.retention);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(interval, retention);
+    return Objects.hash(interval, time, retention);
   }
 
 
@@ -153,6 +175,7 @@ public class BackupRule {
     sb.append("class BackupRule {\n");
     
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
+    sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    retention: ").append(toIndentedString(retention)).append("\n");
     sb.append("}");
     return sb.toString();

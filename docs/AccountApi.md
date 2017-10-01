@@ -1,6 +1,6 @@
 # AccountApi
 
-All URIs are relative to *http://api.upcloud.com/1.2*
+All URIs are relative to *https://api.upcloud.com/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getAccount"></a>
 # **getAccount**
-> Account getAccount()
+> AccountResponse getAccount()
 
 Account information
 
@@ -18,13 +18,22 @@ Returns information on the user&#39;s account.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.AccountApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 AccountApi apiInstance = new AccountApi();
 try {
-    Account result = apiInstance.getAccount();
+    AccountResponse result = apiInstance.getAccount();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AccountApi#getAccount");
@@ -37,11 +46,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Account**](Account.md)
+[**AccountResponse**](AccountResponse.md)
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 

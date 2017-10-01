@@ -24,7 +24,7 @@ import java.math.BigDecimal;
 /**
  * FirewallRule
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-28T16:40:29.151+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-01T08:08:14.171+03:00")
 public class FirewallRule {
   /**
    * The direction of network traffic this rule will be applied to.
@@ -187,7 +187,7 @@ public class FirewallRule {
   private ProtocolEnum protocol = null;
 
   @SerializedName("icmp_type")
-  private BigDecimal icmpType = null;
+  private String icmpType = null;
 
   @SerializedName("destination_address_start")
   private String destinationAddressStart = null;
@@ -308,23 +308,21 @@ public class FirewallRule {
     this.protocol = protocol;
   }
 
-  public FirewallRule icmpType(BigDecimal icmpType) {
+  public FirewallRule icmpType(String icmpType) {
     this.icmpType = icmpType;
     return this;
   }
 
    /**
    * The ICMP type.
-   * minimum: 0
-   * maximum: 255
    * @return icmpType
   **/
-  @ApiModelProperty(example = "0.0", value = "The ICMP type.")
-  public BigDecimal getIcmpType() {
+  @ApiModelProperty(example = "0", value = "The ICMP type.")
+  public String getIcmpType() {
     return icmpType;
   }
 
-  public void setIcmpType(BigDecimal icmpType) {
+  public void setIcmpType(String icmpType) {
     this.icmpType = icmpType;
   }
 

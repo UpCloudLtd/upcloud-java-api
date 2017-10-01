@@ -1,6 +1,6 @@
 # IPAddressApi
 
-All URIs are relative to *http://api.upcloud.com/1.2*
+All URIs are relative to *https://api.upcloud.com/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,12 +22,21 @@ Assigns a new IP address to a server.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.IPAddressApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 IPAddressApi apiInstance = new IPAddressApi();
-IpAddress ipAddress = new IpAddress(); // IpAddress | 
+AddIpRequest ipAddress = new AddIpRequest(); // AddIpRequest | 
 try {
     AssignIpResponse result = apiInstance.addIp(ipAddress);
     System.out.println(result);
@@ -41,7 +50,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ipAddress** | [**IpAddress**](IpAddress.md)|  | [optional]
+ **ipAddress** | [**AddIpRequest**](AddIpRequest.md)|  | [optional]
 
 ### Return type
 
@@ -49,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -67,9 +76,18 @@ Removes an IP address from a server.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.IPAddressApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 IPAddressApi apiInstance = new IPAddressApi();
 String ip = "ip_example"; // String | Ip address
@@ -93,7 +111,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -111,9 +129,18 @@ Returns detailed information about a specific IP address.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.IPAddressApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 IPAddressApi apiInstance = new IPAddressApi();
 String ip = "ip_example"; // String | Ip address
@@ -138,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -156,9 +183,18 @@ Returns a list of all IP addresses assigned to servers on the current user accou
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.IPAddressApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 IPAddressApi apiInstance = new IPAddressApi();
 try {
@@ -179,7 +215,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -197,13 +233,22 @@ Modifies the reverse DNS PTR record corresponding to an IP address. The PTR reco
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.IPAddressApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 IPAddressApi apiInstance = new IPAddressApi();
 String ip = "ip_example"; // String | Ip address
-IpAddress1 ipAddress = new IpAddress1(); // IpAddress1 | 
+ModifyIpRequest ipAddress = new ModifyIpRequest(); // ModifyIpRequest | 
 try {
     AssignIpResponse result = apiInstance.modifyIp(ip, ipAddress);
     System.out.println(result);
@@ -218,7 +263,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ip** | **String**| Ip address |
- **ipAddress** | [**IpAddress1**](IpAddress1.md)|  | [optional]
+ **ipAddress** | [**ModifyIpRequest**](ModifyIpRequest.md)|  | [optional]
 
 ### Return type
 
@@ -226,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 

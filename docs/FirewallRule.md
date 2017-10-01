@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **position** | [**BigDecimal**](BigDecimal.md) | Add the firewall rule to this position in the server&#39;s firewall list. |  [optional]
 **family** | [**AddressFamily**](AddressFamily.md) | if protocol is set The address family of new firewall rule | 
 **protocol** | [**ProtocolEnum**](#ProtocolEnum) | The protocol this rule will be applied to. |  [optional]
-**icmpType** | [**BigDecimal**](BigDecimal.md) | The ICMP type. |  [optional]
+**icmpType** | **String** | The ICMP type. |  [optional]
 **destinationAddressStart** | **String** | The destination address range starts from this address. |  [optional]
 **destinationAddressEnd** | **String** | The destination address range ends to this address. |  [optional]
 **destinationPortStart** | [**BigDecimal**](BigDecimal.md) | The destination port range starts from this port number. |  [optional]

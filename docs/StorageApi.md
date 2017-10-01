@@ -1,6 +1,6 @@
 # StorageApi
 
-All URIs are relative to *http://api.upcloud.com/1.2*
+All URIs are relative to *https://api.upcloud.com/1.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**createStorage**](StorageApi.md#createStorage) | **POST** /storage | Create storage
 [**deleteStorage**](StorageApi.md#deleteStorage) | **DELETE** /storage/{storageId} | Delete storage
 [**detachStorage**](StorageApi.md#detachStorage) | **POST** /server/{serverId}/storage/detach | Detach storage
-[**ejectCdrom**](StorageApi.md#ejectCdrom) | **POST** /server/{serverId}/storage/cdrom/eject | Eject CD-ROM
+[**ejectCdrom**](StorageApi.md#ejectCdrom) | **POST** /server/{serverId}/cdrom/eject | Eject CD-ROM
 [**favoriteStorage**](StorageApi.md#favoriteStorage) | **POST** /storage/{storageId}/favorite | Add storage to favorites
 [**getStorageDetails**](StorageApi.md#getStorageDetails) | **GET** /storage/{storageId} | Get storage details
 [**listStorageTypes**](StorageApi.md#listStorageTypes) | **GET** /storage/{type}/ | List of storages by type
@@ -34,13 +34,22 @@ Attaches a storage as a device to a server.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 UUID serverId = new UUID(); // UUID | Server id
-StorageDevice storageDevice = new StorageDevice(); // StorageDevice | 
+AttachStorageDeviceRequest storageDevice = new AttachStorageDeviceRequest(); // AttachStorageDeviceRequest | 
 try {
     CreateServerResponse result = apiInstance.attachStorage(serverId, storageDevice);
     System.out.println(result);
@@ -55,7 +64,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **UUID**| Server id |
- **storageDevice** | [**StorageDevice**](StorageDevice.md)|  |
+ **storageDevice** | [**AttachStorageDeviceRequest**](AttachStorageDeviceRequest.md)|  |
 
 ### Return type
 
@@ -63,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -81,13 +90,22 @@ Creates a point-in-time backup of a storage resource. For automatic, scheduled b
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 UUID storageId = new UUID(); // UUID | Storage id
-Storage4 storage = new Storage4(); // Storage4 | 
+CreateBackupStorageRequest storage = new CreateBackupStorageRequest(); // CreateBackupStorageRequest | 
 try {
     CreateStorageResponse result = apiInstance.backupStorage(storageId, storage);
     System.out.println(result);
@@ -102,7 +120,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storageId** | **UUID**| Storage id |
- **storage** | [**Storage4**](Storage4.md)|  | [optional]
+ **storage** | [**CreateBackupStorageRequest**](CreateBackupStorageRequest.md)|  | [optional]
 
 ### Return type
 
@@ -110,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -128,9 +146,18 @@ Cancels a running cloning operation and deletes the incomplete copy.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 UUID storageId = new UUID(); // UUID | Strage id
@@ -154,7 +181,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -172,13 +199,22 @@ Creates an exact copy of an existing storage resource.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 UUID storageId = new UUID(); // UUID | Storage id
-Storage2 storage = new Storage2(); // Storage2 | 
+CloneStorageRequest storage = new CloneStorageRequest(); // CloneStorageRequest | 
 try {
     CreateStorageResponse result = apiInstance.cloneStorage(storageId, storage);
     System.out.println(result);
@@ -193,7 +229,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storageId** | **UUID**| Storage id |
- **storage** | [**Storage2**](Storage2.md)|  | [optional]
+ **storage** | [**CloneStorageRequest**](CloneStorageRequest.md)|  | [optional]
 
 ### Return type
 
@@ -201,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -219,12 +255,21 @@ Creates a new storage resource.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
-Storage storage = new Storage(); // Storage | 
+CreateStorageRequest storage = new CreateStorageRequest(); // CreateStorageRequest | 
 try {
     CreateStorageResponse result = apiInstance.createStorage(storage);
     System.out.println(result);
@@ -238,7 +283,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storage** | [**Storage**](Storage.md)|  |
+ **storage** | [**CreateStorageRequest**](CreateStorageRequest.md)|  |
 
 ### Return type
 
@@ -246,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -264,9 +309,18 @@ Deleted an existing storage resource.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 UUID storageId = new UUID(); // UUID | 
@@ -290,7 +344,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -308,13 +362,22 @@ Detaches a storage resource from a server.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 UUID serverId = new UUID(); // UUID | Server id
-StorageDevice storageDevice = new StorageDevice(); // StorageDevice | 
+StorageDeviceDetachRequest storageDevice = new StorageDeviceDetachRequest(); // StorageDeviceDetachRequest | 
 try {
     CreateServerResponse result = apiInstance.detachStorage(serverId, storageDevice);
     System.out.println(result);
@@ -329,7 +392,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **UUID**| Server id |
- **storageDevice** | [**StorageDevice**](StorageDevice.md)|  |
+ **storageDevice** | [**StorageDeviceDetachRequest**](StorageDeviceDetachRequest.md)|  |
 
 ### Return type
 
@@ -337,7 +400,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -346,7 +409,7 @@ No authorization required
 
 <a name="ejectCdrom"></a>
 # **ejectCdrom**
-> CreateServerResponse ejectCdrom(serverId)
+> ejectCdrom(serverId)
 
 Eject CD-ROM
 
@@ -355,15 +418,23 @@ Ejects the storage from the CD-ROM device of a server.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 UUID serverId = new UUID(); // UUID | Server id
 try {
-    CreateServerResponse result = apiInstance.ejectCdrom(serverId);
-    System.out.println(result);
+    apiInstance.ejectCdrom(serverId);
 } catch (ApiException e) {
     System.err.println("Exception when calling StorageApi#ejectCdrom");
     e.printStackTrace();
@@ -378,11 +449,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateServerResponse**](CreateServerResponse.md)
+null (empty response body)
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -400,9 +471,18 @@ Adds a storage to the list of favorite storages. To list favorite storages, see 
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 UUID storageId = new UUID(); // UUID | Storage id
@@ -426,7 +506,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -444,9 +524,18 @@ Returns detailed information about a specific storage resource.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 UUID storageId = new UUID(); // UUID | 
@@ -471,7 +560,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -487,9 +576,18 @@ List of storages by type
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 String type = "type_example"; // String | Storage's access type (`public` or `private`) or storage type (`normal`, `backup`, `cdrom` or `template`) or `favorite` status
@@ -514,7 +612,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -530,9 +628,18 @@ List of storages
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 try {
@@ -553,7 +660,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -571,13 +678,22 @@ Loads a storage as a CD-ROM in the CD-ROM device of a server.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 UUID serverId = new UUID(); // UUID | Server id
-StorageDevice1 storageDevice = new StorageDevice1(); // StorageDevice1 | 
+StorageDeviceLoadRequest storageDevice = new StorageDeviceLoadRequest(); // StorageDeviceLoadRequest | 
 try {
     CreateServerResponse result = apiInstance.loadCdrom(serverId, storageDevice);
     System.out.println(result);
@@ -592,7 +708,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **UUID**| Server id |
- **storageDevice** | [**StorageDevice1**](StorageDevice1.md)|  | [optional]
+ **storageDevice** | [**StorageDeviceLoadRequest**](StorageDeviceLoadRequest.md)|  | [optional]
 
 ### Return type
 
@@ -600,7 +716,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -618,13 +734,22 @@ Modifies an existing storage resource. This operation is used to rename or resiz
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 UUID storageId = new UUID(); // UUID | 
-Storage1 storage = new Storage1(); // Storage1 | 
+ModifyStorageRequest storage = new ModifyStorageRequest(); // ModifyStorageRequest | 
 try {
     CreateStorageResponse result = apiInstance.modifyStorage(storageId, storage);
     System.out.println(result);
@@ -639,7 +764,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storageId** | **UUID**|  |
- **storage** | [**Storage1**](Storage1.md)|  |
+ **storage** | [**ModifyStorageRequest**](ModifyStorageRequest.md)|  |
 
 ### Return type
 
@@ -647,7 +772,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -665,9 +790,18 @@ Restores the origin storage with data from the specified backup storage.
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 UUID storageId = new UUID(); // UUID | Storage id
@@ -691,7 +825,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -709,13 +843,22 @@ Creates an exact copy of an existing storage resource which can be used as a tem
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 UUID storageId = new UUID(); // UUID | Storage id
-Storage3 storage = new Storage3(); // Storage3 | 
+TemplitizeStorageRequest storage = new TemplitizeStorageRequest(); // TemplitizeStorageRequest | 
 try {
     CreateStorageResponse result = apiInstance.templatizeStorage(storageId, storage);
     System.out.println(result);
@@ -730,7 +873,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storageId** | **UUID**| Storage id |
- **storage** | [**Storage3**](Storage3.md)|  | [optional]
+ **storage** | [**TemplitizeStorageRequest**](TemplitizeStorageRequest.md)|  | [optional]
 
 ### Return type
 
@@ -738,7 +881,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -756,9 +899,18 @@ Delete a storage from the list of favorite storages. To list favorite storages, 
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.StorageApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 StorageApi apiInstance = new StorageApi();
 UUID storageId = new UUID(); // UUID | Storage id
@@ -782,7 +934,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
