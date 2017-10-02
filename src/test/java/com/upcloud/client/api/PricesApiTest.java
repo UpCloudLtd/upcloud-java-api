@@ -13,7 +13,6 @@ import com.upcloud.client.ApiException;
 import com.upcloud.client.models.PriceListResponse;
 import com.upcloud.client.models.PriceZone;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -24,7 +23,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 /**
  * API tests for PricesApi
  */
-@Disabled
 public class PricesApiTest {
 
     private static final PricesApi api = new PricesApi();

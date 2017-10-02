@@ -24,7 +24,7 @@ import java.util.UUID;
  * The UpCloud network has public and private IP addresses.
  */
 @ApiModel(description = "The UpCloud network has public and private IP addresses.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-01T08:08:14.171+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-02T11:57:08.985+03:00")
 public class IpAddress {
   /**
    * Is address for private or public network.

@@ -22,7 +22,6 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * API tests for IPAddressApi
  */
-@Disabled
 public class IPAddressApiTest {
 
     private static final IPAddressApi api = new IPAddressApi();

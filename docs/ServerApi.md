@@ -36,9 +36,18 @@ Servers can be tagged with one or more tags. The tags used must exist
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
@@ -65,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -995,9 +1004,18 @@ Untags tags from given server. The tag(s) must exist
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.ServerApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Server id
@@ -1024,7 +1042,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 

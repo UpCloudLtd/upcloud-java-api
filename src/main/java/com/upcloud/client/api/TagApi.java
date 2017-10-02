@@ -26,8 +26,8 @@ import java.io.IOException;
 import com.upcloud.client.models.CreateNewTagResponse;
 import com.upcloud.client.models.CreateServerResponse;
 import com.upcloud.client.models.Error;
-import com.upcloud.client.models.Tag;
-import com.upcloud.client.models.Tag1;
+import com.upcloud.client.models.ModifyTagRequest;
+import com.upcloud.client.models.TagCreateRequest;
 import com.upcloud.client.models.TagListResponse;
 import java.util.UUID;
 
@@ -104,7 +104,7 @@ public class TagApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -201,7 +201,7 @@ public class TagApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createTagCall(Tag tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createTagCall(TagCreateRequest tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = tag;
         
         // create path and map variables
@@ -238,12 +238,12 @@ public class TagApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createTagValidateBeforeCall(Tag tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createTagValidateBeforeCall(TagCreateRequest tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'tag' is set
         if (tag == null) {
@@ -267,7 +267,7 @@ public class TagApi {
      * @return CreateNewTagResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateNewTagResponse createTag(Tag tag) throws ApiException {
+    public CreateNewTagResponse createTag(TagCreateRequest tag) throws ApiException {
         ApiResponse<CreateNewTagResponse> resp = createTagWithHttpInfo(tag);
         return resp.getData();
     }
@@ -279,7 +279,7 @@ public class TagApi {
      * @return ApiResponse&lt;CreateNewTagResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateNewTagResponse> createTagWithHttpInfo(Tag tag) throws ApiException {
+    public ApiResponse<CreateNewTagResponse> createTagWithHttpInfo(TagCreateRequest tag) throws ApiException {
         com.squareup.okhttp.Call call = createTagValidateBeforeCall(tag, null, null);
         Type localVarReturnType = new TypeToken<CreateNewTagResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -293,7 +293,7 @@ public class TagApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createTagAsync(Tag tag, final ApiCallback<CreateNewTagResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call createTagAsync(TagCreateRequest tag, final ApiCallback<CreateNewTagResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -365,7 +365,7 @@ public class TagApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -486,7 +486,7 @@ public class TagApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -568,7 +568,7 @@ public class TagApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call modifyTagCall(String tagName, Tag1 tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call modifyTagCall(String tagName, ModifyTagRequest tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = tag;
         
         // create path and map variables
@@ -606,12 +606,12 @@ public class TagApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call modifyTagValidateBeforeCall(String tagName, Tag1 tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call modifyTagValidateBeforeCall(String tagName, ModifyTagRequest tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'tagName' is set
         if (tagName == null) {
@@ -641,7 +641,7 @@ public class TagApi {
      * @return CreateNewTagResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateNewTagResponse modifyTag(String tagName, Tag1 tag) throws ApiException {
+    public CreateNewTagResponse modifyTag(String tagName, ModifyTagRequest tag) throws ApiException {
         ApiResponse<CreateNewTagResponse> resp = modifyTagWithHttpInfo(tagName, tag);
         return resp.getData();
     }
@@ -654,7 +654,7 @@ public class TagApi {
      * @return ApiResponse&lt;CreateNewTagResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateNewTagResponse> modifyTagWithHttpInfo(String tagName, Tag1 tag) throws ApiException {
+    public ApiResponse<CreateNewTagResponse> modifyTagWithHttpInfo(String tagName, ModifyTagRequest tag) throws ApiException {
         com.squareup.okhttp.Call call = modifyTagValidateBeforeCall(tagName, tag, null, null);
         Type localVarReturnType = new TypeToken<CreateNewTagResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -669,7 +669,7 @@ public class TagApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call modifyTagAsync(String tagName, Tag1 tag, final ApiCallback<CreateNewTagResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call modifyTagAsync(String tagName, ModifyTagRequest tag, final ApiCallback<CreateNewTagResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -743,7 +743,7 @@ public class TagApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "baseAuth" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

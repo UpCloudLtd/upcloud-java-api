@@ -25,7 +25,7 @@ import java.util.UUID;
 /**
  * StorageServers
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-01T08:08:14.171+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-02T11:57:08.985+03:00")
 public class StorageServers {
   @SerializedName("server")
   private List<UUID> server = null;

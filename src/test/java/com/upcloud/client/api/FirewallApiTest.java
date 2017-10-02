@@ -45,6 +45,7 @@ public class FirewallApiTest {
                 .action("clone")
                 .title("Debian from a template")
                 .size(BigDecimal.valueOf(50))
+                .storage("01000000-0000-4000-8000-000020030100")
                 .tier("maxiops");
 
         Server newServer = new Server()
@@ -54,6 +55,7 @@ public class FirewallApiTest {
                 .plan("2xCPU-2GB")
                 .storageDevices(new ServerStorageDevices().addStorageDeviceItem(testStorageDevice));
 
+        Logger.getGlobal().info("Creting server...");
         testServer = serverHelper.createReadyServer(newServer);
 
         testFirewallRule

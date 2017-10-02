@@ -16,6 +16,7 @@ public class ServerHelpers {
     private final StorageDevice defaultStorageDevice = new StorageDevice()
             .action("clone")
             .title("Debian from a template")
+            .storage("01000000-0000-4000-8000-000020030100")
             .size(BigDecimal.valueOf(50))
             .tier("maxiops");
 

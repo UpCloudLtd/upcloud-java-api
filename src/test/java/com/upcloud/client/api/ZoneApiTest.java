@@ -12,19 +12,13 @@ package com.upcloud.client.api;
 import com.upcloud.client.ApiException;
 import com.upcloud.client.models.ZoneListResponse;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * API tests for ZoneApi
  */
-@Disabled
 public class ZoneApiTest {
 
     private static final ZoneApi api = new ZoneApi();
@@ -36,19 +30,18 @@ public class ZoneApiTest {
         api.getApiClient().setDebugging(true);
     }
 
-    
+
     /**
      * List available zones
-     *
+     * <p>
      * Returns a list of available zones.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listZonesTest() throws ApiException {
         ZoneListResponse response = api.listZones();
         assertTrue(response.getZones().getZone().size() > 0);
     }
-    
+
 }

@@ -13,8 +13,8 @@ import com.upcloud.client.ApiException;
 import com.upcloud.client.models.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import utils.ServerHelpers;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -39,11 +39,13 @@ public class ServerApiTest {
     public static void setUp() {
         api.getApiClient().setUsername("toughbyte");
         api.getApiClient().setPassword("Topsekret5");
+        api.getApiClient().setDebugging(true);
 
 //        api.getApiClient().setBasePath("http://localhost:8080/1.2");
 
         testStorageDevice
                 .action("clone")
+                .storage("01000000-0000-4000-8000-000020030100")
                 .title("Debian from a template")
                 .size(BigDecimal.valueOf(50))
                 .tier("maxiops");
@@ -54,6 +56,12 @@ public class ServerApiTest {
                 .hostname("debian.example.com")
                 .plan("2xCPU-2GB")
                 .storageDevices(new ServerStorageDevices().addStorageDeviceItem(testStorageDevice));
+    }
+
+    @AfterAll
+    public static void setDown() {
+        ServerHelpers serverHelper = new ServerHelpers(api.getApiClient());
+        serverHelper.deleteAllServers();
     }
 
     public static void deleteServer(Server server, int tryings) {
@@ -90,19 +98,6 @@ public class ServerApiTest {
                 logger.warning("Can't delete all test servers");
             }
         }
-    }
-
-    @AfterAll
-    public static void setDown() {
-//        logger.info("Trying to delete all created server in 5 minutes...");
-//        for (Server server : createdServers) {
-//            deleteServer(server, 0);
-//        }
-    }
-
-    @BeforeEach
-    public void setUpEach() {
-
     }
 
     /**

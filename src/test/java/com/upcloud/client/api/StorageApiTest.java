@@ -11,20 +11,19 @@ package com.upcloud.client.api;
 
 import com.upcloud.client.ApiException;
 import com.upcloud.client.models.*;
-import io.swagger.annotations.Api;
 import org.junit.jupiter.api.*;
 import utils.ServerHelpers;
 import utils.StorageHelpers;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
-import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 /**
  * API tests for StorageApi
  */
-@Disabled
 public class StorageApiTest {
 
     private static final StorageApi api = new StorageApi();
@@ -40,21 +39,21 @@ public class StorageApiTest {
         StorageHelpers.apiClient = api.getApiClient();
 
         ServerHelpers serverHelpers = new ServerHelpers(api.getApiClient());
-//        testServer = serverHelpers.createReadyServer(null);
+        testServer = serverHelpers.createReadyServer(null);
         serverHelpers.stopAllServers();
     }
 
     @BeforeEach
     private void setUpEach() throws ApiException {
         testStorage = new Storage()
-            .size(BigDecimal.valueOf(10))
-            .tier(StorageTier.MAXIOPS)
-            .title("Test create storage storage")
-            .zone("fi-hel1")
-            .backupRule(new BackupRule()
-                    .interval(BackupRule.IntervalEnum.DAILY)
-                    .time("0430")
-                    .retention(BigDecimal.valueOf(365)));
+                .size(BigDecimal.valueOf(10))
+                .tier(StorageTier.MAXIOPS)
+                .title("Test create storage storage")
+                .zone("fi-hel1")
+                .backupRule(new BackupRule()
+                        .interval(BackupRule.IntervalEnum.DAILY)
+                        .time("0430")
+                        .retention(BigDecimal.valueOf(365)));
         testStorage = api.createStorage(new CreateStorageRequest().storage(testStorage)).getStorage();
     }
 
@@ -63,6 +62,12 @@ public class StorageApiTest {
         if (testStorage != null) {
             StorageHelpers.deleteStorage(testStorage);
         }
+    }
+
+    @AfterAll
+    private static void setDown() {
+        ServerHelpers serverHelper = new ServerHelpers(api.getApiClient());
+        serverHelper.deleteAllServers();
     }
 
 
@@ -75,7 +80,7 @@ public class StorageApiTest {
      */
     @Test
     public void attachStorageTest() throws ApiException {
-        UUID serverId = UUID.fromString("00da6a46-2b07-4f20-b619-dcd5ea709455");
+        UUID serverId = testServer.getUuid();
         StorageDevice storageDevice = new StorageDevice()
                 .storage(testStorage.getUuid().toString())
                 .address("scsi:0:0")
@@ -91,10 +96,10 @@ public class StorageApiTest {
         server = api.detachStorage(serverId, new StorageDeviceDetachRequest().storageDevice(new StorageDevice().address("scsi:0:0"))).getServer();
         assertTrue(
                 server
-                    .getStorageDevices()
-                    .getStorageDevice()
-                    .stream()
-                    .noneMatch(item -> item.getAddress().equals("scsi:0:0"))
+                        .getStorageDevices()
+                        .getStorageDevice()
+                        .stream()
+                        .noneMatch(item -> item.getAddress().equals("scsi:0:0"))
         );
     }
 
@@ -151,7 +156,7 @@ public class StorageApiTest {
         clonedStorage = response.getStorage();
 
         assertNull(clonedStorage.getOrigin());
-        assertEquals("Clonned storage", clonedStorage.getTitle());
+        assertEquals("Cloned storage", clonedStorage.getTitle());
         StorageHelpers.deleteStorage(clonedStorage);
     }
 
@@ -219,7 +224,7 @@ public class StorageApiTest {
      */
     @Test
     public void ejectCdromTest() throws ApiException {
-        UUID serverId = UUID.fromString("00da6a46-2b07-4f20-b619-dcd5ea709455");
+        UUID serverId = testServer.getUuid();
         StorageDevice storageDevice = new StorageDevice()
                 .storage(testStorage.getUuid().toString())
                 .address("scsi:0:0")
@@ -248,7 +253,7 @@ public class StorageApiTest {
     @Test
     public void favoriteStorageTest() throws ApiException {
         UUID storageId = null;
-        api.favoriteStorage(storageId);
+//        api.favoriteStorage(storageId);
 
         // TODO: test validations
     }
@@ -263,7 +268,7 @@ public class StorageApiTest {
     @Test
     public void getStorageDetailsTest() throws ApiException {
         UUID storageId = null;
-        CreateStorageResponse response = api.getStorageDetails(storageId);
+//        CreateStorageResponse response = api.getStorageDetails(storageId);
 
         // TODO: test validations
     }
@@ -276,7 +281,7 @@ public class StorageApiTest {
     @Test
     public void listStorageTypesTest() throws ApiException {
         String type = null;
-        SuccessStoragesResponse response = api.listStorageTypes(type);
+//        SuccessStoragesResponse response = api.listStorageTypes(type);
 
         // TODO: test validations
     }
@@ -289,8 +294,10 @@ public class StorageApiTest {
     @Test
     public void listStoragesTest() throws ApiException {
         SuccessStoragesResponse response = api.listStorages();
+        List<Storage> storageList = response.getStorages().getStorage();
 
-        // TODO: test validations
+        assertTrue(storageList.size() > 0);
+        assertTrue(storageList.stream().anyMatch(storage -> storage.getTitle().equals("Test create storage storage")));
     }
 
     /**
@@ -302,11 +309,13 @@ public class StorageApiTest {
      */
     @Test
     public void loadCdromTest() throws ApiException {
-        UUID serverId = null;
-//        StorageDevice1 storageDevice = null;
-//        CreateServerResponse response = api.loadCdrom(serverId, storageDevice);
-
-        // TODO: test validations
+        UUID serverId = testServer.getUuid();
+        StorageDevice storageDevice = new StorageDevice()
+                .storage(testStorage.getUuid().toString())
+                .address("scsi:0:0")
+                .type("cdrom");
+        api.attachStorage(serverId, new AttachStorageDeviceRequest().storageDevice(storageDevice));
+        CreateServerResponse response = api.loadCdrom(serverId, new StorageDeviceLoadRequest().storage(testStorage.getUuid()));
     }
 
     /**
@@ -318,11 +327,11 @@ public class StorageApiTest {
      */
     @Test
     public void modifyStorageTest() throws ApiException {
-        UUID storageId = null;
-//        Storage1 storage = null;
-//        CreateStorageResponse response = api.modifyStorage(storageId, storage);
+        UUID storageId = testStorage.getUuid();
+        CreateStorageResponse response = api.modifyStorage(storageId, new ModifyStorageRequest().storage(new Storage().title("Modified title")));
+        Storage modifiedStorage = response.getStorage();
 
-        // TODO: test validations
+        assertEquals("Modified title", modifiedStorage.getTitle());
     }
 
     /**
@@ -335,7 +344,7 @@ public class StorageApiTest {
     @Test
     public void restoreStorageTest() throws ApiException {
         UUID storageId = null;
-        api.restoreStorage(storageId);
+//        api.restoreStorage(storageId);
 
         // TODO: test validations
     }
@@ -366,7 +375,7 @@ public class StorageApiTest {
     @Test
     public void unfavoriteStorageTest() throws ApiException {
         UUID storageId = null;
-        api.unfavoriteStorage(storageId);
+//        api.unfavoriteStorage(storageId);
 
         // TODO: test validations
     }

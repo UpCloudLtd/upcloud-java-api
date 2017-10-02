@@ -12,18 +12,16 @@ package com.upcloud.client.api;
 import com.upcloud.client.ApiException;
 import com.upcloud.client.models.TimezoneListResponse;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.util.*;
-import java.util.logging.Logger;
+import java.util.Arrays;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * API tests for TimezoneApi
  */
-@Disabled
 public class TimezoneApiTest {
 
     private static final TimezoneApi api = new TimezoneApi();
@@ -34,14 +32,13 @@ public class TimezoneApiTest {
         api.getApiClient().setPassword("Topsekret5");
         api.getApiClient().setDebugging(true);
     }
-    
+
     /**
      * List timezones
-     *
+     * <p>
      * Returns a list of available timezones. Timezones are used to set the hardware clock for servers.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listTimezonesTest() throws ApiException {
@@ -52,10 +49,10 @@ public class TimezoneApiTest {
 
         List<String> timezones = response.getTimezones().getTimezone();
         assertTrue(timezones
-            .stream()
-            .allMatch(timezone ->
-                continentals.contains(timezone.split("/")[0]) || timezone.equals("UTC")
-            ));
+                .stream()
+                .allMatch(timezone ->
+                        continentals.contains(timezone.split("/")[0]) || timezone.equals("UTC")
+                ));
     }
-    
+
 }

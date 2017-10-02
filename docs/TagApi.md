@@ -23,9 +23,18 @@ Servers can be tagged with one or more tags. The tags used must exist
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.TagApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 TagApi apiInstance = new TagApi();
 UUID serverId = new UUID(); // UUID | Server id
@@ -52,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -70,12 +79,21 @@ Creates a new tag. Existing servers can be tagged in same request
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.TagApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 TagApi apiInstance = new TagApi();
-Tag tag = new Tag(); // Tag | 
+TagCreateRequest tag = new TagCreateRequest(); // TagCreateRequest | 
 try {
     CreateNewTagResponse result = apiInstance.createTag(tag);
     System.out.println(result);
@@ -89,7 +107,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tag** | [**Tag**](Tag.md)|  |
+ **tag** | [**TagCreateRequest**](TagCreateRequest.md)|  |
 
 ### Return type
 
@@ -97,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -115,9 +133,18 @@ Deleting existing tag untags all servers from specified tag and deletes tag defi
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.TagApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 TagApi apiInstance = new TagApi();
 String tagName = "tagName_example"; // String | Tag name
@@ -141,7 +168,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -159,9 +186,18 @@ Returns all existing tags with their properties and servers tagged
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.TagApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 TagApi apiInstance = new TagApi();
 try {
@@ -182,7 +218,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -200,13 +236,22 @@ Changes attributes of an existing tag
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.TagApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 TagApi apiInstance = new TagApi();
 String tagName = "tagName_example"; // String | Tag name
-Tag1 tag = new Tag1(); // Tag1 | 
+ModifyTagRequest tag = new ModifyTagRequest(); // ModifyTagRequest | 
 try {
     CreateNewTagResponse result = apiInstance.modifyTag(tagName, tag);
     System.out.println(result);
@@ -221,7 +266,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tagName** | **String**| Tag name |
- **tag** | [**Tag1**](Tag1.md)|  |
+ **tag** | [**ModifyTagRequest**](ModifyTagRequest.md)|  |
 
 ### Return type
 
@@ -229,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
@@ -247,9 +292,18 @@ Untags tags from given server. The tag(s) must exist
 ### Example
 ```java
 // Import classes:
+//import com.upcloud.client.ApiClient;
 //import com.upcloud.client.ApiException;
+//import com.upcloud.client.Configuration;
+//import com.upcloud.client.auth.*;
 //import com.upcloud.client.api.TagApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: baseAuth
+HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+baseAuth.setUsername("YOUR USERNAME");
+baseAuth.setPassword("YOUR PASSWORD");
 
 TagApi apiInstance = new TagApi();
 UUID serverId = new UUID(); // UUID | Server id
@@ -276,7 +330,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 

@@ -15,35 +15,35 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.upcloud.client.models.Storage;
+import com.upcloud.client.models.Tag;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CloneStorageRequest
+ * TagCreateRequest
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-02T11:57:08.985+03:00")
-public class CloneStorageRequest {
-  @SerializedName("storage")
-  private Storage storage = null;
+public class TagCreateRequest {
+  @SerializedName("tag")
+  private Tag tag = null;
 
-  public CloneStorageRequest storage(Storage storage) {
-    this.storage = storage;
+  public TagCreateRequest tag(Tag tag) {
+    this.tag = tag;
     return this;
   }
 
    /**
-   * Get storage
-   * @return storage
+   * Get tag
+   * @return tag
   **/
   @ApiModelProperty(value = "")
-  public Storage getStorage() {
-    return storage;
+  public Tag getTag() {
+    return tag;
   }
 
-  public void setStorage(Storage storage) {
-    this.storage = storage;
+  public void setTag(Tag tag) {
+    this.tag = tag;
   }
 
 
@@ -55,22 +55,22 @@ public class CloneStorageRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CloneStorageRequest cloneStorageRequest = (CloneStorageRequest) o;
-    return Objects.equals(this.storage, cloneStorageRequest.storage);
+    TagCreateRequest tagCreateRequest = (TagCreateRequest) o;
+    return Objects.equals(this.tag, tagCreateRequest.tag);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(storage);
+    return Objects.hash(tag);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CloneStorageRequest {\n");
+    sb.append("class TagCreateRequest {\n");
     
-    sb.append("    storage: ").append(toIndentedString(storage)).append("\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -13,7 +13,6 @@ import com.upcloud.client.ApiException;
 import com.upcloud.client.models.AvailablePlanListResponse;
 import com.upcloud.client.models.Plan;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -24,7 +23,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 /**
  * API tests for PlanApi
  */
-@Disabled
 public class PlanApiTest {
 
     private static final PlanApi api = new PlanApi();

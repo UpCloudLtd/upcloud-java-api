@@ -17,7 +17,7 @@ public class StorageHelpers {
         StorageApi api = new StorageApi();
         api.setApiClient(apiClient);
         storage = api.getStorageDetails(storage.getUuid()).getStorage();
-        if (storage.getState() != StorageState.BACKUPING && storage.getState() != StorageState.CLONING) {
+        if (storage.getState() != StorageState.BACKUPING && storage.getState() != StorageState.CLONING && storage.getState() != StorageState.MAINTENANCE) {
             api.deleteStorage(storage.getUuid());
         } else {
             try {
