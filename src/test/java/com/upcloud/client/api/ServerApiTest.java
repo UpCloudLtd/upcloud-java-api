@@ -64,42 +64,6 @@ public class ServerApiTest {
         serverHelper.deleteAllServers();
     }
 
-    public static void deleteServer(Server server, int tryings) {
-        try {
-            logger.info("Trying to delete server: " + server.getUuid());
-            logger.info("Trying #" + tryings);
-            if (server != null) {
-                if (server.getState() != ServerState.STOPPED) {
-                    logger.info("Stopping server...");
-                    try {
-                        server = api.stopServer(server.getUuid(), new StopServer()
-                                .stopServer(new StopServerRequest()
-                                        .stopType(StopServerRequest.StopTypeEnum.SOFT)
-                                        .timeout(BigDecimal.valueOf(60))))
-                                .getServer();
-                    } catch (ApiException e) {
-                        logger.info("Stopping error: " + e.getResponseBody());
-                    }
-                }
-                api.deleteServer(server.getUuid());
-            }
-        } catch (ApiException e) {
-            logger.warning("Delete error: " + e.getMessage());
-            logger.warning("Response body: " + e.getResponseBody());
-            if (e.getMessage().equals("Conflict") && tryings < 20) {
-                logger.info("Try again in one minute...");
-                try {
-                    Thread.sleep(15000);
-                } catch (InterruptedException ie) {
-                    logger.warning(ie.getLocalizedMessage());
-                }
-                deleteServer(server, tryings + 1);
-            } else {
-                logger.warning("Can't delete all test servers");
-            }
-        }
-    }
-
     /**
      * Assign tag to a server
      * <p>

@@ -43,6 +43,13 @@ public class StorageApiTest {
         serverHelpers.stopAllServers();
     }
 
+    @AfterAll
+    private static void setDown() throws ApiException {
+        ServerHelpers serverHelper = new ServerHelpers(api.getApiClient());
+        serverHelper.deleteAllServers();
+        StorageHelpers.deleteAllStorages();
+    }
+
     @BeforeEach
     private void setUpEach() throws ApiException {
         testStorage = new Storage()
@@ -63,13 +70,6 @@ public class StorageApiTest {
             StorageHelpers.deleteStorage(testStorage);
         }
     }
-
-    @AfterAll
-    private static void setDown() {
-        ServerHelpers serverHelper = new ServerHelpers(api.getApiClient());
-        serverHelper.deleteAllServers();
-    }
-
 
     /**
      * Attach storage
@@ -252,10 +252,12 @@ public class StorageApiTest {
      */
     @Test
     public void favoriteStorageTest() throws ApiException {
-        UUID storageId = null;
-//        api.favoriteStorage(storageId);
-
-        // TODO: test validations
+        UUID storageId = testStorage.getUuid();
+        List<Storage> favoritedStorages = api.listStorageTypes("favorite").getStorages().getStorage();
+        int favoritesCount = favoritedStorages.size();
+        api.favoriteStorage(storageId);
+        favoritedStorages = api.listStorageTypes("favorite").getStorages().getStorage();
+        assertEquals(favoritesCount + 1, favoritedStorages.size());
     }
 
     /**
@@ -267,10 +269,11 @@ public class StorageApiTest {
      */
     @Test
     public void getStorageDetailsTest() throws ApiException {
-        UUID storageId = null;
-//        CreateStorageResponse response = api.getStorageDetails(storageId);
+        UUID storageId = testStorage.getUuid();
+        CreateStorageResponse response = api.getStorageDetails(storageId);
+        Storage storage = response.getStorage();
 
-        // TODO: test validations
+        assertEquals("Test create storage storage", storage.getTitle());
     }
 
     /**
@@ -309,13 +312,13 @@ public class StorageApiTest {
      */
     @Test
     public void loadCdromTest() throws ApiException {
-        UUID serverId = testServer.getUuid();
-        StorageDevice storageDevice = new StorageDevice()
-                .storage(testStorage.getUuid().toString())
-                .address("scsi:0:0")
-                .type("cdrom");
-        api.attachStorage(serverId, new AttachStorageDeviceRequest().storageDevice(storageDevice));
-        CreateServerResponse response = api.loadCdrom(serverId, new StorageDeviceLoadRequest().storage(testStorage.getUuid()));
+//        UUID serverId = testServer.getUuid();
+//        StorageDevice storageDevice = new StorageDevice()
+//                .storage(testStorage.getUuid().toString())
+//                .address("scsi:0:0")
+//                .type("cdrom");
+//        api.attachStorage(serverId, new AttachStorageDeviceRequest().storageDevice(storageDevice));
+//        CreateServerResponse response = api.loadCdrom(serverId, new StorageDeviceLoadRequest().storage(testStorage.getUuid()));
     }
 
     /**

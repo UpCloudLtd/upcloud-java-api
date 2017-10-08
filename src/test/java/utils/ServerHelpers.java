@@ -6,26 +6,24 @@ import com.upcloud.client.api.ServerApi;
 import com.upcloud.client.models.*;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
 public class ServerHelpers {
-    private ServerApi api = new ServerApi();
-    private Logger logger = Logger.getGlobal();
     private final StorageDevice defaultStorageDevice = new StorageDevice()
             .action("clone")
             .title("Debian from a template")
             .storage("01000000-0000-4000-8000-000020030100")
             .size(BigDecimal.valueOf(50))
             .tier("maxiops");
-
     private final Server defaultServer = new Server()
             .zone("fi-hel1")
             .title("Test server")
             .hostname("debian.example.com")
             .plan("2xCPU-2GB")
             .storageDevices(new ServerStorageDevices().addStorageDeviceItem(defaultStorageDevice));
+    private ServerApi api = new ServerApi();
+    private Logger logger = Logger.getGlobal();
 
     public ServerHelpers(ApiClient apiClient) {
         api.setApiClient(apiClient);
@@ -67,8 +65,8 @@ public class ServerHelpers {
                 try {
                     server = api.stopServer(server.getUuid(), new StopServer()
                             .stopServer(new StopServerRequest()
-                            .stopType(StopServerRequest.StopTypeEnum.SOFT)
-                            .timeout(BigDecimal.valueOf(60))))
+                                    .stopType(StopServerRequest.StopTypeEnum.SOFT)
+                                    .timeout(BigDecimal.valueOf(60))))
                             .getServer();
                     try {
                         Thread.sleep(15000);

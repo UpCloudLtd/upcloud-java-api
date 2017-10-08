@@ -40,6 +40,12 @@ public class TagApiTest {
         testServer = serverHelper.createReadyServer(null);
     }
 
+    @AfterAll
+    public static void setDown() throws ApiException {
+        ServerHelpers serverHelper = new ServerHelpers(api.getApiClient());
+        serverHelper.deleteAllServers();
+    }
+
     @BeforeEach
     public void setUpEach() throws ApiException {
         try {
@@ -56,12 +62,6 @@ public class TagApiTest {
         for (Tag tag : tagList) {
             api.deleteTag(tag.getName());
         }
-    }
-
-    @AfterAll
-    public static void setDown() throws ApiException {
-        ServerHelpers serverHelper = new ServerHelpers(api.getApiClient());
-        serverHelper.deleteAllServers();
     }
 
     /**

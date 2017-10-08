@@ -26,7 +26,7 @@ import java.util.UUID;
  * List of valid UUIDs of existing &#x60;servers&#x60; to be tagged
  */
 @ApiModel(description = "List of valid UUIDs of existing `servers` to be tagged")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-02T11:57:08.985+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-09T11:42:48.898+03:00")
 public class TagServers {
   @SerializedName("server")
   private List<UUID> server = null;

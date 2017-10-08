@@ -2,89 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9d2b7f5-7900-4165-902f-5080caabdc70" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/ServerApi.md" afterPath="$PROJECT_DIR$/docs/ServerApi.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Tag.md" afterPath="$PROJECT_DIR$/docs/Tag.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/TagApi.md" afterPath="$PROJECT_DIR$/docs/TagApi.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/ApiException.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/ApiException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/Configuration.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/Configuration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/Pair.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/Pair.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/StringUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/StringUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/api/ServerApi.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/api/ServerApi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/api/TagApi.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/api/TagApi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/auth/ApiKeyAuth.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/auth/ApiKeyAuth.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/auth/OAuth.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/auth/OAuth.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Account.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Account.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/AccountResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/AccountResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/AddIpRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/AddIpRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/AssignIpResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/AssignIpResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/AttachStorageDeviceRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/AttachStorageDeviceRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/AvailablePlanListResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/AvailablePlanListResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/AvailablePlanListResponsePlans.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/AvailablePlanListResponsePlans.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/BackupRule.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/BackupRule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/CloneStorageRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/CloneStorageRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ConfigurationListResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ConfigurationListResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ConfigurationListResponseServerSizes.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ConfigurationListResponseServerSizes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/CreateBackupStorageRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/CreateBackupStorageRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/CreateNewTagResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/CreateNewTagResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/CreateServerRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/CreateServerRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/CreateServerResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/CreateServerResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/CreateStorageRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/CreateStorageRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/CreateStorageResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/CreateStorageResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Error.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Error.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ErrorError.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ErrorError.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/FirewallRule.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/FirewallRule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/FirewallRuleCreateResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/FirewallRuleCreateResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/FirewallRuleListResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/FirewallRuleListResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/FirewallRuleListResponseFirewallRules.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/FirewallRuleListResponseFirewallRules.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/FirewallRuleRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/FirewallRuleRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/IpAddress.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/IpAddress.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/IpAddressListResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/IpAddressListResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/IpAddresses.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/IpAddresses.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ModifyIpRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ModifyIpRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ModifyStorageRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ModifyStorageRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Plan.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Plan.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Price.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Price.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/PriceListResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/PriceListResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/PriceListResponsePrices.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/PriceListResponsePrices.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/PriceZone.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/PriceZone.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/RestartServer.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/RestartServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Server.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Server.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ServerListResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ServerListResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ServerListResponseServers.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ServerListResponseServers.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ServerSize.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ServerSize.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ServerStorageDevices.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ServerStorageDevices.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ServerTags.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ServerTags.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/StopServer.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/StopServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/StopServerRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/StopServerRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Storage.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Storage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/StorageBackups.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/StorageBackups.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/StorageDevice.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/StorageDevice.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/StorageDeviceDetachRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/StorageDeviceDetachRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/StorageDeviceLoadRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/StorageDeviceLoadRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/StorageServers.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/StorageServers.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/SuccessStoragesResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/SuccessStoragesResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/SuccessStoragesResponseStorages.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/SuccessStoragesResponseStorages.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Tag.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Tag.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Tag1.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Tag1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/TagListResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/TagListResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/TagListResponseTags.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/TagListResponseTags.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/TagServers.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/TagServers.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/TemplitizeStorageRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/TemplitizeStorageRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/TimezoneListResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/TimezoneListResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/TimezoneListResponseTimezones.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/TimezoneListResponseTimezones.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Zone.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/Zone.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ZoneListResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ZoneListResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ZoneListResponseZones.java" afterPath="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ZoneListResponseZones.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/FirewallApiTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/FirewallApiTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/IPAddressApiTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/IPAddressApiTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/PlanApiTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/PlanApiTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/PricesApiTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/PricesApiTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/ServerApiTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/ServerApiTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/StorageApiTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/StorageApiTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/TagApiTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/TagApiTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/TimezoneApiTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/TimezoneApiTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/ZoneApiTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/ZoneApiTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/utils/ServerHelpers.java" afterPath="$PROJECT_DIR$/src/test/java/utils/ServerHelpers.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/utils/StorageHelpers.java" afterPath="$PROJECT_DIR$/src/test/java/utils/StorageHelpers.java" />
     </list>
@@ -105,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ServerApiTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/ServerApiTest.java">
+      <file leaf-file-name="StorageHelpers.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/utils/StorageHelpers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3352">
-              <caret line="392" column="30" lean-forward="true" selection-start-line="392" selection-start-column="30" selection-end-line="392" selection-end-column="30" />
+            <state relative-caret-position="555">
+              <caret line="37" column="42" lean-forward="false" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,10 +49,58 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="TimezoneApiTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/TimezoneApiTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="47" column="11" lean-forward="true" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TagApiTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/TagApiTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1522">
+              <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StorageApiTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/StorageApiTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="511">
+              <caret line="364" column="34" lean-forward="false" selection-start-line="364" selection-start-column="34" selection-end-line="364" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FirewallApiTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/FirewallApiTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1982">
+              <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="IPAddressApiTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/IPAddressApiTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
+            <state relative-caret-position="1335">
               <caret line="103" column="16" lean-forward="false" selection-start-line="103" selection-start-column="16" selection-end-line="103" selection-end-column="16" />
               <folding />
             </state>
@@ -142,96 +110,33 @@
       <file leaf-file-name="PlanApiTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/PlanApiTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="-107">
               <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TimezoneApiTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/TimezoneApiTest.java">
+      <file leaf-file-name="PricesApiTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/PricesApiTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-272">
+              <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerApiTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/ServerApiTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+              <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#0#10676#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StorageApiTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/StorageApiTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="30" column="39" lean-forward="true" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StorageApi.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/upcloud/client/api/StorageApi.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="1271" column="0" lean-forward="false" selection-start-line="1271" selection-start-column="0" selection-end-line="1271" selection-end-column="0" />
-              <folding>
-                <element signature="e#2997#3003#0" expanded="true" />
-                <element signature="e#3071#3077#0" expanded="true" />
-                <element signature="e#3144#3160#0" expanded="true" />
-                <element signature="e#3225#3241#0" expanded="true" />
-                <marker date="1506928755915" expanded="false" signature="11366:11395" ph="/rawtypes/" />
-                <marker date="1506928755915" expanded="false" signature="18022:18051" ph="/rawtypes/" />
-                <marker date="1506928755915" expanded="false" signature="23859:23888" ph="/rawtypes/" />
-                <marker date="1506928755915" expanded="false" signature="30065:30094" ph="/rawtypes/" />
-                <marker date="1506928755915" expanded="false" signature="36064:36093" ph="/rawtypes/" />
-                <marker date="1506928755915" expanded="false" signature="41762:41791" ph="/rawtypes/" />
-                <marker date="1506928755915" expanded="false" signature="48358:48387" ph="/rawtypes/" />
-                <marker date="1506928755915" expanded="false" signature="54001:54030" ph="/rawtypes/" />
-                <marker date="1506928755915" expanded="false" signature="60092:60121" ph="/rawtypes/" />
-                <marker date="1506928755915" expanded="false" signature="66383:66412" ph="/rawtypes/" />
-                <marker date="1506928755915" expanded="false" signature="72696:72725" ph="/rawtypes/" />
-                <marker date="1506928755915" expanded="false" signature="78243:78272" ph="/rawtypes/" />
-                <marker date="1506928755915" expanded="false" signature="84660:84689" ph="/rawtypes/" />
-                <marker date="1506928755915" expanded="false" signature="91310:91339" ph="/rawtypes/" />
-                <marker date="1506928755915" expanded="false" signature="97143:97172" ph="/rawtypes/" />
-                <marker date="1506928755915" expanded="false" signature="103725:103754" ph="/rawtypes/" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerHelpers.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/utils/ServerHelpers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="64" column="46" lean-forward="false" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StorageHelpers.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/utils/StorageHelpers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pair.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/upcloud/client/Pair.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -247,7 +152,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&lt;plugins</find>
       <find>1.7</find>
       <find>testFirewallRules</find>
       <find>sum.rmi</find>
@@ -277,6 +181,7 @@
       <find>listServers</find>
       <find>listSt</find>
       <find>AfterE</find>
+      <find>AfterAl</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -736,16 +641,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/StorageDevice.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/upcloud/client/models/CreateBackupStorageRequest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/FirewallApiTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/ServerApiTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/TagApiTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/PricesApiTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/ZoneApiTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/IPAddressApiTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/PlanApiTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/TimezoneApiTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/utils/StorageHelpers.java" />
         <option value="$PROJECT_DIR$/src/test/java/utils/ServerHelpers.java" />
+        <option value="$PROJECT_DIR$/src/test/java/utils/StorageHelpers.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/StorageApiTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/ServerApiTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/upcloud/client/api/TimezoneApiTest.java" />
       </list>
     </option>
   </component>
@@ -859,7 +764,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.com.upcloud.client.api in UpcloudApi_test">
+  <component name="RunManager" selected="JUnit.StorageApiTest.getStorageDetailsTest">
     <configuration name="StorageApiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -885,6 +790,56 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration name="StorageApiTest.favoriteStorageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.upcloud.client.api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="UpcloudApi_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.upcloud.client.api" />
+      <option name="MAIN_CLASS_NAME" value="com.upcloud.client.api.StorageApiTest" />
+      <option name="METHOD_NAME" value="favoriteStorageTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="StorageApiTest.getStorageDetailsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.upcloud.client.api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="UpcloudApi_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.upcloud.client.api" />
+      <option name="MAIN_CLASS_NAME" value="com.upcloud.client.api.StorageApiTest" />
+      <option name="METHOD_NAME" value="getStorageDetailsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
     <configuration name="StorageApiTest.listStoragesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -898,56 +853,6 @@
       <option name="PACKAGE_NAME" value="com.upcloud.client.api" />
       <option name="MAIN_CLASS_NAME" value="com.upcloud.client.api.StorageApiTest" />
       <option name="METHOD_NAME" value="listStoragesTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="StorageApiTest.loadCdromTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.upcloud.client.api.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="UpcloudApi_test" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.upcloud.client.api" />
-      <option name="MAIN_CLASS_NAME" value="com.upcloud.client.api.StorageApiTest" />
-      <option name="METHOD_NAME" value="loadCdromTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="TagApiTest.untagTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.upcloud.client.api.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="UpcloudApi_test" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.upcloud.client.api" />
-      <option name="MAIN_CLASS_NAME" value="com.upcloud.client.api.TagApiTest" />
-      <option name="METHOD_NAME" value="untagTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1066,19 +971,19 @@
       <patterns />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.TagApiTest.untagTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.com.upcloud.client.api in UpcloudApi_test" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.StorageApiTest.loadCdromTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.StorageApiTest.listStoragesTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.StorageApiTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.com.upcloud.client.api in UpcloudApi_test" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.StorageApiTest.listStoragesTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.StorageApiTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.StorageApiTest.favoriteStorageTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.StorageApiTest.getStorageDetailsTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.com.upcloud.client.api in UpcloudApi_test" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.StorageApiTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.StorageApiTest.listStoragesTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.StorageApiTest.loadCdromTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.TagApiTest.untagTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.StorageApiTest.getStorageDetailsTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.StorageApiTest.favoriteStorageTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.StorageApiTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.com.upcloud.client.api in UpcloudApi_test" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.StorageApiTest.listStoragesTest" />
       </list>
     </recent_temporary>
   </component>
@@ -1105,8 +1010,17 @@
     <history-entry file="StorageApiTest - 2017.10.02 at 11h 55m 59s.xml">
       <configuration name="StorageApiTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StorageApiTest_listStoragesTest - 2017.10.02 at 11h 42m 01s.xml">
-      <configuration name="StorageApiTest.listStoragesTest" configurationId="JUnit" />
+    <history-entry file="StorageApiTest_favoriteStorageTest - 2017.10.02 at 12h 39m 36s.xml">
+      <configuration name="StorageApiTest.favoriteStorageTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StorageApiTest_favoriteStorageTest - 2017.10.02 at 12h 44m 50s.xml">
+      <configuration name="StorageApiTest.favoriteStorageTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StorageApiTest_favoriteStorageTest - 2017.10.02 at 12h 47m 00s.xml">
+      <configuration name="StorageApiTest.favoriteStorageTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StorageApiTest_getStorageDetailsTest - 2017.10.02 at 12h 49m 34s.xml">
+      <configuration name="StorageApiTest.getStorageDetailsTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="StorageApiTest_listStoragesTest - 2017.10.02 at 11h 46m 07s.xml">
       <configuration name="StorageApiTest.listStoragesTest" configurationId="JUnit" />
@@ -1117,25 +1031,15 @@
     <history-entry file="StorageApiTest_listStoragesTest - 2017.10.02 at 11h 52m 20s.xml">
       <configuration name="StorageApiTest.listStoragesTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StorageApiTest_loadCdromTest - 2017.10.02 at 11h 37m 57s.xml">
-      <configuration name="StorageApiTest.loadCdromTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="com_upcloud_client_api_in_UpcloudApi_test - 2017.10.02 at 11h 08m 18s.xml">
+    <history-entry file="com_upcloud_client_api_in_UpcloudApi_test - 2017.10.02 at 12h 08m 27s.xml">
       <configuration name="com.upcloud.client.api in UpcloudApi_test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_upcloud_client_api_in_UpcloudApi_test - 2017.10.02 at 11h 20m 26s.xml">
-      <configuration name="com.upcloud.client.api in UpcloudApi_test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="com_upcloud_client_api_in_UpcloudApi_test - 2017.10.02 at 11h 22m 31s.xml">
-      <configuration name="com.upcloud.client.api in UpcloudApi_test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="com_upcloud_client_api_in_UpcloudApi_test - 2017.10.02 at 11h 34m 11s.xml">
+    <history-entry file="com_upcloud_client_api_in_UpcloudApi_test - 2017.10.02 at 12h 22m 49s.xml">
       <configuration name="com.upcloud.client.api in UpcloudApi_test" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1146,7 +1050,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.50277776" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32919255" sideWeight="0.49722221" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.49722221" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -1178,14 +1082,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ErrorStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="32" column="3" lean-forward="false" selection-start-line="32" selection-start-column="3" selection-end-line="32" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/upcloud/client/models/ErrorError.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1223,7 +1119,7 @@
         <state relative-caret-position="155">
           <caret line="536" column="70" lean-forward="false" selection-start-line="536" selection-start-column="65" selection-end-line="536" selection-end-column="70" />
           <folding>
-            <marker date="1506928755848" expanded="false" signature="25413:25442" ph="/rawtypes/" />
+            <marker date="1506934629855" expanded="false" signature="25413:25442" ph="/rawtypes/" />
           </folding>
         </state>
       </provider>
@@ -1366,14 +1262,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/test.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="14" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -1451,16 +1339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/AccountApiTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="30" column="53" lean-forward="true" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/upcloud/client/models/BackupRule.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="519">
@@ -1511,7 +1389,7 @@
         <state relative-caret-position="0">
           <caret line="397" column="0" lean-forward="true" selection-start-line="379" selection-start-column="62" selection-end-line="397" selection-end-column="0" />
           <folding>
-            <marker date="1506928755586" expanded="true" signature="9030:9096" ph="{...}" />
+            <marker date="1506934629585" expanded="true" signature="9030:9096" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1539,16 +1417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/FirewallApiTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/upcloud/client/ApiClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1562,19 +1430,19 @@
         <state relative-caret-position="7455">
           <caret line="546" column="0" lean-forward="false" selection-start-line="546" selection-start-column="0" selection-end-line="546" selection-end-column="0" />
           <folding>
-            <marker date="1506928755889" expanded="true" signature="118641:118864" ph="{...}" />
-            <marker date="1506928755889" expanded="false" signature="118874:118903" ph="/rawtypes/" />
-            <marker date="1506928755889" expanded="true" signature="119153:119780" ph="{...}" />
-            <marker date="1506928755889" expanded="true" signature="119786:120120" ph="/**...*/" />
-            <marker date="1506928755889" expanded="true" signature="120210:120335" ph="{...}" />
-            <marker date="1506928755889" expanded="true" signature="120341:120694" ph="/**...*/" />
-            <marker date="1506928755889" expanded="true" signature="120809:121057" ph="{...}" />
-            <marker date="1506928755889" expanded="true" signature="121063:121479" ph="/**...*/" />
-            <marker date="1506928755889" expanded="true" signature="121628:122773" ph="{...}" />
-            <marker date="1506928755889" expanded="true" signature="121894:122121" ph="{...}" />
-            <marker date="1506928755889" expanded="true" signature="122007:122107" ph="{...}" />
-            <marker date="1506928755889" expanded="true" signature="122212:122454" ph="{...}" />
-            <marker date="1506928755889" expanded="true" signature="122339:122440" ph="{...}" />
+            <marker date="1506934629900" expanded="true" signature="118641:118864" ph="{...}" />
+            <marker date="1506934629900" expanded="false" signature="118874:118903" ph="/rawtypes/" />
+            <marker date="1506934629900" expanded="true" signature="119153:119780" ph="{...}" />
+            <marker date="1506934629900" expanded="true" signature="119786:120120" ph="/**...*/" />
+            <marker date="1506934629900" expanded="true" signature="120210:120335" ph="{...}" />
+            <marker date="1506934629900" expanded="true" signature="120341:120694" ph="/**...*/" />
+            <marker date="1506934629900" expanded="true" signature="120809:121057" ph="{...}" />
+            <marker date="1506934629900" expanded="true" signature="121063:121479" ph="/**...*/" />
+            <marker date="1506934629900" expanded="true" signature="121628:122773" ph="{...}" />
+            <marker date="1506934629900" expanded="true" signature="121894:122121" ph="{...}" />
+            <marker date="1506934629900" expanded="true" signature="122007:122107" ph="{...}" />
+            <marker date="1506934629900" expanded="true" signature="122212:122454" ph="{...}" />
+            <marker date="1506934629900" expanded="true" signature="122339:122440" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1587,94 +1455,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/TagApiTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/PricesApiTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/ZoneApiTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/PlanApiTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/TimezoneApiTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/IPAddressApiTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="103" column="16" lean-forward="false" selection-start-line="103" selection-start-column="16" selection-end-line="103" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utils/StorageHelpers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/upcloud/client/Pair.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/ServerApiTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3352">
-          <caret line="392" column="30" lean-forward="true" selection-start-line="392" selection-start-column="30" selection-end-line="392" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utils/ServerHelpers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="64" column="46" lean-forward="false" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
+          <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -1688,30 +1472,150 @@
             <element signature="e#3071#3077#0" expanded="true" />
             <element signature="e#3144#3160#0" expanded="true" />
             <element signature="e#3225#3241#0" expanded="true" />
-            <marker date="1506928755915" expanded="false" signature="11366:11395" ph="/rawtypes/" />
-            <marker date="1506928755915" expanded="false" signature="18022:18051" ph="/rawtypes/" />
-            <marker date="1506928755915" expanded="false" signature="23859:23888" ph="/rawtypes/" />
-            <marker date="1506928755915" expanded="false" signature="30065:30094" ph="/rawtypes/" />
-            <marker date="1506928755915" expanded="false" signature="36064:36093" ph="/rawtypes/" />
-            <marker date="1506928755915" expanded="false" signature="41762:41791" ph="/rawtypes/" />
-            <marker date="1506928755915" expanded="false" signature="48358:48387" ph="/rawtypes/" />
-            <marker date="1506928755915" expanded="false" signature="54001:54030" ph="/rawtypes/" />
-            <marker date="1506928755915" expanded="false" signature="60092:60121" ph="/rawtypes/" />
-            <marker date="1506928755915" expanded="false" signature="66383:66412" ph="/rawtypes/" />
-            <marker date="1506928755915" expanded="false" signature="72696:72725" ph="/rawtypes/" />
-            <marker date="1506928755915" expanded="false" signature="78243:78272" ph="/rawtypes/" />
-            <marker date="1506928755915" expanded="false" signature="84660:84689" ph="/rawtypes/" />
-            <marker date="1506928755915" expanded="false" signature="91310:91339" ph="/rawtypes/" />
-            <marker date="1506928755915" expanded="false" signature="97143:97172" ph="/rawtypes/" />
-            <marker date="1506928755915" expanded="false" signature="103725:103754" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="11366:11395" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="18022:18051" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="23859:23888" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="30065:30094" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="36064:36093" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="41762:41791" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="48358:48387" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="54001:54030" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="60092:60121" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="66383:66412" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="72696:72725" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="78243:78272" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="84660:84689" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="91310:91339" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="97143:97172" ph="/rawtypes/" />
+            <marker date="1506934629927" expanded="false" signature="103725:103754" ph="/rawtypes/" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/test.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="14" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utils/ServerHelpers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="30" lean-forward="true" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/AccountApiTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="30" column="53" lean-forward="true" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/ZoneApiTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/TagApiTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1522">
+          <caret line="26" column="9" lean-forward="false" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utils/StorageHelpers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="42" lean-forward="false" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.swagger/swagger-annotations/1.5.15/ba013ac2565cc4f4a0f3f2df68c602e10edd197c/swagger-annotations-1.5.15-sources.jar!/io/swagger/annotations/ApiParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="30" column="18" lean-forward="false" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/StorageApiTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="30" column="39" lean-forward="true" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+        <state relative-caret-position="511">
+          <caret line="364" column="34" lean-forward="false" selection-start-line="364" selection-start-column="34" selection-end-line="364" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/FirewallApiTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1982">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/IPAddressApiTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1335">
+          <caret line="103" column="16" lean-forward="false" selection-start-line="103" selection-start-column="16" selection-end-line="103" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/PlanApiTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-107">
+          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/PricesApiTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-272">
+          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/ServerApiTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#10676#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/upcloud/client/api/TimezoneApiTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="47" column="11" lean-forward="true" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

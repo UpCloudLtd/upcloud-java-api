@@ -24,7 +24,7 @@ import java.math.BigDecimal;
  * UpCloud resources are billed by the hour according to the price list. We also offer pricing plans for fixed server configurations.
  */
 @ApiModel(description = "UpCloud resources are billed by the hour according to the price list. We also offer pricing plans for fixed server configurations.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-02T11:57:08.985+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-09T11:42:48.898+03:00")
 public class Price {
   @SerializedName("amount")
   private BigDecimal amount = null;

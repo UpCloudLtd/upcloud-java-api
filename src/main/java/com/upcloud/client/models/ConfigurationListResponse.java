@@ -23,7 +23,7 @@ import java.io.IOException;
 /**
  * ConfigurationListResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-02T11:57:08.985+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-09T11:42:48.898+03:00")
 public class ConfigurationListResponse {
   @SerializedName("server_sizes")
   private ConfigurationListResponseServerSizes serverSizes = null;
