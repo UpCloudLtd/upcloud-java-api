@@ -23,7 +23,7 @@ import java.io.IOException;
 /**
  * AddIpRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-09T11:42:48.898+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-16T13:20:10.352+03:00")
 public class AddIpRequest {
   @SerializedName("ip_address")
   private IpAddress ipAddress = null;

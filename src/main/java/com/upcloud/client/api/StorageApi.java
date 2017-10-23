@@ -201,7 +201,7 @@ public class StorageApi {
     /**
      * Build call for backupStorage
      * @param storageId Storage id (required)
-     * @param storage  (optional)
+     * @param storage  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -257,6 +257,11 @@ public class StorageApi {
             throw new ApiException("Missing the required parameter 'storageId' when calling backupStorage(Async)");
         }
         
+        // verify the required parameter 'storage' is set
+        if (storage == null) {
+            throw new ApiException("Missing the required parameter 'storage' when calling backupStorage(Async)");
+        }
+        
         
         com.squareup.okhttp.Call call = backupStorageCall(storageId, storage, progressListener, progressRequestListener);
         return call;
@@ -271,7 +276,7 @@ public class StorageApi {
      * Create backup
      * Creates a point-in-time backup of a storage resource. For automatic, scheduled backups, see  &#x60;backup_rule&#x60; in Create storage or Modify storage.
      * @param storageId Storage id (required)
-     * @param storage  (optional)
+     * @param storage  (required)
      * @return CreateStorageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -284,7 +289,7 @@ public class StorageApi {
      * Create backup
      * Creates a point-in-time backup of a storage resource. For automatic, scheduled backups, see  &#x60;backup_rule&#x60; in Create storage or Modify storage.
      * @param storageId Storage id (required)
-     * @param storage  (optional)
+     * @param storage  (required)
      * @return ApiResponse&lt;CreateStorageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -298,7 +303,7 @@ public class StorageApi {
      * Create backup (asynchronously)
      * Creates a point-in-time backup of a storage resource. For automatic, scheduled backups, see  &#x60;backup_rule&#x60; in Create storage or Modify storage.
      * @param storageId Storage id (required)
-     * @param storage  (optional)
+     * @param storage  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

@@ -120,7 +120,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storageId** | **UUID**| Storage id |
- **storage** | [**CreateBackupStorageRequest**](CreateBackupStorageRequest.md)|  | [optional]
+ **storage** | [**CreateBackupStorageRequest**](CreateBackupStorageRequest.md)|  |
 
 ### Return type
 
