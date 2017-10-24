@@ -6,7 +6,6 @@
  * 
  */
 
-
 package com.upcloud.client.api;
 
 import com.upcloud.client.ApiException;
@@ -30,8 +29,8 @@ public class IPAddressApiTest {
 
     @BeforeAll
     public static void setUp() {
-        api.getApiClient().setUsername("toughbyte");
-        api.getApiClient().setPassword("Topsekret5");
+        api.getApiClient().setUsername(System.getenv("UPCLOUD_API_TEST_USER"));
+        api.getApiClient().setPassword(System.getenv("UPCLOUD_API_TEST_PASSWORD"));
         api.getApiClient().setDebugging(true);
 
         ServerHelpers serverHelper = new ServerHelpers(api.getApiClient());
@@ -124,7 +123,8 @@ public class IPAddressApiTest {
     public void listIpsTest() throws ApiException {
         IpAddressListResponse response = api.listIps();
         List<IpAddress> ipAddresses = response.getIpAddresses().getIpAddress();
-        assertTrue(ipAddresses.stream().anyMatch(ipAddress -> ipAddress.getAddress().equals(testIpAddress.getAddress())));
+        assertTrue(
+                ipAddresses.stream().anyMatch(ipAddress -> ipAddress.getAddress().equals(testIpAddress.getAddress())));
     }
 
     /**

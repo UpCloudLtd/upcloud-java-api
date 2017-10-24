@@ -6,7 +6,6 @@
  * 
  */
 
-
 package com.upcloud.client.api;
 
 import com.upcloud.client.ApiException;
@@ -32,8 +31,8 @@ public class TagApiTest {
 
     @BeforeAll
     public static void setUp() {
-        api.getApiClient().setUsername("toughbyte");
-        api.getApiClient().setPassword("Topsekret5");
+        api.getApiClient().setUsername(System.getenv("UPCLOUD_API_TEST_USER"));
+        api.getApiClient().setPassword(System.getenv("UPCLOUD_API_TEST_PASSWORD"));
         api.getApiClient().setDebugging(true);
 
         ServerHelpers serverHelper = new ServerHelpers(api.getApiClient());
@@ -49,8 +48,10 @@ public class TagApiTest {
     @BeforeEach
     public void setUpEach() throws ApiException {
         try {
-            tag1 = api.createTag(new TagCreateRequest().tag(new Tag().name("DEV").description("Test description"))).getTag();
-            tag2 = api.createTag(new TagCreateRequest().tag(new Tag().name("TAG2").description("Test description 2"))).getTag();
+            tag1 = api.createTag(new TagCreateRequest().tag(new Tag().name("DEV").description("Test description")))
+                    .getTag();
+            tag2 = api.createTag(new TagCreateRequest().tag(new Tag().name("TAG2").description("Test description 2")))
+                    .getTag();
         } catch (ApiException e) {
             Logger.getGlobal().warning(e.getMessage());
         }
@@ -143,7 +144,8 @@ public class TagApiTest {
      */
     @Test
     public void modifyTagTest() throws ApiException {
-        CreateNewTagResponse response = api.modifyTag("DEV", new ModifyTagRequest().tag(new Tag().name("PROD").description("Production tag")));
+        CreateNewTagResponse response = api.modifyTag("DEV",
+                new ModifyTagRequest().tag(new Tag().name("PROD").description("Production tag")));
         Tag modifiedTag = response.getTag();
         assertEquals("PROD", modifiedTag.getName());
         assertEquals("Production tag", modifiedTag.getDescription());
