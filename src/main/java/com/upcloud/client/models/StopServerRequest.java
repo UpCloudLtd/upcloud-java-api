@@ -24,7 +24,7 @@ import java.math.BigDecimal;
  * stop server request
  */
 @ApiModel(description = "stop server request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-30T11:45:06.918+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-30T16:52:05.756+03:00")
 public class StopServerRequest {
   /**
    * Type of stop operation performed on the server.

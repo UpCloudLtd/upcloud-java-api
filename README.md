@@ -1,5 +1,13 @@
 # UpcloudApi
 
+## Table of content
+* [Installation](#installation)
+* [Usage](#usage)
+* [Documentation](#documentation)
+* [Issues](#issues)
+* [Contributing](#contributing-optional)
+* [License](#license)
+
 ## Requirements
 
 Building the API client library requires [Maven](https://maven.apache.org/) to be installed.
@@ -52,7 +60,7 @@ Then manually install the following JARs:
 * target/UpcloudApi-1.2.0.jar
 * target/lib/*.jar
 
-## Getting Started
+## Usage
 
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
@@ -69,10 +77,16 @@ import java.util.*;
 public class AccountApiExample {
 
     public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
         
+        // Configure HTTP basic authorization: baseAuth
+        HttpBasicAuth baseAuth = (HttpBasicAuth) defaultClient.getAuthentication("baseAuth");
+        baseAuth.setUsername("YOUR USERNAME");
+        baseAuth.setPassword("YOUR PASSWORD");
+
         AccountApi apiInstance = new AccountApi();
         try {
-            Account result = apiInstance.getAccount();
+            AccountResponse result = apiInstance.getAccount();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#getAccount");
@@ -83,9 +97,9 @@ public class AccountApiExample {
 
 ```
 
-## Documentation for API Endpoints
+## Documentation
 
-All URIs are relative to *http://api.upcloud.com/1.2*
+All URIs are relative to *https://api.upcloud.com/1.2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -108,7 +122,7 @@ Class | Method | HTTP request | Description
 *ServerApi* | [**deleteFirewallRule**](docs/ServerApi.md#deleteFirewallRule) | **DELETE** /server/{serverId}/firewall_rule/{firewallRuleNumber} | Remove firewall rule
 *ServerApi* | [**deleteServer**](docs/ServerApi.md#deleteServer) | **DELETE** /server/{serverId} | Delete server
 *ServerApi* | [**detachStorage**](docs/ServerApi.md#detachStorage) | **POST** /server/{serverId}/storage/detach | Detach storage
-*ServerApi* | [**ejectCdrom**](docs/ServerApi.md#ejectCdrom) | **POST** /server/{serverId}/storage/cdrom/eject | Eject CD-ROM
+*ServerApi* | [**ejectCdrom**](docs/ServerApi.md#ejectCdrom) | **POST** /server/{serverId}/cdrom/eject | Eject CD-ROM
 *ServerApi* | [**getFirewallRule**](docs/ServerApi.md#getFirewallRule) | **GET** /server/{serverId}/firewall_rule/{firewallRuleNumber} | Get firewall rule details
 *ServerApi* | [**listServerConfigurations**](docs/ServerApi.md#listServerConfigurations) | **GET** /server_size | List server configurations
 *ServerApi* | [**listServers**](docs/ServerApi.md#listServers) | **GET** /server | List of servers
@@ -127,7 +141,7 @@ Class | Method | HTTP request | Description
 *StorageApi* | [**createStorage**](docs/StorageApi.md#createStorage) | **POST** /storage | Create storage
 *StorageApi* | [**deleteStorage**](docs/StorageApi.md#deleteStorage) | **DELETE** /storage/{storageId} | Delete storage
 *StorageApi* | [**detachStorage**](docs/StorageApi.md#detachStorage) | **POST** /server/{serverId}/storage/detach | Detach storage
-*StorageApi* | [**ejectCdrom**](docs/StorageApi.md#ejectCdrom) | **POST** /server/{serverId}/storage/cdrom/eject | Eject CD-ROM
+*StorageApi* | [**ejectCdrom**](docs/StorageApi.md#ejectCdrom) | **POST** /server/{serverId}/cdrom/eject | Eject CD-ROM
 *StorageApi* | [**favoriteStorage**](docs/StorageApi.md#favoriteStorage) | **POST** /storage/{storageId}/favorite | Add storage to favorites
 *StorageApi* | [**getStorageDetails**](docs/StorageApi.md#getStorageDetails) | **GET** /storage/{storageId} | Get storage details
 *StorageApi* | [**listStorageTypes**](docs/StorageApi.md#listStorageTypes) | **GET** /storage/{type}/ | List of storages by type
@@ -150,15 +164,22 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Account](docs/Account.md)
+ - [AccountResponse](docs/AccountResponse.md)
+ - [AddIpRequest](docs/AddIpRequest.md)
  - [AddressFamily](docs/AddressFamily.md)
  - [AssignIpResponse](docs/AssignIpResponse.md)
+ - [AttachStorageDeviceRequest](docs/AttachStorageDeviceRequest.md)
  - [AvailablePlanListResponse](docs/AvailablePlanListResponse.md)
  - [AvailablePlanListResponsePlans](docs/AvailablePlanListResponsePlans.md)
  - [BackupRule](docs/BackupRule.md)
+ - [CloneStorageRequest](docs/CloneStorageRequest.md)
  - [ConfigurationListResponse](docs/ConfigurationListResponse.md)
  - [ConfigurationListResponseServerSizes](docs/ConfigurationListResponseServerSizes.md)
+ - [CreateBackupStorageRequest](docs/CreateBackupStorageRequest.md)
  - [CreateNewTagResponse](docs/CreateNewTagResponse.md)
+ - [CreateServerRequest](docs/CreateServerRequest.md)
  - [CreateServerResponse](docs/CreateServerResponse.md)
+ - [CreateStorageRequest](docs/CreateStorageRequest.md)
  - [CreateStorageResponse](docs/CreateStorageResponse.md)
  - [Error](docs/Error.md)
  - [ErrorCode](docs/ErrorCode.md)
@@ -170,13 +191,15 @@ Class | Method | HTTP request | Description
  - [FirewallRuleListResponseFirewallRules](docs/FirewallRuleListResponseFirewallRules.md)
  - [FirewallRuleRequest](docs/FirewallRuleRequest.md)
  - [IpAddress](docs/IpAddress.md)
- - [IpAddress1](docs/IpAddress1.md)
  - [IpAddressListResponse](docs/IpAddressListResponse.md)
- - [IpAddressListResponseIpAddresses](docs/IpAddressListResponseIpAddresses.md)
+ - [IpAddresses](docs/IpAddresses.md)
+ - [ModifyIpRequest](docs/ModifyIpRequest.md)
+ - [ModifyStorageRequest](docs/ModifyStorageRequest.md)
+ - [ModifyTagRequest](docs/ModifyTagRequest.md)
  - [Plan](docs/Plan.md)
  - [Price](docs/Price.md)
  - [PriceListResponse](docs/PriceListResponse.md)
- - [PriceListResponsePrice](docs/PriceListResponsePrice.md)
+ - [PriceListResponsePrices](docs/PriceListResponsePrices.md)
  - [PriceZone](docs/PriceZone.md)
  - [RestartServer](docs/RestartServer.md)
  - [Server](docs/Server.md)
@@ -187,15 +210,13 @@ Class | Method | HTTP request | Description
  - [ServerStorageDevices](docs/ServerStorageDevices.md)
  - [ServerTags](docs/ServerTags.md)
  - [StopServer](docs/StopServer.md)
+ - [StopServerRequest](docs/StopServerRequest.md)
  - [Storage](docs/Storage.md)
- - [Storage1](docs/Storage1.md)
- - [Storage2](docs/Storage2.md)
- - [Storage3](docs/Storage3.md)
- - [Storage4](docs/Storage4.md)
  - [StorageAccessType](docs/StorageAccessType.md)
  - [StorageBackups](docs/StorageBackups.md)
  - [StorageDevice](docs/StorageDevice.md)
- - [StorageDevice1](docs/StorageDevice1.md)
+ - [StorageDeviceDetachRequest](docs/StorageDeviceDetachRequest.md)
+ - [StorageDeviceLoadRequest](docs/StorageDeviceLoadRequest.md)
  - [StorageServers](docs/StorageServers.md)
  - [StorageState](docs/StorageState.md)
  - [StorageTier](docs/StorageTier.md)
@@ -203,10 +224,11 @@ Class | Method | HTTP request | Description
  - [SuccessStoragesResponse](docs/SuccessStoragesResponse.md)
  - [SuccessStoragesResponseStorages](docs/SuccessStoragesResponseStorages.md)
  - [Tag](docs/Tag.md)
- - [Tag1](docs/Tag1.md)
+ - [TagCreateRequest](docs/TagCreateRequest.md)
  - [TagListResponse](docs/TagListResponse.md)
  - [TagListResponseTags](docs/TagListResponseTags.md)
  - [TagServers](docs/TagServers.md)
+ - [TemplitizeStorageRequest](docs/TemplitizeStorageRequest.md)
  - [TimezoneListResponse](docs/TimezoneListResponse.md)
  - [TimezoneListResponseTimezones](docs/TimezoneListResponseTimezones.md)
  - [Zone](docs/Zone.md)
@@ -216,8 +238,11 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
 Authentication schemes defined for the API:
+### baseAuth
+
+- **Type**: HTTP basic authentication
+
 
 ## Recommendation
 
@@ -227,3 +252,11 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 
 
+
+## Issues
+
+[Open a new issue here](https://github.com/UpCloudLtd/upcloud-java-api/issues/new).
+
+## License
+
+This project is distributed under the [MIT License](https://opensource.org/licenses/MIT), see LICENSE.txt for more information.
