@@ -229,7 +229,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storageId** | **UUID**| Storage id |
- **storage** | [**CloneStorageRequest**](CloneStorageRequest.md)|  | [optional]
+ **storage** | [**CloneStorageRequest**](CloneStorageRequest.md)|  |
 
 ### Return type
 

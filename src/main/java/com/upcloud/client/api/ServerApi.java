@@ -2263,14 +2263,14 @@ public class ServerApi {
     /**
      * Build call for stopServer
      * @param serverId Id of server to stop (required)
-     * @param stopServer  (required)
+     * @param stopServerRequest  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call stopServerCall(UUID serverId, StopServer stopServer, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = stopServer;
+    public com.squareup.okhttp.Call stopServerCall(UUID serverId, StopServer stopServerRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = stopServerRequest;
         
         // create path and map variables
         String localVarPath = "/server/{serverId}/stop"
@@ -2312,20 +2312,20 @@ public class ServerApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call stopServerValidateBeforeCall(UUID serverId, StopServer stopServer, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call stopServerValidateBeforeCall(UUID serverId, StopServer stopServerRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
             throw new ApiException("Missing the required parameter 'serverId' when calling stopServer(Async)");
         }
         
-        // verify the required parameter 'stopServer' is set
-        if (stopServer == null) {
-            throw new ApiException("Missing the required parameter 'stopServer' when calling stopServer(Async)");
+        // verify the required parameter 'stopServerRequest' is set
+        if (stopServerRequest == null) {
+            throw new ApiException("Missing the required parameter 'stopServerRequest' when calling stopServer(Async)");
         }
         
         
-        com.squareup.okhttp.Call call = stopServerCall(serverId, stopServer, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = stopServerCall(serverId, stopServerRequest, progressListener, progressRequestListener);
         return call;
 
         
@@ -2338,12 +2338,12 @@ public class ServerApi {
      * Stop server
      * Stops a started server. The server state must be &#x60;started&#x60;.
      * @param serverId Id of server to stop (required)
-     * @param stopServer  (required)
+     * @param stopServerRequest  (required)
      * @return CreateServerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateServerResponse stopServer(UUID serverId, StopServer stopServer) throws ApiException {
-        ApiResponse<CreateServerResponse> resp = stopServerWithHttpInfo(serverId, stopServer);
+    public CreateServerResponse stopServer(UUID serverId, StopServer stopServerRequest) throws ApiException {
+        ApiResponse<CreateServerResponse> resp = stopServerWithHttpInfo(serverId, stopServerRequest);
         return resp.getData();
     }
 
@@ -2351,12 +2351,12 @@ public class ServerApi {
      * Stop server
      * Stops a started server. The server state must be &#x60;started&#x60;.
      * @param serverId Id of server to stop (required)
-     * @param stopServer  (required)
+     * @param stopServerRequest  (required)
      * @return ApiResponse&lt;CreateServerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateServerResponse> stopServerWithHttpInfo(UUID serverId, StopServer stopServer) throws ApiException {
-        com.squareup.okhttp.Call call = stopServerValidateBeforeCall(serverId, stopServer, null, null);
+    public ApiResponse<CreateServerResponse> stopServerWithHttpInfo(UUID serverId, StopServer stopServerRequest) throws ApiException {
+        com.squareup.okhttp.Call call = stopServerValidateBeforeCall(serverId, stopServerRequest, null, null);
         Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2365,12 +2365,12 @@ public class ServerApi {
      * Stop server (asynchronously)
      * Stops a started server. The server state must be &#x60;started&#x60;.
      * @param serverId Id of server to stop (required)
-     * @param stopServer  (required)
+     * @param stopServerRequest  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call stopServerAsync(UUID serverId, StopServer stopServer, final ApiCallback<CreateServerResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call stopServerAsync(UUID serverId, StopServer stopServerRequest, final ApiCallback<CreateServerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2391,7 +2391,7 @@ public class ServerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = stopServerValidateBeforeCall(serverId, stopServer, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = stopServerValidateBeforeCall(serverId, stopServerRequest, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateServerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

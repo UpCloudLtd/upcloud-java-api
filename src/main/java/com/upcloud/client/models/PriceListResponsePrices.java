@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * PriceListResponsePrices
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-16T13:20:10.352+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-30T11:45:06.918+03:00")
 public class PriceListResponsePrices {
   @SerializedName("zone")
   private List<PriceZone> zone = null;

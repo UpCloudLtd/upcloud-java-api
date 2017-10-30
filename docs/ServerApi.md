@@ -939,7 +939,7 @@ Name | Type | Description  | Notes
 
 <a name="stopServer"></a>
 # **stopServer**
-> CreateServerResponse stopServer(serverId, stopServer)
+> CreateServerResponse stopServer(serverId, stopServerRequest)
 
 Stop server
 
@@ -963,9 +963,9 @@ baseAuth.setPassword("YOUR PASSWORD");
 
 ServerApi apiInstance = new ServerApi();
 UUID serverId = new UUID(); // UUID | Id of server to stop
-StopServer stopServer = new StopServer(); // StopServer | 
+StopServer stopServerRequest = new StopServer(); // StopServer | 
 try {
-    CreateServerResponse result = apiInstance.stopServer(serverId, stopServer);
+    CreateServerResponse result = apiInstance.stopServer(serverId, stopServerRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ServerApi#stopServer");
@@ -978,7 +978,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverId** | **UUID**| Id of server to stop |
- **stopServer** | [**StopServer**](StopServer.md)|  |
+ **stopServerRequest** | [**StopServer**](StopServer.md)|  |
 
 ### Return type
 

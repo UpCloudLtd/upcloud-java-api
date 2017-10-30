@@ -24,7 +24,7 @@ import java.math.BigDecimal;
 /**
  * FirewallRule
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-16T13:20:10.352+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-30T11:45:06.918+03:00")
 public class FirewallRule {
   /**
    * The direction of network traffic this rule will be applied to.

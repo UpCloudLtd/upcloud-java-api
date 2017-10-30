@@ -460,7 +460,7 @@ public class StorageApi {
     /**
      * Build call for cloneStorage
      * @param storageId Storage id (required)
-     * @param storage  (optional)
+     * @param storage  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -516,6 +516,11 @@ public class StorageApi {
             throw new ApiException("Missing the required parameter 'storageId' when calling cloneStorage(Async)");
         }
         
+        // verify the required parameter 'storage' is set
+        if (storage == null) {
+            throw new ApiException("Missing the required parameter 'storage' when calling cloneStorage(Async)");
+        }
+        
         
         com.squareup.okhttp.Call call = cloneStorageCall(storageId, storage, progressListener, progressRequestListener);
         return call;
@@ -530,7 +535,7 @@ public class StorageApi {
      * Clone storage
      * Creates an exact copy of an existing storage resource.
      * @param storageId Storage id (required)
-     * @param storage  (optional)
+     * @param storage  (required)
      * @return CreateStorageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -543,7 +548,7 @@ public class StorageApi {
      * Clone storage
      * Creates an exact copy of an existing storage resource.
      * @param storageId Storage id (required)
-     * @param storage  (optional)
+     * @param storage  (required)
      * @return ApiResponse&lt;CreateStorageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -557,7 +562,7 @@ public class StorageApi {
      * Clone storage (asynchronously)
      * Creates an exact copy of an existing storage resource.
      * @param storageId Storage id (required)
-     * @param storage  (optional)
+     * @param storage  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
