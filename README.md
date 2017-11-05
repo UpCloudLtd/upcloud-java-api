@@ -1,4 +1,6 @@
-# UpcloudApi
+# UpCloud Java API client library
+
+[![Build Status](https://travis-ci.org/UpCloudLtd/upcloud-java-api.svg?branch=master)](https://travis-ci.org/UpCloudLtd/upcloud-java-api)
 
 ## Table of content
 * [Installation](#installation)
