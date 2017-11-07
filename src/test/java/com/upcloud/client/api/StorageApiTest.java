@@ -254,17 +254,6 @@ public class StorageApiTest {
     }
 
     /**
-     * List of storages by type
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listStorageTypesTest() throws ApiException {
-        String type = null;
-        //        SuccessStoragesResponse response = api.listStorageTypes(type);
-    }
-
-    /**
      * List of storages
      *
      * @throws ApiException if the Api call fails
@@ -276,24 +265,6 @@ public class StorageApiTest {
 
         assertTrue(storageList.size() > 0);
         assertTrue(storageList.stream().anyMatch(storage -> storage.getTitle().equals("Test create storage storage")));
-    }
-
-    /**
-     * Load CD-ROM
-     * <p>
-     * Loads a storage as a CD-ROM in the CD-ROM device of a server.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void loadCdromTest() throws ApiException {
-        //        UUID serverId = testServer.getUuid();
-        //        StorageDevice storageDevice = new StorageDevice()
-        //                .storage(testStorage.getUuid().toString())
-        //                .address("scsi:0:0")
-        //                .type("cdrom");
-        //        api.attachStorage(serverId, new AttachStorageDeviceRequest().storageDevice(storageDevice));
-        //        CreateServerResponse response = api.loadCdrom(serverId, new StorageDeviceLoadRequest().storage(testStorage.getUuid()));
     }
 
     /**
@@ -311,46 +282,6 @@ public class StorageApiTest {
         Storage modifiedStorage = response.getStorage();
 
         assertEquals("Modified title", modifiedStorage.getTitle());
-    }
-
-    /**
-     * Restore backup
-     * <p>
-     * Restores the origin storage with data from the specified backup storage.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void restoreStorageTest() throws ApiException {
-        UUID storageId = null;
-        //        api.restoreStorage(storageId);
-    }
-
-    /**
-     * Templatize storage
-     * <p>
-     * Creates an exact copy of an existing storage resource which can be used as a template for creating new servers.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void templatizeStorageTest() throws ApiException {
-        UUID storageId = null;
-        //        Storage3 storage = null;
-        //        CreateStorageResponse response = api.templatizeStorage(storageId, storage);
-    }
-
-    /**
-     * Remove storage from favorites
-     * <p>
-     * Delete a storage from the list of favorite storages. To list favorite storages, see List storages. This operations succeeds even if the storage is already on the list of favorites.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void unfavoriteStorageTest() throws ApiException {
-        UUID storageId = null;
-        //        api.unfavoriteStorage(storageId);
     }
 
 }

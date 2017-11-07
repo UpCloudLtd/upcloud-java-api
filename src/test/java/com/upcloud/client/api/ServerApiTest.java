@@ -40,8 +40,6 @@ public class ServerApiTest {
         api.getApiClient().setPassword(System.getenv("UPCLOUD_API_TEST_PASSWORD"));
         api.getApiClient().setDebugging(true);
 
-        //        api.getApiClient().setBasePath("http://localhost:8080/1.2");
-
         testStorageDevice.action("clone").storage("01000000-0000-4000-8000-000020030100")
                 .title("Debian from a template").size(BigDecimal.valueOf(50)).tier("maxiops");
 
@@ -69,34 +67,6 @@ public class ServerApiTest {
     }
 
     /**
-     * Attach storage
-     * <p>
-     * Attaches a storage as a device to a server.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void attachStorageTest() throws ApiException {
-        UUID serverId = null;
-        StorageDevice storageDevice = null;
-        //        CreateServerResponse response = api.attachStorage(serverId, storageDevice);
-    }
-
-    /**
-     * Create firewall rule
-     * <p>
-     * Creates a new firewall rule
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createFirewallRuleTest() throws ApiException {
-        UUID serverId = null;
-        FirewallRuleRequest firewallRule = null;
-        //        FirewallRuleCreateResponse response = api.createFirewallRule(serverId, firewallRule);
-    }
-
-    /**
      * Create server
      * <p>
      * Creates a new server instance.
@@ -116,72 +86,6 @@ public class ServerApiTest {
         } catch (ApiException e) {
             Logger.getGlobal().warning(e.getResponseBody());
         }
-    }
-
-    /**
-     * Remove firewall rule
-     * <p>
-     * Removes a firewall rule from a server. Firewall rules must be removed individually. The positions of remaining firewall rules will be adjusted after a rule is removed.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteFirewallRuleTest() throws ApiException {
-        UUID serverId = null;
-        UUID firewallRuleNumber = null;
-        //        api.deleteFirewallRule(serverId, firewallRuleNumber);
-    }
-
-    /**
-     * Delete server
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteServerTest() throws ApiException {
-        UUID serverId = null;
-        //        api.deleteServer(serverId);
-    }
-
-    /**
-     * Detach storage
-     * <p>
-     * Detaches a storage resource from a server.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void detachStorageTest() throws ApiException {
-        UUID serverId = null;
-        StorageDevice storageDevice = null;
-        //        CreateServerResponse response = api.detachStorage(serverId, storageDevice);
-    }
-
-    /**
-     * Eject CD-ROM
-     * <p>
-     * Ejects the storage from the CD-ROM device of a server.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void ejectCdromTest() throws ApiException {
-        UUID serverId = null;
-        //        CreateServerResponse response = api.ejectCdrom(serverId);
-    }
-
-    /**
-     * Get firewall rule details
-     * <p>
-     * Returns detailed information about a specific firewall rule
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getFirewallRuleTest() throws ApiException {
-        UUID serverId = null;
-        UUID firewallRuleNumber = null;
-        //        FirewallRuleCreateResponse response = api.getFirewallRule(serverId, firewallRuleNumber);
     }
 
     /**
@@ -223,100 +127,6 @@ public class ServerApiTest {
     @Test
     public void loadCdromTest() throws ApiException {
 
-    }
-
-    /**
-     * Modify server
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void modifyServerTest() throws ApiException {
-        UUID serverId = null;
-        Server server = null;
-        //        CreateServerResponse response = api.modifyServer(serverId, server);
-    }
-
-    /**
-     * Restart server
-     * <p>
-     * Stops and starts a server. The server state must be &#x60;started&#x60;.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void restartServerTest() throws ApiException {
-        UUID serverId = null;
-        RestartServer restartServer = null;
-        //        CreateServerResponse response = api.restartServer(serverId, restartServer);
-    }
-
-    /**
-     * Get server details
-     * <p>
-     * Returns detailed information about a specific server.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void serverDetailsTest() throws ApiException {
-        UUID serverId = null;
-        //        CreateServerResponse response = api.serverDetails(serverId);
-    }
-
-    /**
-     * List firewall rules
-     * <p>
-     * Returns a list of firewall rules for a specific server.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void serverServerIdFirewallRuleGetTest() throws ApiException {
-        UUID serverId = null;
-        //        FirewallRuleListResponse response = api.serverServerIdFirewallRuleGet(serverId);
-    }
-
-    /**
-     * Start server
-     * <p>
-     * Starts a stopped server. The server state must be &#x60;stopped&#x60;.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void startServerTest() throws ApiException {
-        UUID serverId = null;
-        //        CreateServerResponse response = api.startServer(serverId);
-    }
-
-    /**
-     * Stop server
-     * <p>
-     * Stops a started server. The server state must be &#x60;started&#x60;.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void stopServerTest() throws ApiException {
-        UUID serverId = null;
-        StopServer stopServer = null;
-        //        CreateServerResponse response = api.stopServer(serverId, stopServer);
-
-    }
-
-    /**
-     * Remove tag from server
-     * <p>
-     * Untags tags from given server. The tag(s) must exist
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void untagTest() throws ApiException {
-        UUID serverId = null;
-        String tagName = null;
-        //        CreateServerResponse response = api.untag(serverId, tagName);
     }
 
 }

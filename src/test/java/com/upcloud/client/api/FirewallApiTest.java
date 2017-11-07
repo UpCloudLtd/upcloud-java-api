@@ -36,7 +36,7 @@ public class FirewallApiTest {
                 api.getApiClient().setUsername(System.getenv("UPCLOUD_API_TEST_USER"));
                 api.getApiClient().setPassword(System.getenv("UPCLOUD_API_TEST_PASSWORD"));
                 api.getApiClient().setDebugging(true);
-                //        api.getApiClient().setBasePath("http://localhost:8080/1.2");
+
                 ServerHelpers serverHelper = new ServerHelpers(api.getApiClient());
                 serverHelper.deleteAllServers();
 
