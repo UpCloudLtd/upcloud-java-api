@@ -41,6 +41,6 @@ public class AccountApiTest {
     @Test
     public void getAccountTest() throws ApiException {
         Account response = api.getAccount().getAccount();
-        assertEquals(response.getUsername(), "toughbyte");
+        assertEquals(response.getUsername(), System.getenv("UPCLOUD_API_TEST_USER"));
     }
 }
