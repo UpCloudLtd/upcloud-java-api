@@ -21,7 +21,8 @@ public class ServerHelpers {
             .title("Test server")
             .hostname("debian.example.com")
             .plan("2xCPU-2GB")
-            .storageDevices(new ServerStorageDevices().addStorageDeviceItem(defaultStorageDevice));
+            .storageDevices(new ServerStorageDevices().addStorageDeviceItem(defaultStorageDevice))
+            .passwordDelivery("none");
     private ServerApi api = new ServerApi();
     private Logger logger = Logger.getGlobal();
 
