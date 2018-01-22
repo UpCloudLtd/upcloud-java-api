@@ -3,7 +3,7 @@
  * The UpCloud API consists of operations used to control resources on UpCloud. The API is a web service interface. HTTPS is used to connect to the API. The API follows the principles of a RESTful web service wherever possible. The base URL for all API operations is  https://api.upcloud.com/. All API operations require authentication.
  *
  * OpenAPI spec version: 1.2.0
- * 
+ *
  */
 
 
@@ -37,11 +37,11 @@ public class Server {
   @JsonAdapter(BootOrderEnum.Adapter.class)
   public enum BootOrderEnum {
     DISK("disk"),
-    
+
     CDROM("cdrom"),
-    
+
     DISK_CDROM("disk,cdrom"),
-    
+
     CDROM_DISK("cdrom,disk");
 
     private String value;
@@ -94,7 +94,7 @@ public class Server {
   @JsonAdapter(FirewallEnum.Adapter.class)
   public enum FirewallEnum {
     ON("on"),
-    
+
     OFF("off");
 
     private String value;
@@ -189,7 +189,7 @@ public class Server {
   @JsonAdapter(VideoModelEnum.Adapter.class)
   public enum VideoModelEnum {
     VGA("vga"),
-    
+
     CIRRUS("cirrus");
 
     private String value;
@@ -239,7 +239,7 @@ public class Server {
   @JsonAdapter(VncEnum.Adapter.class)
   public enum VncEnum {
     ON("on"),
-    
+
     OFF("off");
 
     private String value;
@@ -294,6 +294,9 @@ public class Server {
 
   @SerializedName("zone")
   private String zone = null;
+
+  @SerializedName("password_delivery")
+  private String passwordDelivery;
 
   public Server bootOrder(BootOrderEnum bootOrder) {
     this.bootOrder = bootOrder;
@@ -727,6 +730,19 @@ public class Server {
     this.zone = zone;
   }
 
+  @ApiModelProperty(example = "sms", value="")
+  public String getPasswordDelivery() {
+   return passwordDelivery;
+  }
+
+  public void setPasswordDelivery(String passwordDelivery) {
+    this.passwordDelivery = passwordDelivery;
+  }
+
+  public Server passwordDelivery(String passwordDelivery) {
+    setPasswordDelivery(passwordDelivery);
+    return this;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -760,12 +776,13 @@ public class Server {
         Objects.equals(this.vncHost, server.vncHost) &&
         Objects.equals(this.vncPassword, server.vncPassword) &&
         Objects.equals(this.vncPort, server.vncPort) &&
-        Objects.equals(this.zone, server.zone);
+        Objects.equals(this.zone, server.zone) &&
+        Objects.equals(this.passwordDelivery, server.passwordDelivery);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bootOrder, coreNumber, firewall, host, hostname, ipAddresses, license, memoryAmount, nicModel, plan, planIpv4Bytes, planIpv6Bytes, state, storageDevices, tags, timezone, title, uuid, videoModel, vnc, vncHost, vncPassword, vncPort, zone);
+    return Objects.hash(bootOrder, coreNumber, firewall, host, hostname, ipAddresses, license, memoryAmount, nicModel, plan, planIpv4Bytes, planIpv6Bytes, state, storageDevices, tags, timezone, title, uuid, videoModel, vnc, vncHost, vncPassword, vncPort, zone, passwordDelivery);
   }
 
 
@@ -773,7 +790,7 @@ public class Server {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Server {\n");
-    
+
     sb.append("    bootOrder: ").append(toIndentedString(bootOrder)).append("\n");
     sb.append("    coreNumber: ").append(toIndentedString(coreNumber)).append("\n");
     sb.append("    firewall: ").append(toIndentedString(firewall)).append("\n");
@@ -798,6 +815,7 @@ public class Server {
     sb.append("    vncPassword: ").append(toIndentedString(vncPassword)).append("\n");
     sb.append("    vncPort: ").append(toIndentedString(vncPort)).append("\n");
     sb.append("    zone: ").append(toIndentedString(zone)).append("\n");
+    sb.append("    passwordDelivery:: ").append(toIndentedString(passwordDelivery)).append("\n");
     sb.append("}");
     return sb.toString();
   }
