@@ -3,7 +3,7 @@
  * The UpCloud API consists of operations used to control resources on UpCloud. The API is a web service interface. HTTPS is used to connect to the API. The API follows the principles of a RESTful web service wherever possible. The base URL for all API operations is  https://api.upcloud.com/. All API operations require authentication.
  *
  * OpenAPI spec version: 1.2.0
- * 
+ *
  */
 
 package com.upcloud.client.api;
@@ -44,7 +44,8 @@ public class ServerApiTest {
                 .title("Debian from a template").size(BigDecimal.valueOf(50)).tier("maxiops");
 
         testServer.zone("fi-hel1").title("Test server").hostname("debian.example.com").plan("2xCPU-2GB")
-                .storageDevices(new ServerStorageDevices().addStorageDeviceItem(testStorageDevice));
+                .storageDevices(new ServerStorageDevices().addStorageDeviceItem(testStorageDevice))
+                .passwordDelivery("none");
     }
 
     @AfterAll
