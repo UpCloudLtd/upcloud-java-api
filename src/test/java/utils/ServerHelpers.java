@@ -22,7 +22,7 @@ public class ServerHelpers {
             .hostname("debian.example.com")
             .plan("2xCPU-2GB")
             .storageDevices(new ServerStorageDevices().addStorageDeviceItem(defaultStorageDevice))
-            .passwordDelivery("none");
+            .passwordDelivery(Server.PasswordDeliveryEnum.NONE);
     private ServerApi api = new ServerApi();
     private Logger logger = Logger.getGlobal();
 
