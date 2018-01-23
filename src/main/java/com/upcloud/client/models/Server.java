@@ -295,8 +295,57 @@ public class Server {
   @SerializedName("zone")
   private String zone = null;
 
+  /**
+   * Password delivery.
+   */
+  @JsonAdapter(PasswordDeliveryEnum.Adapter.class)
+  public enum PasswordDeliveryEnum {
+    NONE("none"),
+
+    EMAIL("email"),
+
+    SMS("sms");
+
+    private String value;
+
+    PasswordDeliveryEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PasswordDeliveryEnum fromValue(String text) {
+      for (PasswordDeliveryEnum b : PasswordDeliveryEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<PasswordDeliveryEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PasswordDeliveryEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PasswordDeliveryEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PasswordDeliveryEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("password_delivery")
-  private String passwordDelivery;
+  private PasswordDeliveryEnum passwordDelivery = null;
 
   public Server bootOrder(BootOrderEnum bootOrder) {
     this.bootOrder = bootOrder;
@@ -731,15 +780,15 @@ public class Server {
   }
 
   @ApiModelProperty(example = "sms", value="")
-  public String getPasswordDelivery() {
+  public PasswordDeliveryEnum getPasswordDelivery() {
    return passwordDelivery;
   }
 
-  public void setPasswordDelivery(String passwordDelivery) {
+  public void setPasswordDelivery(PasswordDeliveryEnum passwordDelivery) {
     this.passwordDelivery = passwordDelivery;
   }
 
-  public Server passwordDelivery(String passwordDelivery) {
+  public Server passwordDelivery(PasswordDeliveryEnum passwordDelivery) {
     setPasswordDelivery(passwordDelivery);
     return this;
   }
