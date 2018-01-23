@@ -45,7 +45,7 @@ public class ServerApiTest {
 
         testServer.zone("fi-hel1").title("Test server").hostname("debian.example.com").plan("2xCPU-2GB")
                 .storageDevices(new ServerStorageDevices().addStorageDeviceItem(testStorageDevice))
-                .passwordDelivery("none");
+                .passwordDelivery(Server.PasswordDeliveryEnum.NONE);
     }
 
     @AfterAll
