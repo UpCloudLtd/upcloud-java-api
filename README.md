@@ -1,6 +1,6 @@
 # UpCloud Java API client library
 
-[![Build Status](https://travis-ci.org/UpCloudLtd/upcloud-java-api.svg?branch=master)](https://travis-ci.org/UpCloudLtd/upcloud-java-api)
+[![Build Status](https://travis-ci.org/UpCloudLtd/upcloud-java-api.svg?branch=master)](https://travis-ci.org/UpCloudLtd/upcloud-java-api) [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/UpCloudLtd/upcloud-java-api/blob/master/LICENSE)
 
 This is a Java API client library that provides integration with the UpCloud API. It allows cloud resource management on UpCloud's IaaS with easy to use objects and functions for the Java programming language.
 
