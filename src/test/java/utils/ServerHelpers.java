@@ -20,7 +20,7 @@ public class ServerHelpers {
             .zone("fi-hel1")
             .title("Test server")
             .hostname("debian.example.com")
-            .plan("2xCPU-2GB")
+            .plan("1xCPU-2GB")
             .storageDevices(new ServerStorageDevices().addStorageDeviceItem(defaultStorageDevice))
             .passwordDelivery(Server.PasswordDeliveryEnum.NONE);
     private ServerApi api = new ServerApi();

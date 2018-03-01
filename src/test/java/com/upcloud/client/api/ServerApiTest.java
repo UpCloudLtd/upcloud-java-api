@@ -43,7 +43,7 @@ public class ServerApiTest {
         testStorageDevice.action("clone").storage("01000000-0000-4000-8000-000020030100")
                 .title("Debian from a template").size(BigDecimal.valueOf(50)).tier("maxiops");
 
-        testServer.zone("fi-hel1").title("Test server").hostname("debian.example.com").plan("2xCPU-2GB")
+        testServer.zone("fi-hel1").title("Test server").hostname("debian.example.com").plan("1xCPU-2GB")
                 .storageDevices(new ServerStorageDevices().addStorageDeviceItem(testStorageDevice))
                 .passwordDelivery(Server.PasswordDeliveryEnum.NONE);
     }
