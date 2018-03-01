@@ -45,7 +45,7 @@ public class FirewallApiTest {
                                 .tier("maxiops");
 
                 Server newServer = new Server().zone("fi-hel1").title("Firewall test server")
-                                .hostname("debian.example.com").plan("2xCPU-2GB")
+                                .hostname("debian.example.com").plan("1xCPU-2GB")
                                 .storageDevices(new ServerStorageDevices().addStorageDeviceItem(testStorageDevice))
                                 .passwordDelivery(Server.PasswordDeliveryEnum.NONE);
 
