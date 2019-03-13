@@ -62,7 +62,11 @@ public class IpAddress {
     public static class Adapter extends TypeAdapter<AccessEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final AccessEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        if (enumeration != null) {
+          jsonWriter.value(enumeration.getValue());
+        } else {
+          jsonWriter.nullValue();
+        }
       }
 
       @Override
@@ -115,7 +119,11 @@ public class IpAddress {
     public static class Adapter extends TypeAdapter<FamilyEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final FamilyEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        if (enumeration != null) {
+          jsonWriter.value(enumeration.getValue());
+        } else {
+          jsonWriter.nullValue();
+        }
       }
 
       @Override
@@ -171,7 +179,11 @@ public class IpAddress {
     public static class Adapter extends TypeAdapter<PartOfPlanEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final PartOfPlanEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        if (enumeration != null) {
+          jsonWriter.value(enumeration.getValue());
+        } else {
+          jsonWriter.nullValue();
+        }
       }
 
       @Override

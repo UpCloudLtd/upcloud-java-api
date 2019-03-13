@@ -55,7 +55,11 @@ public enum AddressFamily {
   public static class Adapter extends TypeAdapter<AddressFamily> {
     @Override
     public void write(final JsonWriter jsonWriter, final AddressFamily enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+      if (enumeration != null) {
+        jsonWriter.value(enumeration.getValue());
+      } else {
+        jsonWriter.nullValue();
+      }
     }
 
     @Override

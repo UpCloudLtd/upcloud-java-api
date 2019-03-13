@@ -62,7 +62,11 @@ public class FirewallRule {
     public static class Adapter extends TypeAdapter<DirectionEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final DirectionEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        if (enumeration != null) {
+          jsonWriter.value(enumeration.getValue());
+        } else {
+          jsonWriter.nullValue();
+        }
       }
 
       @Override
@@ -84,7 +88,7 @@ public class FirewallRule {
     ACCEPT("accept"),
     
     REJECT("reject"),
-    
+
     DROP("drop");
 
     private String value;
@@ -114,7 +118,11 @@ public class FirewallRule {
     public static class Adapter extends TypeAdapter<ActionEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final ActionEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        if (enumeration != null) {
+          jsonWriter.value(enumeration.getValue());
+        } else {
+          jsonWriter.nullValue();
+        }
       }
 
       @Override
@@ -172,7 +180,11 @@ public class FirewallRule {
     public static class Adapter extends TypeAdapter<ProtocolEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final ProtocolEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        if (enumeration != null) {
+          jsonWriter.value(enumeration.getValue());
+        } else {
+          jsonWriter.nullValue();
+        }
       }
 
       @Override

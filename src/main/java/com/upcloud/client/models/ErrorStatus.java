@@ -61,7 +61,11 @@ public enum ErrorStatus {
   public static class Adapter extends TypeAdapter<ErrorStatus> {
     @Override
     public void write(final JsonWriter jsonWriter, final ErrorStatus enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+      if (enumeration != null) {
+        jsonWriter.value(enumeration.getValue());
+      } else {
+        jsonWriter.nullValue();
+      }
     }
 
     @Override

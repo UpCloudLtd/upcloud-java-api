@@ -61,7 +61,11 @@ public class RestartServer {
     public static class Adapter extends TypeAdapter<StopTypeEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final StopTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        if (enumeration != null) {
+          jsonWriter.value(enumeration.getValue());
+        } else {
+          jsonWriter.nullValue();
+        }
       }
 
       @Override
@@ -114,7 +118,11 @@ public class RestartServer {
     public static class Adapter extends TypeAdapter<TimeoutActionEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final TimeoutActionEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        if (enumeration != null) {
+          jsonWriter.value(enumeration.getValue());
+        } else {
+          jsonWriter.nullValue();
+        }
       }
 
       @Override
