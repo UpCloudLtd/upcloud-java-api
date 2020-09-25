@@ -768,7 +768,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[baseAuth](../README.md#baseAuth)
 
 ### HTTP request headers
 
