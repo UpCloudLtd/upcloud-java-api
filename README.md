@@ -2,7 +2,7 @@
 
 > **DEPRECATION NOTICE**
 >
-> This repo is deprecated and won't receive more fix, feature or version updates. We suggest using our other SDK:s like [UpCloud Go API](https://github.com/UpCloudLtd/upcloud-go-api) or [UpCloud Python API](https://github.com/UpCloudLtd/upcloud-python-api). Or just use [UpCloud API](https://developers.upcloud.com/1.3/1-introduction/) directly.
+> This SDK has been deprecated and won't receive more fixes, features or version updates. We suggest using our other SDK:s like [UpCloud Go API](https://github.com/UpCloudLtd/upcloud-go-api), [UpCloud Python API](https://github.com/UpCloudLtd/upcloud-python-api) or just call [UpCloud API](https://developers.upcloud.com/1.3/1-introduction/) directly.
 
 [![Build Status](https://travis-ci.org/UpCloudLtd/upcloud-java-api.svg?branch=master)](https://travis-ci.org/UpCloudLtd/upcloud-java-api) [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/UpCloudLtd/upcloud-java-api/blob/master/LICENSE)
 
@@ -265,7 +265,7 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 ## Issues
 
-This repo has been deprecated so no new issues can be opened.
+This SDK has been deprecated so no new issues can be opened.
 
 ## License
 
