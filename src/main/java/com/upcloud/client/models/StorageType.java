@@ -62,7 +62,11 @@ public enum StorageType {
   public static class Adapter extends TypeAdapter<StorageType> {
     @Override
     public void write(final JsonWriter jsonWriter, final StorageType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+      if (enumeration != null) {
+        jsonWriter.value(enumeration.getValue());
+      } else {
+        jsonWriter.nullValue();
+      }
     }
 
     @Override

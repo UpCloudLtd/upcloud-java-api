@@ -71,7 +71,11 @@ public class Server {
     public static class Adapter extends TypeAdapter<BootOrderEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final BootOrderEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        if (enumeration != null) {
+          jsonWriter.value(enumeration.getValue());
+        } else {
+          jsonWriter.nullValue();
+        }
       }
 
       @Override
@@ -124,7 +128,11 @@ public class Server {
     public static class Adapter extends TypeAdapter<FirewallEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final FirewallEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        if (enumeration != null) {
+          jsonWriter.value(enumeration.getValue());
+        } else {
+          jsonWriter.nullValue();
+        }
       }
 
       @Override
@@ -219,7 +227,11 @@ public class Server {
     public static class Adapter extends TypeAdapter<VideoModelEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final VideoModelEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        if (enumeration != null) {
+          jsonWriter.value(enumeration.getValue());
+        } else {
+          jsonWriter.nullValue();
+        }
       }
 
       @Override
@@ -269,7 +281,11 @@ public class Server {
     public static class Adapter extends TypeAdapter<VncEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final VncEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        if (enumeration != null) {
+          jsonWriter.value(enumeration.getValue());
+        } else {
+          jsonWriter.nullValue();
+        }
       }
 
       @Override
@@ -333,7 +349,11 @@ public class Server {
     public static class Adapter extends TypeAdapter<PasswordDeliveryEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final PasswordDeliveryEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        if (enumeration != null) {
+          jsonWriter.value(enumeration.getValue());
+        } else {
+          jsonWriter.nullValue();
+        }
       }
 
       @Override

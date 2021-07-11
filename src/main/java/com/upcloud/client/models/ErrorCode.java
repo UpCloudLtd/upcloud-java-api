@@ -159,7 +159,11 @@ public enum ErrorCode {
   public static class Adapter extends TypeAdapter<ErrorCode> {
     @Override
     public void write(final JsonWriter jsonWriter, final ErrorCode enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
+      if (enumeration != null) {
+        jsonWriter.value(enumeration.getValue());
+      } else {
+        jsonWriter.nullValue();
+      }
     }
 
     @Override

@@ -74,7 +74,11 @@ public class BackupRule {
     public static class Adapter extends TypeAdapter<IntervalEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final IntervalEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
+        if (enumeration != null) {
+          jsonWriter.value(enumeration.getValue());
+        } else {
+          jsonWriter.nullValue();
+        }
       }
 
       @Override
